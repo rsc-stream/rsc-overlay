@@ -1,0 +1,258 @@
+body{
+  width: 1920px;
+  height: 1080px;
+  background-color: rgba(0,23,45,1); 
+ /* background-image: url('assets/Overlay.png'); */
+}
+
+.player-box{
+  width: 300px;
+  height: 70px;
+}
+
+.active-box{
+  width: 280px;
+  height: 200px;
+}
+
+.timer-box{
+  width: 300px;
+  height: 125px;
+}
+
+.map-box{
+  width: 380px;
+  height: 300px;
+  position: relative;
+}
+
+.player{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.score{
+  background-color: rgba(0,23,45,1); 
+}
+
+.bg-blue-team{
+  background-color: rgba(0,23,45,0.8); 
+}
+
+.bg-orange-team{
+  background-color: rgba(0,23,45,0.8);  
+}
+
+.progress{
+  background-color: rgba(0,23,45,0);  
+}
+
+.blue-boost{
+  background: linear-gradient(90deg, rgba(33,57,116,0.8)0%, rgba(13,121,168,0.8) 60%);
+}
+
+.orange-boost{
+  background: linear-gradient(90deg, rgba(245,111,0,0.8)0%, rgba(244,244,11,0.8) 99%);
+}
+.boost-value{
+    text-align: right;
+}
+
+.progress-wrap:before{
+  content: attr(data-label);
+  position: absolute;
+  
+  left: 16px;
+  font-size: 10px;
+}
+
+@media print {
+  table {
+    border: 0 !important;
+  }
+  #myHeader tr:first-of-type td {
+    border: 0 !important;
+  }
+}
+
+.flex-container {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-container > div {
+  
+  margin: 0px;
+  text-align: left;
+  padding: 10px;
+  font-size: 20px;
+  width: 400px;
+}
+
+.scoreTop{
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  padding: 0px;
+  width: 250px;
+}
+
+.scoreTop1{
+  background: linear-gradient(270deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  padding: 0px;
+  width: 250px;
+}
+
+.orange-score{
+  background: rgb(80,27,0);
+  background: linear-gradient(90deg, rgba(80,27,0,1) 0%, rgba(213,70,1,1) 27%, rgba(241,138,0,0.26234243697478987) 75%, rgba(255,173,0,0.08307072829131656) 90%, rgba(255,173,0,0.0) 100%);
+  padding: 0px;
+}
+
+.blue-score{
+  background: rgb(2,0,36);
+  background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 27%, rgba(0,212,255,0.26) 75%, rgba(75,205,249,0.08307072829131656) 90%, rgba(0,243,255,0.0) 100%);
+  padding: 0px;
+}
+
+.score{
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+  width: 50px;
+}
+
+.orange{
+  background-color: rgb(80,27,0);
+  padding: 0px;
+  text-align: center;
+  width: 50px;
+}
+
+.blue{
+  background-color: rgb(2,0,36);
+  padding: 0px;
+  text-align: center;
+  width: 50px;
+}
+
+.progress {
+  position: relative;
+}
+
+.bar {
+  z-index: 1;
+  position: absolute;
+}
+
+.progress span {
+  position: absolute;
+  top: 5;
+  z-index: 2;
+  text-align: left;
+  width: 100%;
+  color: black;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  display: inline-block;  
+}
+
+.dotBlank {
+  height: 10px;
+  width: 10px;
+  border:1px solid aliceblue;
+  background-color: rgb(80,27,0, 0);
+  border-radius: 50%;
+  display: inline-block;  
+}
+
+.blank {
+  height: 5px;
+  width: 5px;
+  background-color: rgb(80,27,0, 0);
+  border-radius: 50%;
+  display: inline-block;  
+}
+
+.blank1 {
+  height: 5px;
+  width: 10px;
+  background-color: rgb(80,27,0, 0);
+  border-radius: 50%;
+  display: inline-block;  
+}
+
+.dots
+    {
+      position:absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 2;
+    }
+
+.overlay
+  {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    }
+
+.OrangeGoals {
+  background: -webkit-linear-gradient(#ffb347, #fcd49c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.BlueGoals {
+  background: -webkit-linear-gradient(#4793ff, #a4caff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tier {
+  position: absolute;
+  z-index: 3;
+  padding-top: 11px;
+  padding-left: 10px;
+  color: #070437;
+  font-family: 'Lato', sans-serif;
+}
+
+.tierOver {
+  position: absolute;
+  z-index: 3;
+
+}
+
+.blueL {
+  position: absolute;
+  top: 2px;
+  left: 419px;
+  z-index: 3;
+  opacity: 0.25;
+}
+
+.orangeL {
+  position: absolute;
+  top: 2px;
+  left: 1299px;
+  z-index: 3;
+  opacity: 0.25;
+}
+
+.stinger {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1920px;
+    height: 1080px;
+    z-index: 9;
+}
