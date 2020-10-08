@@ -123,7 +123,7 @@
         var teamData = jEvent.data.game.teams
 
         //console.log(jEvent.data.game.hasWinner)
-        if (jEvent.data.game.hasWinner == true) { // || jEvent.data.game.isReplay == true will be added on prod
+        if (jEvent.data.game.hasWinner == true || jEvent.data.game.isReplay == true) { // || jEvent.data.game.isReplay == true will be added on prod
           $('#main-ui').addClass('invisible');
           //console.log(jEvent.data.game.isReplay)
 
@@ -219,6 +219,7 @@
 
             if (activePlayerData.team == 0) {
               $('#blue-team-active').removeClass('invisible');
+              $('#ActiveBlueStats').removeClass('invisible');
               $('#orange-team-active').addClass('invisible');
 
               $('#blue-active-name').text(activePlayerData.name)

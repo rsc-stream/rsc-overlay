@@ -26,54 +26,65 @@
       </video>
     </div>
   </div>
-  <img src="assets/Tier.png" id="TierOverlay" class="tierOver">
-  <div class="tier" style="font-size: 30px" id="tier">Amatuer</div>
-
-  <div class="flex-container">
-  <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Punch-Outs</div>
-  <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;" id="blueLogo"></img>
-  <div class="font-weight-bold fontBold BlueGoals" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">2</div>
-  <div class="text-light fontTimer" style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">2:59</div>
-  <div class="font-weight-bold fontBold OrangeGoals" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;" id="orange-score">1</div>
-  <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;" id="orangeLogo"></img>
-  <div class="text-light" style="font-size: 30px;" id="orangeName">Spinosaurus</div>
   
-</div>
-<div class="flex-container">
-  <p class="fontR text-light" style="line-height: 0px; font-size: 16px; padding: 0px;">Game 4 | 4GS</p>
+  <div id="TierOverlay">
+    <img src="assets/Tier.png" class="tierOver">
+    <div class="tier" style="font-size: 30px" id="tier">Amatuer</div>
+  </div>
+  
+  <div id="scoreboard">
+    <div class="flex-container">
+      <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Punch-Outs</div>
+      <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;" id="blueLogo"></img>
+      <div class="font-weight-bold fontBold BlueGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">2</div>
+      <div class="text-light fontTimer" style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">2:59</div>
+      <div class="font-weight-bold fontBold OrangeGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;" id="orange-score">1</div>
+      <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;" id="orangeLogo"></img>
+      <div class="text-light fontR" style="font-size: 30px;" id="orangeName">Spinosaurus</div>
+        
+    </div>
+
+    <div class="flex-container">
+      <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game 4 | 4GS</p>
+    </div>
+
+      <script>
+        'use strict';
+        window.onstorage = event => { // same as window.addEventListener('storage', () => {
+        if (event.key != 'BlueTeam') ;
+        document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
+        let blueF = localStorage.getItem("BlueFran")
+        document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
+        if (event.key != 'OrangeTeam') ;
+        document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
+        let orangeF = localStorage.getItem("OrangeFran")
+        document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+        if (event.key != 'tier') ;
+        document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+        //if (event.key != 'blueWin1') ;
+        //BLUEWIN1()
+        }
+
+        if (typeof(Storage) !== "undefined") {
+        document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam");
+        document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
+        document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+        let blueF = localStorage.getItem("BlueFran")
+        let orangeF = localStorage.getItem("OrangeFran")
+        document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
+        document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
+        }
+      </script>
 </div>
 
-<script>
-   'use strict';
-  window.onstorage = event => { // same as window.addEventListener('storage', () => {
-  if (event.key != 'BlueTeam') ;
-  document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
-  let blueF = localStorage.getItem("BlueFran")
-  document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
-  if (event.key != 'OrangeTeam') ;
-  document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
-  let orangeF = localStorage.getItem("OrangeFran")
-  document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
-  if (event.key != 'tier') ;
-  document.getElementById("tier").innerHTML = localStorage.getItem("tier");
-  //if (event.key != 'blueWin1') ;
-  //BLUEWIN1()
-  }
-
-  if (typeof(Storage) !== "undefined") {
-  document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam");
-  document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
-  document.getElementById("tier").innerHTML = localStorage.getItem("tier");
-  let blueF = localStorage.getItem("BlueFran")
-  let orangeF = localStorage.getItem("OrangeFran")
-  document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
-  document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
-  }
-</script>
+<div class="activePlayer" id="activeBox">
+  <img src="assets/ActiveBlueStats.png" class="tierOver invisible" id="ActiveBlueStats">
+  <div id="blue-active-name">Name</div>
+</div>
 
   <!-- partial:index.partial.html -->
   <div class="contianer h-100" id="main-ui">
-    <div class="row h-100">
+    <div class="row h-100 invisible">
 
 
       <!-- blue team code-->

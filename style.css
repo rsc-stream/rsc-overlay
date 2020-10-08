@@ -291,3 +291,18 @@ body{
     left: 0px;
     z-index: -99;
   }
+
+.activePlayer {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  z-index: 3;
+}
+
+.activePlayer > .div {
+  
+  text-align: center;
+  margin-top: 715px;
+  font-size: 20px;
+  width: 320px;
+}
