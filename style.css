@@ -67,6 +67,33 @@ body{
   font-size: 10px;
 }
 
+@font-face {
+  font-family: RSCfont;
+  src: url(assets/fonts/GlacialIndifference-Regular.otf); 
+}
+
+@font-face {
+  font-family: RSCfontBold;
+  src: url(assets/fonts/GlacialIndifference-Bold.otf); 
+}
+
+@font-face {
+  font-family: Timer;
+  src: url(assets/fonts/digital-7.ttf); 
+}
+
+.fontTimer{
+  font-family: Timer;
+}
+
+.fontR {
+  font-family: RSCfont;
+}
+
+.fontBold {
+  font-family: RSCfontBold;
+}
+
 @media print {
   table {
     border: 0 !important;
@@ -256,3 +283,11 @@ body{
     height: 1080px;
     z-index: 9;
 }
+
+.back
+  {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -99;
+  }

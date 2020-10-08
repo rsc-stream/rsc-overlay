@@ -4,48 +4,69 @@
 
 <head>
 
-  <title>Yeet</title>
+  <title>RSC Overlay</title>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js" integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA==" crossorigin="anonymous"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kumar+One&family=Lato:ital,wght@0,400;0,900;1,300;1,400;1,700;1,900&family=Sansita+Swashed:wght@300&display=swap');
-    </style>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
-  <div style="background-image: url('assets/Overlay.png');">
+  
 </head>
 
 <body>
-  <video src="assets/STING1.webm" preload="auto" class="stinger" id="stingerPlay"></video>
+  <div id="wrapper">
+    <img src="assets/Overlay.png" id="TierOvelay" class="back">
+  <div id="stingerPlay">
+    <div class="stinger">
+      <video> 
+        <source type="video/webm" src="assets/STING1.webm" preload="auto" id="stingerPlay">
+      </video>
+    </div>
+  </div>
   <img src="assets/Tier.png" id="TierOverlay" class="tierOver">
   <div class="tier" style="font-size: 30px" id="tier">Amatuer</div>
 
   <div class="flex-container">
-  <div class="text-light text-right fontR" style="line-height:40px; font-size: 30px;font-family: Lato;" id="blueName">Punch-Outs</div>
-  <img class="blueL" src="assets/logos/Blue Logos/Punch_outs.png" style="width:200px;height:67px;" id="blueLogo"></img>
+  <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Punch-Outs</div>
+  <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;" id="blueLogo"></img>
   <div class="font-weight-bold fontBold BlueGoals" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">2</div>
-  <div class="text-light" style="line-height:40px; flex-basis:160px; font-size: 40px; text-align: center;" id="timer">2:59
-  <!-- <p class="fontR" style="line-height: 0px; font-size: 18px; padding: 8px;">Game 4 | 4GS</p> -->
-      </div>
+  <div class="text-light fontTimer" style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">2:59</div>
   <div class="font-weight-bold fontBold OrangeGoals" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;" id="orange-score">1</div>
   <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;" id="orangeLogo"></img>
-  <div class="text-light" style="line-height:40px; font-size: 30px;font-family: 'Lato', cursive;" id="orangeName">Spinosaurus</div>
+  <div class="text-light" style="font-size: 30px;" id="orangeName">Spinosaurus</div>
   
 </div>
 <div class="flex-container">
   <p class="fontR text-light" style="line-height: 0px; font-size: 16px; padding: 0px;">Game 4 | 4GS</p>
 </div>
+
 <script>
+   'use strict';
+  window.onstorage = event => { // same as window.addEventListener('storage', () => {
+  if (event.key != 'BlueTeam') ;
+  document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
+  let blueF = localStorage.getItem("BlueFran")
+  document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
+  if (event.key != 'OrangeTeam') ;
+  document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
+  let orangeF = localStorage.getItem("OrangeFran")
+  document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+  if (event.key != 'tier') ;
+  document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+  //if (event.key != 'blueWin1') ;
+  //BLUEWIN1()
+  }
+
   if (typeof(Storage) !== "undefined") {
   document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam");
   document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
   document.getElementById("tier").innerHTML = localStorage.getItem("tier");
   let blueF = localStorage.getItem("BlueFran")
-  document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
   let orangeF = localStorage.getItem("OrangeFran")
+  document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
   document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
   }
 </script>
@@ -227,7 +248,7 @@
   <script src="logic.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
-
+</div>
 </body>
 
 </html>
