@@ -293,16 +293,20 @@ body{
   }
 
 .activePlayer {
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-  z-index: 3;
+  margin-left: 20px;
+  margin-top: 625px;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;  
+  justify-content: left;
+  align-items: left;
+  text-align: left;
 }
 
 .activePlayer > .div {
   
   text-align: center;
-  margin-top: 715px;
-  font-size: 20px;
+  margin-top: 0px;
+  font-size: 40px;
   width: 320px;
 }

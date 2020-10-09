@@ -175,10 +175,10 @@ dropdownOrange.selectedIndex = 0;
 
     </script>
     
-<script>/*
+<script>
     function bluNam() {
     // Check browser support
-    if (typeof(Storage) !== "undefined") {
+  /*  if (typeof(Storage) !== "undefined") {
         var sel = document.getElementById("blue-team");
         var bt= sel.options[sel.selectedIndex].label;
         var bf= sel.options[sel.selectedIndex].value;
@@ -189,12 +189,12 @@ dropdownOrange.selectedIndex = 0;
     } else {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
-    blueTeamName();
+    blueTeamName();  */
 }
 
 function oranNam() {
     // Check browser support
-    if (typeof(Storage) !== "undefined") {
+ /*   if (typeof(Storage) !== "undefined") {
         var sel = document.getElementById("orange-team");
         var ot= sel.options[sel.selectedIndex].label;
         var of= sel.options[sel.selectedIndex].value;
@@ -206,12 +206,13 @@ function oranNam() {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
     //blueTeamName();
+    */
 }
 
 
 function tier() {
     // Check browser support
-    if (typeof(Storage) !== "undefined") {
+  /*  if (typeof(Storage) !== "undefined") {
       // Store
       localStorage.setItem("tier", document.getElementById("tier-dropdown").value);
       // Retrieve
@@ -220,8 +221,9 @@ function tier() {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
     //blueTeamName();
+    */
 }
-*/
+
 
 function live() {
     var sel = document.getElementById("blue-team");
