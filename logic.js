@@ -131,7 +131,7 @@
           
           //show the ui
           $('#main-ui').removeClass('invisible');
-
+          $('#TierOverlay').toggleClass('open');
           //time
           var gameTime = jEvent.data.game.time
           var round = Math.round(gameTime)
@@ -218,6 +218,8 @@
 
 
             if (activePlayerData.team == 0) {
+              $('#blue-active').removeClass('d-none');
+              $('#orange-active').addClass('d-none');
               $('#blue-team-active').removeClass('invisible');
               $('#ActiveBlueStats').removeClass('invisible');
               $('#orange-team-active').addClass('invisible');
@@ -238,6 +240,8 @@
             } else if (activePlayerData.team == 1) {
               $('#orange-team-active').removeClass('invisible');
               $('#blue-team-active').addClass('invisible');
+              $('#blue-active').addClass('d-none');
+              $('#orange-active').removeClass('d-none');
 
               $('#orange-active-name').text(activePlayerData.name)
               $('#orange-active-speed').text(activePlayerData.speed)
@@ -258,6 +262,8 @@
           } else {
             $('#blue-team-active').addClass('invisible');
             $('#orange-team-active').addClass('invisible');
+            $('#blue-active').addClass('d-none');
+              $('#orange-active').addClass('d-none');
           }
 
           //all player logic
@@ -479,32 +485,45 @@
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
-       $('#blueName').text("GOAL!!!!")
-       setTimeout(BlueChange, 4000)
+       $('#blueName').text("!!!! GOAL !!!!")
+       setTimeout(BlueChange, 8000)
+       setTimeout(playVid, 3000)
+       //play()
           }else{
-            $('#orangeName').text("GOAL!!!!")
-       setTimeout(OrangeChange, 4000)
+            $('#orangeName').text("!!!! GOAL !!!!")
+       setTimeout(OrangeChange, 8000)
+       setTimeout(playVid, 3000)
+       //play()
           }
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
 
-      }else if (jEvent.event == "game_replay_start") {
-        var video = $('#stingerPlay')
-        var vid = $('#stingerPlay')
+      } /* else if (jEvent.event == "game_replay_start") {
+        var vid = $('#video')
         function playVid() {
+          vid.currentTime = '0';
           vid.play();
         }
        // $('#stingerPlay').removeClass('invisible');
         playVid
-      }
+      }  */
+    }
+
+    function play() {
+      setTimeout(playVid, 3000)
+    }
+
+    
+    function playVid() {
+      var vid = $('#video')
+      vid.currentTime = '0';
+      vid.play();
     }
 
     function BlueChange() {
       $('#blueName').text(localStorage.getItem("BlueTeam"))
-      $('#stingerPlay').removeClass('invisible');
     }
 
     function OrangeChange() {
       $('#orangeName').text(localStorage.getItem("OrangeTeam"))
-      $('#stingerPlay').removeClass('invisible');
     }
