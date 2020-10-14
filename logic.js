@@ -125,11 +125,15 @@
         //console.log(jEvent.data.game.hasWinner)
         if (jEvent.data.game.hasWinner == true || jEvent.data.game.isReplay == true) { // || jEvent.data.game.isReplay == true will be added on prod
           $('#main-ui').addClass('invisible');
+          $('#scoreboard').addClass('invisible');
           //console.log(jEvent.data.game.isReplay)
+          $('#blue-active').addClass('d-none');
+          $('#orange-active').addClass('d-none');
 
         } else {
           
           //show the ui
+          $('#scoreboard').removeClass('invisible');
           $('#main-ui').removeClass('invisible');
           $('#TierOverlay').toggleClass('open');
           //time
@@ -234,7 +238,7 @@
               $('#blue-active-touches').text(activePlayerData.touches)
               $('#blue-active-score').text(activePlayerData.score)
               $('#blue-active-boost').text(activePlayerData.boost)
-              $('#blue-active-p-bar').height(activePlayerData.boost + "%")
+              $('#blue-active-p-bar').width(activePlayerData.boost + "%")
 
 
             } else if (activePlayerData.team == 1) {
@@ -253,7 +257,7 @@
               $('#orange-active-touches').text(activePlayerData.touches)
               $('#orange-active-score').text(activePlayerData.score)
               $('#orange-active-boost').text(activePlayerData.boost)
-              $('#orange-active-p-bar').height(activePlayerData.boost + "%")
+              $('#orange-active-p-bar').width(activePlayerData.boost + "%")
 
             } else {
               console.log('oopsie')
@@ -263,7 +267,7 @@
             $('#blue-team-active').addClass('invisible');
             $('#orange-team-active').addClass('invisible');
             $('#blue-active').addClass('d-none');
-              $('#orange-active').addClass('d-none');
+            $('#orange-active').addClass('d-none');
           }
 
           //all player logic
@@ -481,6 +485,7 @@
         blueResetAll()
         orangeResetAll()
       }else if (jEvent.event == "game:goal_scored") {
+        play()
        console.log(jEvent.data.scorer.name)
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
@@ -510,14 +515,13 @@
     }
 
     function play() {
-      setTimeout(playVid, 3000)
+      setTimeout(playVid, 2000)
     }
 
     
     function playVid() {
-      var vid = $('#video')
-      vid.currentTime = '0';
-      vid.play();
+      //document.getElementById('video').currentTime = '0';
+      document.getElementById('video').play();
     }
 
     function BlueChange() {
