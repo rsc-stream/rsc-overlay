@@ -485,7 +485,7 @@
         blueResetAll()
         orangeResetAll()
       }else if (jEvent.event == "game:goal_scored") {
-        play()
+       play()
        console.log(jEvent.data.scorer.name)
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
