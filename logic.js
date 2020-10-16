@@ -485,43 +485,59 @@
         blueResetAll()
         orangeResetAll()
       }else if (jEvent.event == "game:goal_scored") {
-       play()
+       //play()
        console.log(jEvent.data.scorer.name)
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
+       var team = []
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
        $('#blueName').text("!!!! GOAL !!!!")
        setTimeout(BlueChange, 8000)
-       setTimeout(playVid, 3000)
-       //play()
+       team.push('blue')
+       play()
+       
           }else{
             $('#orangeName').text("!!!! GOAL !!!!")
        setTimeout(OrangeChange, 8000)
-       setTimeout(playVid, 3000)
-       //play()
+       team.push('orange')
+       playO()
+       
           }
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
-
-      } /* else if (jEvent.event == "game_replay_start") {
-        var vid = $('#video')
-        function playVid() {
-          vid.currentTime = '0';
-          vid.play();
+      }else if (jEvent.event == "game:replay_end") {
+        $('#replayOrange').addClass('invisible');
+        $('#replayBlue').addClass('invisible');
+      }else if (jEvent.event == "game:replay_start") {
+        if (team === "blue"){
+        
+        $('#replayBlue').removeClass('invisible');
+        }else{
+          $('#replayOrange').removeClass('invisible');
         }
-       // $('#stingerPlay').removeClass('invisible');
-        playVid
-      }  */
+      }else if (jEvent.event == "game:replay_will_end") {
+       
+        setTimeout(playOut, 1200)
+      } 
     }
 
     function play() {
-      setTimeout(playVid, 2000)
+      setTimeout(playBlue, 2200)
+      
     }
-
     
-    function playVid() {
+    function playO() {
+      setTimeout(playOrange, 2200)
+      
+    }
+    
+    function playOV() {
+      setTimeout(playOut, 10200)
+    }
+    
+    function playBlue() {
       //document.getElementById('video').currentTime = '0';
-      document.getElementById('video').play();
+      document.getElementById('blueGoalVideo').play();
     }
 
     function BlueChange() {
@@ -530,4 +546,14 @@
 
     function OrangeChange() {
       $('#orangeName').text(localStorage.getItem("OrangeTeam"))
+    }
+
+    function playOrange() {
+      //document.getElementById('video').currentTime = '0';
+      document.getElementById('orangeGoalVideo').play();
+    }
+
+    function playOut() {
+      //document.getElementById('video').currentTime = '0';
+      document.getElementById('replayOut').play();
     }

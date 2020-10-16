@@ -19,14 +19,31 @@
 <body>
   <div id="wrapper">
     
-    <video preload autoplay muted id="video" class="stinger">
-      <source src="assets/goals/Dino Park.webm" type="video/webm">
-      
+    <video preload muted id="blueGoalVideo" class="stinger">
+      <source src="assets/goals/Dino Park.webm" type="video/webm"> 
+    </video>
+
+    <video preload muted id="orangeGoalVideo" class="stinger">
+      <source src="assets/goals/Dino Park.webm" type="video/webm"> 
+    </video>
+
+    <video preload muted id="replayOut" class="stinger">
+      <source src="assets/RSC.webm" type="video/webm"> 
     </video>
   
   <div id="TierOverlay" class="transition">
     <img src="assets/Tier.png" class="tierOver">
     <div class="tier" style="font-size: 30px" id="tier">Amateur</div>
+  </div>
+
+  <div id="replayBlue" class="invisible">
+    <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back">
+
+  </div>
+
+  <div id="replayOrange" class="invisible">
+    <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back">
+
   </div>
   
   <div id="scoreboard">
