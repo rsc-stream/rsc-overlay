@@ -18,7 +18,15 @@
 
 <body>
   <div id="wrapper">
-    
+    <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
+    <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
+    <img src="assets/wins/Orange3.png" id="orange3" class="wins invisible">
+    <img src="assets/wins/Orange4.png" id="orange4" class="wins invisible">
+    <img src="assets/wins/Blue1.png" id="blue1" class="wins invisible">
+    <img src="assets/wins/Blue2.png" id="blue2" class="wins invisible">
+    <img src="assets/wins/Blue3.png" id="blue3" class="wins invisible">
+    <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
+
     <video preload muted id="blueGoalVideo" class="stinger">
       <source src="assets/goals/Dino Park.webm" type="video/webm"> 
     </video>
@@ -60,7 +68,7 @@
     </div>
 
     <div class="flex-container">
-      <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game 4 | 4GS</p>
+      <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game <span id="gameNumber">1</span> | 4GS</p>
     </div>
 
 
@@ -336,15 +344,23 @@
     let blueF = localStorage.getItem("BlueFran")
     document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
     document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
+    document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
     if (event.key != 'OrangeTeam') ;
     document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
     let orangeF = localStorage.getItem("OrangeFran")
     document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
     document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+    document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
     if (event.key != 'tier') ;
     document.getElementById("tier").innerHTML = localStorage.getItem("tier");
     //if (event.key != 'blueWin1') ;
     //BLUEWIN1()
+    if (event.key != 'OrangeWins');
+      orangeWins()
+    if (event.key != 'BlueWins');
+      blueWins()
+    if (event.key != 'GameNumber');
+    document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
     }
 
     if (typeof(Storage) !== "undefined") {
@@ -358,7 +374,10 @@
     document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
     document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
     }
+
   </script>
+
+  
 
   <script src="logic.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

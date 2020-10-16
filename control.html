@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-
+  <link rel="stylesheet" href="./style.css">
   
 </head>
 
@@ -22,7 +22,30 @@
 <select id="blue-team" name="BlueTeam" onchange="bluNam()"></select>
 <select id="orange-team" name="OrangeTeam" onchange="oranNam()"></select>
 
-<button  onclick="live()" type="button">GO LIVE!</button>
+<button  onclick="live()" type="button" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336;">GO LIVE!</button>
+<br><br>
+<button  onclick="blueWin()" type="button" id="BWButton" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50;">  +  </button>
+<label id="bWins" style="color: white">0</label>
+<button  onclick="blueWinRemove()" type="button" id="BRButton" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336;">  -  </button>
+
+<button  onclick="orangeWin()" type="button" id="OWButton" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50;" class="">  +  </button>
+<label id="oWins" style="color: white">0</label>
+<button  onclick="orangeWinRemove()" type="button" id="ORButton" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336;">  -  </button>
+<br><br>
+<div style="display: flex; width: 200px; justify-content: center; align-items: center;">
+<h5 style="color: white; text-align: center;">Game Number</h5>
+</div>
+<div style="display: flex; width: 200px; justify-content: center; align-items: center;">
+<button  onclick="gameplus()" type="button" id="GamePlus" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50;" class="">  +  </button>
+<label id="gameNumber" style="color: white; padding-left: 25px; padding-right: 25px; text-align: center;">1</label>
+<button  onclick="gameminus()" type="button" id="GameMinus" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336;">  -  </button>
+
+</div>
+<script>
+  document.getElementById("ORButton").disabled = true
+  document.getElementById("BRButton").disabled = true
+  document.getElementById("GameMinus").disabled = true
+</script>
 <script>
     var teamsList = [];
     let dropdownBlue = document.getElementById('blue-team');
@@ -223,7 +246,93 @@ function tier() {
     //blueTeamName();
     */
 }
+var blueW = [0]
+console.log(blueW)
+function blueWin() {
+var getBlueWins = blueW[0] + 1
+blueW = []
+blueW.push(getBlueWins)
+document.getElementById("bWins").innerHTML = blueW[0]
+localStorage.setItem("BlueWins", blueW[0]);
+if (blueW[0] === 4) {
+  document.getElementById("BWButton").disabled = true;
+}else{
+  document.getElementById("BWButton").disabled = false;
+  document.getElementById("BRButton").disabled = false;
+}
+}
 
+function blueWinRemove() {
+var getBlueWins = blueW[0] - 1
+blueW = []
+blueW.push(getBlueWins)
+document.getElementById("bWins").innerHTML = blueW[0]
+localStorage.setItem("BlueWins", blueW[0]);
+if (blueW[0] === 0) {
+  document.getElementById("BRButton").disabled = true;
+}else{
+  document.getElementById("BRButton").disabled = false;
+  document.getElementById("BWButton").disabled = false;
+}
+}
+
+var orangeW = [0]
+function orangeWin() {
+var getOrangeWins = orangeW[0] + 1
+orangeW = []
+orangeW.push(getOrangeWins)
+document.getElementById("oWins").innerHTML = orangeW[0]
+localStorage.setItem("OrangeWins", orangeW[0]);
+if (orangeW[0] === 4) {
+  document.getElementById("OWButton").disabled = true;
+}else{
+  document.getElementById("OWButton").disabled = false;
+  document.getElementById("ORButton").disabled = false;
+}
+}
+
+function orangeWinRemove() {
+var getOrangeWins = orangeW[0] - 1
+orangeW = []
+orangeW.push(getOrangeWins)
+document.getElementById("oWins").innerHTML = orangeW[0]
+localStorage.setItem("OrangeWins", orangeW[0]);
+if (orangeW[0] === 0) {
+  document.getElementById("ORButton").disabled = true;
+}else{
+  document.getElementById("ORButton").disabled = false;
+  document.getElementById("OWButton").disabled = false;
+}
+}
+
+var game = [1]
+function gameplus() {
+var getGame = game[0] + 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+if (game[0] === 7) {
+  document.getElementById("GamePlus").disabled = true;
+}else{
+  document.getElementById("GamePlus").disabled = false;
+  document.getElementById("GameMinus").disabled = false;
+}
+}
+
+function gameminus() {
+var getGame = game[0] - 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+if (game[0] === 1) {
+  document.getElementById("GameMinus").disabled = true;
+}else{
+  document.getElementById("GamePlus").disabled = false;
+  document.getElementById("GameMinus").disabled = false;
+}
+}
 
 function live() {
     var sel = document.getElementById("blue-team");
@@ -245,7 +354,10 @@ function live() {
         
         orangeTeamName();
         blueTeamName();
-        
+     
+        if (typeof(Storage) !== "undefined") {
+    document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+        }
 }
     </script>
  <script src="logic.js"></script>
