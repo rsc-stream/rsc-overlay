@@ -175,7 +175,7 @@
       var jEvent = JSON.parse(event.data);
 
 
-      console.log(jEvent)
+      //console.log(jEvent)
 
 
       if (jEvent.event == "game:update_state") {
