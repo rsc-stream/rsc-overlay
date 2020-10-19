@@ -541,12 +541,14 @@
       //is the match over?
       else if (jEvent.event == "game:podium_start" || jEvent.event == "game:match_ended") {
         console.log('match ended / podium')
-        $('#main-ui').addClass('invisible');
+        $('#main-ui').addClass('d-none');
         blueResetAll()
         orangeResetAll()
       }else if (jEvent.event == "game:goal_scored") {
        //play()
        console.log(jEvent.data.scorer.name)
+       $('#scorer').text(jEvent.data.scorer.name)
+       $('#assist').text(jEvent.data.scorer.name)
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
        var team = []
@@ -566,14 +568,14 @@
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
       }else if (jEvent.event == "game:replay_end") {
-        $('#replayOrange').addClass('invisible');
-        $('#replayBlue').addClass('invisible');
+        $('#replayOrange').addClass('d-none');
+        $('#replayBlue').addClass('d-none');
       }else if (jEvent.event == "game:replay_start") {
         if (team === "blue"){
         
-        $('#replayBlue').removeClass('invisible');
+        $('#replayBlue').removeClass('d-none');
         }else{
-          $('#replayOrange').removeClass('invisible');
+          $('#replayOrange').removeClass('d-none');
         }
       }else if (jEvent.event == "game:replay_will_end") {
        

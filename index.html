@@ -49,12 +49,9 @@
 
   </div>
 
-  <div id="replayOrange" class="invisible">
-    <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back">
-
-  </div>
   
-  <div id="scoreboard">
+  
+  <div id="scoreboard" class="">
     <img src="assets/Overlay.png" id="TierOvelay" class="back">
     <div class="flex-container">
       <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Punch-Outs</div>
@@ -78,7 +75,7 @@
 <!-- active player testing -->
 
 <div class="activeplayer card" id="activeBox">
-  <div class="activeItem text-dark bg-blue-team rounded mt-2 d-none" id="blue-active">
+  <div class="activeItem text-dark bg-blue-team rounded mt-2" id="blue-active">
     <!-- players name -->
     <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:290px; height:290px;" id="blueActiveLogo"></img>
     <h2 class="text-center text-light fontBold" id="blue-active-name">name</h2>
@@ -123,7 +120,7 @@
       </div>
   </div>
 
-  <div class="activeItemOrange text-dark bg-orange-team rounded mt-2" id="orange-active">
+  <div class="activeItemOrange text-dark bg-orange-team rounded mt-2 d-none" id="orange-active">
     <!-- players name -->
     <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:290px; height:290px;" id="orangeActiveLogo"></img>
     <h2 class="text-center text-light fontBold" style="padding: 5px;" id="orange-active-name">shane9b3</h2>
@@ -168,7 +165,37 @@
   </div>
 </div>
 
-          
+<div id="replayOrange" class="d-none">
+  <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 50px;">
+  <div class="text-center fontBold OrangeScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
+  <img class="orangeSc" src="assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;" id="orangeLogo"></img>
+  <div id="underscore" class="underscore"></div>
+  <div id="assists" class="assist">
+    
+    <img src="assets/Assist_Orange.png" style="margin-top: 10px; width:45px; height:45px;" class="shadowfilter">
+    <div class="text-center fontR glow" style="font-size: 30px; margin-top: 10px; padding-right: 25px;" id="assist">mbolt05</div>
+  
+    <img src="assets/Shot_on_Goal_Orange.png" style="margin-top: 10px; width:45px; height:45px;" class="shadowfilter">
+    <div class="text-center fontR glow" style="font-size: 30px; margin-top: 10px;" id="assist"> 105 <span style="font-size: 20px;">KPH</span></div>
+  </div>
+</div>
+</div>        
+
+<div id="replayBlue" class="d-none">
+  <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 50px;">
+  <div class="text-center fontBold BlueScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
+  <img class="blueSc" src="assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;" id="blueLogo"></img>
+  <div id="underscore" class="underscore"></div>
+  <div id="assists" class="assist">
+    
+    <img src="assets/Assist_Blue.png" style="margin-top: 10px; width:45px; height:45px;" class="shadowfilterB">
+    <div class="text-center fontR glowB" style="font-size: 30px; margin-top: 10px; padding-right: 25px;" id="assist">mbolt05</div>
+  
+    <img src="assets/Shot_on_Goal_Blue.png" style="margin-top: 10px; width:45px; height:45px;" class="shadowfilterB">
+    <div class="text-center fontR glowB" style="font-size: 30px; margin-top: 10px;" id="assist"> 105 <span style="font-size: 20px;">KPH</span></div>
+  </div>
+</div>
+</div>
 
 
   <!-- partial:index.partial.html -->

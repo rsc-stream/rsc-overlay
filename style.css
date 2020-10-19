@@ -354,3 +354,87 @@ body{
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.OrangeScorer {
+  background: -webkit-linear-gradient(#ffb347, #fcd49c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-top: 345px;
+  z-index: 6;
+}
+
+.assist {
+  background: -webkit-linear-gradient(#ffb347, #fcd49c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 6;
+}
+
+.glow {
+  font-size: 80px;
+  background: -webkit-linear-gradient(#ffb347, #fcd49c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  text-shadow: 0 0 10px #ffb347, 0 0 5px #ffb347, 0 0 20px rgba(186, 196, 96, 0.5) 0 0 30px rgba(186, 196, 96, 0.5) 0 0 25px rgba(186, 196, 96, 0.5), 0 0 190px rgba(186, 196, 96, 0.5), 0 0 200px rgba(186, 196, 96, 0.5);
+}
+
+.shadowfilter {
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.75));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.75));
+}
+
+.underscore{
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 6;
+}
+
+.orangeSc {
+  position: absolute;
+  top: 942px;
+  left: 1007px;
+  z-index: 6;
+  opacity: 0.25;
+}
+
+.blueSc {
+  position: absolute;
+  top: 942px;
+  left: 687px;
+  z-index: 6;
+  opacity: 0.25;
+}
+
+.BlueScorer {
+  background: -webkit-linear-gradient(#4793ff, #a4caff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-top: 345px;
+  z-index: 6;
+}
+
+.shadowfilterB {
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
+   filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
+}
+
+.glowB {
+  font-size: 80px;
+  background: -webkit-linear-gradient(#4793ff, #a4caff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  text-shadow: 0 0 10px #ffb347, 0 0 5px #ffb347, 0 0 20px rgba(186, 196, 96, 0.5) 0 0 30px rgba(186, 196, 96, 0.5) 0 0 25px rgba(186, 196, 96, 0.5), 0 0 190px rgba(186, 196, 96, 0.5), 0 0 200px rgba(186, 196, 96, 0.5);
+}
