@@ -2,7 +2,8 @@
 
     const ws = new WebSocket('ws://localhost:49122');
 
-    
+    var team = []
+    var goalAssist = []
     function orangeWins() {
       var OW = localStorage.getItem("OrangeWins")
       if (OW === '0'){
@@ -178,7 +179,7 @@
 
 
       if (jEvent.event == "game:update_state") {
-        console.log(jEvent.data)
+        //console.log(jEvent.data)
         //gonna be used in a few spots
         var teamData = jEvent.data.game.teams
 
@@ -284,9 +285,9 @@
             if (activePlayerData.team == 0) {
               $('#blue-active').removeClass('d-none');
               $('#orange-active').addClass('d-none');
-              $('#blue-team-active').removeClass('invisible');
-              $('#ActiveBlueStats').removeClass('invisible');
-              $('#orange-team-active').addClass('invisible');
+              $('#blue-team-active').removeClass('d-none');
+              $('#ActiveBlueStats').removeClass('d-none');
+              $('#orange-team-active').addClass('d-none');
 
               $('#blue-active-name').text(activePlayerData.name)
               $('#blue-active-speed').text(activePlayerData.speed)
@@ -302,8 +303,8 @@
 
 
             } else if (activePlayerData.team == 1) {
-              $('#orange-team-active').removeClass('invisible');
-              $('#blue-team-active').addClass('invisible');
+              $('#orange-team-active').removeClass('d-none');
+              $('#blue-team-active').addClass('d-none');
               $('#blue-active').addClass('d-none');
               $('#orange-active').removeClass('d-none');
 
@@ -324,8 +325,8 @@
             }
 
           } else {
-            $('#blue-team-active').addClass('invisible');
-            $('#orange-team-active').addClass('invisible');
+            $('#blue-team-active').addClass('d-none');
+            $('#orange-team-active').addClass('d-none');
             $('#blue-active').addClass('d-none');
             $('#orange-active').addClass('d-none');
           }
@@ -547,43 +548,53 @@
       }else if (jEvent.event == "game:goal_scored") {
        //play()
        console.log(jEvent.data.scorer.name)
-       $('#scorer').text(jEvent.data.scorer.name)
+       
+       
        $('#assist').text(jEvent.data.scorer.name)
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
-       var team = []
+       
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
        $('#blueName').text("!!!! GOAL !!!!")
        setTimeout(BlueChange, 8000)
+       $('#scorerB').text(jEvent.data.scorer.name)
+       team =[]
        team.push('blue')
-       play()
+       playb()
        
           }else{
             $('#orangeName').text("!!!! GOAL !!!!")
        setTimeout(OrangeChange, 8000)
+       $('#scorer').text(jEvent.data.scorer.name)
+       team = []
        team.push('orange')
        playO()
        
           }
       }else if (jEvent.event == "game:statfeed_event") {
-        console.log(jEvent.data)
+       // console.log(jEvent.data)
+        
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
-        $('#replayBlue').addClass('d-none');
+        $('#replayBlue1').addClass('d-none');
       }else if (jEvent.event == "game:replay_start") {
-        if (team === "blue"){
+        console.log(team[0])
+        if (team[0] === "blue"){
         
-        $('#replayBlue').removeClass('d-none');
+        $('#replayBlue1').removeClass('d-none');
         }else{
           $('#replayOrange').removeClass('d-none');
         }
       }else if (jEvent.event == "game:replay_will_end") {
        
         setTimeout(playOut, 1200)
+      } else if (jEvent.event == "game:statsfeed_event") {
+        var type = _.get(data)
+        console.log(type)
       } 
     }
 
-    function play() {
+    function playb() {
       setTimeout(playBlue, 2200)
       
     }

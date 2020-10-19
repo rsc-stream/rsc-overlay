@@ -166,9 +166,9 @@
 </div>
 
 <div id="replayOrange" class="d-none">
-  <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 50px;">
+  <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 0px;">
   <div class="text-center fontBold OrangeScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
-  <img class="orangeSc" src="assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;" id="orangeLogo"></img>
+  <img class="orangeSc" src="assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;" id="orangeLogoR"></img>
   <div id="underscore" class="underscore"></div>
   <div id="assists" class="assist">
     
@@ -179,12 +179,12 @@
     <div class="text-center fontR glow" style="font-size: 30px; margin-top: 10px;" id="assist"> 105 <span style="font-size: 20px;">KPH</span></div>
   </div>
 </div>
-</div>        
+        
 
-<div id="replayBlue" class="d-none">
-  <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 50px;">
-  <div class="text-center fontBold BlueScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
-  <img class="blueSc" src="assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;" id="blueLogo"></img>
+<div id="replayBlue1" class="d-none">
+  <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 0px;">
+  <div class="text-center fontBold BlueScorer" style="font-size: 30px;" id="scorerB">shane9b3</div>
+  <img class="blueSc" src="assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;" id="blueLogoR"></img>
   <div id="underscore" class="underscore"></div>
   <div id="assists" class="assist">
     
@@ -195,7 +195,7 @@
     <div class="text-center fontR glowB" style="font-size: 30px; margin-top: 10px;" id="assist"> 105 <span style="font-size: 20px;">KPH</span></div>
   </div>
 </div>
-</div>
+
 
 
   <!-- partial:index.partial.html -->
@@ -370,12 +370,14 @@
     document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
     let blueF = localStorage.getItem("BlueFran")
     document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
+    document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
     document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
     document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
     if (event.key != 'OrangeTeam') ;
     document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
     let orangeF = localStorage.getItem("OrangeFran")
     document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+    document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
     document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
     document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
     if (event.key != 'tier') ;
@@ -400,6 +402,10 @@
     document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
     document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
     document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+    document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+    document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+    document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+    document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
     }
 
   </script>

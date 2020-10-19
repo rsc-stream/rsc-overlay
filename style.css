@@ -360,7 +360,7 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  margin-top: 345px;
+  margin-top: 200px;
   z-index: 6;
 }
 
@@ -402,7 +402,7 @@ body{
 
 .orangeSc {
   position: absolute;
-  top: 942px;
+  top: 890px;
   left: 1007px;
   z-index: 6;
   opacity: 0.25;
@@ -410,7 +410,7 @@ body{
 
 .blueSc {
   position: absolute;
-  top: 942px;
+  top: 890px;
   left: 687px;
   z-index: 6;
   opacity: 0.25;
@@ -421,7 +421,7 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  margin-top: 345px;
+  margin-top: 200px;
   z-index: 6;
 }
 
