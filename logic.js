@@ -589,7 +589,7 @@
        
         setTimeout(playOut, 1200)
       } else if (jEvent.event == "game:statsfeed_event") {
-        var type = _.get(data)
+        var type = jEvent.data.type
         console.log(type)
       } 
     }
