@@ -556,7 +556,8 @@
        var scoreTeam = scoreID.slice(-1)
        
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
-       $('#blueName').text("!!!! GOAL !!!!")
+       $('#blueName').text("")
+       document.getElementById('goalBLUE').play();
        setTimeout(BlueChange, 8000)
        $('#scorerB').text(jEvent.data.scorer.name);
        $('#goalSpeedB').text(goalRound);
@@ -565,7 +566,8 @@
        playb()
        
           }else{
-            $('#orangeName').text("!!!! GOAL !!!!")
+            $('#orangeName').text("")
+            document.getElementById('goalORANGE').play();
        setTimeout(OrangeChange, 8000)
        $('#scorer').text(jEvent.data.scorer.name)
        $('#goalSpeed').text(goalRound);

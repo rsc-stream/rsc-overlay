@@ -263,6 +263,24 @@ body{
     z-index: 99;
 }
 
+.goalO {
+  position: absolute;
+  top: 2px;
+  left: 1130px;
+  width: 320px;
+  height: 67px;
+  z-index: 99;
+}
+
+.goalB {
+  position: absolute;
+  top: 2px;
+  left: 470px;
+  width: 320px;
+  height: 67px;
+  z-index: 99;
+}
+
 .back
   {
     position:absolute;
