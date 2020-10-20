@@ -175,7 +175,7 @@
       var jEvent = JSON.parse(event.data);
 
 
-      //console.log(jEvent)
+      console.log(jEvent)
 
 
       if (jEvent.event == "game:update_state") {
@@ -548,16 +548,18 @@
       }else if (jEvent.event == "game:goal_scored") {
        //play()
        console.log(jEvent.data.scorer.name)
+       goalAssist = []
        
-       
-       $('#assist').text(jEvent.data.scorer.name)
+       var goalSpeed = jEvent.data.goalspeed
+       var goalRound = goalSpeed.toFixed(0);
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
        
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
        $('#blueName').text("!!!! GOAL !!!!")
        setTimeout(BlueChange, 8000)
-       $('#scorerB').text(jEvent.data.scorer.name)
+       $('#scorerB').text(jEvent.data.scorer.name);
+       $('#goalSpeedB').text(goalRound);
        team =[]
        team.push('blue')
        playb()
@@ -566,13 +568,26 @@
             $('#orangeName').text("!!!! GOAL !!!!")
        setTimeout(OrangeChange, 8000)
        $('#scorer').text(jEvent.data.scorer.name)
+       $('#goalSpeed').text(goalRound);
        team = []
        team.push('orange')
        playO()
        
           }
       }else if (jEvent.event == "game:statfeed_event") {
-       // console.log(jEvent.data)
+        console.log(jEvent.data)
+        if (jEvent.data.type === "Assist") {
+          console.log("Assist")
+          goalAssist.push(jEvent.data.main_target.name)
+          console.log(goalAssist[0])
+          $('#assist').text(goalAssist[0]);
+          $('#assist').removeClass('d-none');
+          $('#assistLogo').removeClass('d-none');
+          $('#assistB').text(goalAssist[0]);
+          $('#assistB').removeClass('d-none');
+          $('#assistLogoB').removeClass('d-none');
+          setTimeout(removeAssist, 15000)
+        }
         
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
@@ -588,10 +603,15 @@
       }else if (jEvent.event == "game:replay_will_end") {
        
         setTimeout(playOut, 1200)
-      } else if (jEvent.event == "game:statsfeed_event") {
-        var type = jEvent.data.type
-        console.log(type)
-      } 
+      }
+    }
+
+    function removeAssist() {
+      goalAssist = 0
+      $('#assist').addClass('d-none');
+      $('#assistLogo').addClass('d-none');
+      $('#assistB').addClass('d-none');
+      $('#assistLogoB').addClass('d-none');
     }
 
     function playb() {
