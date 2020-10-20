@@ -18,14 +18,7 @@
 
 <body>
   <div id="wrapper">
-    <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
-    <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
-    <img src="assets/wins/Orange3.png" id="orange3" class="wins invisible">
-    <img src="assets/wins/Orange4.png" id="orange4" class="wins invisible">
-    <img src="assets/wins/Blue1.png" id="blue1" class="wins invisible">
-    <img src="assets/wins/Blue2.png" id="blue2" class="wins invisible">
-    <img src="assets/wins/Blue3.png" id="blue3" class="wins invisible">
-    <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
+  
 
     <video preload muted id="blueGoalVideo" class="stinger">
       <source src="assets/goals/Dino Park.webm" type="video/webm"> 
@@ -52,15 +45,23 @@
   
   
   <div id="scoreboard" class="">
+    <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
+    <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
+    <img src="assets/wins/Orange3.png" id="orange3" class="wins invisible">
+    <img src="assets/wins/Orange4.png" id="orange4" class="wins invisible">
+    <img src="assets/wins/Blue1.png" id="blue1" class="wins invisible">
+    <img src="assets/wins/Blue2.png" id="blue2" class="wins invisible">
+    <img src="assets/wins/Blue3.png" id="blue3" class="wins invisible">
+    <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
     <img src="assets/Overlay.png" id="TierOvelay" class="back">
     <div class="flex-container">
-      <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Punch-Outs</div>
+      <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Blue</div>
       <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;" id="blueLogo"></img>
-      <div class="font-weight-bold fontBold BlueGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">2</div>
-      <div class="text-light fontTimer" style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">2:59</div>
-      <div class="font-weight-bold fontBold OrangeGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;" id="orange-score">1</div>
+      <div class="font-weight-bold fontBold BlueGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">0</div>
+      <div class="text-light fontTimer" style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">5:00</div>
+      <div class="font-weight-bold fontBold OrangeGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;" id="orange-score">0</div>
       <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;" id="orangeLogo"></img>
-      <div class="text-light fontR" style="font-size: 30px;" id="orangeName">Spinosaurus</div>
+      <div class="text-light fontR" style="font-size: 30px;" id="orangeName">Orange</div>
         
     </div>
 
@@ -77,7 +78,7 @@
 <div class="activeplayer card" id="activeBox">
   <div class="activeItem text-dark bg-blue-team rounded mt-2" id="blue-active">
     <!-- players name -->
-    <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:290px; height:290px;" id="blueActiveLogo"></img>
+    <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;" id="blueActiveLogo"></img>
     <h2 class="text-center text-light fontBold" id="blue-active-name">name</h2>
     
     <div class="progress mx-auto border border-dark rounded-1" style="height: 10px; width: 80%; bottom: 0px; background-color: rgb(0,23,45, 0);z-index: 3;">
@@ -122,7 +123,7 @@
 
   <div class="activeItemOrange text-dark bg-orange-team rounded mt-2 d-none" id="orange-active">
     <!-- players name -->
-    <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:290px; height:290px;" id="orangeActiveLogo"></img>
+    <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;" id="orangeActiveLogo"></img>
     <h2 class="text-center text-light fontBold" style="padding: 5px;" id="orange-active-name">shane9b3</h2>
     <div class="progress mx-auto border border-dark rounded-1" style="height: 10px; width: 80%; bottom: 0px; background-color: rgb(0,23,45, 0);z-index: 3;">
         <div class="progress-bar orange-boost" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="orange-active-p-bar">

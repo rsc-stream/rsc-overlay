@@ -325,14 +325,14 @@ body{
 .blueAL {
   position: absolute;
 
-  left: -75px;
+  left: 20px;
   z-index: 2;
   opacity: 0.15;
 }
 
 .orangeAL {
   position: absolute;
-  left: -75px;
+  left: 20px;
   z-index: 2;
   opacity: 0.15;
 }
