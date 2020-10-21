@@ -186,8 +186,8 @@
         //console.log(jEvent.data.game.hasWinner)
         if (jEvent.data.game.hasWinner == true || jEvent.data.game.isReplay == true) { // || jEvent.data.game.isReplay == true will be added on prod
           $('#main-ui').addClass('invisible');
-          //$('#scoreboard').addClass('invisible');
-          $('#scoreboard').removeClass('open')
+          $('#scoreboard').addClass('invisible');
+          //$('#scoreboard').removeClass('open')
           //console.log(jEvent.data.game.isReplay)
           $('#blue-active').addClass('d-none');
           $('#orange-active').addClass('d-none');
@@ -195,8 +195,8 @@
         } else {
           
           //show the ui
-          //$('#scoreboard').removeClass('invisible');
-          $('#scoreboard').addClass('open');
+          $('#scoreboard').removeClass('invisible');
+          //$('#scoreboard').toggleClass('open');
           $('#main-ui').removeClass('invisible');
           $('#TierOverlay').toggleClass('open');
           //time
@@ -290,6 +290,7 @@
               $('#blue-team-active').removeClass('d-none');
               $('#ActiveBlueStats').removeClass('d-none');
               $('#orange-team-active').addClass('d-none');
+              $('#activeBox').addClass('open1');
 
               $('#blue-active-name').text(activePlayerData.name)
               $('#blue-active-speed').text(activePlayerData.speed)
@@ -309,6 +310,7 @@
               $('#blue-team-active').addClass('d-none');
               $('#blue-active').addClass('d-none');
               $('#orange-active').removeClass('d-none');
+              $('#activeBox').addClass('open1');
 
               $('#orange-active-name').text(activePlayerData.name)
               $('#orange-active-speed').text(activePlayerData.speed)
@@ -331,6 +333,7 @@
             $('#orange-team-active').addClass('d-none');
             $('#blue-active').addClass('d-none');
             $('#orange-active').addClass('d-none');
+            $('#activeBox').removeClass('open1');
           }
 
           //all player logic
@@ -551,7 +554,7 @@
        //play()
        console.log(jEvent.data.scorer.name)
        goalAssist = []
-       
+       setTimeout(toggle, 4500)
        var goalSpeed = jEvent.data.goalspeed
        var goalRound = goalSpeed.toFixed(0);
        var scoreID = jEvent.data.scorer.id
@@ -607,6 +610,13 @@
       }else if (jEvent.event == "game:replay_will_end") {
        
         setTimeout(playOut, 1200)
+      }else if (jEvent.event == "game:pre_game_countdown_begin") {
+        console.log(transition)
+        setTimeout(add, 4500)
+        
+      }else if (jEvent.event == "game:pre_countdown_begin") {
+        console.log("transition")
+        setTimeout(add, 4500)
       }
     }
 
@@ -616,6 +626,15 @@
       $('#assistLogo').addClass('d-none');
       $('#assistB').addClass('d-none');
       $('#assistLogoB').addClass('d-none');
+    }
+
+    function add() {
+      $('#scoreboard').addClass('open');
+      
+    }
+    function toggle() {
+      $('#scoreboard').removeClass('open');
+      
     }
 
     function playb() {

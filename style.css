@@ -109,7 +109,7 @@ body{
 .flex-container {
   position: relative;
   margin: 0px;
-  top: -100px;
+  top: 0px;
   display: flex;
   flex-direction: row;  
   justify-content: center;
@@ -356,6 +356,29 @@ body{
   z-index: 2;
   opacity: 0.15;
 }
+
+#activeBox {
+  position: relative;
+  left: -400px;
+  }
+  .open1{
+    left:0px !important;
+    
+  }
+  
+  .transition1{
+      
+    -webkit-transition: left 1.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+       -moz-transition: left 1.2s ease-out;  /* Firefox 4-15 */
+         -o-transition: left 1.2s ease-out;  /* Opera 10.50–12.00 */
+            transition: left 1.2s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  
+  }
+
+#scoreboard {
+position: relative;
+top: -100px;
+}
 .open{
   top:0px !important;
   
@@ -363,10 +386,10 @@ body{
 
 .transition{
     
-  -webkit-transition: top 0.8s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-     -moz-transition: top 0.8s ease-out;  /* Firefox 4-15 */
-       -o-transition: top 0.8s ease-out;  /* Opera 10.50–12.00 */
-          transition: top 0.8s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  -webkit-transition: top 1.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: top 1.2s ease-out;  /* Firefox 4-15 */
+       -o-transition: top 1.2s ease-out;  /* Opera 10.50–12.00 */
+          transition: top 1.2s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 
 }
 #TierOverlay {
@@ -426,7 +449,7 @@ body{
 
 .orangeSc {
   position: absolute;
-  top: 890px;
+  top: 891px;
   left: 1007px;
   z-index: 6;
   opacity: 0.25;
@@ -434,7 +457,7 @@ body{
 
 .blueSc {
   position: absolute;
-  top: 890px;
+  top: 891px;
   left: 687px;
   z-index: 6;
   opacity: 0.25;
