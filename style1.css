@@ -1,5 +1,5 @@
 body{
-  width: 380px;
+  width: 470px;
   height: 150px;
   background-color: #272627; 
   /* background-image: url('assets/logos/rsc.png'); */
@@ -10,7 +10,7 @@ body{
   top: 0px;
   left: 0px;
   z-index: 3;
-  opacity: 0.25;
+  opacity: 0.05;
 }
 
 #series-dropdown {
@@ -23,6 +23,8 @@ body{
   height: 25px;
   font-size: 15px;
   margin-top: 5px;
+  margin-left: 5px;
+
 }
 
 #series-dropdown option {
@@ -39,6 +41,8 @@ border-radius: 5px;
 height: 25px;
 font-size: 15px;
 margin-top: 5px;
+  margin-left: 5px;
+
 }
 
 #tier-dropdown option {
@@ -48,6 +52,11 @@ margin-top: 5px;
 *:focus {
     outline: 0;
   }
+
+button:focus {
+    outline: none;
+    border: none;
+    }
 
 #blue-team {
   background: #444444;
@@ -59,6 +68,8 @@ margin-top: 5px;
   height: 25px;
   font-size: 15px;
   margin-top: 5px;
+  margin-left: 5px;
+  
 }
 
 #blue-team option {
@@ -75,6 +86,7 @@ margin-top: 5px;
   height: 25px;
   font-size: 15px;
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 #orange-team option {
@@ -359,9 +371,10 @@ margin-top: 5px;
 .back
   {
     position:absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0.15;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    opacity: 0.05;
     z-index: -99;
   }
 
@@ -531,4 +544,14 @@ margin-top: 5px;
   -webkit-text-fill-color: transparent;
   text-align: center;
   text-shadow: 0 0 10px #ffb347, 0 0 5px #ffb347, 0 0 20px rgba(186, 196, 96, 0.5) 0 0 30px rgba(186, 196, 96, 0.5) 0 0 25px rgba(186, 196, 96, 0.5), 0 0 190px rgba(186, 196, 96, 0.5), 0 0 200px rgba(186, 196, 96, 0.5);
+}
+
+.bluewins {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  
 }

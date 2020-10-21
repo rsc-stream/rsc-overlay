@@ -64,6 +64,28 @@
       }
     }
 
+    function seriesback() {
+      var SB = localStorage.getItem("series")
+      if (SB === '4GS'){
+        $('#TierOvelay1').removeClass('invisible');
+        $('#bo5').addClass('invisible');
+        $('#bo3').addClass('invisible');
+        
+      }else if (SB === 'BO5') {
+        $('#TierOvelay1').addClass('invisible');
+        $('#bo5').removeClass('invisible');
+        $('#bo3').addClass('invisible');
+      }else if (SB === 'BO3') {
+        $('#TierOvelay1').addClass('invisible');
+        $('#bo5').addClass('invisible');
+        $('#bo3').removeClass('invisible');
+      }else if (SB === 'BO7') {
+        $('#TierOvelay1').removeClass('invisible');
+        $('#bo5').addClass('invisible');
+        $('#bo3').addClass('invisible');
+      }
+    }
+
     var blueN = []
     var blueF = []
     function blueTeamName() {
