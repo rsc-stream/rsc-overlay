@@ -186,7 +186,8 @@
         //console.log(jEvent.data.game.hasWinner)
         if (jEvent.data.game.hasWinner == true || jEvent.data.game.isReplay == true) { // || jEvent.data.game.isReplay == true will be added on prod
           $('#main-ui').addClass('invisible');
-          $('#scoreboard').addClass('invisible');
+          //$('#scoreboard').addClass('invisible');
+          $('#scoreboard').removeClass('open')
           //console.log(jEvent.data.game.isReplay)
           $('#blue-active').addClass('d-none');
           $('#orange-active').addClass('d-none');
@@ -194,7 +195,8 @@
         } else {
           
           //show the ui
-          $('#scoreboard').removeClass('invisible');
+          //$('#scoreboard').removeClass('invisible');
+          $('#scoreboard').addClass('open');
           $('#main-ui').removeClass('invisible');
           $('#TierOverlay').toggleClass('open');
           //time

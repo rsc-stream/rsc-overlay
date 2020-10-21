@@ -1,10 +1,85 @@
 body{
-  width: 1920px;
-  height: 1080px;
-  background-color: rgba(0,23,45,1); 
- /* background-image: url('assets/Overlay.png'); */
+  width: 380px;
+  height: 150px;
+  background-color: #272627; 
+  /* background-image: url('assets/logos/rsc.png'); */
 }
 
+.rsc {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  opacity: 0.25;
+}
+
+#series-dropdown {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+#series-dropdown option {
+  background: black;
+  }
+
+#tier-dropdown {
+background: #444444;
+border: 0px;
+color: rgb(226, 226, 226);
+width: 225px;
+text-align-last:center;
+border-radius: 5px;
+height: 25px;
+font-size: 15px;
+margin-top: 5px;
+}
+
+#tier-dropdown option {
+  background: black;
+  }
+
+*:focus {
+    outline: 0;
+  }
+
+#blue-team {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+#blue-team option {
+  background: black;
+  }
+
+#orange-team {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+#orange-team option {
+  background: black;
+  }
 .player-box{
   width: 300px;
   height: 70px;
@@ -107,9 +182,7 @@ body{
 
 
 .flex-container {
-  position: relative;
   margin: 0px;
-  top: -100px;
   display: flex;
   flex-direction: row;  
   justify-content: center;
@@ -288,6 +361,7 @@ body{
     position:absolute;
     top: 0px;
     left: 0px;
+    opacity: 0.15;
     z-index: -99;
   }
 
@@ -356,17 +430,13 @@ body{
   z-index: 2;
   opacity: 0.15;
 }
-.open{
-  top:0px !important;
-  
-}
 
 .transition{
     
-  -webkit-transition: top 0.8s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-     -moz-transition: top 0.8s ease-out;  /* Firefox 4-15 */
-       -o-transition: top 0.8s ease-out;  /* Opera 10.50–12.00 */
-          transition: top 0.8s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  -webkit-transition: left 0.8s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: left 0.8s ease-out;  /* Firefox 4-15 */
+       -o-transition: left 0.8s ease-out;  /* Opera 10.50–12.00 */
+          transition: left 0.8s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 
 }
 #TierOverlay {

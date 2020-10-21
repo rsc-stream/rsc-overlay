@@ -12,15 +12,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style1.css">
   
 </head>
 
 <body>
+<img class="back" src="assets/logos/rsc.png" id="rscLogo"></img>
 
-<select id="tier-dropdown" name="tier" onchange="teams(); tier()"></select>
-<select id="blue-team" name="BlueTeam" onchange="bluNam()"></select>
-<select id="orange-team" name="OrangeTeam" onchange="oranNam()"></select>
+
+<select id="series-dropdown" name="tier" onchange="series()">
+  <option value="choose">Choose Series Type</option>
+  <option value="4GS">4GS</option>
+  <option value="bo7">BO7</option>
+  <option value="bo5">BO5</option>
+  <option value="bo3">BO3</option>
+</select><br>
+<select id="tier-dropdown" name="tier" onchange="teams(); tier()"></select><br>
+<select id="blue-team" name="BlueTeam" onchange="bluNam()"></select><br>
+<select id="orange-team" name="OrangeTeam" onchange="oranNam()"></select><br>
 
 <button  onclick="live()" type="button" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336;">GO LIVE!</button>
 <br><br>
@@ -51,9 +60,11 @@
     let dropdownBlue = document.getElementById('blue-team');
     let dropdownOrange = document.getElementById('orange-team');
     let dropdown = document.getElementById('tier-dropdown');
+    
 dropdown.length = 0;
 dropdownBlue.length = 0;
 dropdownOrange.length = 0;
+
 
 let defaultOption = document.createElement('option');
 defaultOption.text = 'Choose Tier';
@@ -136,10 +147,10 @@ console.log(teamsList[0][0])
 			teamsList[0][id].Teams.forEach(f => {
     teams.push({team: f.TeamName, franchise: f.Franchise});
     })
-    console.log(teams)
+    //console.log(teams)
     let teamArray = [];
     teamArray = []
-    console.log(teamArray)
+    //console.log(teamArray)
     for (let i = 0; i < teams.length; i++) {
         teamArray.push(
         {"label": teams[i].team, "value": teams[i].franchise}
@@ -338,7 +349,7 @@ function live() {
     var sel = document.getElementById("blue-team");
         var bt= sel.options[sel.selectedIndex].label;
         var bf= sel.options[sel.selectedIndex].value;
-        console.log(bf)
+        //console.log(bf)
         localStorage.setItem("BlueTeam", bt);
         localStorage.setItem("BlueFran", bf);
   
@@ -346,7 +357,7 @@ function live() {
       var sel1 = document.getElementById("orange-team");
         var ot= sel1.options[sel1.selectedIndex].label;
         var of= sel1.options[sel1.selectedIndex].value;
-        console.log(of)
+        //console.log(of)
         localStorage.setItem("OrangeTeam", ot);
         localStorage.setItem("OrangeFran", of);
 
