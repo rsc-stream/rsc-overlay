@@ -50,7 +50,8 @@
 
   </div>
 
-  
+  <div id="notification-area">
+  </div>
   
   <div id="scoreboard" class="transition open">
     <div class="flex-container">
@@ -84,6 +85,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 <!-- active player testing -->
@@ -427,8 +433,7 @@
     document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
     document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
     document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
-    blueWins()
-    orangeWins()
+    
     }
 
   </script>
