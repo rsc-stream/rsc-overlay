@@ -1,7 +1,5 @@
    
 
-  
-
     const ws = new WebSocket('ws://localhost:49122');
 
     var team = []

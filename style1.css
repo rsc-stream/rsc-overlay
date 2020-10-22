@@ -1,10 +1,97 @@
 body{
-  width: 1920px;
-  height: 1080px;
-  background-color: rgba(0,23,45,1); 
- /* background-image: url('assets/Overlay.png'); */
+  width: 470px;
+  height: 150px;
+  background-color: #272627; 
+  /* background-image: url('assets/logos/rsc.png'); */
 }
 
+.rsc {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  opacity: 0.05;
+}
+
+#series-dropdown {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
+
+}
+
+#series-dropdown option {
+  background: black;
+  }
+
+#tier-dropdown {
+background: #444444;
+border: 0px;
+color: rgb(226, 226, 226);
+width: 225px;
+text-align-last:center;
+border-radius: 5px;
+height: 25px;
+font-size: 15px;
+margin-top: 5px;
+  margin-left: 5px;
+
+}
+
+#tier-dropdown option {
+  background: black;
+  }
+
+*:focus {
+    outline: 0;
+  }
+
+button:focus {
+    outline: none;
+    border: none;
+    }
+
+#blue-team {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
+  
+}
+
+#blue-team option {
+  background: black;
+  }
+
+#orange-team {
+  background: #444444;
+  border: 0px;
+  color: rgb(226, 226, 226);
+  width: 225px;
+  text-align-last:center;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#orange-team option {
+  background: black;
+  }
 .player-box{
   width: 300px;
   height: 70px;
@@ -107,9 +194,7 @@ body{
 
 
 .flex-container {
-  position: relative;
   margin: 0px;
-  top: 0px;
   display: flex;
   flex-direction: row;  
   justify-content: center;
@@ -286,8 +371,10 @@ body{
 .back
   {
     position:absolute;
-    top: 0px;
-    left: 0px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    opacity: 0.05;
     z-index: -99;
   }
 
@@ -357,39 +444,12 @@ body{
   opacity: 0.15;
 }
 
-#activeBox {
-  position: relative;
-  left: -400px;
-  }
-  .open1{
-    left:0px !important;
-    
-  }
-  
-  .transition1{
-      
-    -webkit-transition: left 1.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-       -moz-transition: left 1.2s ease-out;  /* Firefox 4-15 */
-         -o-transition: left 1.2s ease-out;  /* Opera 10.50–12.00 */
-            transition: left 1.2s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
-  
-  }
-
-#scoreboard {
-position: relative;
-top: -100px;
-}
-.open{
-  top:0px !important;
-  
-}
-
 .transition{
     
-  -webkit-transition: top 1.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-     -moz-transition: top 1.2s ease-out;  /* Firefox 4-15 */
-       -o-transition: top 1.2s ease-out;  /* Opera 10.50–12.00 */
-          transition: top 1.2s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  -webkit-transition: left 0.8s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: left 0.8s ease-out;  /* Firefox 4-15 */
+       -o-transition: left 0.8s ease-out;  /* Opera 10.50–12.00 */
+          transition: left 0.8s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 
 }
 #TierOverlay {
@@ -449,7 +509,7 @@ top: -100px;
 
 .orangeSc {
   position: absolute;
-  top: 891px;
+  top: 890px;
   left: 1007px;
   z-index: 6;
   opacity: 0.25;
@@ -457,7 +517,7 @@ top: -100px;
 
 .blueSc {
   position: absolute;
-  top: 891px;
+  top: 890px;
   left: 687px;
   z-index: 6;
   opacity: 0.25;
@@ -486,86 +546,12 @@ top: -100px;
   text-shadow: 0 0 10px #ffb347, 0 0 5px #ffb347, 0 0 20px rgba(186, 196, 96, 0.5) 0 0 30px rgba(186, 196, 96, 0.5) 0 0 25px rgba(186, 196, 96, 0.5), 0 0 190px rgba(186, 196, 96, 0.5), 0 0 200px rgba(186, 196, 96, 0.5);
 }
 
-#notification-area {
-  position:fixed;
-  top:10px;
-  right:0px;
- /* width:250px; */
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:start;
-  
- 
-}
-#notification-area .notification {
-  position:relative;
-  right:end;
-  padding:0px 15px;
-  
-  color:#f5f5f5;
-  
-  font-size:16px;
-  font-weight:600;
-  border:2px;
-  border-radius:5px 0px 0px 5px;
-  border-color: #ffb347;
-  margin:10px 0px;
-  opacity:0;
-  left:20px;
-  text-align:right;
-  animation:showNotification 500ms ease-in-out 
-   forwards;
-  width: max-content;
-  align-self:flex-end;
-
-}
-@keyframes showNotification {
-  to {
-    opacity:1;
-    left:00px;
-  }
-}
-
-#notification-area .notification.success {
-  background:#060437;
-  border-color: #ffb347;
-  border-style: solid;
-  border-right:0px;
-  
-  
-}
-.success:before {
-  color: #060437;
-  content: "SHOT";
-  background: #ffb347;
-  padding: 5px;
-  margin: 5px;
-  border-color: #ffb347;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:16px;
-  font-family: RSCfontBold;
-  
-}
-
-#notification-area .notification.error {
-  background:#060437;
-  border-color: #4793ff;
-  border-style: solid;
-  border-right: 0px;
-}
-.error:before {
- 
-  color: #060437;
-  content: "SAVE";
-  background: #4793ff;
-  padding: 5px;
-  margin: 5px;
-  border-color: #4793ff;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:16px;
-  font-family: RSCfontBold;
+.bluewins {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
   
 }

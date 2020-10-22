@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+ 
 
   <title>RSC Overlay</title>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
@@ -16,7 +17,7 @@
   
 </head>
 
-<body>
+<body onload="blueWins(); orangeWins(); seriesback()">
   <div id="wrapper">
   
     <video preload muted id="goalORANGE" class="goalO">
@@ -49,9 +50,10 @@
 
   </div>
 
+  <div id="notification-area" class="fontR">
+  </div>
   
-  
-  <div id="scoreboard" class="transition">
+  <div id="scoreboard" class="transition open">
     <div class="flex-container">
     <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
     <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
@@ -63,7 +65,10 @@
     <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
     
     
-      <img src="assets/Overlay.png" id="TierOvelay" class="back">
+      <img src="assets/Overlay.png" id="TierOvelay1" class="back invisible">
+      <img src="assets/BO5.png" id="bo5" class="back invisible">
+      <img src="assets/BO3.png" id="bo3" class="back invisible">
+      
       <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Blue</div>
       <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;" id="blueLogo"></img>
       <div class="font-weight-bold fontBold BlueGoals fontR" style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;" id="blue-score">0</div>
@@ -75,12 +80,32 @@
     </div>
 
     <div class="flex-container">
-      <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game <span id="gameNumber">1</span> | 4GS</p>
+      <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game <span id="gameNumber">1</span> | <span id="seriesType">4GS</span></p>
     </div>
 
 
 </div>
 
+
+<!--  TESTING -->
+
+
+<!--
+<div class="buttons" style="justify-content: right; z-index: 999;position: absolute;">
+  <h1>Notifications</h1>
+  <button onclick="notifySuccess()">
+    Success
+  </button>
+  <button onclick="notifyError()">
+    Error
+  </button>
+  <button onclick="notifyInfo()">
+    Info
+  </button>
+</div>
+
+
+-->
 
 <!-- active player testing -->
 
@@ -402,9 +427,13 @@
       blueWins()
     if (event.key != 'GameNumber');
     document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+    if (event.key != 'series') ;
+    document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+    seriesback()
     }
 
     if (typeof(Storage) !== "undefined") {
+    document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
     document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam");
     document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
     document.getElementById("tier").innerHTML = localStorage.getItem("tier");
@@ -418,6 +447,8 @@
     document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
     document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
     document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+    document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+    
     }
 
   </script>
