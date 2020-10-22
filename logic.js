@@ -591,6 +591,7 @@
        team =[]
        team.push('blue')
        playb()
+       notify("goalBlue", "  " + jEvent.data.scorer.name);
        
           }else{
             $('#orangeName').text("")
@@ -601,7 +602,7 @@
        team = []
        team.push('orange')
        playO()
-       
+       notify("goalOrange", "  " + jEvent.data.scorer.name);
           }
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
@@ -616,8 +617,23 @@
           $('#assistB').removeClass('d-none');
           $('#assistLogoB').removeClass('d-none');
           setTimeout(removeAssist, 15000)
-        }
+          var assistID = jEvent.data.main_target.id
+          var assistTeam = assistID.slice(-1)
+          if (assistTeam === "1" || assistTeam === "2" || assistTeam === "3"){
         
+            notify("assistBlue", "  " + jEvent.data.main_target.name);
+            }else{
+              notify("assistOrange", "  " + jEvent.data.main_target.name);
+            }
+        }else if (jEvent.data.type === "Shot on Goal") {
+          var shotID = jEvent.data.main_target.id
+          var shotTeam = shotID.slice(-1)
+          if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+        
+            notify("shotBlue", "  " + jEvent.data.main_target.name);
+            }else{
+              notify("shotOrange", "  " + jEvent.data.main_target.name);
+            }}
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
         $('#replayBlue1').addClass('d-none');
@@ -716,8 +732,8 @@
       })();
     }
     
-    function notifySuccess(){
-      notify("success","shane9b3");
+    function notifyGoal(){
+      notify("goal","shane9b3");
       console.log("goal")
       
     }
