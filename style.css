@@ -502,10 +502,10 @@ top: -100px;
   position:relative;
   right:end;
   padding:0px 15px;
-  
+  padding-left: 5px;
   color:#f5f5f5;
   
-  font-size:16px;
+  font-size:18px;
   font-weight:600;
   border:2px;
   border-radius:5px 0px 0px 5px;
@@ -527,15 +527,103 @@ top: -100px;
   }
 }
 
-#notification-area .notification.success {
+#notification-area .notification.goalOrange {
   background:#060437;
   border-color: #ffb347;
   border-style: solid;
   border-right:0px;
-  
+  margin-left: 5px;
   
 }
-.success:before {
+.goalOrange:before {
+  color: #060437;
+  content: "GOAL";
+  background: #ffb347;
+  padding: 5px;
+  margin: 5px;
+  border-color: #ffb347;
+  border-style: solid;
+  border-radius:5px 0px 0px 5px;
+  font-size:20px;
+  font-family: RSCfontBold;
+  
+}
+
+#notification-area .notification.goalBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  margin-left: 5px;
+}
+.goalBlue:before {
+ 
+  color: #060437;
+  content: "GOAL";
+  background: #4793ff;
+  padding: 5px;
+  margin: 5px;
+  border-color: #4793ff;
+  border-style: solid;
+  border-radius:5px 0px 0px 5px;
+  font-size:20px;
+  font-family: RSCfontBold;
+  
+}
+
+#notification-area .notification.assistOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right:0px;
+  margin-left: 5px;
+  
+}
+.assistOrange:before {
+  color: #060437;
+  content: "ASSIST";
+  background: #ffb347;
+  padding: 5px;
+  margin: 5px;
+  border-color: #ffb347;
+  border-style: solid;
+  border-radius:5px 0px 0px 5px;
+  font-size:20px;
+  font-family: RSCfontBold;
+  
+}
+
+#notification-area .notification.assistBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  margin-left: 5px;
+}
+.assistBlue:before {
+ 
+  color: #060437;
+  content: "ASSIST";
+  background: #4793ff;
+  padding: 5px;
+  margin: 5px;
+  border-color: #4793ff;
+  border-style: solid;
+  border-radius:5px 0px 0px 5px;
+  font-size:20px;
+  font-family: RSCfontBold;
+  
+}
+
+#notification-area .notification.shotOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right:0px;
+  margin-left: 5px;
+  
+}
+.shotOrange:before {
   color: #060437;
   content: "SHOT";
   background: #ffb347;
@@ -544,28 +632,29 @@ top: -100px;
   border-color: #ffb347;
   border-style: solid;
   border-radius:5px 0px 0px 5px;
-  font-size:16px;
+  font-size:20px;
   font-family: RSCfontBold;
   
 }
 
-#notification-area .notification.error {
+#notification-area .notification.shotBlue {
   background:#060437;
   border-color: #4793ff;
   border-style: solid;
   border-right: 0px;
+  margin-left: 5px;
 }
-.error:before {
+.shotBlue:before {
  
   color: #060437;
-  content: "SAVE";
+  content: "SHOT";
   background: #4793ff;
   padding: 5px;
   margin: 5px;
   border-color: #4793ff;
   border-style: solid;
   border-radius:5px 0px 0px 5px;
-  font-size:16px;
+  font-size:20px;
   font-family: RSCfontBold;
   
 }
