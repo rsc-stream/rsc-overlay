@@ -633,7 +633,25 @@
             notify("shotBlue", "  " + jEvent.data.main_target.name);
             }else{
               notify("shotOrange", "  " + jEvent.data.main_target.name);
-            }}
+            }
+          }else if (jEvent.data.type === "Save") {
+              var shotID = jEvent.data.main_target.id
+              var shotTeam = shotID.slice(-1)
+              if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+            
+                notify("saveBlue", "  " + jEvent.data.main_target.name);
+                }else{
+                  notify("saveOrange", "  " + jEvent.data.main_target.name);
+                }
+              }else if (jEvent.data.type === "Demolition") {
+                var shotID = jEvent.data.main_target.id
+                var shotTeam = shotID.slice(-1)
+                if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+              
+                  notify("demoBlue", "  " + jEvent.data.main_target.name);
+                  }else{
+                    notify("demoOrange", "  " + jEvent.data.main_target.name);
+                  }}
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
         $('#replayBlue1').addClass('d-none');
@@ -732,9 +750,9 @@
       })();
     }
     
-    function notifyGoal(){
-      notify("goal","shane9b3");
-      console.log("goal")
+    function notifyDemo(){
+      notify("demoBlue","shane9b3");
+    
       
     }
     function notifyError(){
