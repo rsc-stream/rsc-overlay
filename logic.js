@@ -649,8 +649,10 @@
                 if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
               
                   notify("demoBlue", "  " + jEvent.data.main_target.name);
+                  notify("demoedOrange", "  " + jEvent.data.secondary_target.name);
                   }else{
                     notify("demoOrange", "  " + jEvent.data.main_target.name);
+                    notify("demoedBlue", "  " + jEvent.data.secondary_target.name);
                   }}
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
@@ -751,13 +753,14 @@
     }
     
     function notifyDemo(){
-      notify("demoBlue","shane9b3");
+      notify("demoOrange","shane9b3");
+      notify("demoedBlue","tr1ppn");
     
       
     }
-    function notifyError(){
-      notify("error","Way2Luckee");
+    function notifyShot(){
+      notify("shotBlue","Way2Luckee");
     }
-    function notifyInfo(){
-      notify("info","Info");
+    function notifySave(){
+      notify("saveBlue","musah");
     }
