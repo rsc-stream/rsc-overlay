@@ -213,14 +213,22 @@
           //console.log(jEvent.data.game.isReplay)
           $('#blue-active').addClass('d-none');
           $('#orange-active').addClass('d-none');
+          $('#TierOverlay').addClass('d-none');
+          $('#TierOverlay2').addClass('d-none');
+          $('#TierOverlay').removeClass('open1');
+          $('#TierOverlay2').removeClass('open1');
+          clearTimeout(timer);
 
         } else {
           
           //show the ui
           $('#scoreboard').removeClass('invisible');
+          $('#TierOverlay').removeClass('d-none');
+          $('#TierOverlay2').removeClass('d-none');
           //$('#scoreboard').toggleClass('open');
           $('#main-ui').removeClass('invisible');
-          $('#TierOverlay').toggleClass('open');
+          
+         // $('#TierOverlay').toggleClass('open1');
           //time
           var gameTime = jEvent.data.game.time
           var round = Math.round(gameTime)
@@ -312,7 +320,9 @@
               $('#blue-team-active').removeClass('d-none');
               $('#ActiveBlueStats').removeClass('d-none');
               $('#orange-team-active').addClass('d-none');
+              
               $('#activeBox').addClass('open1');
+              
 
               $('#blue-active-name').text(activePlayerData.name)
               $('#blue-active-speed').text(activePlayerData.speed)
@@ -332,7 +342,10 @@
               $('#blue-team-active').addClass('d-none');
               $('#blue-active').addClass('d-none');
               $('#orange-active').removeClass('d-none');
+              
               $('#activeBox').addClass('open1');
+              
+              
 
               $('#orange-active-name').text(activePlayerData.name)
               $('#orange-active-speed').text(activePlayerData.speed)
@@ -356,6 +369,8 @@
             $('#blue-active').addClass('d-none');
             $('#orange-active').addClass('d-none');
             $('#activeBox').removeClass('open1');
+            
+            
           }
 
           //all player logic
@@ -688,6 +703,8 @@
 
     function add() {
       $('#scoreboard').addClass('open');
+      $('#TierOverlay').addClass('open1');
+          logo()
       
     }
     function toggle() {
@@ -763,4 +780,13 @@
     }
     function notifySave(){
       notify("saveBlue","musah");
+    }
+var timer
+    function logo() {
+    timer = setTimeout(()=>{
+      $('#TierOverlay').removeClass('open1');
+        setTimeout(()=>{
+            $('#TierOverlay2').addClass('open1');
+          },2000);
+        },15000);
     }
