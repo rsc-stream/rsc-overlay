@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>RSC Stream</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js" integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA==" crossorigin="anonymous"></script>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  
+</head>
+
+<body onload="load()">
+    <img class="back" src="assets/afterBack.png" id="rscLogo" style="width: 1920px"></img>
+    <img class="afterBlueLogo" src="assets/logos/Active Logos/Dino Park.png" style="width:215px" id="afterBlueLogo"></img>
+    <img class="afterOrangeLogo" src="assets/logos/Active Logos/The Sovereign.png" style="width:215px" id="afterOrangeLogo"></img>
+    <img class="afterGoalsLogo" src="assets/White_Goal_points_icon.png" style="-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));" id="afterGoalsLogo"></img>
+    <img class="afterAssistsLogo" src="assets/White_Assist_points_icon.png" style="-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));" id="afterAssistsLogo"></img>
+    <img class="afterShotsLogo" src="assets/White_Shot_on_Goal_points_icon.png" style="-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));" id="afterShotsLogo"></img>
+    <img class="afterSavesLogo" src="assets/White_Save_points_icon.png" style="-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));" id="afterSaveLogo"></img>
+     
+     <div class="flex-containerBlueMVP">
+        <img class="invisible" src="assets/MVP_points_icon.png" style="margin-left: 94px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
+        filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));" id="blue1MVP"></img>
+        <img class="invisible" src="assets/MVP_points_icon.png" style="margin-left: 185px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
+        filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));" id="blue2MVP"></img>
+        <img class="invisible" src="assets/MVP_points_icon.png" style="margin-left: 185px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
+        filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));" id="blue3MVP"></img>
+    </div>
+    <div class="flex-containerOrangeMVP">
+        <img class="invisible" src="assets/Orange_MVP_points_icon.png" style="margin-left: 94px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+        filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));" id="orange1MVP"></img>
+        <img class="invisible" src="assets/Orange_MVP_points_icon.png" style="margin-left: 185px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+        filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));" id="orange2MVP"></img>
+        <img class="invisible" src="assets/Orange_MVP_points_icon.png" style="margin-left: 185px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+        filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));" id="orange3MVP"></img>
+    </div>
+    <div class="flex-containerTeamWinBlue">
+        <div class="text-light fontBold invisible" style="-webkit-text-stroke: 2px white;
+        -webkit-text-fill-color: transparent;" id="blueW">W</div>
+    </div>
+    <div class="flex-containerTeamWinOrange">
+        <div class="text-light fontBold invisible" style="-webkit-text-stroke: 2px red;
+        -webkit-text-fill-color: transparent;" id="orangeL">L</div>
+    </div>
+    <div class="flex-containerTeamWinBlue">
+        <div class="text-light fontBold invisible" style="-webkit-text-stroke: 2px red;
+        -webkit-text-fill-color: transparent;" id="blueL">L</div>
+    </div>
+    <div class="flex-containerTeamWinOrange">
+        <div class="text-light fontBold invisible" style="-webkit-text-stroke: 2px white;
+        -webkit-text-fill-color: transparent;" id="orangeW">W</div>
+    </div>
+    <div class="flex-containerTeamNameBlue">
+        <div class="text-light fontBold" style="font-size: 40px;" id="blueName">Blue Team Name</div>
+    </div>
+    <div class="flex-containerTeamFranchiseBlue">
+        <div class="text-light fontR" style="font-size: 25px;" id="blueFranchise">Blue Franchise Name</div>
+    </div>
+    <div class="flex-containerTeamNameOrange">
+        <div class="text-light fontBold" style="font-size: 40px;" id="orangeName">Orange Team Name</div>
+    </div>
+    <div class="flex-containerTeamFranchiseOrange">
+        <div class="text-light fontR" style="font-size: 25px;" id="orangeFranchise">Orange Franchise Name</div>
+    </div>
+    <div class="flex-containerTeamScoreBlue">
+        <div class="text-light fontBold BlueGoals" id="blueScore">3</div>
+    </div>
+    <div class="flex-containerTeamScoreOrange">
+        <div class="text-light fontBold OrangeGoals" id="orangeScore">2</div>
+    </div>
+
+    <div class="flex-containerSeriesKind">
+        <div class="fontBold" style="text-align: center;" id="seriesKind">4GS</div>
+    </div>
+
+    <div class="flex-containerSeriesScore">
+        <div class="text-light fontR"  id="blueSeries">3</div>
+        <div class="text-light fontR"  id="OrangeSeries">1</div>
+    </div>
+    <div class="flex-containerBlueTeam">
+        <div class="text-light fontBold" style="font-size: 30px;" id="blueName1">Blue1</div>
+        <div class="text-light fontBold" style="font-size: 30px;" id="blueName2">Blue2</div>
+        <div class="text-light fontBold" style="font-size: 30px;" id="blueName3">Blue3</div>
+    </div>
+    <div class="flex-containerOrangeTeam">
+        <div class="text-light fontBold" style="font-size: 30px;" id="orangeName1">orange1</div>
+        <div class="text-light fontBold" style="font-size: 30px;" id="orangeName2">orange2</div>
+        <div class="text-light fontBold" style="font-size: 30px;" id="orangeName3">orange3</div>
+    </div>
+    <div class="flex-containerAfterBlue">
+        <div class="text-light fontR" style="font-size: 30px;" id="bluePoints1">Blue1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="bluePoints2">Blue2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="bluePoints3">Blue3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueGoals1">Blue1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueGoals2">Blue2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueGoals3">Blue3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueAssists1">Blue1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueAssists2">Blue2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueAssists3">Blue3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueShots1">Blue1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueShots2">Blue2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueShots3">Blue3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueSaves1">Blue1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueSaves2">Blue2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="blueSaves3">Blue3</div>
+    </div>
+    <div class="flex-containerAfterOrange">
+        <div class="text-light fontR" style="font-size: 30px;" id="orangePoints1">orange1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangePoints2">orange2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangePoints3">orange3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeGoals1">orange1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeGoals2">orange2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeGoals3">orange3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeAssists1">orange1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeAssists2">orange2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeAssists3">orange3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeShots1">orange1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeShots2">orange2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeShots3">orange3</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeSaves1">orange1</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeSaves2">orange2</div>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeSaves3">orange3</div>
+    </div>
+</body>

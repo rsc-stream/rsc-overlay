@@ -837,6 +837,486 @@ top: -100px;
    filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
 }
 
-.test {
-  position: relative;
+.afterBlueLogo{
+  position: absolute;
+  margin-top: 87px;
+  margin-left: 546px;
+  width: 215px;
+}
+
+.afterOrangeLogo{
+  position: absolute;
+  margin-top: 87px;
+  margin-left: 1159px;
+  width: 215px;
+}
+
+.afterGoalsLogo{
+  position: absolute;
+  margin-top: 618px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterAssistsLogo{
+  position: absolute;
+  margin-top: 738px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterShotsLogo{
+  position: absolute;
+  margin-top: 858px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterSavesLogo{
+  position: absolute;
+  margin-top: 978px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.flex-containerAfterBlue {
+  position: absolute;
+  left: 31px;
+  top: 497px;
+  width: 864px;
+  height: 582px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerAfterBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerAfterOrange {
+  position: absolute;
+  left: 1026px;
+  top: 497px;
+  width: 864px;
+  height: 582px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+ 
+  border-width: 1px;
+ 
+}
+
+.flex-containerAfterOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerOrangeTeam {
+  position: absolute;
+  left: 1026px;
+  top: 425px;
+  width: 864px;
+  height: 82px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+ 
+  border-width: 1px;
+
+}
+
+.flex-containerOrangeTeam > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerBlueTeam {
+  position: absolute;
+  left: 31px;
+  top: 425px;
+  width: 864px;
+  height: 82px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerBlueTeam > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamNameBlue {
+  position: absolute;
+  left: 100px;
+  top: 137px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+ 
+  border-width: 1px;
+
+}
+
+.flex-containerTeamNameBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamFranchiseBlue {
+  position: absolute;
+  left: 100px;
+  top: 195px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamFranchiseBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamNameOrange {
+  position: absolute;
+  left: 1405px;
+  top: 137px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamNameOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamFranchiseOrange {
+  position: absolute;
+  left: 1405px;
+  top: 195px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamFranchiseOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamScoreBlue {
+  position: absolute;
+  left: 780px;
+  top: 40px;
+  width: 150px;
+  height: 300px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamScoreBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 180px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamScoreOrange {
+  position: absolute;
+  left: 990px;
+  top: 40px;
+  width: 150px;
+  height: 300px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamScoreOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 180px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerSeriesScore {
+  position: absolute;
+  left: 870px;
+  top: 335px;
+  height: 90px;
+  width: 184px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerSeriesScore > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 40px;
+  width: 90px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerSeriesKind {
+  position: absolute;
+  left: 0px;
+  top: 285px;
+  height: 90px;
+  width: 1920px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+  
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerSeriesKind > div { 
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 40px;
+  width: 1920px;
+  align-content: center;
+  align-self:center;
+  color: #060437;
+}
+
+.flex-containerBlueMVP {
+  position: absolute;
+  left: 31px;
+  top: 340px;
+  width: 864px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerOrangeMVP {
+  position: absolute;
+  left: 1026px;
+  top: 340px;
+  width: 864px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerTeamWinBlue {
+  position: absolute;
+  left: 775px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+
+}
+
+.flex-containerTeamWinBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 80px;
+  width: 418px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamWinOrange {
+  position: absolute;
+  left: 990px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamWinOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 80px;
+  width: 418px;
+  align-content: center;
+  align-self:center;
 }
