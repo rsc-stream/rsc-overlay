@@ -1157,9 +1157,9 @@ top: -100px;
 
 .flex-containerTeamNameBlue {
   position: absolute;
-  left: 100px;
+  left: 83px;
   top: 137px;
-  width: 415px;
+  width: 450px;
   height: 50px;
   margin-top: 0px;
   display: flex;
@@ -1168,7 +1168,7 @@ top: -100px;
   align-content: stretch;
 
   text-align: center;
- 
+
   border-width: 1px;
 
 }
@@ -1179,7 +1179,7 @@ top: -100px;
   margin-top: px;
   margin-bottom: px;
   font-size: 20px;
-  width: 415px;
+  width: 450px;
   align-content: center;
   align-self:center;
 }
@@ -1215,9 +1215,9 @@ top: -100px;
 
 .flex-containerTeamNameOrange {
   position: absolute;
-  left: 1405px;
+  left: 1388px;
   top: 137px;
-  width: 415px;
+  width: 450px;
   height: 50px;
   margin-top: 0px;
   display: flex;
@@ -1237,9 +1237,10 @@ top: -100px;
   margin-top: px;
   margin-bottom: px;
   font-size: 20px;
-  width: 415px;
+  width: 450px;
   align-content: center;
   align-self:center;
+  
 }
 
 .flex-containerTeamFranchiseOrange {

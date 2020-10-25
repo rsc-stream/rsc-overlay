@@ -2,6 +2,9 @@
 
     const ws = new WebSocket('ws://localhost:49122');
 
+   var BlueTeamWins = []
+   var OrangeTeamWins = []
+
     var team = []
     var goalAssist = []
     function orangeWins() {
