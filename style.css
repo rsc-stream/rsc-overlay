@@ -851,6 +851,13 @@ top: -100px;
   width: 215px;
 }
 
+.afterPTSLogo{
+  position: absolute;
+  margin-top: 501px;
+  margin-left: 910px;
+  width: 100px;
+}
+
 .afterGoalsLogo{
   position: absolute;
   margin-top: 618px;
