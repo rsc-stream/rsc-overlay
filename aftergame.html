@@ -16,7 +16,8 @@
   
 </head>
 
-<body onload="load()">
+<body onload="blueWins(); orangeWins(); seriesback()">
+    <div id="wrapper">
     <img class="back" src="assets/afterBack.png" id="rscLogo" style="width: 1920px"></img>
     <img class="afterBlueLogo" src="assets/logos/Active Logos/Dino Park.png" style="width:215px" id="afterBlueLogo"></img>
     <img class="afterOrangeLogo" src="assets/logos/Active Logos/The Sovereign.png" style="width:215px" id="afterOrangeLogo"></img>
@@ -64,13 +65,13 @@
         -webkit-text-fill-color: transparent;" id="orangeW">W</div>
     </div>
     <div class="flex-containerTeamNameBlue">
-        <div class="text-light fontBold" style="font-size: 40px;" id="blueName">Blue Team Name</div>
+        <div class="text-light fontBold" style="font-size: 40px;" id="blueTeamName">Blue Team Name</div>
     </div>
     <div class="flex-containerTeamFranchiseBlue">
         <div class="text-light fontR" style="font-size: 25px;" id="blueFranchise">Blue Franchise Name</div>
     </div>
     <div class="flex-containerTeamNameOrange">
-        <div class="text-light fontBold" style="font-size: 40px;" id="orangeName">Orange Team Name</div>
+        <div class="text-light fontBold" style="font-size: 40px;" id="orangeTeamName">Orange Team Name</div>
     </div>
     <div class="flex-containerTeamFranchiseOrange">
         <div class="text-light fontR" style="font-size: 25px;" id="orangeFranchise">Orange Franchise Name</div>
@@ -134,4 +135,67 @@
         <div class="text-light fontR" style="font-size: 30px;" id="orangeSaves2">orange2</div>
         <div class="text-light fontR" style="font-size: 30px;" id="orangeSaves3">orange3</div>
     </div>
+
+    <script>
+        'use strict';
+        window.onstorage = event => { // same as window.addEventListener('storage', () => {
+        if (event.key != 'BlueTeam') ;
+        document.getElementById("blueTeamName").innerHTML = localStorage.getItem("BlueTeam")
+        
+        let blueF = localStorage.getItem("BlueFran")
+        document.getElementById("blueFranchise").innerHTML = localStorage.getItem("BlueFran")
+        document.getElementById("afterBlueLogo").src = "assets/logos/Active Logos/" + blueF + ".png"
+        document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+        document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
+        document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+        if (event.key != 'OrangeTeam') ;
+        document.getElementById("orangeTeamName").innerHTML = localStorage.getItem("OrangeTeam");
+        let orangeF = localStorage.getItem("OrangeFran")
+        document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+        document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+        document.getElementById("afterOrangeLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+        document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+        if (event.key != 'tier') ;
+        document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+        //if (event.key != 'blueWin1') ;
+        //BLUEWIN1()
+        if (event.key != 'OrangeWins');
+          orangeWins()
+        if (event.key != 'BlueWins');
+          blueWins()
+        if (event.key != 'GameNumber');
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        if (event.key != 'series') ;
+        document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+        seriesback()
+        }
+    
+        if (typeof(Storage) !== "undefined") {
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        document.getElementById("blueTeamName").innerHTML = localStorage.getItem("BlueTeam");
+        document.getElementById("orangeTeamName").innerHTML = localStorage.getItem("OrangeTeam");
+        document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+        let blueF = localStorage.getItem("BlueFran")
+        let orangeF = localStorage.getItem("OrangeFran")
+        document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
+        document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
+        document.getElementById("afterBlueLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
+        document.getElementById("afterOrangeLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+        document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+        document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+        document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+        document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+        document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+        
+        }
+    
+      </script>
+
+
+
+    <script src="logic.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
+</div>
+</body>
 </body>

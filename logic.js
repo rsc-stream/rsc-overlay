@@ -218,7 +218,24 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
-
+          $('#blueName1').text(blue1.name)
+          $('#blueGoals1').text(blue1.goals)
+          $('#blueShots1').text(blue1.shots)
+          $('#blueSaves1').text(blue1.saves)
+          $('#blueAssists1').text(blue1.assists)
+          $('#bluePoints1').text(blue1.score)
+          $('#blueName2').text(blue2.name)
+          $('#blueGoals2').text(blue2.goals)
+          $('#blueShots2').text(blue2.shots)
+          $('#blueSaves2').text(blue2.saves)
+          $('#blueAssists2').text(blue2.assists)
+          $('#bluePoints2').text(blue2.score)
+          $('#blueName3').text(blue3.name)
+          $('#blueGoals3').text(blue3.goals)
+          $('#blueShots3').text(blue3.shots)
+          $('#blueSaves3').text(blue3.saves)
+          $('#blueAssists3').text(blue3.assists)
+          $('#bluePoints3').text(blue3.score)
         } else {
           
           //show the ui
@@ -262,7 +279,9 @@
           var orangeScore = _.get(teamData, [1, 'score'])
 
           $('#blue-score').text(blueScore)
+          $('#blueScore').text(blueScore)
           $('#orange-score').text(orangeScore)
+          $('#orangeScore').text(orangeScore)
 
           //overtime logic
           if (jEvent.data.game.isOT == true) {
@@ -398,6 +417,27 @@
 
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
               
+              $('#blueName1').text(blue1.name)
+              $('#blueGoals1').text(blue1.goals)
+              $('#blueShots1').text(blue1.shots)
+              $('#blueSaves1').text(blue1.saves)
+              $('#blueAssists1').text(blue1.assists)
+              $('#bluePoints1').text(blue1.score)
+              $('#blueName2').text(blue2.name)
+              $('#blueGoals2').text(blue2.goals)
+              $('#blueShots2').text(blue2.shots)
+              $('#blueSaves2').text(blue2.saves)
+              $('#blueAssists2').text(blue2.assists)
+              $('#bluePoints2').text(blue2.score)
+              $('#blueName3').text(blue3.name)
+              $('#blueGoals3').text(blue3.goals)
+              $('#blueShots3').text(blue3.shots)
+              $('#blueSaves3').text(blue3.saves)
+              $('#blueAssists3').text(blue3.assists)
+              $('#bluePoints3').text(blue3.score)
+
+
+
               $("div[id^='blue-player-']").removeClass('d-none')
               
               $('#blue-player-3').removeClass('d-none')
@@ -493,6 +533,26 @@
             if (orange1 != undefined && orange2 != undefined && orange3 != undefined) {
               
               $("div[id^='orange-player-']").removeClass('d-none')
+
+              
+              $('#orangeName1').text(orange1.name)
+              $('#orangeGoals1').text(orange1.goals)
+              $('#orangeShots1').text(orange1.shots)
+              $('#orangeSaves1').text(orange1.saves)
+              $('#orangeAssists1').text(orange1.assists)
+              $('#orangePoints1').text(orange1.score)
+              $('#orangeName2').text(orange2.name)
+              $('#orangeGoals2').text(orange2.goals)
+              $('#orangeShots2').text(orange2.shots)
+              $('#orangeSaves2').text(orange2.saves)
+              $('#orangeAssists2').text(orange2.assists)
+              $('#orangePoints2').text(orange2.score)
+              $('#orangeName3').text(orange3.name)
+              $('#orangeGoals3').text(orange3.goals)
+              $('#orangeShots3').text(orange3.shots)
+              $('#orangeSaves3').text(orange3.saves)
+              $('#orangeAssists3').text(orange3.assists)
+              $('#orangePoints3').text(orange3.score)
               
               $('#orange-player-3').removeClass('d-none')
               $('#orange-player-3-name').text(orange3.name)
@@ -658,6 +718,33 @@
                 }else{
                   notify("saveOrange", "  " + jEvent.data.main_target.name);
                 }
+              }else if (jEvent.data.type === "Epic Save") {
+                var shotID = jEvent.data.main_target.id
+                var shotTeam = shotID.slice(-1)
+                if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+              
+                  notify("epicsaveBlue", "  " + jEvent.data.main_target.name);
+                  }else{
+                    notify("epicsaveOrange", "  " + jEvent.data.main_target.name);
+                  }
+                }else if (jEvent.data.type === "Hat Trick") {
+                  var shotID = jEvent.data.main_target.id
+                  var shotTeam = shotID.slice(-1)
+                  if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+                
+                    notify("HatTrickBlue", "  " + jEvent.data.main_target.name);
+                    }else{
+                      notify("HatTrickOrange", "  " + jEvent.data.main_target.name);
+                    }
+                  }else if (jEvent.data.type === "Savior") {
+                    var shotID = jEvent.data.main_target.id
+                    var shotTeam = shotID.slice(-1)
+                    if (shotTeam === "1" || shotTeam === "2" || shotTeam === "3"){
+                  
+                      notify("saviorBlue", "  " + jEvent.data.main_target.name);
+                      }else{
+                        notify("saviorOrange", "  " + jEvent.data.main_target.name);
+                      }
               }else if (jEvent.data.type === "Demolition") {
                 var shotID = jEvent.data.main_target.id
                 var shotTeam = shotID.slice(-1)
