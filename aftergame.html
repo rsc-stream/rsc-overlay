@@ -65,13 +65,13 @@
         -webkit-text-fill-color: transparent;" id="orangeW">W</div>
     </div>
     <div class="flex-containerTeamNameBlue">
-        <div class="text-light fontBold" style=" font-size: 2.7vw;" id="blueTeamName">Blue Team Name</div>
+        <div class="text-light fontBold" style=" font-size: 40px;" id="blueTeamName">Blue Team Name</div>
     </div>
     <div class="flex-containerTeamFranchiseBlue">
         <div class="text-light fontR" style="font-size: 25px;" id="blueFranchise">Blue Franchise Name</div>
     </div>
     <div class="flex-containerTeamNameOrange">
-        <div class="text-light fontBold" style="font-size: 2.7vw;" id="orangeTeamName">Orange Team Name</div>
+        <div class="text-light fontBold" style="font-size: 40px;" id="orangeTeamName">Orange Team Name</div>
     </div>
     <div class="flex-containerTeamFranchiseOrange">
         <div class="text-light fontR" style="font-size: 25px;" id="orangeFranchise">Orange Franchise Name</div>
@@ -160,10 +160,10 @@
         //document.getElementById("tier").innerHTML = localStorage.getItem("tier");
         //if (event.key != 'blueWin1') ;
         //BLUEWIN1()
-        //if (event.key != 'OrangeWins');
-        //  orangeWins()
-        //if (event.key != 'BlueWins');
-        //  blueWins()
+        if (event.key != 'OrangeWins');
+        document.getElementById("OrangeSeries").innerHTML = localStorage.getItem("OrangeWins");
+        if (event.key != 'BlueWins');
+        document.getElementById("blueSeries").innerHTML = localStorage.getItem("BlueWins");
         //if (event.key != 'GameNumber');
         //document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
         if (event.key != 'series') ;
@@ -189,6 +189,8 @@
         //document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
         //document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
         document.getElementById("seriesKind").innerHTML = localStorage.getItem("series");
+        document.getElementById("blueSeries").innerHTML = localStorage.getItem("BlueWins");
+        document.getElementById("OrangeSeries").innerHTML = localStorage.getItem("OrangeWins");
         
         }
     

@@ -9,6 +9,7 @@
     var goalAssist = []
     function orangeWins() {
       var OW = localStorage.getItem("OrangeWins")
+      $('#orangeSeries').text(OW);
       if (OW === '0'){
         $('#orange1').addClass('invisible');
         $('#orange2').addClass('invisible');
@@ -38,28 +39,29 @@
     }
 
     function blueWins() {
-      var OW = localStorage.getItem("BlueWins")
-      if (OW === '0'){
+      var BW = localStorage.getItem("BlueWins")
+      $('#blueSeries').text(BW);
+      if (BW === '0'){
         $('#blue1').addClass('invisible');
         $('#blue2').addClass('invisible');
         $('#blue3').addClass('invisible');
         $('#blue4').addClass('invisible');
-      }else if (OW === '1') {
+      }else if (BW === '1') {
         $('#blue1').removeClass('invisible');
         $('#blue2').addClass('invisible');
         $('#blue3').addClass('invisible');
         $('#blue4').addClass('invisible');
-      }else if (OW === '2') {
+      }else if (BW === '2') {
         $('#blue1').removeClass('invisible');
         $('#blue2').removeClass('invisible');
         $('#blue3').addClass('invisible');
         $('#blue4').addClass('invisible');
-      }else if (OW === '3') {
+      }else if (BW === '3') {
         $('#blue1').removeClass('invisible');
         $('#blue2').removeClass('invisible');
         $('#blue3').removeClass('invisible');
         $('#blue4').addClass('invisible');
-      }else if (OW === '4') {
+      }else if (BW === '4') {
         $('#blue1').removeClass('invisible');
         $('#blue2').removeClass('invisible');
         $('#blue3').removeClass('invisible');
@@ -221,30 +223,13 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
-          $('#blueName1').text(blue1.name)
-          $('#blueGoals1').text(blue1.goals)
-          $('#blueShots1').text(blue1.shots)
-          $('#blueSaves1').text(blue1.saves)
-          $('#blueAssists1').text(blue1.assists)
-          $('#bluePoints1').text(blue1.score)
-          $('#blueName2').text(blue2.name)
-          $('#blueGoals2').text(blue2.goals)
-          $('#blueShots2').text(blue2.shots)
-          $('#blueSaves2').text(blue2.saves)
-          $('#blueAssists2').text(blue2.assists)
-          $('#bluePoints2').text(blue2.score)
-          $('#blueName3').text(blue3.name)
-          $('#blueGoals3').text(blue3.goals)
-          $('#blueShots3').text(blue3.shots)
-          $('#blueSaves3').text(blue3.saves)
-          $('#blueAssists3').text(blue3.assists)
-          $('#bluePoints3').text(blue3.score)
+          
         } else {
           
           //show the ui
           $('#scoreboard').removeClass('invisible');
-          $('#TierOverlay').removeClass('d-none');
-          $('#TierOverlay2').removeClass('d-none');
+         // $('#TierOverlay').removeClass('d-none');
+         // $('#TierOverlay2').removeClass('d-none');
           //$('#scoreboard').toggleClass('open');
           $('#main-ui').removeClass('invisible');
           
@@ -650,6 +635,14 @@
         $('#main-ui').addClass('d-none');
         blueResetAll()
         orangeResetAll()
+        document.getElementById('replayOut').play();
+        window.location.assign("aftergame.html")
+      }else if (jEvent.event == "game:match_created") {
+        document.getElementById('replayOut').play();
+        window.location.assign("index.html")
+      }else if (jEvent.event == "game:match_ended") {
+        document.getElementById('replayOut').play();
+        window.location.assign("aftergame.html")
       }else if (jEvent.event == "game:goal_scored") {
        //play()
        console.log(jEvent.data.scorer.name)
@@ -762,6 +755,7 @@
       }else if (jEvent.event == "game:replay_end") {
         $('#replayOrange').addClass('d-none');
         $('#replayBlue1').addClass('d-none');
+        
       }else if (jEvent.event == "game:replay_start") {
         console.log(team[0])
         if (team[0] === "blue"){
@@ -774,6 +768,8 @@
        
         setTimeout(playOut, 1200)
       }else if (jEvent.event == "game:pre_game_countdown_begin") {
+        document.getElementById('replayOut').play();
+        window.location.assign("index.html")
         console.log(transition)
         setTimeout(add, 4500)
         
@@ -799,7 +795,7 @@
     }
     function toggle() {
       $('#scoreboard').removeClass('open');
-      
+      $('#TierOverlay').removeClass('open1');
     }
 
     function playb() {
