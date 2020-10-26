@@ -111,6 +111,19 @@
       $('#orangeLogo').src = "assets/logos/Orange Logos/" + orangeF + ".png"
     }
 
+    function logocolors() {
+      if (blue1.score + blue2.score + blue3.score > orange1.score + orange2.score + orange3.score) {
+        $('#afterPTSLogo').src = "assets/Blue_Points_icon.png"
+        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blue1.score + blue2.score + blue3.score < orange1.score + orange2.score + orange3.score) {
+        $('#afterPTSLogo').src = "assets/Orange_Points_icon.png"
+        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      }else{
+        $('#afterPTSLogo').src = "assets/Points_icon.png"
+        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+      }
+  }
+
 
     function orangeResetAll() {
 
@@ -419,10 +432,10 @@
             //it does
 
             //blue players btw
-            var blue1 = _.get(team0, [0])
+      /*      var blue1 = _.get(team0, [0])
             var blue2 = _.get(team0, [1])
             var blue3 = _.get(team0, [2])
-
+*/
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
               
               $('#blueName1').text(blue1.name)
@@ -655,9 +668,22 @@
         $('#main-ui').addClass('d-none');
         blueResetAll()
         orangeResetAll()
-        window.location.assign('aftergame.html')
+        //window.location.assign('aftergame.html')
+        winner()
+        logocolors()
+        setTimeout(playout(), 4500)
+        setTimeout(()=>{
+          document.getElementById("aftergame").style.width = "1920px";
+          document.getElementById("aftergame").style.height = "1080px";
+          },5000);
+        
       }else if (jEvent.event == "game:match_destroyed") {
-        window.location.assign('index.html')
+        //window.location.assign('index.html')
+        playout()
+        setTimeout(()=>{
+        document.getElementById("aftergame").style.width = "0px";
+        document.getElementById("aftergame").style.height = "0px";
+      },800);
       console.log("destroy")
         
       }else if (jEvent.event == "game:goal_scored") {

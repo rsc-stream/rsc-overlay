@@ -16,7 +16,7 @@
   
 </head>
 
-<body onload="blueWins(); orangeWins(); seriesback()">
+<body onload="blueWins(); orangeWins(); seriesback(); winner(); /*logocolors()*/">
     <div id="wrapper">
     <img class="back" src="assets/afterBack.png" id="rscLogo" style="width: 1920px"></img>
     <img class="afterBlueLogo" src="assets/logos/Active Logos/Dino Park.png" style="width:215px" id="afterBlueLogo"></img>
@@ -32,6 +32,7 @@
     <img class="afterSavesLogo" src="assets/White_Save_points_icon.png" style="-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));
     filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));" id="afterSaveLogo"></img>
      
+
      <div class="flex-containerBlueMVP">
         <img class="invisible" src="assets/MVP_points_icon.png" style="margin-left: 94px; width: 100px; height: 100px; -webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));
         filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));" id="blue1MVP"></img>
@@ -77,7 +78,7 @@
         <div class="text-light fontR" style="font-size: 25px;" id="orangeFranchise">Orange Franchise Name</div>
     </div>
     <div class="flex-containerTeamScoreBlue">
-        <div class="text-light fontBold BlueGoals" id="blueScore">3</div>
+        <div class="text-light fontBold BlueGoals" id="blueScore">1</div>
     </div>
     <div class="flex-containerTeamScoreOrange">
         <div class="text-light fontBold OrangeGoals" id="orangeScore">2</div>
@@ -194,8 +195,21 @@
         
         }
     
-        
+        function winner() {
+            if (document.getElementById("blueScore").innerHTML > document.getElementById("orangeScore").innerHTML) {
+            $('#blueW').removeClass('invisible');
+            $('#orangeL').removeClass('invisible');
+            $('#blueL').addClass('invisible');
+            $('#orangeW').addClass('invisible');
+            } else{
+            $('#blueL').removeClass('invisible');
+            $('#orangeW').removeClass('invisible');
+            $('#blueW').addClass('invisible');
+            $('#orangeL').addClass('invisible');
+            }
+        }
 
+        
       </script>
 
 

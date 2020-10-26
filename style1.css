@@ -1,5 +1,5 @@
 body{
-  width: 470px;
+  width: 435px;
   height: 150px;
   background-color: #272627; 
   /* background-image: url('assets/logos/rsc.png'); */
@@ -17,11 +17,11 @@ body{
   background: #444444;
   border: 0px;
   color: rgb(226, 226, 226);
-  width: 225px;
+  width: 210px;
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
-  font-size: 15px;
+  font-size: 10px;
   margin-top: 5px;
   margin-left: 5px;
 
@@ -35,13 +35,13 @@ body{
 background: #444444;
 border: 0px;
 color: rgb(226, 226, 226);
-width: 225px;
+width: 210px;
 text-align-last:center;
 border-radius: 5px;
 height: 25px;
-font-size: 15px;
+font-size: 10px;
 margin-top: 5px;
-  margin-left: 5px;
+margin-left: 5px;
 
 }
 
@@ -62,11 +62,11 @@ button:focus {
   background: #444444;
   border: 0px;
   color: rgb(226, 226, 226);
-  width: 225px;
+  width: 210px;
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
-  font-size: 15px;
+  font-size: 10px;
   margin-top: 5px;
   margin-left: 5px;
   
@@ -80,11 +80,11 @@ button:focus {
   background: #444444;
   border: 0px;
   color: rgb(226, 226, 226);
-  width: 225px;
+  width: 210px;
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
-  font-size: 15px;
+  font-size: 10px;
   margin-top: 5px;
   margin-left: 5px;
 }

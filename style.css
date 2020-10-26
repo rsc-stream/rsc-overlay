@@ -1427,7 +1427,7 @@ top: -100px;
 .flex-containerTeamWinBlue {
   position: absolute;
   left: 775px;
-  top: 0px;
+  top: -10px;
   width: 150px;
   height: 150px;
   margin-top: 0px;
@@ -1456,7 +1456,7 @@ top: -100px;
 .flex-containerTeamWinOrange {
   position: absolute;
   left: 990px;
-  top: 0px;
+  top: -10px;
   width: 150px;
   height: 150px;
   margin-top: 0px;
