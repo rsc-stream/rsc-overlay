@@ -1485,6 +1485,8 @@ top: -100px;
 .iFrame {
   position: absolute;
   display: block;
+  top: 0;
+  left: 0;
   width: 1920px;
   height: 1080px;
   z-index: 299;

@@ -223,12 +223,44 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
-          $('#wrapper').addClass('d-none');
-          setTimeout(()=>{
-            document.getElementById('replayOut').play();
-            $('#iFrame').removeClass('d-none');
-          },6000);
-          $('#iFrame').removeClass('d-none');
+              $('#orangeName1').text(orange1.name)
+              $('#orangeGoals1').text(orange1.goals)
+              $('#orangeShots1').text(orange1.shots)
+              $('#orangeSaves1').text(orange1.saves)
+              $('#orangeAssists1').text(orange1.assists)
+              $('#orangePoints1').text(orange1.score)
+              $('#orangeName2').text(orange2.name)
+              $('#orangeGoals2').text(orange2.goals)
+              $('#orangeShots2').text(orange2.shots)
+              $('#orangeSaves2').text(orange2.saves)
+              $('#orangeAssists2').text(orange2.assists)
+              $('#orangePoints2').text(orange2.score)
+              $('#orangeName3').text(orange3.name)
+              $('#orangeGoals3').text(orange3.goals)
+              $('#orangeShots3').text(orange3.shots)
+              $('#orangeSaves3').text(orange3.saves)
+              $('#orangeAssists3').text(orange3.assists)
+              $('#orangePoints3').text(orange3.score)
+              $('#blueName1').text(blue1.name)
+              $('#blueGoals1').text(blue1.goals)
+              $('#blueShots1').text(blue1.shots)
+              $('#blueSaves1').text(blue1.saves)
+              $('#blueAssists1').text(blue1.assists)
+              $('#bluePoints1').text(blue1.score)
+              $('#blueName2').text(blue2.name)
+              $('#blueGoals2').text(blue2.goals)
+              $('#blueShots2').text(blue2.shots)
+              $('#blueSaves2').text(blue2.saves)
+              $('#blueAssists2').text(blue2.assists)
+              $('#bluePoints2').text(blue2.score)
+              $('#blueName3').text(blue3.name)
+              $('#blueGoals3').text(blue3.goals)
+              $('#blueShots3').text(blue3.shots)
+              $('#blueSaves3').text(blue3.saves)
+              $('#blueAssists3').text(blue3.assists)
+              $('#bluePoints3').text(blue3.score)
+          
+          
         } else if (jEvent.data.game.isReplay == true) { 
           $('#main-ui').addClass('invisible');
           $('#scoreboard').addClass('invisible');
@@ -250,7 +282,9 @@
           //$('#scoreboard').toggleClass('open');
           $('#main-ui').removeClass('invisible');
           $('#wrapper').removeClass('d-none');
-          $('#iFrame').addClass('d-none');
+          $('#TierOverlay').removeClass('d-none');
+          
+          
           
          // $('#TierOverlay').toggleClass('open1');
           //time
@@ -306,7 +340,7 @@
 
           if (activeTarget.length > 1) {
 
-
+          
             if (activePlayerData.team == 0) {
               $('#blue-active').removeClass('d-none');
               $('#orange-active').addClass('d-none');
@@ -621,10 +655,10 @@
         $('#main-ui').addClass('d-none');
         blueResetAll()
         orangeResetAll()
-        
-      }else if (jEvent.event == "game:match_created") {
-        
-      
+        window.location.assign('aftergame.html')
+      }else if (jEvent.event == "game:match_destroyed") {
+        window.location.assign('index.html')
+      console.log("destroy")
         
       }else if (jEvent.event == "game:goal_scored") {
        //play()
@@ -773,12 +807,14 @@
     function add() {
       $('#scoreboard').addClass('open');
       $('#TierOverlay').addClass('open1');
+      $('#TierOverlay2').addClass('open1');
           logo()
       
     }
     function toggle() {
       $('#scoreboard').removeClass('open');
       $('#TierOverlay').removeClass('open1');
+      $('#TierOverlay2').addClass('open1');
     }
 
     function playb() {
@@ -855,6 +891,7 @@ var timer
     timer = setTimeout(()=>{
       $('#TierOverlay').removeClass('open1');
         setTimeout(()=>{
+          $('#TierOverlay2').removeClass('d-none');
             $('#TierOverlay2').addClass('open1');
           },2000);
         },15000);
