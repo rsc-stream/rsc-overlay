@@ -886,6 +886,7 @@
         let id = Math.random().toString(36).substr(2,10);
         n.setAttribute("id",id);
         n.classList.add("notification",type);
+        n.classList.add("fade_out")
         n.innerText = message;
         document.getElementById("notification-area").appendChild(n);
         setTimeout(()=>{
