@@ -211,7 +211,7 @@
         var teamData = jEvent.data.game.teams
 
         //console.log(jEvent.data.game.hasWinner)
-        if (jEvent.data.game.hasWinner == true || jEvent.data.game.isReplay == true) { // || jEvent.data.game.isReplay == true will be added on prod
+        if (jEvent.data.game.hasWinner == true) { 
           $('#main-ui').addClass('invisible');
           $('#scoreboard').addClass('invisible');
           //$('#scoreboard').removeClass('open')
@@ -223,7 +223,24 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
-          
+          $('#wrapper').addClass('d-none');
+          setTimeout(()=>{
+            document.getElementById('replayOut').play();
+            $('#iFrame').removeClass('d-none');
+          },6000);
+          $('#iFrame').removeClass('d-none');
+        } else if (jEvent.data.game.isReplay == true) { 
+          $('#main-ui').addClass('invisible');
+          $('#scoreboard').addClass('invisible');
+          //$('#scoreboard').removeClass('open')
+          //console.log(jEvent.data.game.isReplay)
+          $('#blue-active').addClass('d-none');
+          $('#orange-active').addClass('d-none');
+          $('#TierOverlay').addClass('d-none');
+          $('#TierOverlay2').addClass('d-none');
+          $('#TierOverlay').removeClass('open1');
+          $('#TierOverlay2').removeClass('open1');
+          clearTimeout(timer);  
         } else {
           
           //show the ui
@@ -232,6 +249,8 @@
          // $('#TierOverlay2').removeClass('d-none');
           //$('#scoreboard').toggleClass('open');
           $('#main-ui').removeClass('invisible');
+          $('#wrapper').removeClass('d-none');
+          $('#iFrame').addClass('d-none');
           
          // $('#TierOverlay').toggleClass('open1');
           //time
@@ -277,39 +296,6 @@
           } else {
             $('#overtime-text').addClass('d-none')
           }
-
-          //ball pos
-          /*var ballArr = [jEvent.data.game.ballX, jEvent.data.game.ballY]
-          var ballPos = xScale(jEvent.data.game.ballX) + ', ' + yScale(jEvent.data.game.ballY)
-
-          var my_transform = d3Transform()
-            .translate(ballPos)
-
-
-          svg.selectAll("circle")
-            .attr('transform', my_transform)
-            .attr("cx", function (d) {
-              return xScale(d[0]);
-            })
-            .attr("cy", function (d) {
-              return yScale(d[1]);
-            })
-            .attr("r", 4);*/
-
-
-          //console.log(ballPos)
-
-          /* svg.selectAll("circle")
-             .data([ballArr])
-             .enter()
-             .append("circle")
-             .attr("cx", function (d) {
-               return xScale(d[0]);
-             })
-             .attr("cy", function (d) {
-               return yScale(d[1]);
-             })
-             .attr("r", 4);*/
 
 
           //active player logic
@@ -635,14 +621,11 @@
         $('#main-ui').addClass('d-none');
         blueResetAll()
         orangeResetAll()
-        document.getElementById('replayOut').play();
-        window.location.assign("aftergame.html")
+        
       }else if (jEvent.event == "game:match_created") {
-        document.getElementById('replayOut').play();
-        window.location.assign("index.html")
-      }else if (jEvent.event == "game:match_ended") {
-        document.getElementById('replayOut').play();
-        window.location.assign("aftergame.html")
+        
+      
+        
       }else if (jEvent.event == "game:goal_scored") {
        //play()
        console.log(jEvent.data.scorer.name)
@@ -768,8 +751,8 @@
        
         setTimeout(playOut, 1200)
       }else if (jEvent.event == "game:pre_game_countdown_begin") {
-        document.getElementById('replayOut').play();
-        window.location.assign("index.html")
+        
+
         console.log(transition)
         setTimeout(add, 4500)
         

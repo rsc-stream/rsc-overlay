@@ -18,7 +18,15 @@
 </head>
 
 <body onload="blueWins(); orangeWins(); seriesback()">
-  <div id="wrapper">
+
+  <video preload muted id="replayOut" class="stinger">
+    <source src="assets/RSC.webm" type="video/webm"> 
+  </video>
+
+  <div id="iFrame" class="d-none">
+    <iframe src="aftergame.html" frameborder="0" allowtransparency="yes" scrolling="no" style="width: 1920px; height: 1080px; position: relative; z-index: 299;"></iframe>
+  </div>
+  <div id="wrapper" class="">
   
     <video preload muted id="goalORANGE" class="goalO">
       <source src="assets/goals/Goal.webm" type="video/webm"> 
@@ -36,9 +44,7 @@
       <source src="assets/goals/Dino Park.webm" type="video/webm"> 
     </video>
 
-    <video preload muted id="replayOut" class="stinger">
-      <source src="assets/RSC.webm" type="video/webm"> 
-    </video>
+    
   
   <div id="TierOverlay" class="transition1">
     <img src="assets/Tier.png" class="tierOver">
