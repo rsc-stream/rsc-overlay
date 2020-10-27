@@ -432,10 +432,10 @@
             //it does
 
             //blue players btw
-      /*      var blue1 = _.get(team0, [0])
+            var blue1 = _.get(team0, [0])
             var blue2 = _.get(team0, [1])
             var blue3 = _.get(team0, [2])
-*/
+
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
               
               $('#blueName1').text(blue1.name)
@@ -669,7 +669,7 @@
         blueResetAll()
         orangeResetAll()
         //window.location.assign('aftergame.html')
-        winner()
+        //winner()
         logocolors()
         setTimeout(playout(), 4500)
         setTimeout(()=>{
