@@ -4,6 +4,12 @@
 
    var BlueTeamWins = []
    var OrangeTeamWins = []
+   var blueData1 = []
+   var blueData2 = []
+   var blueData3 = []
+   var orangeData1 = []
+   var orangeData2 = []
+   var orangeData3 = []
 
     var team = []
     var goalAssist = []
@@ -236,42 +242,42 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
-              $('#orangeName1').text(orange1.name)
-              $('#orangeGoals1').text(orange1.goals)
-              $('#orangeShots1').text(orange1.shots)
-              $('#orangeSaves1').text(orange1.saves)
-              $('#orangeAssists1').text(orange1.assists)
-              $('#orangePoints1').text(orange1.score)
-              $('#orangeName2').text(orange2.name)
-              $('#orangeGoals2').text(orange2.goals)
-              $('#orangeShots2').text(orange2.shots)
-              $('#orangeSaves2').text(orange2.saves)
-              $('#orangeAssists2').text(orange2.assists)
-              $('#orangePoints2').text(orange2.score)
-              $('#orangeName3').text(orange3.name)
-              $('#orangeGoals3').text(orange3.goals)
-              $('#orangeShots3').text(orange3.shots)
-              $('#orangeSaves3').text(orange3.saves)
-              $('#orangeAssists3').text(orange3.assists)
-              $('#orangePoints3').text(orange3.score)
-              $('#blueName1').text(blue1.name)
-              $('#blueGoals1').text(blue1.goals)
-              $('#blueShots1').text(blue1.shots)
-              $('#blueSaves1').text(blue1.saves)
-              $('#blueAssists1').text(blue1.assists)
-              $('#bluePoints1').text(blue1.score)
-              $('#blueName2').text(blue2.name)
-              $('#blueGoals2').text(blue2.goals)
-              $('#blueShots2').text(blue2.shots)
-              $('#blueSaves2').text(blue2.saves)
-              $('#blueAssists2').text(blue2.assists)
-              $('#bluePoints2').text(blue2.score)
-              $('#blueName3').text(blue3.name)
-              $('#blueGoals3').text(blue3.goals)
-              $('#blueShots3').text(blue3.shots)
-              $('#blueSaves3').text(blue3.saves)
-              $('#blueAssists3').text(blue3.assists)
-              $('#bluePoints3').text(blue3.score)
+              $('#orangeName1').text(orangeData1.name)
+              $('#orangeGoals1').text(orangeData1.goals)
+              $('#orangeShots1').text(orangeData1.shots)
+              $('#orangeSaves1').text(orangeData1.saves)
+              $('#orangeAssists1').text(orangeData1.assists)
+              $('#orangePoints1').text(orangeData1.score)
+              $('#orangeName2').text(orangeData2.name)
+              $('#orangeGoals2').text(orangeData2.goals)
+              $('#orangeShots2').text(orangeData2.shots)
+              $('#orangeSaves2').text(orangeData2.saves)
+              $('#orangeAssists2').text(orangeData2.assists)
+              $('#orangePoints2').text(orangeData2.score)
+              $('#orangeName3').text(orangeData3.name)
+              $('#orangeGoals3').text(orangeData3.goals)
+              $('#orangeShots3').text(orangeData3.shots)
+              $('#orangeSaves3').text(orangeData3.saves)
+              $('#orangeAssists3').text(orangeData3.assists)
+              $('#orangePoints3').text(orangeData3.score)
+              $('#blueName1').text(blueData1.name)
+              $('#blueGoals1').text(blueData1.goals)
+              $('#blueShots1').text(blueData1.shots)
+              $('#blueSaves1').text(blueData1.saves)
+              $('#blueAssists1').text(blueData1.assists)
+              $('#bluePoints1').text(blueData1.score)
+              $('#blueName2').text(blueData2.name)
+              $('#blueGoals2').text(blueData2.goals)
+              $('#blueShots2').text(blueData2.shots)
+              $('#blueSaves2').text(blueData2.saves)
+              $('#blueAssists2').text(blueData2.assists)
+              $('#bluePoints2').text(blueData2.score)
+              $('#blueName3').text(blueData3.name)
+              $('#blueGoals3').text(blueData3.goals)
+              $('#blueShots3').text(blueData3.shots)
+              $('#blueSaves3').text(blueData3.saves)
+              $('#blueAssists3').text(blueData3.assists)
+              $('#bluePoints3').text(blueData3.score)
           
           
         } else if (jEvent.data.game.isReplay == true) { 
@@ -435,6 +441,14 @@
             var blue1 = _.get(team0, [0])
             var blue2 = _.get(team0, [1])
             var blue3 = _.get(team0, [2])
+            blueData1 = []
+            blueData1.push(blue1)
+
+            blueData2 = []
+            blueData2.push(blue2)
+          
+            blueData3 = []
+            blueData3.push(blue3)
 
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
               
@@ -550,6 +564,15 @@
             var orange1 = _.get(team1, [0])
             var orange2 = _.get(team1, [1])
             var orange3 = _.get(team1, [2])
+
+            orangeData1 = []
+            orangeData1.push(orange1)
+
+            orangeData2 = []
+            orangeData2.push(orange2)
+          
+            orangeData3 = []
+            orangeData3.push(orange3)
 
             if (orange1 != undefined && orange2 != undefined && orange3 != undefined) {
               
@@ -671,7 +694,7 @@
         //window.location.assign('aftergame.html')
         //winner()
         logocolors()
-        setTimeout(playout(), 4500)
+        setTimeout(playOut, 4500)
         setTimeout(()=>{
           document.getElementById("aftergame").style.width = "1920px";
           document.getElementById("aftergame").style.height = "1080px";
@@ -679,7 +702,7 @@
         
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
-        playout()
+        playOut()
         setTimeout(()=>{
         document.getElementById("aftergame").style.width = "0px";
         document.getElementById("aftergame").style.height = "0px";
