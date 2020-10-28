@@ -118,18 +118,51 @@
     }
 
     function logocolors() {
-      if (blue1.score + blue2.score + blue3.score > orange1.score + orange2.score + orange3.score) {
-        $('#afterPTSLogo').src = "assets/Blue_Points_icon.png"
-        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
-      }else if (blue1.score + blue2.score + blue3.score < orange1.score + orange2.score + orange3.score) {
-        $('#afterPTSLogo').src = "assets/Orange_Points_icon.png"
-        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      var blueDataScore = blueData1[0].score + blueData2[0].score + blueData3[0].score 
+      var orangeDataScore = orangeData1[0].score + orangeData2[0].score + orangeData3[0].score
+      if (blueDataScore > orangeDataScore) {
+        $('#afterPTSLogo').addClass('invisible')
+        $('#afterPTSBlueLogo').removeClass('invisible')
+        $('#afterPTSOrangeLogo').addClass('invisible')
+        console.log('blue')
+        //$('#afterPTSLogo').src = "assets/Blue_Points_icon.png"
+       // $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blueDataScore < orangeDataScore) {
+        $('#afterPTSLogo').addClass('invisible')
+        $('#afterPTSOrangeLogo').removeClass('invisible')
+        $('#afterPTSBlueLogo').addClass('invisible')
+       // $('#afterPTSLogo').src = "assets/Orange_Points_icon.png"
+       // $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
       }else{
-        $('#afterPTSLogo').src = "assets/Points_icon.png"
-        $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+        $('#afterPTSLogo').removeClass('invisible')
+        $('#afterPTSBlueLogo').addClass('invisible')
+        $('#afterPTSOrangeLogo').addClass('invisible')
+        //$('#afterPTSLogo').src = "assets/Points_icon.png"
+      //  $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
       }
   }
 
+  function winner() {
+    var blueGoals = document.getElementById("blueScore").innerHTML
+    var orangeGoals = document.getElementById("orangeScore").innerHTML
+    console.log(blueGoals)
+    if (blueGoals > orangeGoals) {
+    $('#blueW').removeClass('invisible');
+    $('#orangeL').removeClass('invisible');
+    $('#blueL').addClass('invisible');
+    $('#orangeW').addClass('invisible');
+    } else if (blueGoals < orangeGoals){
+    $('#blueL').removeClass('invisible');
+    $('#orangeW').removeClass('invisible');
+    $('#blueW').addClass('invisible');
+    $('#orangeL').addClass('invisible');
+    }else{
+      $('#blueL').addClass('invisible');
+      $('#orangeW').addClass('invisible');
+      $('#blueW').addClass('invisible');
+      $('#orangeL').addClass('invisible');
+    }
+}
 
     function orangeResetAll() {
 
@@ -242,6 +275,7 @@
           $('#TierOverlay').removeClass('open1');
           $('#TierOverlay2').removeClass('open1');
           clearTimeout(timer);
+         // winner();
               $('#orangeName1').text(orangeData1.name)
               $('#orangeGoals1').text(orangeData1.goals)
               $('#orangeShots1').text(orangeData1.shots)
@@ -302,7 +336,7 @@
           $('#main-ui').removeClass('invisible');
           $('#wrapper').removeClass('d-none');
           $('#TierOverlay').removeClass('d-none');
-          
+         // logocolors()
           
           
          // $('#TierOverlay').toggleClass('open1');
@@ -443,13 +477,13 @@
             var blue3 = _.get(team0, [2])
             blueData1 = []
             blueData1.push(blue1)
-
+console.log(blueData1)
             blueData2 = []
             blueData2.push(blue2)
           
             blueData3 = []
             blueData3.push(blue3)
-
+            
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
               
               $('#blueName1').text(blue1.name)
@@ -675,7 +709,8 @@
               $('#orange-player-3-p-bar').width('0%')*/
 
             }
-
+            logocolors()
+            winner()
           } else {
             orangeResetAll()
           }
@@ -692,13 +727,21 @@
         blueResetAll()
         orangeResetAll()
         //window.location.assign('aftergame.html')
-        //winner()
+        winner()
         logocolors()
-        setTimeout(playOut, 4500)
+      /*  setTimeout(playOut, 7500)
         setTimeout(()=>{
           document.getElementById("aftergame").style.width = "1920px";
           document.getElementById("aftergame").style.height = "1080px";
-          },5000);
+          },8500);
+*/
+          setTimeout(()=>{
+            playOut;
+              setTimeout(()=>{
+                document.getElementById("aftergame").style.width = "1920px";
+                document.getElementById("aftergame").style.height = "1080px";
+                },1000);
+              },6500);
         
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
