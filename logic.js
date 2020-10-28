@@ -120,6 +120,15 @@
     function logocolors() {
       var blueDataScore = blueData1[0].score + blueData2[0].score + blueData3[0].score 
       var orangeDataScore = orangeData1[0].score + orangeData2[0].score + orangeData3[0].score
+      var blueDataGoals = blueData1[0].goals + blueData2[0].goals + blueData3[0].goals 
+      var orangeDataGoals = orangeData1[0].goals + orangeData2[0].goals + orangeData3[0].goals
+      var blueDataAssists = blueData1[0].assists + blueData2[0].assists + blueData3[0].assists 
+      var orangeDataAssists = orangeData1[0].assists + orangeData2[0].assists + orangeData3[0].assists
+      var blueDataShots = blueData1[0].shots + blueData2[0].shots + blueData3[0].shots 
+      var orangeDataShots = orangeData1[0].shots + orangeData2[0].shots + orangeData3[0].shots
+      var blueDataSaves = blueData1[0].saves + blueData2[0].saves + blueData3[0].saves 
+      var orangeDataSaves = orangeData1[0].saves + orangeData2[0].saves + orangeData3[0].saves
+    
       if (blueDataScore > orangeDataScore) {
         $('#afterPTSLogo').addClass('invisible')
         $('#afterPTSBlueLogo').removeClass('invisible')
@@ -140,12 +149,212 @@
         //$('#afterPTSLogo').src = "assets/Points_icon.png"
       //  $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
       }
+
+      if (blueDataGoals > orangeDataGoals) {
+        $('#afterGoalsLogo').addClass('invisible')
+        $('#afterGoalsBlueLogo').removeClass('invisible')
+        $('#afterGoalsOrangeLogo').addClass('invisible')
+        console.log('blue')
+        //$('#afterGoalsLogo').src = "assets/Blue_Points_icon.png"
+       // $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blueDataGoals < orangeDataGoals) {
+        $('#afterGoalsLogo').addClass('invisible')
+        $('#afterGoalsOrangeLogo').removeClass('invisible')
+        $('#afterGoalsBlueLogo').addClass('invisible')
+       // $('#afterGoalsLogo').src = "assets/Orange_Points_icon.png"
+       // $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      }else{
+        $('#afterGoalsLogo').removeClass('invisible')
+        $('#afterGoalsBlueLogo').addClass('invisible')
+        $('#afterGoalsOrangeLogo').addClass('invisible')
+        //$('#afterGoalsLogo').src = "assets/Points_icon.png"
+      //  $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+      }
+
+      if (blueDataAssists > orangeDataAssists) {
+        $('#afterAssistsLogo').addClass('invisible')
+        $('#afterAssistsBlueLogo').removeClass('invisible')
+        $('#afterAssistsOrangeLogo').addClass('invisible')
+        console.log('blue')
+        //$('#afterAssistsLogo').src = "assets/Blue_Points_icon.png"
+       // $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blueDataAssists < orangeDataAssists) {
+        $('#afterAssistsLogo').addClass('invisible')
+        $('#afterAssistsOrangeLogo').removeClass('invisible')
+        $('#afterAssistsBlueLogo').addClass('invisible')
+       // $('#afterAssistsLogo').src = "assets/Orange_Points_icon.png"
+       // $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      }else{
+        $('#afterAssistsLogo').removeClass('invisible')
+        $('#afterAssistsBlueLogo').addClass('invisible')
+        $('#afterAssistsOrangeLogo').addClass('invisible')
+        //$('#afterAssistsLogo').src = "assets/Points_icon.png"
+      //  $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+      }
+
+      if (blueDataShots > orangeDataShots) {
+        $('#afterShotsLogo').addClass('invisible')
+        $('#afterShotsBlueLogo').removeClass('invisible')
+        $('#afterShotsOrangeLogo').addClass('invisible')
+        console.log('blue')
+        //$('#afterShotsLogo').src = "assets/Blue_Points_icon.png"
+       // $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blueDataShots < orangeDataShots) {
+        $('#afterShotsLogo').addClass('invisible')
+        $('#afterShotsOrangeLogo').removeClass('invisible')
+        $('#afterShotsBlueLogo').addClass('invisible')
+       // $('#afterShotsLogo').src = "assets/Orange_Points_icon.png"
+       // $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      }else{
+        $('#afterShotsLogo').removeClass('invisible')
+        $('#afterShotsBlueLogo').addClass('invisible')
+        $('#afterShotsOrangeLogo').addClass('invisible')
+        //$('#afterShotsLogo').src = "assets/Points_icon.png"
+      //  $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+      }
+
+      if (blueDataSaves > orangeDataSaves) {
+        $('#afterSavesLogo').addClass('invisible')
+        $('#afterSavesBlueLogo').removeClass('invisible')
+        $('#afterSavesOrangeLogo').addClass('invisible')
+        console.log('blue')
+        //$('#afterSavesLogo').src = "assets/Blue_Points_icon.png"
+       // $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
+      }else if (blueDataSaves < orangeDataSaves) {
+        $('#afterSavesLogo').addClass('invisible')
+        $('#afterSavesOrangeLogo').removeClass('invisible')
+        $('#afterSavesBlueLogo').addClass('invisible')
+       // $('#afterSavesLogo').src = "assets/Orange_Points_icon.png"
+       // $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+      }else{
+        $('#afterSavesLogo').removeClass('invisible')
+        $('#afterSavesBlueLogo').addClass('invisible')
+        $('#afterSavesOrangeLogo').addClass('invisible')
+        //$('#afterSavesLogo').src = "assets/Points_icon.png"
+      //  $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
+      }
+
+      if ($('#bluePoints1') > $('#bluePoints2') && $('#bluePoints1') > $('#bluePoints3') && $('#bluePoints1') > $('#orangePoints1') && $('#bluePoints1') > $('#orangePoints2') && $('#bluePoints1') > $('#orangePoints3')) {
+        document.getElementById("bluePoints1").style.color = "#4793ff";
+        document.getElementById("bluePoints1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints2").style.color = "white";
+        document.getElementById("bluePoints2").style.webkitfilter = null
+        document.getElementById("bluePoints2").style.filter = null
+        document.getElementById("bluePoints3").style.color = "white";
+        document.getElementById("bluePoints3").style.webkitfilter = null
+        document.getElementById("bluePoints3").style.filter = null
+        document.getElementById("orangePoints1").style.color = "white";
+        document.getElementById("orangePoints1").style.webkitfilter = null
+        document.getElementById("orangePoints1").style.filter = null
+        document.getElementById("orangePoints2").style.color = "white";
+        document.getElementById("orangePoints2").style.webkitfilter = null
+        document.getElementById("orangePoints2").style.filter = null
+        document.getElementById("orangePoints3").style.color = "white";
+        document.getElementById("orangePoints3").style.webkitfilter = null
+        document.getElementById("orangePoints3").style.filter = null
+      }else if ($('#bluePoints2') > $('#bluePoints1') && $('#bluePoints2') > $('#bluePoints3') && $('#bluePoints2') > $('#orangePoints1') && $('#bluePoints2') > $('#orangePoints2') && $('#bluePoints2') > $('#orangePoints3')) {
+        document.getElementById("bluePoints2").style.color = "#4793ff";
+        document.getElementById("bluePoints2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints1").style.color = "white";
+        document.getElementById("bluePoints1").style.webkitfilter = null
+        document.getElementById("bluePoints1").style.filter = null
+        document.getElementById("bluePoints3").style.color = "white";
+        document.getElementById("bluePoints3").style.webkitfilter = null
+        document.getElementById("bluePoints3").style.filter = null
+        document.getElementById("orangePoints1").style.color = "white";
+        document.getElementById("orangePoints1").style.webkitfilter = null
+        document.getElementById("orangePoints1").style.filter = null
+        document.getElementById("orangePoints2").style.color = "white";
+        document.getElementById("orangePoints2").style.webkitfilter = null
+        document.getElementById("orangePoints2").style.filter = null
+        document.getElementById("orangePoints3").style.color = "white";
+        document.getElementById("orangePoints3").style.webkitfilter = null
+        document.getElementById("orangePoints3").style.filter = null
+      }else if ($('#bluePoints3') > $('#bluePoints1') && $('#bluePoints3') > $('#bluePoints2') && $('#bluePoints3') > $('#orangePoints1') && $('#bluePoints3') > $('#orangePoints2') && $('#bluePoints3') > $('#orangePoints3')) {
+        document.getElementById("bluePoints3").style.color = "#4793ff";
+        document.getElementById("bluePoints3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
+        document.getElementById("bluePoints1").style.color = "white";
+        document.getElementById("bluePoints1").style.webkitfilter = null
+        document.getElementById("bluePoints1").style.filter = null
+        document.getElementById("bluePoints2").style.color = "white";
+        document.getElementById("bluePoints2").style.webkitfilter = null
+        document.getElementById("bluePoints2").style.filter = null
+        document.getElementById("orangePoints1").style.color = "white";
+        document.getElementById("orangePoints1").style.webkitfilter = null
+        document.getElementById("orangePoints1").style.filter = null
+        document.getElementById("orangePoints2").style.color = "white";
+        document.getElementById("orangePoints2").style.webkitfilter = null
+        document.getElementById("orangePoints2").style.filter = null
+        document.getElementById("orangePoints3").style.color = "white";
+        document.getElementById("orangePoints3").style.webkitfilter = null
+        document.getElementById("orangePoints3").style.filter = null
+      }else if ($('#orangePoints1') > $('#bluePoints1') && $('#orangePoints1') > $('#bluePoints2') && $('#orangePoints1') > $('#bluePoints3') && $('#orangePoints1') > $('#orangePoints2') && $('#orangePoints1') > $('#orangePoints3')) {
+        document.getElementById("bluePoints2").style.color = "white";
+        document.getElementById("bluePoints2").style.webkitfilter = null
+        document.getElementById("bluePoints2").style.filter = null
+        document.getElementById("bluePoints1").style.color = "white";
+        document.getElementById("bluePoints1").style.webkitfilter = null
+        document.getElementById("bluePoints1").style.filter = null
+        document.getElementById("bluePoints3").style.color = "white";
+        document.getElementById("bluePoints3").style.webkitfilter = null
+        document.getElementById("bluePoints3").style.filter = null
+        document.getElementById("orangePoints1").style.color = "#ffb347";
+        document.getElementById("orangePoints1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints2").style.color = "white";
+        document.getElementById("orangePoints2").style.webkitfilter = null
+        document.getElementById("orangePoints2").style.filter = null
+        document.getElementById("orangePoints3").style.color = "white";
+        document.getElementById("orangePoints3").style.webkitfilter = null
+        document.getElementById("orangePoints3").style.filter = null
+      }else if ($('#orangePoints2') > $('#bluePoints1') && $('#orangePoints2') > $('#bluePoints2') && $('#orangePoints2') > $('#bluePoints3') && $('#orangePoints2') > $('#orangePoints1') && $('#orangePoints2') > $('#orangePoints3')) {
+        document.getElementById("bluePoints2").style.color = "white";
+        document.getElementById("bluePoints2").style.webkitfilter = null
+        document.getElementById("bluePoints2").style.filter = null
+        document.getElementById("bluePoints1").style.color = "white";
+        document.getElementById("bluePoints1").style.webkitfilter = null
+        document.getElementById("bluePoints1").style.filter = null
+        document.getElementById("bluePoints3").style.color = "white";
+        document.getElementById("bluePoints3").style.webkitfilter = null
+        document.getElementById("bluePoints3").style.filter = null
+        document.getElementById("orangePoints2").style.color = "#ffb347";
+        document.getElementById("orangePoints2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints1").style.color = "white";
+        document.getElementById("orangePoints1").style.webkitfilter = null
+        document.getElementById("orangePoints1").style.filter = null
+        document.getElementById("orangePoints3").style.color = "white";
+        document.getElementById("orangePoints3").style.webkitfilter = null
+        document.getElementById("orangePoints3").style.filter = null
+      }else if ($('#orangePoints3') > $('#bluePoints1') && $('#orangePoints3') > $('#bluePoints2') && $('#orangePoints3') > $('#bluePoints3') && $('#orangePoints3') > $('#orangePoints2') && $('#orangePoints3') > $('#orangePoints1')) {
+        document.getElementById("bluePoints2").style.color = "white";
+        document.getElementById("bluePoints2").style.webkitfilter = null
+        document.getElementById("bluePoints2").style.filter = null
+        document.getElementById("bluePoints1").style.color = "white";
+        document.getElementById("bluePoints1").style.webkitfilter = null
+        document.getElementById("bluePoints1").style.filter = null
+        document.getElementById("bluePoints3").style.color = "white";
+        document.getElementById("bluePoints3").style.webkitfilter = null
+        document.getElementById("bluePoints3").style.filter = null
+        document.getElementById("orangePoints3").style.color = "#ffb347";
+        document.getElementById("orangePoints3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
+        document.getElementById("orangePoints2").style.color = "white";
+        document.getElementById("orangePoints2").style.webkitfilter = null
+        document.getElementById("orangePoints2").style.filter = null
+        document.getElementById("orangePoints1").style.color = "white";
+        document.getElementById("orangePoints1").style.webkitfilter = null
+        document.getElementById("orangePoints1").style.filter = null
+      } 
   }
 
   function winner() {
     var blueGoals = document.getElementById("blueScore").innerHTML
     var orangeGoals = document.getElementById("orangeScore").innerHTML
-    console.log(blueGoals)
+    //console.log(blueGoals)
     if (blueGoals > orangeGoals) {
     $('#blueW').removeClass('invisible');
     $('#orangeL').removeClass('invisible');
@@ -729,19 +938,14 @@ console.log(blueData1)
         //window.location.assign('aftergame.html')
         winner()
         logocolors()
-      /*  setTimeout(playOut, 7500)
-        setTimeout(()=>{
-          document.getElementById("aftergame").style.width = "1920px";
-          document.getElementById("aftergame").style.height = "1080px";
-          },8500);
-*/
-          setTimeout(()=>{
-            playOut;
+        endGame()
+         /* setTimeout(()=>{
+            playOut();
               setTimeout(()=>{
                 document.getElementById("aftergame").style.width = "1920px";
                 document.getElementById("aftergame").style.height = "1080px";
                 },1000);
-              },6500);
+              },6500);*/
         
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
@@ -989,3 +1193,13 @@ var timer
           },2000);
         },15000);
     }
+
+    function endGame() {
+    setTimeout(()=>{
+      playOut();
+        setTimeout(()=>{
+          document.getElementById("aftergame").style.width = "1920px";
+          document.getElementById("aftergame").style.height = "1080px";
+          },2000);
+        },6500);
+      }
