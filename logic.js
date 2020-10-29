@@ -1023,7 +1023,7 @@ console.log(blueData1)
         setTimeout(()=>{
         document.getElementById("aftergame").style.width = "0px";
         document.getElementById("aftergame").style.height = "0px";
-      },800);
+      },2300);
 
         console.log(transition)
         setTimeout(add, 4500)
@@ -1143,7 +1143,7 @@ var timer
         setTimeout(()=>{
           document.getElementById("aftergame").style.width = "1920px";
           document.getElementById("aftergame").style.height = "1080px";
-          },2100);
+          },2300);
         },7500);
       }
 

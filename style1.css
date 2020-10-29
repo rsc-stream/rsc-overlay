@@ -372,8 +372,9 @@ button:focus {
   {
     position:absolute;
     display: block;
-  margin-left: auto;
+  margin-left: 45px;
   margin-right: auto;
+  width: 50%;
     opacity: 0.05;
     z-index: -99;
   }
