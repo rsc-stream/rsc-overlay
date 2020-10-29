@@ -133,7 +133,7 @@
         $('#afterPTSLogo').addClass('invisible')
         $('#afterPTSBlueLogo').removeClass('invisible')
         $('#afterPTSOrangeLogo').addClass('invisible')
-        console.log('blue')
+        
         //$('#afterPTSLogo').src = "assets/Blue_Points_icon.png"
        // $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
       }else if (blueDataScore < orangeDataScore) {
@@ -154,7 +154,7 @@
         $('#afterGoalsLogo').addClass('invisible')
         $('#afterGoalsBlueLogo').removeClass('invisible')
         $('#afterGoalsOrangeLogo').addClass('invisible')
-        console.log('blue')
+        
         //$('#afterGoalsLogo').src = "assets/Blue_Points_icon.png"
        // $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
       }else if (blueDataGoals < orangeDataGoals) {
@@ -175,7 +175,7 @@
         $('#afterAssistsLogo').addClass('invisible')
         $('#afterAssistsBlueLogo').removeClass('invisible')
         $('#afterAssistsOrangeLogo').addClass('invisible')
-        console.log('blue')
+       
         //$('#afterAssistsLogo').src = "assets/Blue_Points_icon.png"
        // $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
       }else if (blueDataAssists < orangeDataAssists) {
@@ -196,7 +196,7 @@
         $('#afterShotsLogo').addClass('invisible')
         $('#afterShotsBlueLogo').removeClass('invisible')
         $('#afterShotsOrangeLogo').addClass('invisible')
-        console.log('blue')
+        
         //$('#afterShotsLogo').src = "assets/Blue_Points_icon.png"
        // $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
       }else if (blueDataShots < orangeDataShots) {
@@ -217,7 +217,7 @@
         $('#afterSavesLogo').addClass('invisible')
         $('#afterSavesBlueLogo').removeClass('invisible')
         $('#afterSavesOrangeLogo').addClass('invisible')
-        console.log('blue')
+       
         //$('#afterSavesLogo').src = "assets/Blue_Points_icon.png"
        // $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
       }else if (blueDataSaves < orangeDataSaves) {
@@ -234,237 +234,7 @@
       //  $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
       }
 
-      if ($('#bluePoints1') > $('#bluePoints2') && $('#bluePoints1') > $('#bluePoints3') && $('#bluePoints1') > $('#orangePoints1') && $('#bluePoints1') > $('#orangePoints2') && $('#bluePoints1') > $('#orangePoints3')) {
-        document.getElementById("bluePoints1").style.color = "#4793ff";
-        document.getElementById("bluePoints1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints2").style.color = "white";
-        document.getElementById("bluePoints2").style.webkitfilter = null
-        document.getElementById("bluePoints2").style.filter = null
-        document.getElementById("bluePoints3").style.color = "white";
-        document.getElementById("bluePoints3").style.webkitfilter = null
-        document.getElementById("bluePoints3").style.filter = null
-        document.getElementById("orangePoints1").style.color = "white";
-        document.getElementById("orangePoints1").style.webkitfilter = null
-        document.getElementById("orangePoints1").style.filter = null
-        document.getElementById("orangePoints2").style.color = "white";
-        document.getElementById("orangePoints2").style.webkitfilter = null
-        document.getElementById("orangePoints2").style.filter = null
-        document.getElementById("orangePoints3").style.color = "white";
-        document.getElementById("orangePoints3").style.webkitfilter = null
-        document.getElementById("orangePoints3").style.filter = null
-      }else if ($('#bluePoints2') > $('#bluePoints1') && $('#bluePoints2') > $('#bluePoints3') && $('#bluePoints2') > $('#orangePoints1') && $('#bluePoints2') > $('#orangePoints2') && $('#bluePoints2') > $('#orangePoints3')) {
-        document.getElementById("bluePoints2").style.color = "#4793ff";
-        document.getElementById("bluePoints2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints1").style.color = "white";
-        document.getElementById("bluePoints1").style.webkitfilter = null
-        document.getElementById("bluePoints1").style.filter = null
-        document.getElementById("bluePoints3").style.color = "white";
-        document.getElementById("bluePoints3").style.webkitfilter = null
-        document.getElementById("bluePoints3").style.filter = null
-        document.getElementById("orangePoints1").style.color = "white";
-        document.getElementById("orangePoints1").style.webkitfilter = null
-        document.getElementById("orangePoints1").style.filter = null
-        document.getElementById("orangePoints2").style.color = "white";
-        document.getElementById("orangePoints2").style.webkitfilter = null
-        document.getElementById("orangePoints2").style.filter = null
-        document.getElementById("orangePoints3").style.color = "white";
-        document.getElementById("orangePoints3").style.webkitfilter = null
-        document.getElementById("orangePoints3").style.filter = null
-      }else if ($('#bluePoints3') > $('#bluePoints1') && $('#bluePoints3') > $('#bluePoints2') && $('#bluePoints3') > $('#orangePoints1') && $('#bluePoints3') > $('#orangePoints2') && $('#bluePoints3') > $('#orangePoints3')) {
-        document.getElementById("bluePoints3").style.color = "#4793ff";
-        document.getElementById("bluePoints3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("bluePoints1").style.color = "white";
-        document.getElementById("bluePoints1").style.webkitfilter = null
-        document.getElementById("bluePoints1").style.filter = null
-        document.getElementById("bluePoints2").style.color = "white";
-        document.getElementById("bluePoints2").style.webkitfilter = null
-        document.getElementById("bluePoints2").style.filter = null
-        document.getElementById("orangePoints1").style.color = "white";
-        document.getElementById("orangePoints1").style.webkitfilter = null
-        document.getElementById("orangePoints1").style.filter = null
-        document.getElementById("orangePoints2").style.color = "white";
-        document.getElementById("orangePoints2").style.webkitfilter = null
-        document.getElementById("orangePoints2").style.filter = null
-        document.getElementById("orangePoints3").style.color = "white";
-        document.getElementById("orangePoints3").style.webkitfilter = null
-        document.getElementById("orangePoints3").style.filter = null
-      }else if ($('#orangePoints1') > $('#bluePoints1') && $('#orangePoints1') > $('#bluePoints2') && $('#orangePoints1') > $('#bluePoints3') && $('#orangePoints1') > $('#orangePoints2') && $('#orangePoints1') > $('#orangePoints3')) {
-        document.getElementById("bluePoints2").style.color = "white";
-        document.getElementById("bluePoints2").style.webkitfilter = null
-        document.getElementById("bluePoints2").style.filter = null
-        document.getElementById("bluePoints1").style.color = "white";
-        document.getElementById("bluePoints1").style.webkitfilter = null
-        document.getElementById("bluePoints1").style.filter = null
-        document.getElementById("bluePoints3").style.color = "white";
-        document.getElementById("bluePoints3").style.webkitfilter = null
-        document.getElementById("bluePoints3").style.filter = null
-        document.getElementById("orangePoints1").style.color = "#ffb347";
-        document.getElementById("orangePoints1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints2").style.color = "white";
-        document.getElementById("orangePoints2").style.webkitfilter = null
-        document.getElementById("orangePoints2").style.filter = null
-        document.getElementById("orangePoints3").style.color = "white";
-        document.getElementById("orangePoints3").style.webkitfilter = null
-        document.getElementById("orangePoints3").style.filter = null
-      }else if ($('#orangePoints2') > $('#bluePoints1') && $('#orangePoints2') > $('#bluePoints2') && $('#orangePoints2') > $('#bluePoints3') && $('#orangePoints2') > $('#orangePoints1') && $('#orangePoints2') > $('#orangePoints3')) {
-        document.getElementById("bluePoints2").style.color = "white";
-        document.getElementById("bluePoints2").style.webkitfilter = null
-        document.getElementById("bluePoints2").style.filter = null
-        document.getElementById("bluePoints1").style.color = "white";
-        document.getElementById("bluePoints1").style.webkitfilter = null
-        document.getElementById("bluePoints1").style.filter = null
-        document.getElementById("bluePoints3").style.color = "white";
-        document.getElementById("bluePoints3").style.webkitfilter = null
-        document.getElementById("bluePoints3").style.filter = null
-        document.getElementById("orangePoints2").style.color = "#ffb347";
-        document.getElementById("orangePoints2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints1").style.color = "white";
-        document.getElementById("orangePoints1").style.webkitfilter = null
-        document.getElementById("orangePoints1").style.filter = null
-        document.getElementById("orangePoints3").style.color = "white";
-        document.getElementById("orangePoints3").style.webkitfilter = null
-        document.getElementById("orangePoints3").style.filter = null
-      }else if ($('#orangePoints3') > $('#bluePoints1') && $('#orangePoints3') > $('#bluePoints2') && $('#orangePoints3') > $('#bluePoints3') && $('#orangePoints3') > $('#orangePoints2') && $('#orangePoints3') > $('#orangePoints1')) {
-        document.getElementById("bluePoints2").style.color = "white";
-        document.getElementById("bluePoints2").style.webkitfilter = null
-        document.getElementById("bluePoints2").style.filter = null
-        document.getElementById("bluePoints1").style.color = "white";
-        document.getElementById("bluePoints1").style.webkitfilter = null
-        document.getElementById("bluePoints1").style.filter = null
-        document.getElementById("bluePoints3").style.color = "white";
-        document.getElementById("bluePoints3").style.webkitfilter = null
-        document.getElementById("bluePoints3").style.filter = null
-        document.getElementById("orangePoints3").style.color = "#ffb347";
-        document.getElementById("orangePoints3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangePoints2").style.color = "white";
-        document.getElementById("orangePoints2").style.webkitfilter = null
-        document.getElementById("orangePoints2").style.filter = null
-        document.getElementById("orangePoints1").style.color = "white";
-        document.getElementById("orangePoints1").style.webkitfilter = null
-        document.getElementById("orangePoints1").style.filter = null
-      } 
-
-      if ($('#blueGoals1') > $('#blueGoals2') && $('#blueGoals1') > $('#blueGoals3') && $('#blueGoals1') > $('#orangeGoals1') && $('#blueGoals1') > $('#orangeGoals2') && $('#blueGoals1') > $('#orangeGoals3')) {
-        document.getElementById("blueGoals1").style.color = "#4793ff";
-        document.getElementById("blueGoals1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals2").style.color = "white";
-        document.getElementById("blueGoals2").style.webkitfilter = null
-        document.getElementById("blueGoals2").style.filter = null
-        document.getElementById("blueGoals3").style.color = "white";
-        document.getElementById("blueGoals3").style.webkitfilter = null
-        document.getElementById("blueGoals3").style.filter = null
-        document.getElementById("orangeGoals1").style.color = "white";
-        document.getElementById("orangeGoals1").style.webkitfilter = null
-        document.getElementById("orangeGoals1").style.filter = null
-        document.getElementById("orangeGoals2").style.color = "white";
-        document.getElementById("orangeGoals2").style.webkitfilter = null
-        document.getElementById("orangeGoals2").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "white";
-        document.getElementById("orangeGoals3").style.webkitfilter = null
-        document.getElementById("orangeGoals3").style.filter = null
-      }else if ($('#blueGoals2') > $('#blueGoals1') && $('#blueGoals2') > $('#blueGoals3') && $('#blueGoals2') > $('#orangeGoals1') && $('#blueGoals2') > $('#orangeGoals2') && $('#blueGoals2') > $('#orangeGoals3')) {
-        document.getElementById("blueGoals2").style.color = "#4793ff";
-        document.getElementById("blueGoals2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals1").style.color = "white";
-        document.getElementById("blueGoals1").style.webkitfilter = null
-        document.getElementById("blueGoals1").style.filter = null
-        document.getElementById("blueGoals3").style.color = "white";
-        document.getElementById("blueGoals3").style.webkitfilter = null
-        document.getElementById("blueGoals3").style.filter = null
-        document.getElementById("orangeGoals1").style.color = "white";
-        document.getElementById("orangeGoals1").style.webkitfilter = null
-        document.getElementById("orangeGoals1").style.filter = null
-        document.getElementById("orangeGoals2").style.color = "white";
-        document.getElementById("orangeGoals2").style.webkitfilter = null
-        document.getElementById("orangeGoals2").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "white";
-        document.getElementById("orangeGoals3").style.webkitfilter = null
-        document.getElementById("orangeGoals3").style.filter = null
-      }else if ($('#blueGoals3') > $('#blueGoals1') && $('#blueGoals3') > $('#blueGoals2') && $('#blueGoals3') > $('#orangeGoals1') && $('#blueGoals3') > $('#orangeGoals2') && $('#blueGoals3') > $('#orangeGoals3')) {
-        document.getElementById("blueGoals3").style.color = "#4793ff";
-        document.getElementById("blueGoals3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95))"
-        document.getElementById("blueGoals1").style.color = "white";
-        document.getElementById("blueGoals1").style.webkitfilter = null
-        document.getElementById("blueGoals1").style.filter = null
-        document.getElementById("blueGoals2").style.color = "white";
-        document.getElementById("blueGoals2").style.webkitfilter = null
-        document.getElementById("blueGoals2").style.filter = null
-        document.getElementById("orangeGoals1").style.color = "white";
-        document.getElementById("orangeGoals1").style.webkitfilter = null
-        document.getElementById("orangeGoals1").style.filter = null
-        document.getElementById("orangeGoals2").style.color = "white";
-        document.getElementById("orangeGoals2").style.webkitfilter = null
-        document.getElementById("orangeGoals2").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "white";
-        document.getElementById("orangeGoals3").style.webkitfilter = null
-        document.getElementById("orangeGoals3").style.filter = null
-      }else if ($('#orangeGoals1') > $('#blueGoals1') && $('#orangeGoals1') > $('#blueGoals2') && $('#orangeGoals1') > $('#blueGoals3') && $('#orangeGoals1') > $('#orangeGoals2') && $('#orangeGoals1') > $('#orangeGoals3')) {
-        document.getElementById("blueGoals2").style.color = "white";
-        document.getElementById("blueGoals2").style.webkitfilter = null
-        document.getElementById("blueGoals2").style.filter = null
-        document.getElementById("blueGoals1").style.color = "white";
-        document.getElementById("blueGoals1").style.webkitfilter = null
-        document.getElementById("blueGoals1").style.filter = null
-        document.getElementById("blueGoals3").style.color = "white";
-        document.getElementById("blueGoals3").style.webkitfilter = null
-        document.getElementById("blueGoals3").style.filter = null
-        document.getElementById("orangeGoals1").style.color = "#ffb347";
-        document.getElementById("orangeGoals1").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals1").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals2").style.color = "white";
-        document.getElementById("orangeGoals2").style.webkitfilter = null
-        document.getElementById("orangeGoals2").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "white";
-        document.getElementById("orangeGoals3").style.webkitfilter = null
-        document.getElementById("orangeGoals3").style.filter = null
-      }else if ($('#orangeGoals2') > $('#blueGoals1') && $('#orangeGoals2') > $('#blueGoals2') && $('#orangeGoals2') > $('#blueGoals3') && $('#orangeGoals2') > $('#orangeGoals1') && $('#orangeGoals2') > $('#orangeGoals3')) {
-        document.getElementById("blueGoals2").style.color = "white";
-        document.getElementById("blueGoals2").style.webkitfilter = null
-        document.getElementById("blueGoals2").style.filter = null
-        document.getElementById("blueGoals1").style.color = "white";
-        document.getElementById("blueGoals1").style.webkitfilter = null
-        document.getElementById("blueGoals1").style.filter = null
-        document.getElementById("blueGoals3").style.color = "white";
-        document.getElementById("blueGoals3").style.webkitfilter = null
-        document.getElementById("blueGoals3").style.filter = null
-        document.getElementById("orangeGoals2").style.color = "#ffb347";
-        document.getElementById("orangeGoals2").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals2").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals1").style.color = "white";
-        document.getElementById("orangeGoals1").style.webkitfilter = null
-        document.getElementById("orangeGoals1").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "white";
-        document.getElementById("orangeGoals3").style.webkitfilter = null
-        document.getElementById("orangeGoals3").style.filter = null
-      }else if ($('#orangeGoals3') > $('#blueGoals1') && $('#orangeGoals3') > $('#blueGoals2') && $('#orangeGoals3') > $('#blueGoals3') && $('#orangeGoals3') > $('#orangeGoals2') && $('#orangeGoals3') > $('#orangeGoals1')) {
-        document.getElementById("blueGoals2").style.color = "white";
-        document.getElementById("blueGoals2").style.webkitfilter = null
-        document.getElementById("blueGoals2").style.filter = null
-        document.getElementById("blueGoals1").style.color = "white";
-        document.getElementById("blueGoals1").style.webkitfilter = null
-        document.getElementById("blueGoals1").style.filter = null
-        document.getElementById("blueGoals3").style.color = "white";
-        document.getElementById("blueGoals3").style.webkitfilter = null
-        document.getElementById("blueGoals3").style.filter = null
-        document.getElementById("orangeGoals3").style.color = "#ffb347";
-        document.getElementById("orangeGoals3").style.webkitfilter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals3").style.filter = "drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
-        document.getElementById("orangeGoals2").style.color = "white";
-        document.getElementById("orangeGoals2").style.webkitfilter = null
-        document.getElementById("orangeGoals2").style.filter = null
-        document.getElementById("orangeGoals1").style.color = "white";
-        document.getElementById("orangeGoals1").style.webkitfilter = null
-        document.getElementById("orangeGoals1").style.filter = null
-      } 
+      
 
   }
 
@@ -592,6 +362,7 @@
         if (jEvent.data.game.hasWinner == true) { 
           $('#main-ui').addClass('invisible');
           $('#scoreboard').addClass('invisible');
+          $('#scoreboard').removeClass('open');
           //$('#scoreboard').removeClass('open')
           //console.log(jEvent.data.game.isReplay)
           $('#blue-active').addClass('d-none');
@@ -1048,12 +819,12 @@ console.log(blueData1)
       
       //is the match over?
       else if (jEvent.event == "game:podium_start" || jEvent.event == "game:match_ended") {
-        console.log('match ended / podium')
-        $('#main-ui').addClass('d-none');
-        blueResetAll()
-        orangeResetAll()
+        
+        //$('#main-ui').addClass('d-none');
+       // blueResetAll()
+       // orangeResetAll()
         //window.location.assign('aftergame.html')
-        winner()
+       // winner()
         logocolors()
         endGame()
          /* setTimeout(()=>{
@@ -1063,7 +834,7 @@ console.log(blueData1)
                 document.getElementById("aftergame").style.height = "1080px";
                 },1000);
               },6500);*/
-        
+              console.log('match ended / podium')
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
         playOut()
@@ -1314,9 +1085,10 @@ var timer
     function endGame() {
     setTimeout(()=>{
       playOut();
+     
         setTimeout(()=>{
           document.getElementById("aftergame").style.width = "1920px";
           document.getElementById("aftergame").style.height = "1080px";
-          },2000);
-        },6500);
+          },2100);
+        },7500);
       }
