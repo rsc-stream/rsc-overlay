@@ -1258,7 +1258,9 @@ top: -100px;
   align-content: stretch;
 
   text-align: center;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   border-width: 1px;
  
 }
@@ -1272,7 +1274,9 @@ top: -100px;
   width: 470px;
   align-content: center;
   align-self:center;
-  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .flex-containerTeamFranchiseOrange {
@@ -1522,4 +1526,15 @@ top: -100px;
   width: 1920px;
   height: 1080px;
   z-index: 299;
+}
+
+.textOverSize {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blueAfterHighlights {
+  color: #4793ff;
+  text-shadow: 0 0 10px rgb(92, 140, 245, 0.8)
 }
