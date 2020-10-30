@@ -48,14 +48,14 @@
 <button  onclick="orangeWinRemove()" type="button" id="ORButton" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button>
 </div>
 </div>
-
+<br>
 <div style="display: flex; justify-content: center; align-items: center;">
-<h5 style="color: white; text-align: center; font-size: 15px;">Game Number</h5>
+<h5 style="color: white; text-align: center; font-size: 15px;">Game Number <span id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;"">1</span></h5>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-<button  onclick="gameplus()" type="button" id="GamePlus" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50; padding: 3px; margin-top: 5px; margin-left: 5px;" class="">  +  </button>
-<label id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;"">1</label>
-<button  onclick="gameminus()" type="button" id="GameMinus" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button>
+<!-- <button  onclick="gameplus()" type="button" id="GamePlus" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50; padding: 3px; margin-top: 5px; margin-left: 5px;" class="">  +  </button> -->
+<!-- <label id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;"">1</label> -->
+<!--<button  onclick="gameminus()" type="button" id="GameMinus" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button> -->
 
 
 </div>
@@ -225,6 +225,11 @@ blueW = []
 blueW.push(getBlueWins)
 document.getElementById("bWins").innerHTML = blueW[0]
 localStorage.setItem("BlueWins", blueW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum + 1
+console.log(newGameNum)
+localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 if (blueW[0] === mostWins[0]) {
   document.getElementById("BWButton").disabled = true;
 }else{
@@ -239,6 +244,11 @@ blueW = []
 blueW.push(getBlueWins)
 document.getElementById("bWins").innerHTML = blueW[0]
 localStorage.setItem("BlueWins", blueW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum - 1
+console.log(newGameNum)
+localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 if (blueW[0] === 0) {
   document.getElementById("BRButton").disabled = true;
 }else{
@@ -255,6 +265,13 @@ orangeW = []
 orangeW.push(getOrangeWins)
 document.getElementById("oWins").innerHTML = orangeW[0]
 localStorage.setItem("OrangeWins", orangeW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum + 1
+
+localStorage.setItem('GameNumber', newGameNum)
+//document.getElementById("gameNumber").innerHTML = newGameNum
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+console.log(localStorage.getItem('GameNumber'))
 if (orangeW[0] === mostWins[0]) {
   document.getElementById("OWButton").disabled = true;
 }else{
@@ -271,6 +288,12 @@ orangeW = []
 orangeW.push(getOrangeWins)
 document.getElementById("oWins").innerHTML = orangeW[0]
 localStorage.setItem("OrangeWins", orangeW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum - 1
+localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+console.log(newGameNum)
+
 if (orangeW[0] === 0) {
   document.getElementById("ORButton").disabled = true;
 }else{
@@ -281,6 +304,8 @@ if (orangeW[0] === 0) {
 var gamenum = parseInt(localStorage.getItem('GameNumber'))
 var game = [gamenum]
 function gameplus() {
+  var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
 var getGame = game[0] + 1
 game = []
 game.push(getGame)
@@ -295,6 +320,8 @@ if (game[0] === 7) {
 }
 
 function gameminus() {
+  var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
 var getGame = game[0] - 1
 game = []
 game.push(getGame)
@@ -331,7 +358,7 @@ function live() {
         blueTeamName();
         seriesKind()
         document.getElementById("blueWins1").innerHTML = localStorage.getItem("BlueTeam") + " Wins";
-  document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
+        document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
      
         if (typeof(Storage) !== "undefined") {
     document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
@@ -406,6 +433,23 @@ function load() {
   if (localStorage.getItem('OrangeWins') == 0) {
     document.getElementById("ORButton").disabled = true
   }
+
+  'use strict';
+        window.onstorage = event => { // same as window.addEventListener('storage', () => {
+        if (event.key != 'OrangeWins');
+        document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+        if (event.key != 'BlueWins');
+        document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+        if (event.key != 'GameNumber');
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        }
+    
+        if (typeof(Storage) !== "undefined") {
+        document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+        document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        
+        }
 }
     </script>
  <script src="controlLogic.js"></script>

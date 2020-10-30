@@ -838,12 +838,19 @@ console.log(blueData1)
         
           console.log(NewBlueWins)
           localStorage.setItem("BlueWins", NewBlueWins);
+          var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+          var newGameNum = gameNum + 1
+          localStorage.setItem('GameNumber', newGameNum)
+          
         }else if (jEvent.data.winner_team_num == 1) {
           var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
           var NewOrangeWins = OWNumber + 1
         
           console.log(NewOrangeWins)
           localStorage.setItem("OrangeWins", NewOrangeWins);
+          var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+          var newGameNum = gameNum + 1
+          localStorage.setItem('GameNumber', newGameNum)
         }
 
       }else if (jEvent.event == "game:match_destroyed") {
