@@ -850,12 +850,20 @@ console.log(blueData1)
         //window.location.assign('index.html')
         blueResetAll()
         orangeResetAll()
-       playOut()
+        setTimeout(()=>{
+          document.getElementById('replayOut').play();
+         
+            setTimeout(()=>{
+              document.getElementById("aftergame").style.width = "0px";
+              document.getElementById("aftergame").style.height = "0px";
+              },2300);
+            },6100);
+     /*  playOut()
        document.getElementById('replayOut').style.zIndex = '999999';
         setTimeout(()=>{
         document.getElementById("aftergame").style.width = "0px";
         document.getElementById("aftergame").style.height = "0px";
-      },800);   
+      },800);   */
       console.log("destroy")
         
       }else if (jEvent.event == "game:goal_scored") {
@@ -1047,7 +1055,7 @@ console.log(blueData1)
       }else if (jEvent.event == "game:initialized") {
         
     }else if (jEvent.event === "game:match_ended") {
-      if (data.winning_team_number === "0") {
+     /* if (data.winning_team_number === "0") {
         var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
         var NewBlueWins = BWNumber + 1
       
@@ -1060,7 +1068,7 @@ console.log(blueData1)
         console.log(NewOrangeWins)
         localStorage.setItem("OrangeWins", NewOrangeWins);
       }
-    }
+    }*/
     }
 
     function removeAssist() {
