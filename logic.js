@@ -1067,9 +1067,10 @@ console.log(blueData1)
       
         console.log(NewOrangeWins)
         localStorage.setItem("OrangeWins", NewOrangeWins);
-      }
-    }*/
+      }*/
     }
+    }
+
 
     function removeAssist() {
       goalAssist = 0
