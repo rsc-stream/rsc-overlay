@@ -287,7 +287,7 @@ body{
   {
     position:absolute;
     top: 0px;
-    left: 50px;
+    left: 0px;
     z-index: -99;
   }
 
@@ -1537,4 +1537,9 @@ top: -100px;
 .blueAfterHighlights {
   color: #4793ff;
   text-shadow: 0 0 10px rgb(92, 140, 245, 0.8)
+}
+
+.orangeAfterHighlights {
+  color: #ffb347;
+  text-shadow: 0 0 10px rgba(236, 248, 61, 0.8)
 }
