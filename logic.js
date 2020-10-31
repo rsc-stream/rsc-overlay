@@ -819,7 +819,7 @@ console.log(blueData1)
 
       
       //is the match over?
-      else if (jEvent.event == "game:podium_start" || jEvent.event == "game:match_ended") {
+      else if (jEvent.event == "game:podium_start" /*|| jEvent.event == "game:match_ended"*/) {
         
         //$('#main-ui').addClass('d-none');
        // blueResetAll()
@@ -831,7 +831,7 @@ console.log(blueData1)
         endGame()
       //  afterHighlights()
         console.log('match ended / podium')
-
+/*
         if (jEvent.data.winner_team_num == 0) {
           var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
           var NewBlueWins = BWNumber + 1
@@ -852,7 +852,7 @@ console.log(blueData1)
           var newGameNum = gameNum + 1
           localStorage.setItem('GameNumber', newGameNum)
         }
-
+*/
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
         blueResetAll()
@@ -1062,19 +1062,26 @@ console.log(blueData1)
       }else if (jEvent.event == "game:initialized") {
         
     }else if (jEvent.event === "game:match_ended") {
-     /* if (data.winning_team_number === "0") {
+      if (jEvent.data.winner_team_num == 0) {
         var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
         var NewBlueWins = BWNumber + 1
       
         console.log(NewBlueWins)
         localStorage.setItem("BlueWins", NewBlueWins);
-      }else if (data.winning_team_number === "1") {
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
+        
+      }else if (jEvent.data.winner_team_num == 1) {
         var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
         var NewOrangeWins = OWNumber + 1
       
         console.log(NewOrangeWins)
         localStorage.setItem("OrangeWins", NewOrangeWins);
-      }*/
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
+      }
     }
     }
 

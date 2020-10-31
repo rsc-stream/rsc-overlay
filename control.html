@@ -17,7 +17,7 @@
 </head>
 
 <body onload="load()">
-<img class="back" src="assets/logos/rsc.png" id="rscLogo" style="width: 350px;"></img>
+<img class="back" src="assets/logos/rsc.png" id="rscLogo" style="width: 325px;"></img>
 
 
 <select id="series-dropdown" name="tier" onchange="seriesKind">
@@ -424,9 +424,9 @@ function load() {
   document.getElementById("blueWins1").innerHTML = localStorage.getItem("BlueTeam") + " Wins";
   document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
   
-  if (localStorage.getItem('GameNumber') == 1) {
-    document.getElementById("GameMinus").disabled = true
-  }
+ // if (localStorage.getItem('GameNumber') == 1) {
+ //   document.getElementById("GameMinus").disabled = true
+ // }
   if (localStorage.getItem('BlueWins') == 0) {
     document.getElementById("BRButton").disabled = true
   }
