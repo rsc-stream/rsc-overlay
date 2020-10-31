@@ -864,7 +864,7 @@ console.log(blueData1)
               document.getElementById("aftergame").style.width = "0px";
               document.getElementById("aftergame").style.height = "0px";
               },2300);
-            },6100);
+            },100);
      /*  playOut()
        document.getElementById('replayOut').style.zIndex = '999999';
         setTimeout(()=>{
