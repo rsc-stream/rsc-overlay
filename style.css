@@ -509,7 +509,7 @@ top: -100px;
   padding-left: 5px;
   color:#f5f5f5;
   
-  font-size:20px;
+  font-size:25px;
   font-weight:600;
   border:2px;
   border-radius:5px 0px 0px 5px;
@@ -577,10 +577,10 @@ top: -100px;
 .goalOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Goal_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -602,10 +602,10 @@ top: -100px;
 .goalBlue:before {
   position:absolute;
   background-image: url('assets/Goal_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -628,10 +628,10 @@ top: -100px;
 .assistOrange:before {
   position:absolute;
   background-image: url('assets/Assist_Orange2.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -653,10 +653,10 @@ top: -100px;
 .assistBlue:before {
   position:absolute;
   background-image: url('assets/Assist_Blue2.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -679,10 +679,10 @@ top: -100px;
 .shotOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Shot_on_Goal_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -704,10 +704,10 @@ top: -100px;
 .shotBlue:before {
   position:absolute;
   background-image: url('assets/Shot_on_Goal_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -730,10 +730,10 @@ top: -100px;
 .saveOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Save_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -755,10 +755,10 @@ top: -100px;
 .saveBlue:before {
   position:absolute;
   background-image: url('assets/Save_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -781,10 +781,10 @@ top: -100px;
 .epicsaveOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Epic_Save_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -806,10 +806,10 @@ top: -100px;
 .epicsaveBlue:before {
   position:absolute;
   background-image: url('assets/Epic_Save_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -832,10 +832,10 @@ top: -100px;
 .HatTrickOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Hat_Trick_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -857,10 +857,10 @@ top: -100px;
 .HatTrickBlue:before {
   position:absolute;
   background-image: url('assets/Hat_Trick_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -883,10 +883,10 @@ top: -100px;
 .saviorOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Savior_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -908,10 +908,10 @@ top: -100px;
 .saviorBlue:before {
   position:absolute;
   background-image: url('assets/Savior_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -934,10 +934,10 @@ top: -100px;
 .demoOrange:before {
   position:absolute;
   background-image: url('assets/Orange_Demolition_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -960,10 +960,10 @@ top: -100px;
 .demoBlue:before {
   position:absolute;
   background-image: url('assets/Demolition_points_icon.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -985,10 +985,10 @@ top: -100px;
 .demoedOrange:before {
   position:absolute;
   background-image: url('assets/Orange_boom.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;
@@ -1011,10 +1011,10 @@ top: -100px;
 .demoedBlue:before {
   position:absolute;
   background-image: url('assets/boom.png');
-    background-size: 65px 65px;
+    background-size: 75px 75px;
     /*display: inline-block;*/
-    width: 65px; 
-    height: 65px;
+    width: 75px; 
+    height: 75px;
     content:"";
     margin-top:-18px;
     margin-left:-75px;

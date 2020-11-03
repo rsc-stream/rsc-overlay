@@ -17,7 +17,12 @@
 </head>
 
 <body onload="blueWins(); orangeWins(); seriesback(); winner(); logocolors()">
+
+    <video preload muted id="afterIn" class="stinger">
+        <source src="assets/RSC.webm" type="video/webm"> 
+      </video>
     <div id="wrapper">
+        <div id="showAfter" class="">
     <img class="back" src="assets/afterBack.png" id="rscLogo" style="width: 1920px"></img>
     <img class="afterBlueLogo" src="assets/logos/Active Logos/Dino Park.png" style="width:215px" id="afterBlueLogo"></img>
     <img class="afterOrangeLogo" src="assets/logos/Active Logos/The Sovereign.png" style="width:215px" id="afterOrangeLogo"></img>
@@ -161,7 +166,7 @@
         <div class="text-light fontR" style="font-size: 40px;" id="orangeSaves2">orange2</div>
         <div class="text-light fontR" style="font-size: 40px;" id="orangeSaves3">orange3</div>
     </div>
-
+</div>
     <script>
         'use strict';
         window.onstorage = event => { // same as window.addEventListener('storage', () => {
@@ -194,7 +199,7 @@
         //document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
         if (event.key != 'series') ;
         document.getElementById("seriesKind").innerHTML = localStorage.getItem("series");
-        seriesback()
+        //seriesback()
         }
     
         if (typeof(Storage) !== "undefined") {
@@ -220,7 +225,7 @@
         
         }
     
-        function winner() {
+   /*     function winner() {
             if (document.getElementById("blueScore").innerHTML > document.getElementById("orangeScore").innerHTML) {
             $('#blueW').removeClass('invisible');
             $('#orangeL').removeClass('invisible');
@@ -233,15 +238,57 @@
             $('#orangeL').addClass('invisible');
             }
         }
-
+        */
+function addWinner() {
+    if (jEvent.data.winner_team_num == 0) {
+        var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
+        var NewBlueWins = BWNumber + 1
+      
+        console.log(NewBlueWins)
+        localStorage.setItem("BlueWins", NewBlueWins);
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
         
+      }else if (jEvent.data.winner_team_num == 1) {
+        var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
+        var NewOrangeWins = OWNumber + 1
+      
+        console.log(NewOrangeWins)
+        localStorage.setItem("OrangeWins", NewOrangeWins);
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
+      }
+}
+        function winner() {
+    var blueGoals = document.getElementById("blueScore").innerHTML
+    var orangeGoals = document.getElementById("orangeScore").innerHTML
+    //console.log(blueGoals)
+    if (blueGoals > orangeGoals) {
+    $('#blueW').removeClass('invisible');
+    $('#orangeL').removeClass('invisible');
+    $('#blueL').addClass('invisible');
+    $('#orangeW').addClass('invisible');
+    } else if (blueGoals < orangeGoals){
+    $('#blueL').removeClass('invisible');
+    $('#orangeW').removeClass('invisible');
+    $('#blueW').addClass('invisible');
+    $('#orangeL').addClass('invisible');
+    }else{
+      $('#blueL').addClass('invisible');
+      $('#orangeW').addClass('invisible');
+      $('#blueW').addClass('invisible');
+      $('#orangeL').addClass('invisible');
+    }
+}   
 
 
         function afterHighlights() {
     //Score
 //if (blueData1[0].score > blueData2[0].score && blueData1[0].score > blueData3[0].score && blueData1[0].score > orangeData1[0].score && blueData1[0].score > orangeData2[0].score && blueData1[0].score > orangeData3[0].score) {
 if (parseInt(bluePoints1.innerHTML, 10) > parseInt(bluePoints2.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(bluePoints3.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints1.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints2.innerHTML, 10)  && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10))  {
-console.log("B1")
+//console.log("B1")
   $("#bluePoints2").removeClass('blueAfterHighlights')
   $("#bluePoints2").addClass('text-light')
   
@@ -262,7 +309,7 @@ console.log("B1")
   $("#orangePoints3").addClass('text-light')
   
 }else if (blueData2[0].score > blueData1[0].score && blueData2[0].score > blueData3[0].score && blueData2[0].score > orangeData1[0].score && blueData2[0].score > orangeData2[0].score && blueData2[0].score > orangeData3[0].score) {
-  console.log("B2")
+  //console.log("B2")
   $("#bluePoints1").removeClass('blueAfterHighlights')
   $("#bluePoints1").addClass('text-light')
   
@@ -282,7 +329,7 @@ console.log("B1")
   $("#orangePoints3").addClass('text-light')
   
 }else if (blueData3[0].score > blueData1[0].score && blueData3[0].score > blueData2[0].score && blueData3[0].score > orangeData1[0].score && blueData3[0].score > orangeData2[0].score && blueData3[0].score > orangeData3[0].score) {
-  console.log("B3")
+  //console.log("B3")
   $("#bluePoints1").removeClass('blueAfterHighlights')
   $("#bluePoints1").addClass('text-light')
   
@@ -301,7 +348,7 @@ console.log("B1")
   $("#orangePoints3").removeClass('orangeAfterHighlights')
   $("#orangePoints3").addClass('text-light')
 }else if (orangeData1[0].score > blueData1[0].score && orangeData1[0].score > blueData2[0].score && orangeData1[0].score > blueData3[0].score && orangeData1[0].score > orangeData2[0].score && orangeData1[0].score > orangeData3[0].score) {
-  console.log("O1")
+  //console.log("O1")
   $("#bluePoints1").removeClass('blueAfterHighlights')
   $("#bluePoints1").addClass('text-light')
   
@@ -320,7 +367,7 @@ console.log("B1")
   $("#orangePoints3").removeClass('orangeAfterHighlights')
   $("#orangePoints3").addClass('text-light')
 }else if (orangeData2[0].score > blueData1[0].score && orangeData2[0].score > blueData2[0].score && orangeData2[0].score > blueData3[0].score && orangeData2[0].score > orangeData1[0].score && orangeData2[0].score > orangeData3[0].score) {
-  console.log("O2")
+  //console.log("O2")
   $("#bluePoints1").removeClass('blueAfterHighlights')
   $("#bluePoints1").addClass('text-light')
   
@@ -379,7 +426,7 @@ console.log("B1")
 
 //Goals
 if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0].goals && blueData1[0].goals > orangeData1[0].goals && blueData1[0].goals > orangeData2[0].goals && blueData1[0].goals > orangeData3[0].goals) {
-  console.log("B1")
+  //console.log("B1")
   $("#blueGoals2").removeClass('blueAfterHighlights')
   $("#blueGoals2").addClass('text-light')
   
@@ -399,7 +446,7 @@ if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0]
   $("#orangeGoals3").addClass('text-light')
   
 }else if (blueData2[0].goals > blueData1[0].goals && blueData2[0].goals > blueData3[0].goals && blueData2[0].goals > orangeData1[0].goals && blueData2[0].goals > orangeData2[0].goals && blueData2[0].goals > orangeData3[0].goals) {
-  console.log("B2")
+  //console.log("B2")
   $("#blueGoals1").removeClass('blueAfterHighlights')
   $("#blueGoals1").addClass('text-light')
   
@@ -419,7 +466,7 @@ if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0]
   $("#orangeGoals3").addClass('text-light')
   
 }else if (blueData3[0].goals > blueData1[0].goals && blueData3[0].goals > blueData2[0].goals && blueData3[0].goals > orangeData1[0].goals && blueData3[0].goals > orangeData2[0].goals && blueData3[0].goals > orangeData3[0].goals) {
-  console.log("B3")
+  //console.log("B3")
   $("#blueGoals1").removeClass('blueAfterHighlights')
   $("#blueGoals1").addClass('text-light')
   
@@ -438,7 +485,7 @@ if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0]
   $("#orangeGoals3").removeClass('orangeAfterHighlights')
   $("#orangeGoals3").addClass('text-light')
 }else if (orangeData1[0].goals > blueData1[0].goals && orangeData1[0].goals > blueData2[0].goals && orangeData1[0].goals > blueData3[0].goals && orangeData1[0].goals > orangeData2[0].goals && orangeData1[0].goals > orangeData3[0].goals) {
-  console.log("O1")
+  //console.log("O1")
   $("#blueGoals1").removeClass('blueAfterHighlights')
   $("#blueGoals1").addClass('text-light')
   
@@ -457,7 +504,7 @@ if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0]
   $("#orangeGoals3").removeClass('orangeAfterHighlights')
   $("#orangeGoals3").addClass('text-light')
 }else if (orangeData2[0].goals > blueData1[0].goals && orangeData2[0].goals > blueData2[0].goals && orangeData2[0].goals > blueData3[0].goals && orangeData2[0].goals > orangeData1[0].goals && orangeData2[0].goals > orangeData3[0].goals) {
-  console.log("O2")
+  //console.log("O2")
   $("#blueGoals1").removeClass('blueAfterHighlights')
   $("#blueGoals1").addClass('text-light')
   
@@ -516,7 +563,7 @@ if (blueData1[0].goals > blueData2[0].goals && blueData1[0].goals > blueData3[0]
 
 //Assists
 if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueData3[0].assists && blueData1[0].assists > orangeData1[0].assists && blueData1[0].assists > orangeData2[0].assists && blueData1[0].assists > orangeData3[0].assists) {
-  console.log("B1")
+  //console.log("B1")
   $("#blueAssists2").removeClass('blueAfterHighlights')
   $("#blueAssists2").addClass('text-light')
   
@@ -536,7 +583,7 @@ if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueDa
   $("#orangeAssists3").addClass('text-light')
   
 }else if (blueData2[0].assists > blueData1[0].assists && blueData2[0].assists > blueData3[0].assists && blueData2[0].assists > orangeData1[0].assists && blueData2[0].assists > orangeData2[0].assists && blueData2[0].assists > orangeData3[0].assists) {
-  console.log("B2")
+  //console.log("B2")
   $("#blueAssists1").removeClass('blueAfterHighlights')
   $("#blueAssists1").addClass('text-light')
   
@@ -556,7 +603,7 @@ if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueDa
   $("#orangeAssists3").addClass('text-light')
   
 }else if (blueData3[0].assists > blueData1[0].assists && blueData3[0].assists > blueData2[0].assists && blueData3[0].assists > orangeData1[0].assists && blueData3[0].assists > orangeData2[0].assists && blueData3[0].assists > orangeData3[0].assists) {
-  console.log("B3")
+  //console.log("B3")
   $("#blueAssists1").removeClass('blueAfterHighlights')
   $("#blueAssists1").addClass('text-light')
   
@@ -575,7 +622,7 @@ if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueDa
   $("#orangeAssists3").removeClass('orangeAfterHighlights')
   $("#orangeAssists3").addClass('text-light')
 }else if (orangeData1[0].assists > blueData1[0].assists && orangeData1[0].assists > blueData2[0].assists && orangeData1[0].assists > blueData3[0].assists && orangeData1[0].assists > orangeData2[0].assists && orangeData1[0].assists > orangeData3[0].assists) {
-  console.log("O1")
+  //console.log("O1")
   $("#blueAssists1").removeClass('blueAfterHighlights')
   $("#blueAssists1").addClass('text-light')
   
@@ -594,7 +641,7 @@ if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueDa
   $("#orangeAssists3").removeClass('orangeAfterHighlights')
   $("#orangeAssists3").addClass('text-light')
 }else if (orangeData2[0].assists > blueData1[0].assists && orangeData2[0].assists > blueData2[0].assists && orangeData2[0].assists > blueData3[0].assists && orangeData2[0].assists > orangeData1[0].assists && orangeData2[0].assists > orangeData3[0].assists) {
-  console.log("O2")
+  //console.log("O2")
   $("#blueAssists1").removeClass('blueAfterHighlights')
   $("#blueAssists1").addClass('text-light')
   
@@ -653,7 +700,7 @@ if (blueData1[0].assists > blueData2[0].assists && blueData1[0].assists > blueDa
 
 //Shots
 if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0].shots && blueData1[0].shots > orangeData1[0].shots && blueData1[0].shots > orangeData2[0].shots && blueData1[0].shots > orangeData3[0].shots) {
-  console.log("B1")
+  //console.log("B1")
   $("#blueShots2").removeClass('blueAfterHighlights')
   $("#blueShots2").addClass('text-light')
   
@@ -673,7 +720,7 @@ if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0]
   $("#orangeShots3").addClass('text-light')
   
 }else if (blueData2[0].shots > blueData1[0].shots && blueData2[0].shots > blueData3[0].shots && blueData2[0].shots > orangeData1[0].shots && blueData2[0].shots > orangeData2[0].shots && blueData2[0].shots > orangeData3[0].shots) {
-  console.log("B2")
+  //console.log("B2")
   $("#blueShots1").removeClass('blueAfterHighlights')
   $("#blueShots1").addClass('text-light')
   
@@ -693,7 +740,7 @@ if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0]
   $("#orangeShots3").addClass('text-light')
   
 }else if (blueData3[0].shots > blueData1[0].shots && blueData3[0].shots > blueData2[0].shots && blueData3[0].shots > orangeData1[0].shots && blueData3[0].shots > orangeData2[0].shots && blueData3[0].shots > orangeData3[0].shots) {
-  console.log("B3")
+  //console.log("B3")
   $("#blueShots1").removeClass('blueAfterHighlights')
   $("#blueShots1").addClass('text-light')
   
@@ -712,7 +759,7 @@ if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0]
   $("#orangeShots3").removeClass('orangeAfterHighlights')
   $("#orangeShots3").addClass('text-light')
 }else if (orangeData1[0].shots > blueData1[0].shots && orangeData1[0].shots > blueData2[0].shots && orangeData1[0].shots > blueData3[0].shots && orangeData1[0].shots > orangeData2[0].shots && orangeData1[0].shots > orangeData3[0].shots) {
-  console.log("O1")
+  //console.log("O1")
   $("#blueShots1").removeClass('blueAfterHighlights')
   $("#blueShots1").addClass('text-light')
   
@@ -731,7 +778,7 @@ if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0]
   $("#orangeShots3").removeClass('orangeAfterHighlights')
   $("#orangeShots3").addClass('text-light')
 }else if (orangeData2[0].shots > blueData1[0].shots && orangeData2[0].shots > blueData2[0].shots && orangeData2[0].shots > blueData3[0].shots && orangeData2[0].shots > orangeData1[0].shots && orangeData2[0].shots > orangeData3[0].shots) {
-  console.log("O2")
+  //console.log("O2")
   $("#blueShots1").removeClass('blueAfterHighlights')
   $("#blueShots1").addClass('text-light')
   
@@ -790,7 +837,7 @@ if (blueData1[0].shots > blueData2[0].shots && blueData1[0].shots > blueData3[0]
 
 //Saves
 if (blueData1[0].saves > blueData2[0].saves && blueData1[0].saves > blueData3[0].saves && blueData1[0].saves > orangeData1[0].saves && blueData1[0].saves > orangeData2[0].saves && blueData1[0].saves > orangeData3[0].saves) {
-  console.log("B1")
+  //console.log("B1")
   $("#blueSaves2").removeClass('blueAfterHighlights')
   $("#blueSaves2").addClass('text-light')
   
@@ -810,7 +857,7 @@ if (blueData1[0].saves > blueData2[0].saves && blueData1[0].saves > blueData3[0]
   $("#orangeSaves3").addClass('text-light')
   
 }else if (blueData2[0].saves > blueData1[0].saves && blueData2[0].saves > blueData3[0].saves && blueData2[0].saves > orangeData1[0].saves && blueData2[0].saves > orangeData2[0].saves && blueData2[0].saves > orangeData3[0].saves) {
-  console.log("B2")
+  //console.log("B2")
   $("#blueSaves1").removeClass('blueAfterHighlights')
   $("#blueSaves1").addClass('text-light')
   
@@ -830,7 +877,7 @@ if (blueData1[0].saves > blueData2[0].saves && blueData1[0].saves > blueData3[0]
   $("#orangeSaves3").addClass('text-light')
   
 }else if (blueData3[0].saves > blueData1[0].saves && blueData3[0].saves > blueData2[0].saves && blueData3[0].saves > orangeData1[0].saves && blueData3[0].saves > orangeData2[0].saves && blueData3[0].saves > orangeData3[0].saves) {
-  console.log("B3")
+  //console.log("B3")
   $("#blueSaves1").removeClass('blueAfterHighlights')
   $("#blueSaves1").addClass('text-light')
   
@@ -849,7 +896,7 @@ if (blueData1[0].saves > blueData2[0].saves && blueData1[0].saves > blueData3[0]
   $("#orangeSaves3").removeClass('orangeAfterHighlights')
   $("#orangeSaves3").addClass('text-light')
 }else if (orangeData1[0].saves > blueData1[0].saves && orangeData1[0].saves > blueData2[0].saves && orangeData1[0].saves > blueData3[0].saves && orangeData1[0].saves > orangeData2[0].saves && orangeData1[0].saves > orangeData3[0].saves) {
-  console.log("O1")
+  //console.log("O1")
   $("#blueSaves1").removeClass('blueAfterHighlights')
   $("#blueSaves1").addClass('text-light')
   
@@ -868,7 +915,7 @@ if (blueData1[0].saves > blueData2[0].saves && blueData1[0].saves > blueData3[0]
   $("#orangeSaves3").removeClass('orangeAfterHighlights')
   $("#orangeSaves3").addClass('text-light')
 }else if (orangeData2[0].saves > blueData1[0].saves && orangeData2[0].saves > blueData2[0].saves && orangeData2[0].saves > blueData3[0].saves && orangeData2[0].saves > orangeData1[0].saves && orangeData2[0].saves > orangeData3[0].saves) {
-  console.log("O2")
+  //console.log("O2")
   $("#blueSaves1").removeClass('blueAfterHighlights')
   $("#blueSaves1").addClass('text-light')
   
