@@ -431,7 +431,7 @@
             sec_min += "" + sec;
             return sec_min;
           }
-          $('#timer').text(myTime(round))
+          //$('#timer').text(myTime(round))
 
           //team names
           var blueName = _.get(teamData, [0, 'name'])
@@ -457,9 +457,11 @@
 
           //overtime logic
           if (jEvent.data.game.isOT == true) {
-            $('#overtime-text').removeClass('d-none')
+           // $('#overtime-text').removeClass('d-none')
+            $('#timer').text("+" + myTime(round))
           } else {
-            $('#overtime-text').addClass('d-none')
+           // $('#overtime-text').addClass('d-none')
+            $('#timer').text(myTime(round))
           }
 
 
