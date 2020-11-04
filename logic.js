@@ -563,7 +563,7 @@ console.log(blueData1)
             blueData3.push(blue3)
             
             if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
-              
+              /*
               $('#blueName1').text(blue1.name)
               $('#blueGoals1').text(blue1.goals)
               $('#blueShots1').text(blue1.shots)
@@ -583,7 +583,7 @@ console.log(blueData1)
               $('#blueAssists3').text(blue3.assists)
               $('#bluePoints3').text(blue3.score)
 
-
+*/
 
               $("div[id^='blue-player-']").removeClass('d-none')
               
@@ -690,7 +690,7 @@ console.log(blueData1)
               
               $("div[id^='orange-player-']").removeClass('d-none')
 
-              
+              /*
               $('#orangeName1').text(orange1.name)
               $('#orangeGoals1').text(orange1.goals)
               $('#orangeShots1').text(orange1.shots)
@@ -709,7 +709,7 @@ console.log(blueData1)
               $('#orangeSaves3').text(orange3.saves)
               $('#orangeAssists3').text(orange3.assists)
               $('#orangePoints3').text(orange3.score)
-              
+              */
               $('#orange-player-3').removeClass('d-none')
               $('#orange-player-3-name').text(orange3.name)
               $('#orange-player-3-goals').text(orange3.goals)
@@ -787,9 +787,9 @@ console.log(blueData1)
               $('#orange-player-3-p-bar').width('0%')*/
 
             }
-            logocolors()
-            afterHighlights()
-            winner()
+            //logocolors()
+            //afterHighlights()
+            //winner()
           } else {
             orangeResetAll()
           }
@@ -806,11 +806,11 @@ console.log(blueData1)
        // blueResetAll()
        // orangeResetAll()
         //window.location.assign('aftergame.html')
-        winner()
+       // winner()
       //  logocolors()
         
         endGame()
-        afterHighlights()
+       // afterHighlights()
         console.log('match ended / podium')
 /*
         if (jEvent.data.winner_team_num == 0) {
@@ -838,6 +838,7 @@ console.log(blueData1)
         //window.location.assign('index.html')
         blueResetAll()
         orangeResetAll()
+        document.getElementById('replayOut').style.zIndex = '999999';
         setTimeout(()=>{
           document.getElementById('replayOut').play();
          
@@ -889,7 +890,7 @@ console.log(blueData1)
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
         if (jEvent.data.type === "MVP") {
-          mvp = []
+        /*  mvp = []
           mvp.push(jEvent.data.main_target.name)
           console.log(mvp)
             if (mvp == blueData1[0].name) {  
@@ -941,7 +942,7 @@ console.log(blueData1)
               $('#orange1MVP').addClass('invisible')
               $('#orange2MVP').addClass('invisible')
               $('#orange3MVP').addClass('invisible')
-            }   
+            }   */
         } else if (jEvent.data.type === "Assist") {
           console.log("Assist")
           goalAssist.push(jEvent.data.main_target.name)
@@ -1044,7 +1045,7 @@ console.log(blueData1)
         
     }else if (jEvent.event === "game:match_ended") {
       console.log("Match Ended")
-      
+     /* 
      if (jEvent.data.winner_team_num == 0) {
         var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
         var NewBlueWins = BWNumber + 1
@@ -1064,7 +1065,7 @@ console.log(blueData1)
         var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
         var newGameNum = gameNum + 1
         localStorage.setItem('GameNumber', newGameNum)
-      }
+      }*/
     }
     }
 
@@ -1173,17 +1174,17 @@ var timer
 
     function endGame() {
     setTimeout(()=>{
-      window.location.assign('aftergame.html')
-      //document.getElementById('replayOut').play();
+      //window.location.assign('aftergame.html')
+      document.getElementById('replayOut').play();
      
         setTimeout(()=>{
-          document.getElementById('afterIn').play();
+          //document.getElementById('afterIn').play();
           //window.location.assign('aftergame.html')
-          //document.getElementById("aftergame").style.width = "1920px";
-          //document.getElementById("aftergame").style.height = "1080px";
+          document.getElementById("aftergame").style.width = "1920px";
+          document.getElementById("aftergame").style.height = "1080px";
           setTimeout(()=>{
-          //  document.getElementById('replayOut').style.zIndex = '1';
-          document.getElementById("showAfter").removeClass('invisible');
+            document.getElementById('replayOut').style.zIndex = '1';
+          //document.getElementById("showAfter").removeClass('invisible');
             },3000);
           },4300);
         },1100);
