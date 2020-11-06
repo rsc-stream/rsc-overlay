@@ -14,17 +14,18 @@ var mvp = []
 
 
  function logocolors() {
-   var blueDataScore = blueData1.score + blueData2.score + blueData3.score 
-   var orangeDataScore = orangeData1.score + orangeData2.score + orangeData3.score
-   var blueDataGoals = blueData1.goals + blueData2.goals + blueData3.goals 
-   var orangeDataGoals = orangeData1.goals + orangeData2.goals + orangeData3.goals
-   var blueDataAssists = blueData1[0].assists + blueData2[0].assists + blueData3[0].assists 
-   var orangeDataAssists = orangeData1.assists + orangeData2.assists + orangeData3.assists
-   var blueDataShots = blueData1.shots + blueData2.shots + blueData3.shots 
-   var orangeDataShots = orangeData1.shots + orangeData2.shots + orangeData3.shots
-   var blueDataSaves = blueData1.saves + blueData2.saves + blueData3.saves 
-   var orangeDataSaves = orangeData1.saves + orangeData2.saves + orangeData3.saves
- console.log(blueDataAssists)
+     console.log('logocolors')
+     var blueDataScore = blueData1[0].score + blueData2[0].score + blueData3[0].score 
+      var orangeDataScore = orangeData1[0].score + orangeData2[0].score + orangeData3[0].score
+      var blueDataGoals = blueData1[0].goals + blueData2[0].goals + blueData3[0].goals 
+      var orangeDataGoals = orangeData1[0].goals + orangeData2[0].goals + orangeData3[0].goals
+      var blueDataAssists = blueData1[0].assists + blueData2[0].assists + blueData3[0].assists 
+      var orangeDataAssists = orangeData1[0].assists + orangeData2[0].assists + orangeData3[0].assists
+      var blueDataShots = blueData1[0].shots + blueData2[0].shots + blueData3[0].shots 
+      var orangeDataShots = orangeData1[0].shots + orangeData2[0].shots + orangeData3[0].shots
+      var blueDataSaves = blueData1[0].saves + blueData2[0].saves + blueData3[0].saves 
+      var orangeDataSaves = orangeData1[0].saves + orangeData2[0].saves + orangeData3[0].saves
+ console.log(blueDataScore)
    if (blueDataScore > orangeDataScore) {
      $('#afterPTSLogo').addClass('invisible')
      $('#afterPTSBlueLogo').removeClass('invisible')
@@ -196,11 +197,11 @@ var mvp = []
            $('#bluePoints3').text(blueData3.score)
            winner()
            afterHighlights()
-           logocolors()
+          // logocolors()
      }else{
-      //  winner()
-      //  afterHighlights()
-      //  logocolors()
+        winner()
+        afterHighlights()
+       // logocolors()
      }
 
        
@@ -285,7 +286,7 @@ var mvp = []
 
 
        } else {
-         blueResetAll()
+         //blueResetAll()
        }
        
        //does orange team exist?
@@ -328,7 +329,7 @@ var mvp = []
            $('#orangePoints3').text(orange3.score)
            
        } else {
-         orangeResetAll()
+        // orangeResetAll()
        }
        
      }
@@ -340,7 +341,7 @@ var mvp = []
    else if (jEvent.event == "game:podium_start" /*|| jEvent.event == "game:match_ended"*/) {
 
      winner()
-     logocolors()
+    // logocolors()
      
      endGame()
      afterHighlights()
@@ -481,12 +482,34 @@ var mvp = []
    winner()
    logocolors()
    afterHighlights()
+   addWinner()
  }
  }
    }
 }
 
-
+function addWinner() {
+    if (jEvent.data.winner_team_num == 0) {
+        var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
+        var NewBlueWins = BWNumber + 1
+      
+        console.log(NewBlueWins)
+        localStorage.setItem("BlueWins", NewBlueWins);
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
+        
+      }else if (jEvent.data.winner_team_num == 1) {
+        var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
+        var NewOrangeWins = OWNumber + 1
+      
+        console.log(NewOrangeWins)
+        localStorage.setItem("OrangeWins", NewOrangeWins);
+        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+        var newGameNum = gameNum + 1
+        localStorage.setItem('GameNumber', newGameNum)
+      }
+}
    function winner() {
      var blueGoals = document.getElementById("blueScore").innerHTML
      var orangeGoals = document.getElementById("orangeScore").innerHTML
