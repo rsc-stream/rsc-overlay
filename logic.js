@@ -1188,7 +1188,7 @@ var timer
             document.getElementById('replayOut').style.zIndex = '1';
           //document.getElementById("showAfter").removeClass('invisible');
             },3000);
-          },4300);
+          },2300);
         },1100);
       }
 

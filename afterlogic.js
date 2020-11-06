@@ -199,8 +199,8 @@ var mvp = []
            afterHighlights()
           // logocolors()
      }else{
-        winner()
-        afterHighlights()
+        //winner()
+        //afterHighlights()
        // logocolors()
      }
 
@@ -379,42 +379,42 @@ var mvp = []
        mvp = []
        mvp.push(jEvent.data.main_target.name)
        console.log(mvp)
-         if (mvp == blueData1.name) {  
+         if (mvp == blueData1[0].name) {  
            $('#blue1MVP').removeClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == blueData2.name) {
+         }else if (mvp == blueData2[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').removeClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == blueData3.name) {
+         }else if (mvp == blueData3[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').removeClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData1.name) {
+         }else if (mvp == orangeData1[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').removeClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData2.name) {
+         }else if (mvp == orangeData2[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').removeClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData3.name) {
+         }else if (mvp == orangeData3[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
@@ -468,7 +468,7 @@ var mvp = []
      var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
      var newGameNum = gameNum + 1
      localStorage.setItem('GameNumber', newGameNum)
-     
+     console.log('Blue Wins')
    }else if (jEvent.data.winner_team_num == 1) {
      var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
      var NewOrangeWins = OWNumber + 1
@@ -478,11 +478,12 @@ var mvp = []
      var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
      var newGameNum = gameNum + 1
      localStorage.setItem('GameNumber', newGameNum)
+     console.log('Orange Wins')
    }
    winner()
    logocolors()
    afterHighlights()
-   addWinner()
+   //addWinner()
  }
  }
    }
