@@ -267,19 +267,19 @@ body{
 
 .goalO {
   position: absolute;
-  top: 2px;
-  left: 1130px;
-  width: 320px;
-  height: 67px;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+  height: 1080px;
   z-index: 99;
 }
 
 .goalB {
   position: absolute;
-  top: 2px;
-  left: 470px;
-  width: 320px;
-  height: 67px;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+  height: 1080px;
   z-index: 99;
 }
 
