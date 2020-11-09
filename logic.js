@@ -868,7 +868,7 @@ console.log(blueData1)
        var scoreTeam = scoreID.slice(-1)
        
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
-       $('#blueName').text("")
+      // $('#blueName').text("")
        document.getElementById('goalBLUE').play();
        setTimeout(BlueChange, 8000)
        $('#scorerB').text(jEvent.data.scorer.name);
@@ -879,7 +879,7 @@ console.log(blueData1)
        notify("goalBlue", "  " + jEvent.data.scorer.name);
        
           }else{
-            $('#orangeName').text("")
+           // $('#orangeName').text("")
             document.getElementById('goalORANGE').play();
        setTimeout(OrangeChange, 8000)
        $('#scorer').text(jEvent.data.scorer.name)

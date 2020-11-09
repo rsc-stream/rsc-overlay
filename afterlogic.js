@@ -340,7 +340,7 @@ var mvp = []
 
    }else if (jEvent.event === "game:match_ended") {
     //console.log("Match Ended")
-    
+ /*  
    if (jEvent.data.winner_team_num == 0) {
       var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
       var NewBlueWins = BWNumber + 1
@@ -361,11 +361,12 @@ var mvp = []
       var newGameNum = gameNum + 1
       localStorage.setItem('GameNumber', newGameNum)
       console.log('Orange Wins')
-    }
+    } */
+    addWinner()
     winner()
     logocolors()
     afterHighlights()
-    //addWinner()
+    
   }
 
    
