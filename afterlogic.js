@@ -14,7 +14,7 @@ var mvp = []
 
 
  function logocolors() {
-     console.log('logocolors')
+     //console.log('logocolors')
      var blueDataScore = blueData1[0].score + blueData2[0].score + blueData3[0].score 
       var orangeDataScore = orangeData1[0].score + orangeData2[0].score + orangeData3[0].score
       var blueDataGoals = blueData1[0].goals + blueData2[0].goals + blueData3[0].goals 
@@ -25,7 +25,7 @@ var mvp = []
       var orangeDataShots = orangeData1[0].shots + orangeData2[0].shots + orangeData3[0].shots
       var blueDataSaves = blueData1[0].saves + blueData2[0].saves + blueData3[0].saves 
       var orangeDataSaves = orangeData1[0].saves + orangeData2[0].saves + orangeData3[0].saves
- console.log(blueDataScore)
+ //console.log(blueDataScore)
    if (blueDataScore > orangeDataScore) {
      $('#afterPTSLogo').addClass('invisible')
      $('#afterPTSBlueLogo').removeClass('invisible')
@@ -141,7 +141,7 @@ var mvp = []
  }
 
  ws.onerror = (error) => {
-   console.log(`WebSocket error: ${error}`)
+   //console.log(`WebSocket error: ${error}`)
  }
 
  ws.onmessage = (e) => {
@@ -149,15 +149,15 @@ var mvp = []
    var jEvent = JSON.parse(event.data);
 
 
-   console.log(jEvent)
+   //console.log(jEvent)
 
 
    if (jEvent.event == "game:update_state") {
-     console.log(jEvent.data)
+     //console.log(jEvent.data)
      //gonna be used in a few spots
      var teamData = jEvent.data.game.teams
 
-     console.log(jEvent.data.game.hasWinner)
+     //console.log(jEvent.data.game.hasWinner)
      if (jEvent.data.game.hasWinner == true) { 
            $('#orangeName1').text(orangeData1.name)
            $('#orangeGoals1').text(orangeData1.goals)
@@ -195,13 +195,13 @@ var mvp = []
            $('#blueSaves3').text(blueData3.saves)
            $('#blueAssists3').text(blueData3.assists)
            $('#bluePoints3').text(blueData3.score)
-           winner()
-           afterHighlights()
+           //winner()
+           //afterHighlights()
           // logocolors()
      }else{
         //winner()
         //afterHighlights()
-       // logocolors()
+       //logocolors()
      }
 
        
@@ -328,30 +328,61 @@ var mvp = []
            $('#orangeAssists3').text(orange3.assists)
            $('#orangePoints3').text(orange3.score)
            
+
+           logocolors()
+            afterHighlights()
+            winner()
        } else {
         // orangeResetAll()
        }
-       
-     }
+    } 
+    }
 
-   }
+   }else if (jEvent.event === "game:match_ended") {
+    //console.log("Match Ended")
+    
+   if (jEvent.data.winner_team_num == 0) {
+      var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
+      var NewBlueWins = BWNumber + 1
+    
+      console.log(NewBlueWins)
+      localStorage.setItem("BlueWins", NewBlueWins);
+      var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+      var newGameNum = gameNum + 1
+      localStorage.setItem('GameNumber', newGameNum)
+      console.log('Blue Wins')
+    }else if (jEvent.data.winner_team_num == 1) {
+      var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
+      var NewOrangeWins = OWNumber + 1
+    
+      console.log(NewOrangeWins)
+      localStorage.setItem("OrangeWins", NewOrangeWins);
+      var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+      var newGameNum = gameNum + 1
+      localStorage.setItem('GameNumber', newGameNum)
+      console.log('Orange Wins')
+    }
+    winner()
+    logocolors()
+    afterHighlights()
+    //addWinner()
+  }
 
    
    //is the match over?
    else if (jEvent.event == "game:podium_start" /*|| jEvent.event == "game:match_ended"*/) {
-
-     winner()
+//console.log('podium')     //winner()
     // logocolors()
      
      endGame()
-     afterHighlights()
-     console.log('match ended / podium')
+     //afterHighlights()
+     //console.log('match ended / podium')
 /*
      if (jEvent.data.winner_team_num == 0) {
        var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
        var NewBlueWins = BWNumber + 1
      
-       console.log(NewBlueWins)
+       //console.log(NewBlueWins)
        localStorage.setItem("BlueWins", NewBlueWins);
        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
        var newGameNum = gameNum + 1
@@ -361,7 +392,7 @@ var mvp = []
        var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
        var NewOrangeWins = OWNumber + 1
      
-       console.log(NewOrangeWins)
+       //console.log(NewOrangeWins)
        localStorage.setItem("OrangeWins", NewOrangeWins);
        var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
        var newGameNum = gameNum + 1
@@ -374,11 +405,11 @@ var mvp = []
    }else if (jEvent.event == "game:goal_scored") {
     
    }else if (jEvent.event == "game:statfeed_event") {
-     console.log(jEvent.data)
+     //console.log(jEvent.data)
      if (jEvent.data.type === "MVP") {
        mvp = []
        mvp.push(jEvent.data.main_target.name)
-       console.log(mvp)
+       //console.log(mvp)
          if (mvp == blueData1[0].name) {  
            $('#blue1MVP').removeClass('invisible')
            $('#blue2MVP').addClass('invisible')
@@ -432,6 +463,7 @@ var mvp = []
      } else if (jEvent.data.type === "Assist") {
     
      }else if (jEvent.data.type === "Shot on Goal") {
+         //console.log("shot")
       
        }else if (jEvent.data.type === "Save") {
           
@@ -451,42 +483,14 @@ var mvp = []
    }else if (jEvent.event == "game:replay_will_end") {
     
    }else if (jEvent.event == "game:pre_game_countdown_begin") {
-     
+     //console.log('Countdown')
    }else if (jEvent.event == "game:pre_countdown_begin") {
      
    }else if (jEvent.event == "game:initialized") {
      
- }else if (jEvent.event === "game:match_ended") {
-   console.log("Match Ended")
-   
-  if (jEvent.data.winner_team_num == 0) {
-     var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
-     var NewBlueWins = BWNumber + 1
-   
-     console.log(NewBlueWins)
-     localStorage.setItem("BlueWins", NewBlueWins);
-     var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
-     var newGameNum = gameNum + 1
-     localStorage.setItem('GameNumber', newGameNum)
-     console.log('Blue Wins')
-   }else if (jEvent.data.winner_team_num == 1) {
-     var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
-     var NewOrangeWins = OWNumber + 1
-   
-     console.log(NewOrangeWins)
-     localStorage.setItem("OrangeWins", NewOrangeWins);
-     var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
-     var newGameNum = gameNum + 1
-     localStorage.setItem('GameNumber', newGameNum)
-     console.log('Orange Wins')
-   }
-   winner()
-   logocolors()
-   afterHighlights()
-   //addWinner()
  }
  }
-   }
+   
 }
 
 function addWinner() {
@@ -494,7 +498,7 @@ function addWinner() {
         var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
         var NewBlueWins = BWNumber + 1
       
-        console.log(NewBlueWins)
+        //console.log(NewBlueWins)
         localStorage.setItem("BlueWins", NewBlueWins);
         var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
         var newGameNum = gameNum + 1
@@ -504,7 +508,7 @@ function addWinner() {
         var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
         var NewOrangeWins = OWNumber + 1
       
-        console.log(NewOrangeWins)
+        //console.log(NewOrangeWins)
         localStorage.setItem("OrangeWins", NewOrangeWins);
         var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
         var newGameNum = gameNum + 1
@@ -514,7 +518,7 @@ function addWinner() {
    function winner() {
      var blueGoals = document.getElementById("blueScore").innerHTML
      var orangeGoals = document.getElementById("orangeScore").innerHTML
-     console.log(blueGoals)
+     //console.log(blueGoals)
      if (blueGoals > orangeGoals) {
      $('#blueW').removeClass('invisible');
      $('#orangeL').removeClass('invisible');
@@ -537,7 +541,7 @@ function addWinner() {
   //Score
 //if (blueData1[0].score > blueData2[0].score && blueData1[0].score > blueData3[0].score && blueData1[0].score > orangeData1[0].score && blueData1[0].score > orangeData2[0].score && blueData1[0].score > orangeData3[0].score) {
   if (parseInt(bluePoints1.innerHTML, 10) > parseInt(bluePoints2.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(bluePoints3.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints1.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints2.innerHTML, 10)  && parseInt(bluePoints1.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10))  {
-    console.log("B1")
+    //console.log("B1")
       $("#bluePoints2").removeClass('blueAfterHighlights')
       $("#bluePoints2").addClass('text-light')
       
@@ -558,7 +562,7 @@ function addWinner() {
       $("#orangePoints3").addClass('text-light')
       
     }else if (parseInt(bluePoints2.innerHTML, 10) > parseInt(bluePoints1.innerHTML, 10) && parseInt(bluePoints2.innerHTML, 10) > parseInt(bluePoints3.innerHTML, 10) && parseInt(bluePoints2.innerHTML, 10) > parseInt(orangePoints1.innerHTML, 10) && parseInt(bluePoints2.innerHTML, 10) > parseInt(orangePoints2.innerHTML, 10)  && parseInt(bluePoints2.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10)) {
-      console.log("B2")
+      //console.log("B2")
       $("#bluePoints1").removeClass('blueAfterHighlights')
       $("#bluePoints1").addClass('text-light')
       
@@ -578,7 +582,7 @@ function addWinner() {
       $("#orangePoints3").addClass('text-light')
       
     }else if (parseInt(bluePoints3.innerHTML, 10) > parseInt(bluePoints2.innerHTML, 10) && parseInt(bluePoints3.innerHTML, 10) > parseInt(bluePoints1.innerHTML, 10) && parseInt(bluePoints3.innerHTML, 10) > parseInt(orangePoints1.innerHTML, 10) && parseInt(bluePoints3.innerHTML, 10) > parseInt(orangePoints2.innerHTML, 10)  && parseInt(bluePoints3.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10)) {
-      console.log("B3")
+      //console.log("B3")
       $("#bluePoints1").removeClass('blueAfterHighlights')
       $("#bluePoints1").addClass('text-light')
       
@@ -597,7 +601,7 @@ function addWinner() {
       $("#orangePoints3").removeClass('orangeAfterHighlights')
       $("#orangePoints3").addClass('text-light')
     }else if (parseInt(orangePoints1.innerHTML, 10) > parseInt(bluePoints2.innerHTML, 10) && parseInt(orangePoints1.innerHTML, 10) > parseInt(bluePoints3.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) < parseInt(orangePoints1.innerHTML, 10) && parseInt(orangePoints1.innerHTML, 10) > parseInt(orangePoints2.innerHTML, 10)  && parseInt(orangePoints1.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10)) {
-      console.log("O1")
+      //console.log("O1")
       $("#bluePoints1").removeClass('blueAfterHighlights')
       $("#bluePoints1").addClass('text-light')
       
@@ -616,7 +620,7 @@ function addWinner() {
       $("#orangePoints3").removeClass('orangeAfterHighlights')
       $("#orangePoints3").addClass('text-light')
     }else if (parseInt(orangePoints2.innerHTML, 10) > parseInt(bluePoints2.innerHTML, 10) && parseInt(orangePoints2.innerHTML, 10) > parseInt(bluePoints3.innerHTML, 10) && parseInt(bluePoints1.innerHTML, 10) < parseInt(orangePoints2.innerHTML, 10) && parseInt(orangePoints2.innerHTML, 10) > parseInt(orangePoints1.innerHTML, 10)  && parseInt(orangePoints2.innerHTML, 10) > parseInt(orangePoints3.innerHTML, 10)) {
-      console.log("O2")
+      //console.log("O2")
       $("#bluePoints1").removeClass('blueAfterHighlights')
       $("#bluePoints1").addClass('text-light')
       
@@ -675,7 +679,7 @@ function addWinner() {
     
     //Goals
     if (parseInt(blueGoals1.innerHTML, 10) > parseInt(blueGoals2.innerHTML, 10) && parseInt(blueGoals1.innerHTML, 10) > parseInt(blueGoals3.innerHTML, 10) && parseInt(blueGoals1.innerHTML, 10) > parseInt(orangeGoals1.innerHTML, 10) && parseInt(blueGoals1.innerHTML, 10) > parseInt(orangeGoals2.innerHTML, 10)  && parseInt(blueGoals1.innerHTML, 10) > parseInt(orangeGoals3.innerHTML, 10))  {
-    console.log("B1")
+    //console.log("B1")
       $("#blueGoals2").removeClass('blueAfterHighlights')
       $("#blueGoals2").addClass('text-light')
       
@@ -696,7 +700,7 @@ function addWinner() {
       $("#orangeGoals3").addClass('text-light')
       
     }else if (parseInt(blueGoals2.innerHTML, 10) > parseInt(blueGoals1.innerHTML, 10) && parseInt(blueGoals2.innerHTML, 10) > parseInt(blueGoals3.innerHTML, 10) && parseInt(blueGoals2.innerHTML, 10) > parseInt(orangeGoals1.innerHTML, 10) && parseInt(blueGoals2.innerHTML, 10) > parseInt(orangeGoals2.innerHTML, 10)  && parseInt(blueGoals2.innerHTML, 10) > parseInt(orangeGoals3.innerHTML, 10)) {
-      console.log("B2")
+      //console.log("B2")
       $("#blueGoals1").removeClass('blueAfterHighlights')
       $("#blueGoals1").addClass('text-light')
       
@@ -716,7 +720,7 @@ function addWinner() {
       $("#orangeGoals3").addClass('text-light')
       
     }else if (parseInt(blueGoals3.innerHTML, 10) > parseInt(blueGoals2.innerHTML, 10) && parseInt(blueGoals3.innerHTML, 10) > parseInt(blueGoals1.innerHTML, 10) && parseInt(blueGoals3.innerHTML, 10) > parseInt(orangeGoals1.innerHTML, 10) && parseInt(blueGoals3.innerHTML, 10) > parseInt(orangeGoals2.innerHTML, 10)  && parseInt(blueGoals3.innerHTML, 10) > parseInt(orangeGoals3.innerHTML, 10)) {
-      console.log("B3")
+      //console.log("B3")
       $("#blueGoals1").removeClass('blueAfterHighlights')
       $("#blueGoals1").addClass('text-light')
       
@@ -735,7 +739,7 @@ function addWinner() {
       $("#orangeGoals3").removeClass('orangeAfterHighlights')
       $("#orangeGoals3").addClass('text-light')
     }else if (parseInt(orangeGoals1.innerHTML, 10) > parseInt(blueGoals2.innerHTML, 10) && parseInt(orangeGoals1.innerHTML, 10) > parseInt(blueGoals3.innerHTML, 10) && parseInt(blueGoals1.innerHTML, 10) < parseInt(orangeGoals1.innerHTML, 10) && parseInt(orangeGoals1.innerHTML, 10) > parseInt(orangeGoals2.innerHTML, 10)  && parseInt(orangeGoals1.innerHTML, 10) > parseInt(orangeGoals3.innerHTML, 10)) {
-      console.log("O1")
+      //console.log("O1")
       $("#blueGoals1").removeClass('blueAfterHighlights')
       $("#blueGoals1").addClass('text-light')
       
@@ -754,7 +758,7 @@ function addWinner() {
       $("#orangeGoals3").removeClass('orangeAfterHighlights')
       $("#orangeGoals3").addClass('text-light')
     }else if (parseInt(orangeGoals2.innerHTML, 10) > parseInt(blueGoals2.innerHTML, 10) && parseInt(orangeGoals2.innerHTML, 10) > parseInt(blueGoals3.innerHTML, 10) && parseInt(blueGoals1.innerHTML, 10) < parseInt(orangeGoals2.innerHTML, 10) && parseInt(orangeGoals2.innerHTML, 10) > parseInt(orangeGoals1.innerHTML, 10)  && parseInt(orangeGoals2.innerHTML, 10) > parseInt(orangeGoals3.innerHTML, 10)) {
-      console.log("O2")
+      //console.log("O2")
       $("#blueGoals1").removeClass('blueAfterHighlights')
       $("#blueGoals1").addClass('text-light')
       
@@ -813,7 +817,7 @@ function addWinner() {
     
     //Assists
     if (parseInt(blueAssists1.innerHTML, 10) > parseInt(blueAssists2.innerHTML, 10) && parseInt(blueAssists1.innerHTML, 10) > parseInt(blueAssists3.innerHTML, 10) && parseInt(blueAssists1.innerHTML, 10) > parseInt(orangeAssists1.innerHTML, 10) && parseInt(blueAssists1.innerHTML, 10) > parseInt(orangeAssists2.innerHTML, 10)  && parseInt(blueAssists1.innerHTML, 10) > parseInt(orangeAssists3.innerHTML, 10))  {
-    console.log("B1")
+    //console.log("B1")
       $("#blueAssists2").removeClass('blueAfterHighlights')
       $("#blueAssists2").addClass('text-light')
       
@@ -834,7 +838,7 @@ function addWinner() {
       $("#orangeAssists3").addClass('text-light')
       
     }else if (parseInt(blueAssists2.innerHTML, 10) > parseInt(blueAssists1.innerHTML, 10) && parseInt(blueAssists2.innerHTML, 10) > parseInt(blueAssists3.innerHTML, 10) && parseInt(blueAssists2.innerHTML, 10) > parseInt(orangeAssists1.innerHTML, 10) && parseInt(blueAssists2.innerHTML, 10) > parseInt(orangeAssists2.innerHTML, 10)  && parseInt(blueAssists2.innerHTML, 10) > parseInt(orangeAssists3.innerHTML, 10)) {
-      console.log("B2")
+      //console.log("B2")
       $("#blueAssists1").removeClass('blueAfterHighlights')
       $("#blueAssists1").addClass('text-light')
       
@@ -854,7 +858,7 @@ function addWinner() {
       $("#orangeAssists3").addClass('text-light')
       
     }else if (parseInt(blueAssists3.innerHTML, 10) > parseInt(blueAssists2.innerHTML, 10) && parseInt(blueAssists3.innerHTML, 10) > parseInt(blueAssists1.innerHTML, 10) && parseInt(blueAssists3.innerHTML, 10) > parseInt(orangeAssists1.innerHTML, 10) && parseInt(blueAssists3.innerHTML, 10) > parseInt(orangeAssists2.innerHTML, 10)  && parseInt(blueAssists3.innerHTML, 10) > parseInt(orangeAssists3.innerHTML, 10)) {
-      console.log("B3")
+      //console.log("B3")
       $("#blueAssists1").removeClass('blueAfterHighlights')
       $("#blueAssists1").addClass('text-light')
       
@@ -873,7 +877,7 @@ function addWinner() {
       $("#orangeAssists3").removeClass('orangeAfterHighlights')
       $("#orangeAssists3").addClass('text-light')
     }else if (parseInt(orangeAssists1.innerHTML, 10) > parseInt(blueAssists2.innerHTML, 10) && parseInt(orangeAssists1.innerHTML, 10) > parseInt(blueAssists3.innerHTML, 10) && parseInt(blueAssists1.innerHTML, 10) < parseInt(orangeAssists1.innerHTML, 10) && parseInt(orangeAssists1.innerHTML, 10) > parseInt(orangeAssists2.innerHTML, 10)  && parseInt(orangeAssists1.innerHTML, 10) > parseInt(orangeAssists3.innerHTML, 10)) {
-      console.log("O1")
+      //console.log("O1")
       $("#blueAssists1").removeClass('blueAfterHighlights')
       $("#blueAssists1").addClass('text-light')
       
@@ -892,7 +896,7 @@ function addWinner() {
       $("#orangeAssists3").removeClass('orangeAfterHighlights')
       $("#orangeAssists3").addClass('text-light')
     }else if (parseInt(orangeAssists2.innerHTML, 10) > parseInt(blueAssists2.innerHTML, 10) && parseInt(orangeAssists2.innerHTML, 10) > parseInt(blueAssists3.innerHTML, 10) && parseInt(blueAssists1.innerHTML, 10) < parseInt(orangeAssists2.innerHTML, 10) && parseInt(orangeAssists2.innerHTML, 10) > parseInt(orangeAssists1.innerHTML, 10)  && parseInt(orangeAssists2.innerHTML, 10) > parseInt(orangeAssists3.innerHTML, 10)) {
-      console.log("O2")
+      //console.log("O2")
       $("#blueAssists1").removeClass('blueAfterHighlights')
       $("#blueAssists1").addClass('text-light')
       
@@ -951,7 +955,7 @@ function addWinner() {
     
     //Shots
     if (parseInt(blueShots1.innerHTML, 10) > parseInt(blueShots2.innerHTML, 10) && parseInt(blueShots1.innerHTML, 10) > parseInt(blueShots3.innerHTML, 10) && parseInt(blueShots1.innerHTML, 10) > parseInt(orangeShots1.innerHTML, 10) && parseInt(blueShots1.innerHTML, 10) > parseInt(orangeShots2.innerHTML, 10)  && parseInt(blueShots1.innerHTML, 10) > parseInt(orangeShots3.innerHTML, 10))  {
-    console.log("B1")
+    //console.log("B1")
       $("#blueShots2").removeClass('blueAfterHighlights')
       $("#blueShots2").addClass('text-light')
       
@@ -972,7 +976,7 @@ function addWinner() {
       $("#orangeShots3").addClass('text-light')
       
     }else if (parseInt(blueShots2.innerHTML, 10) > parseInt(blueShots1.innerHTML, 10) && parseInt(blueShots2.innerHTML, 10) > parseInt(blueShots3.innerHTML, 10) && parseInt(blueShots2.innerHTML, 10) > parseInt(orangeShots1.innerHTML, 10) && parseInt(blueShots2.innerHTML, 10) > parseInt(orangeShots2.innerHTML, 10)  && parseInt(blueShots2.innerHTML, 10) > parseInt(orangeShots3.innerHTML, 10)) {
-      console.log("B2")
+      //console.log("B2")
       $("#blueShots1").removeClass('blueAfterHighlights')
       $("#blueShots1").addClass('text-light')
       
@@ -992,7 +996,7 @@ function addWinner() {
       $("#orangeShots3").addClass('text-light')
       
     }else if (parseInt(blueShots3.innerHTML, 10) > parseInt(blueShots2.innerHTML, 10) && parseInt(blueShots3.innerHTML, 10) > parseInt(blueShots1.innerHTML, 10) && parseInt(blueShots3.innerHTML, 10) > parseInt(orangeShots1.innerHTML, 10) && parseInt(blueShots3.innerHTML, 10) > parseInt(orangeShots2.innerHTML, 10)  && parseInt(blueShots3.innerHTML, 10) > parseInt(orangeShots3.innerHTML, 10)) {
-      console.log("B3")
+      //console.log("B3")
       $("#blueShots1").removeClass('blueAfterHighlights')
       $("#blueShots1").addClass('text-light')
       
@@ -1011,7 +1015,7 @@ function addWinner() {
       $("#orangeShots3").removeClass('orangeAfterHighlights')
       $("#orangeShots3").addClass('text-light')
     }else if (parseInt(orangeShots1.innerHTML, 10) > parseInt(blueShots2.innerHTML, 10) && parseInt(orangeShots1.innerHTML, 10) > parseInt(blueShots3.innerHTML, 10) && parseInt(blueShots1.innerHTML, 10) < parseInt(orangeShots1.innerHTML, 10) && parseInt(orangeShots1.innerHTML, 10) > parseInt(orangeShots2.innerHTML, 10)  && parseInt(orangeShots1.innerHTML, 10) > parseInt(orangeShots3.innerHTML, 10)) {
-      console.log("O1")
+      //console.log("O1")
       $("#blueShots1").removeClass('blueAfterHighlights')
       $("#blueShots1").addClass('text-light')
       
@@ -1030,7 +1034,7 @@ function addWinner() {
       $("#orangeShots3").removeClass('orangeAfterHighlights')
       $("#orangeShots3").addClass('text-light')
     }else if (parseInt(orangeShots2.innerHTML, 10) > parseInt(blueShots2.innerHTML, 10) && parseInt(orangeShots2.innerHTML, 10) > parseInt(blueShots3.innerHTML, 10) && parseInt(blueShots1.innerHTML, 10) < parseInt(orangeShots2.innerHTML, 10) && parseInt(orangeShots2.innerHTML, 10) > parseInt(orangeShots1.innerHTML, 10)  && parseInt(orangeShots2.innerHTML, 10) > parseInt(orangeShots3.innerHTML, 10)) {
-      console.log("O2")
+      //console.log("O2")
       $("#blueShots1").removeClass('blueAfterHighlights')
       $("#blueShots1").addClass('text-light')
       
@@ -1089,7 +1093,7 @@ function addWinner() {
     
     //Saves
     if (parseInt(blueSaves1.innerHTML, 10) > parseInt(blueSaves2.innerHTML, 10) && parseInt(blueSaves1.innerHTML, 10) > parseInt(blueSaves3.innerHTML, 10) && parseInt(blueSaves1.innerHTML, 10) > parseInt(orangeSaves1.innerHTML, 10) && parseInt(blueSaves1.innerHTML, 10) > parseInt(orangeSaves2.innerHTML, 10)  && parseInt(blueSaves1.innerHTML, 10) > parseInt(orangeSaves3.innerHTML, 10))  {
-    console.log("B1")
+    //console.log("B1")
       $("#blueSaves2").removeClass('blueAfterHighlights')
       $("#blueSaves2").addClass('text-light')
       
@@ -1110,7 +1114,7 @@ function addWinner() {
       $("#orangeSaves3").addClass('text-light')
       
     }else if (parseInt(blueSaves2.innerHTML, 10) > parseInt(blueSaves1.innerHTML, 10) && parseInt(blueSaves2.innerHTML, 10) > parseInt(blueSaves3.innerHTML, 10) && parseInt(blueSaves2.innerHTML, 10) > parseInt(orangeSaves1.innerHTML, 10) && parseInt(blueSaves2.innerHTML, 10) > parseInt(orangeSaves2.innerHTML, 10)  && parseInt(blueSaves2.innerHTML, 10) > parseInt(orangeSaves3.innerHTML, 10)) {
-      console.log("B2")
+      //console.log("B2")
       $("#blueSaves1").removeClass('blueAfterHighlights')
       $("#blueSaves1").addClass('text-light')
       
@@ -1130,7 +1134,7 @@ function addWinner() {
       $("#orangeSaves3").addClass('text-light')
       
     }else if (parseInt(blueSaves3.innerHTML, 10) > parseInt(blueSaves2.innerHTML, 10) && parseInt(blueSaves3.innerHTML, 10) > parseInt(blueSaves1.innerHTML, 10) && parseInt(blueSaves3.innerHTML, 10) > parseInt(orangeSaves1.innerHTML, 10) && parseInt(blueSaves3.innerHTML, 10) > parseInt(orangeSaves2.innerHTML, 10)  && parseInt(blueSaves3.innerHTML, 10) > parseInt(orangeSaves3.innerHTML, 10)) {
-      console.log("B3")
+      //console.log("B3")
       $("#blueSaves1").removeClass('blueAfterHighlights')
       $("#blueSaves1").addClass('text-light')
       
@@ -1149,7 +1153,7 @@ function addWinner() {
       $("#orangeSaves3").removeClass('orangeAfterHighlights')
       $("#orangeSaves3").addClass('text-light')
     }else if (parseInt(orangeSaves1.innerHTML, 10) > parseInt(blueSaves2.innerHTML, 10) && parseInt(orangeSaves1.innerHTML, 10) > parseInt(blueSaves3.innerHTML, 10) && parseInt(blueSaves1.innerHTML, 10) < parseInt(orangeSaves1.innerHTML, 10) && parseInt(orangeSaves1.innerHTML, 10) > parseInt(orangeSaves2.innerHTML, 10)  && parseInt(orangeSaves1.innerHTML, 10) > parseInt(orangeSaves3.innerHTML, 10)) {
-      console.log("O1")
+      //console.log("O1")
       $("#blueSaves1").removeClass('blueAfterHighlights')
       $("#blueSaves1").addClass('text-light')
       
@@ -1168,7 +1172,7 @@ function addWinner() {
       $("#orangeSaves3").removeClass('orangeAfterHighlights')
       $("#orangeSaves3").addClass('text-light')
     }else if (parseInt(orangeSaves2.innerHTML, 10) > parseInt(blueSaves2.innerHTML, 10) && parseInt(orangeSaves2.innerHTML, 10) > parseInt(blueSaves3.innerHTML, 10) && parseInt(blueSaves1.innerHTML, 10) < parseInt(orangeSaves2.innerHTML, 10) && parseInt(orangeSaves2.innerHTML, 10) > parseInt(orangeSaves1.innerHTML, 10)  && parseInt(orangeSaves2.innerHTML, 10) > parseInt(orangeSaves3.innerHTML, 10)) {
-      console.log("O2")
+      //console.log("O2")
       $("#blueSaves1").removeClass('blueAfterHighlights')
       $("#blueSaves1").addClass('text-light')
       

@@ -891,7 +891,7 @@ console.log(blueData1)
           }
       }else if (jEvent.event == "game:statfeed_event") {
         console.log(jEvent.data)
-        if (jEvent.data.type === "MVP") {
+      /*  if (jEvent.data.type === "MVP") {
         /*  mvp = []
           mvp.push(jEvent.data.main_target.name)
           console.log(mvp)
@@ -944,8 +944,8 @@ console.log(blueData1)
               $('#orange1MVP').addClass('invisible')
               $('#orange2MVP').addClass('invisible')
               $('#orange3MVP').addClass('invisible')
-            }   */
-        } else if (jEvent.data.type === "Assist") {
+            }   
+        } else*/ if (jEvent.data.type === "Assist") {
           console.log("Assist")
           goalAssist.push(jEvent.data.main_target.name)
           console.log(goalAssist[0])
@@ -1036,11 +1036,12 @@ console.log(blueData1)
        
         setTimeout(playOut, 1200)
       }else if (jEvent.event == "game:pre_game_countdown_begin") {
-        
+        $('#TierOverlay2').addClass('d-none');
         console.log(transition)
         setTimeout(add, 4500)
         
       }else if (jEvent.event == "game:pre_countdown_begin") {
+        $('#TierOverlay2').addClass('d-none');
         console.log("transition")
         setTimeout(add, 4500)
       }else if (jEvent.event == "game:initialized") {

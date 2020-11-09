@@ -16,7 +16,7 @@
   
 </head>
 
-<body onload="winner(); logocolors(); afterHighlights()">
+<body >
 
     <video preload muted id="afterIn" class="stinger">
         <source src="assets/RSC.webm" type="video/webm"> 
@@ -176,25 +176,15 @@
         let blueF = localStorage.getItem("BlueFran")
         document.getElementById("blueFranchise").innerHTML = localStorage.getItem("BlueFran")
         document.getElementById("afterBlueLogo").src = "assets/logos/Active Logos/" + blueF + ".png"
-        //document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
-        //document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
-        //document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
         if (event.key != 'OrangeTeam') ;
         document.getElementById("orangeTeamName").innerHTML = localStorage.getItem("OrangeTeam");
         let orangeF = localStorage.getItem("OrangeFran")
         document.getElementById("orangeFranchise").innerHTML = localStorage.getItem("OrangeFran")
-        //document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
-        //document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
         document.getElementById("afterOrangeLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
-        //document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
-        //if (event.key != 'tier') ;
-        //document.getElementById("tier").innerHTML = localStorage.getItem("tier");
-        //if (event.key != 'blueWin1') ;
-        //BLUEWIN1()
         if (event.key != 'OrangeWins');
-        document.getElementById("OrangeSeries").innerHTML = localStorage.getItem("OrangeWins");
+        document.getElementById("OrangeSeries").innerText = localStorage.getItem("OrangeWins");
         if (event.key != 'BlueWins');
-        document.getElementById("blueSeries").innerHTML = localStorage.getItem("BlueWins");
+        document.getElementById("blueSeries").innerText = localStorage.getItem("BlueWins");
         //if (event.key != 'GameNumber');
         //document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
         if (event.key != 'series') ;
