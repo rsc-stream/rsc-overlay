@@ -11,7 +11,8 @@ var orangeData3 = []
 var mvp = []
  var team = []
  var goalAssist = []
-
+ var OrangeScore = []
+ var BlueScore = []
 
  function logocolors() {
      //console.log('logocolors')
@@ -156,7 +157,10 @@ var mvp = []
      //console.log(jEvent.data)
      //gonna be used in a few spots
      var teamData = jEvent.data.game.teams
-
+     $('#blueScore').text(BlueScore)
+       
+     $('#orangeScore').text(OrangeScore)
+     console.log(OrangeScore)
      //console.log(jEvent.data.game.hasWinner)
      if (jEvent.data.game.hasWinner == true) { 
            $('#orangeName1').text(orangeData1.name)
@@ -340,7 +344,7 @@ var mvp = []
 
    }else if (jEvent.event === "game:match_ended") {
     //console.log("Match Ended")
- /*  
+   
    if (jEvent.data.winner_team_num == 0) {
       var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
       var NewBlueWins = BWNumber + 1
@@ -351,6 +355,7 @@ var mvp = []
       var newGameNum = gameNum + 1
       localStorage.setItem('GameNumber', newGameNum)
       console.log('Blue Wins')
+      $('#blueSeries').text(NewBlueWins);
     }else if (jEvent.data.winner_team_num == 1) {
       var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
       var NewOrangeWins = OWNumber + 1
@@ -361,8 +366,9 @@ var mvp = []
       var newGameNum = gameNum + 1
       localStorage.setItem('GameNumber', newGameNum)
       console.log('Orange Wins')
-    } */
-    addWinner()
+      $('#OrangeSeries').text(NewOrangeWins);
+    } 
+    //addWinner()
     winner()
     logocolors()
     afterHighlights()
@@ -404,6 +410,10 @@ var mvp = []
     
      
    }else if (jEvent.event == "game:goal_scored") {
+    BlueScore = []
+    OrangeScore = []
+    BlueScore.push(_.get(teamData, [0, 'score']))
+    OrangeScore.push(_.get(teamData, [1, 'score']))
     
    }else if (jEvent.event == "game:statfeed_event") {
      //console.log(jEvent.data)
@@ -484,6 +494,8 @@ var mvp = []
    }else if (jEvent.event == "game:replay_will_end") {
     
    }else if (jEvent.event == "game:pre_game_countdown_begin") {
+    BlueScore = []
+    OrangeScore = []
      //console.log('Countdown')
    }else if (jEvent.event == "game:pre_countdown_begin") {
      
