@@ -61,7 +61,7 @@
 <!-- <label id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;"">1</label> -->
 <!--<button  onclick="gameminus()" type="button" id="GameMinus" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button> -->
 
-
+<button  onclick="scores()" type="button" style="font-size: 15px; border-radius: 4px; background-color: green; color: white; border: 2px solid green; padding: 3px;margin-top: -15px; margin-left: 0px;">Send Wins</button>
 </div>
 
 <script>
@@ -228,11 +228,11 @@ var getBlueWins = blueW[0] + 1
 blueW = []
 blueW.push(getBlueWins)
 document.getElementById("bWins").innerHTML = blueW[0]
-localStorage.setItem("BlueWins", blueW[0]);
+//localStorage.setItem("BlueWins", blueW[0]);
 var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
 var newGameNum = gameNum + 1
 console.log(newGameNum)
-localStorage.setItem('GameNumber', newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
 document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 if (blueW[0] === mostWins[0]) {
   document.getElementById("BWButton").disabled = true;
@@ -247,11 +247,11 @@ var getBlueWins = blueW[0] - 1
 blueW = []
 blueW.push(getBlueWins)
 document.getElementById("bWins").innerHTML = blueW[0]
-localStorage.setItem("BlueWins", blueW[0]);
+//localStorage.setItem("BlueWins", blueW[0]);
 var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
 var newGameNum = gameNum - 1
 console.log(newGameNum)
-localStorage.setItem('GameNumber', newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
 document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 if (blueW[0] === 0) {
   document.getElementById("BRButton").disabled = true;
@@ -261,18 +261,19 @@ if (blueW[0] === 0) {
 }
 }
 
-function orangeWin() {
-  var orangenum = parseInt(localStorage.getItem('OrangeWins'))
+var orangenum = parseInt(localStorage.getItem('OrangeWins'))
 var orangeW = [orangenum]
+function orangeWin() {
+  
 var getOrangeWins = orangeW[0] + 1
 orangeW = []
 orangeW.push(getOrangeWins)
 document.getElementById("oWins").innerHTML = orangeW[0]
-localStorage.setItem("OrangeWins", orangeW[0]);
+//localStorage.setItem("OrangeWins", orangeW[0]);
 var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
 var newGameNum = gameNum + 1
 
-localStorage.setItem('GameNumber', newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
 //document.getElementById("gameNumber").innerHTML = newGameNum
 document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 console.log(localStorage.getItem('GameNumber'))
@@ -285,16 +286,14 @@ if (orangeW[0] === mostWins[0]) {
 }
 
 function orangeWinRemove() {
-  var orangenum = parseInt(localStorage.getItem('OrangeWins'))
-var orangeW = [orangenum]
 var getOrangeWins = orangeW[0] - 1
 orangeW = []
 orangeW.push(getOrangeWins)
 document.getElementById("oWins").innerHTML = orangeW[0]
-localStorage.setItem("OrangeWins", orangeW[0]);
+//localStorage.setItem("OrangeWins", orangeW[0]);
 var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
 var newGameNum = gameNum - 1
-localStorage.setItem('GameNumber', newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
 document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
 console.log(newGameNum)
 
@@ -337,6 +336,21 @@ if (game[0] === 1) {
   document.getElementById("GamePlus").disabled = false;
   document.getElementById("GameMinus").disabled = false;
 }
+}
+function scores() {
+var blueSW = document.getElementById("bWins").innerHTML
+var orangeSW = document.getElementById("oWins").innerHTML
+localStorage.setItem("OrangeWins", orangeSW);
+localStorage.setItem("BlueWins", blueSW);
+console.log(orangeSW)
+var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
+var getGame = parseInt(orangeSW, 10) + parseInt(blueSW, 10) + 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+
 }
 
 function live() {

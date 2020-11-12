@@ -11,8 +11,8 @@ var orangeData3 = []
 var mvp = []
  var team = []
  var goalAssist = []
- var OrangeScore = []
- var BlueScore = []
+ var OrangeScore = [0]
+ var BlueScore = [0]
 
  function logocolors() {
      //console.log('logocolors')
@@ -220,9 +220,8 @@ var mvp = []
        var orangeScore = _.get(teamData, [1, 'score'])
 
        
-       $('#blueScore').text(blueScore)
-       
-       $('#orangeScore').text(orangeScore)
+       //$('#blueScore').text(blueScore)
+       //$('#orangeScore').text(orangeScore)
 
 
 
@@ -410,10 +409,22 @@ var mvp = []
     
      
    }else if (jEvent.event == "game:goal_scored") {
-    BlueScore = []
-    OrangeScore = []
-    BlueScore.push(_.get(teamData, [0, 'score']))
-    OrangeScore.push(_.get(teamData, [1, 'score']))
+    var scoreID = jEvent.data.scorer.id
+       var scoreTeam = scoreID.slice(-1)
+       
+          if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
+      // $('#blueName').text("")
+
+      updateBlue = BlueScore + 1
+      BlueScore.push(updateBlue)
+      $('#blueScore').text(updateBlue)
+       
+          }else{
+           // $('#orangeName').text("")
+           updateOrange = OrangeScore + 1
+           OrangeScore.push(updateOrange)
+           $('#orangeScore').text(updateOrange)
+          }
     
    }else if (jEvent.event == "game:statfeed_event") {
      //console.log(jEvent.data)
@@ -494,8 +505,8 @@ var mvp = []
    }else if (jEvent.event == "game:replay_will_end") {
     
    }else if (jEvent.event == "game:pre_game_countdown_begin") {
-    BlueScore = []
-    OrangeScore = []
+    BlueScore = [0]
+    OrangeScore = [0]
      //console.log('Countdown')
    }else if (jEvent.event == "game:pre_countdown_begin") {
      
