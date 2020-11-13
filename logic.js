@@ -496,7 +496,7 @@
               $('#blue-active-score').text(activePlayerData.score)
               $('#blue-active-boost').text(activePlayerData.boost)
               $('#blue-active-p-bar').width(activePlayerData.boost + "%")
-
+              $('#scoreboard').addClass('open');
 
             } else if (activePlayerData.team == 1) {
               $('#orange-team-active').removeClass('d-none');
@@ -520,6 +520,7 @@
               $('#orange-active-boost').text(activePlayerData.boost)
               $('#orange-active-p-bar').width(activePlayerData.boost + "%")
 
+              $('#scoreboard').addClass('open');
             } else {
               console.log('oopsie')
             }

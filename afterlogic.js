@@ -422,7 +422,7 @@ var mvp = []
      // BlueScore = []
      // BlueScore.push(updateBlue)
       $('#blueScore').text(parseInt(BlueScore) + 1)
-       
+      $('#orangeScore').text(parseInt(OrangeScore))
           }else{
            // $('#orangeName').text("")
           // updateOrange = OrangeScore + 1
@@ -430,6 +430,7 @@ var mvp = []
           // OrangeScore.push(updateOrange)
          // console.log(OrangeScore)
            $('#orangeScore').text(parseInt(OrangeScore) + 1)
+           $('#blueScore').text(parseInt(BlueScore))
           }
     
    }else if (jEvent.event == "game:statfeed_event") {
