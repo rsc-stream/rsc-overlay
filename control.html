@@ -93,7 +93,7 @@ dropdownBlue.selectedIndex = 0;
 dropdownOrange.add(defaultOptionOrange);
 dropdownOrange.selectedIndex = 0;
 
-const url = 'https://cool-grass-d74d.rsc.workers.dev/?https://rsc.webfillet.com/RSCdotNet/api/stats/clear-cache';
+const url = 'https://cool-grass-d74d.rsc.workers.dev/?https://rsc.webfillet.com/RSCdotNet/api/stats';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);
@@ -456,8 +456,20 @@ function load() {
         window.onstorage = event => { // same as window.addEventListener('storage', () => {
         if (event.key != 'OrangeWins');
         document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+         if (orangeW[0] === 0) {
+         document.getElementById("ORButton").disabled = true;
+        }else{
+         document.getElementById("ORButton").disabled = false;
+         document.getElementById("OWButton").disabled = false;
+        }
         if (event.key != 'BlueWins');
         document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+          if (blueW[0] === 0) {
+          document.getElementById("BRButton").disabled = true;
+           }else{
+           document.getElementById("BRButton").disabled = false;
+           document.getElementById("BWButton").disabled = false;
+          }
         if (event.key != 'GameNumber');
         document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
         }

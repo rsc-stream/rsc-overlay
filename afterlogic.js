@@ -157,10 +157,10 @@ var mvp = []
      //console.log(jEvent.data)
      //gonna be used in a few spots
      var teamData = jEvent.data.game.teams
-     $('#blueScore').text(BlueScore)
+    // $('#blueScore').text(BlueScore)
        
-     $('#orangeScore').text(OrangeScore)
-     console.log(OrangeScore)
+    // $('#orangeScore').text(OrangeScore)
+    // console.log(OrangeScore)
      //console.log(jEvent.data.game.hasWinner)
      if (jEvent.data.game.hasWinner == true) { 
            $('#orangeName1').text(orangeData1.name)
@@ -219,7 +219,10 @@ var mvp = []
        var blueScore = _.get(teamData, [0, 'score'])
        var orangeScore = _.get(teamData, [1, 'score'])
 
-       
+       BlueScore = []
+       BlueScore.push(blueScore)
+       OrangeScore = []
+       OrangeScore.push(orangeScore)
        //$('#blueScore').text(blueScore)
        //$('#orangeScore').text(orangeScore)
 
@@ -380,7 +383,7 @@ var mvp = []
 //console.log('podium')     //winner()
     // logocolors()
      
-     endGame()
+    // endGame()
      //afterHighlights()
      //console.log('match ended / podium')
 /*
@@ -415,15 +418,18 @@ var mvp = []
           if (scoreTeam === "1" || scoreTeam === "2" || scoreTeam === "3") {
       // $('#blueName').text("")
 
-      updateBlue = BlueScore + 1
-      BlueScore.push(updateBlue)
-      $('#blueScore').text(updateBlue)
+     // updateBlue = BlueScore + 1
+     // BlueScore = []
+     // BlueScore.push(updateBlue)
+      $('#blueScore').text(parseInt(BlueScore) + 1)
        
           }else{
            // $('#orangeName').text("")
-           updateOrange = OrangeScore + 1
-           OrangeScore.push(updateOrange)
-           $('#orangeScore').text(updateOrange)
+          // updateOrange = OrangeScore + 1
+          // OrangeScore = []
+          // OrangeScore.push(updateOrange)
+         // console.log(OrangeScore)
+           $('#orangeScore').text(parseInt(OrangeScore) + 1)
           }
     
    }else if (jEvent.event == "game:statfeed_event") {
@@ -505,8 +511,13 @@ var mvp = []
    }else if (jEvent.event == "game:replay_will_end") {
     
    }else if (jEvent.event == "game:pre_game_countdown_begin") {
-    BlueScore = [0]
-    OrangeScore = [0]
+    BlueScore = []
+    OrangeScore = []
+    BlueScore.push(0)
+    OrangeScore.push(0)
+    console.log("here")
+    $('#orangeScore').text(parseInt(OrangeScore))
+    $('#blueScore').text(parseInt(BlueScore))
      //console.log('Countdown')
    }else if (jEvent.event == "game:pre_countdown_begin") {
      
@@ -517,6 +528,10 @@ var mvp = []
    
 }
 
+function load() {
+  $('#orangeScore').text(parseInt(OrangeScore))
+    $('#blueScore').text(parseInt(BlueScore))
+}
 function addWinner() {
     if (jEvent.data.winner_team_num == 0) {
         var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)

@@ -1191,7 +1191,7 @@ var timer
           //document.getElementById("showAfter").removeClass('invisible');
             },3000);
           },2300);
-        },1100);
+        },2100);
       }
 
   /*    function winner() {
