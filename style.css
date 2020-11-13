@@ -1,7 +1,7 @@
 body{
   width: 1920px;
   height: 1080px;
-  background-color: rgba(0,23,45,1); 
+  background-color: transparent; 
  /* background-image: url('assets/Overlay.png'); */
 }
 
@@ -262,24 +262,24 @@ body{
     left: 0px;
     width: 1920px;
     height: 1080px;
-    z-index: 99;
+    z-index: 9999;
 }
 
 .goalO {
   position: absolute;
-  top: 2px;
-  left: 1130px;
-  width: 320px;
-  height: 67px;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+  height: 1080px;
   z-index: 99;
 }
 
 .goalB {
   position: absolute;
-  top: 2px;
-  left: 470px;
-  width: 320px;
-  height: 67px;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+  height: 1080px;
   z-index: 99;
 }
 
@@ -397,6 +397,10 @@ top: -100px;
   left:-200px;
 }
 
+#TierOverlay2 {
+  position:relative;
+  left:-200px;
+}
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -505,21 +509,53 @@ top: -100px;
   padding-left: 5px;
   color:#f5f5f5;
   
-  font-size:18px;
+  font-size:25px;
   font-weight:600;
   border:2px;
   border-radius:5px 0px 0px 5px;
   border-color: #ffb347;
-  margin:10px 0px;
+  margin:15px 0px;
   opacity:0;
-  left:20px;
+  left:200px;
   text-align:right;
-  animation:showNotification 500ms ease-in-out 
+  animation:showNotification 750ms ease-in-out 
    forwards;
   width: max-content;
   align-self:flex-end;
 
 }
+
+
+@-webkit-keyframes fadeInFromNone {
+  0% {
+      display: none;
+      opacity: 0;
+    
+  }
+
+  5% {
+      display: block;
+      opacity: 1;
+  left: 0px;
+  }
+
+  90% {
+      display: block;
+      opacity: 1;
+  left: 0px;
+  }
+
+  100% {
+      display: block;
+      opacity: 0;
+    left: 200px;
+  
+  }
+}
+#notification-area .fade_out {
+-webkit-animation: fadeInFromNone 3s ease-out;
+}
+
 @keyframes showNotification {
   to {
     opacity:1;
@@ -531,21 +567,25 @@ top: -100px;
   background:#060437;
   border-color: #ffb347;
   border-style: solid;
-  border-right:0px;
-  margin-left: 5px;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
   
 }
 .goalOrange:before {
-  color: #060437;
-  content: "GOAL";
-  background: #ffb347;
-  padding: 5px;
-  margin: 5px;
-  border-color: #ffb347;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  position:absolute;
+  background-image: url('assets/Orange_Goal_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
   
 }
 
@@ -554,20 +594,23 @@ top: -100px;
   border-color: #4793ff;
   border-style: solid;
   border-right: 0px;
-  margin-left: 5px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
 }
 .goalBlue:before {
- 
-  color: #060437;
-  content: "GOAL";
-  background: #4793ff;
-  padding: 5px;
-  margin: 5px;
-  border-color: #4793ff;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  position:absolute;
+  background-image: url('assets/Goal_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
   
 }
 
@@ -575,21 +618,25 @@ top: -100px;
   background:#060437;
   border-color: #ffb347;
   border-style: solid;
-  border-right:0px;
-  margin-left: 5px;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
   
 }
 .assistOrange:before {
-  color: #060437;
-  content: "ASSIST";
-  background: #ffb347;
-  padding: 5px;
-  margin: 5px;
-  border-color: #ffb347;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  position:absolute;
+  background-image: url('assets/Assist_Orange2.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
   
 }
 
@@ -598,20 +645,23 @@ top: -100px;
   border-color: #4793ff;
   border-style: solid;
   border-right: 0px;
-  margin-left: 5px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
 }
 .assistBlue:before {
- 
-  color: #060437;
-  content: "ASSIST";
-  background: #4793ff;
-  padding: 5px;
-  margin: 5px;
-  border-color: #4793ff;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  position:absolute;
+  background-image: url('assets/Assist_Blue2.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
   
 }
 
@@ -619,21 +669,25 @@ top: -100px;
   background:#060437;
   border-color: #ffb347;
   border-style: solid;
-  border-right:0px;
-  margin-left: 5px;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
   
 }
 .shotOrange:before {
-  color: #060437;
-  content: "SHOT";
-  background: #ffb347;
-  padding: 5px;
-  margin: 5px;
-  border-color: #ffb347;
-  border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  position:absolute;
+  background-image: url('assets/Orange_Shot_on_Goal_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
   
 }
 
@@ -642,19 +696,850 @@ top: -100px;
   border-color: #4793ff;
   border-style: solid;
   border-right: 0px;
-  margin-left: 5px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
 }
 .shotBlue:before {
- 
-  color: #060437;
-  content: "SHOT";
-  background: #4793ff;
-  padding: 5px;
-  margin: 5px;
+  position:absolute;
+  background-image: url('assets/Shot_on_Goal_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+  
+}
+
+#notification-area .notification.saveOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.saveOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_Save_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.saveBlue {
+  background:#060437;
   border-color: #4793ff;
   border-style: solid;
-  border-radius:5px 0px 0px 5px;
-  font-size:20px;
-  font-family: RSCfontBold;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+.saveBlue:before {
+  position:absolute;
+  background-image: url('assets/Save_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
   
+}
+
+#notification-area .notification.epicsaveOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.epicsaveOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_Epic_Save_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.epicsaveBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+.epicsaveBlue:before {
+  position:absolute;
+  background-image: url('assets/Epic_Save_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+  
+}
+
+#notification-area .notification.HatTrickOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.HatTrickOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_Hat_Trick_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.HatTrickBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+.HatTrickBlue:before {
+  position:absolute;
+  background-image: url('assets/Hat_Trick_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+  
+}
+
+#notification-area .notification.saviorOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.saviorOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_Savior_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.saviorBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+.saviorBlue:before {
+  position:absolute;
+  background-image: url('assets/Savior_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+  
+}
+
+#notification-area .notification.demoOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.demoOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_Demolition_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.demoBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+
+.demoBlue:before {
+  position:absolute;
+  background-image: url('assets/Demolition_points_icon.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+}
+ 
+#notification-area .notification.demoedOrange {
+  background:#060437;
+  border-color: #ffb347;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(186, 196, 96, 0.95));
+  
+}
+.demoedOrange:before {
+  position:absolute;
+  background-image: url('assets/Orange_boom.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+   filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));
+  
+}
+
+#notification-area .notification.demoedBlue {
+  background:#060437;
+  border-color: #4793ff;
+  border-style: solid;
+  border-right: 0px;
+  padding-left:90px;
+  overflow:visible;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(96, 128, 196, 0.95));
+}
+
+.demoedBlue:before {
+  position:absolute;
+  background-image: url('assets/boom.png');
+    background-size: 75px 75px;
+    /*display: inline-block;*/
+    width: 75px; 
+    height: 75px;
+    content:"";
+    margin-top:-18px;
+    margin-left:-75px;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+   filter: drop-shadow(0px 0px 10px rgba(149, 164, 196, 0.95));
+}
+
+.afterBlueLogo{
+  position: absolute;
+  margin-top: 87px;
+  margin-left: 546px;
+  width: 215px;
+}
+
+.afterOrangeLogo{
+  position: absolute;
+  margin-top: 87px;
+  margin-left: 1159px;
+  width: 215px;
+}
+
+.afterPTSLogo{
+  position: absolute;
+  margin-top: 501px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterGoalsLogo{
+  position: absolute;
+  margin-top: 612px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterAssistsLogo{
+  position: absolute;
+  margin-top: 727px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterShotsLogo{
+  position: absolute;
+  margin-top: 841px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.afterSavesLogo{
+  position: absolute;
+  margin-top: 955px;
+  margin-left: 910px;
+  width: 100px;
+}
+
+.flex-containerAfterBlue {
+  position: absolute;
+  left: 31px;
+  top: 497px;
+  width: 864px;
+  height: 582px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerAfterBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerAfterOrange {
+  position: absolute;
+  left: 1026px;
+  top: 497px;
+  width: 864px;
+  height: 582px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+ 
+  border-width: 1px;
+ 
+}
+
+.flex-containerAfterOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerOrangeTeam {
+  position: absolute;
+  left: 1026px;
+  top: 425px;
+  width: 864px;
+  height: 82px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+ 
+  border-width: 1px;
+
+}
+
+.flex-containerOrangeTeam > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerBlueTeam {
+  position: absolute;
+  left: 31px;
+  top: 425px;
+  width: 864px;
+  height: 82px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerBlueTeam > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 284px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamNameBlue {
+  position: absolute;
+  left: 73px;
+  top: 137px;
+  width: 470px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamNameBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 470px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamFranchiseBlue {
+  position: absolute;
+  left: 100px;
+  top: 195px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamFranchiseBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamNameOrange {
+  position: absolute;
+  left: 1378px;
+  top: 137px;
+  width: 470px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamNameOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 470px;
+  align-content: center;
+  align-self:center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-containerTeamFranchiseOrange {
+  position: absolute;
+  left: 1405px;
+  top: 195px;
+  width: 415px;
+  height: 50px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+ 
+}
+
+.flex-containerTeamFranchiseOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 20px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamScoreBlue {
+  position: absolute;
+  left: 780px;
+  top: 40px;
+  width: 150px;
+  height: 300px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamScoreBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 180px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamScoreOrange {
+  position: absolute;
+  left: 990px;
+  top: 40px;
+  width: 150px;
+  height: 300px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamScoreOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 180px;
+  width: 415px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerSeriesScore {
+  position: absolute;
+  left: 870px;
+  top: 335px;
+  height: 90px;
+  width: 184px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerSeriesScore > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 40px;
+  width: 90px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerSeriesKind {
+  position: absolute;
+  left: 0px;
+  top: 285px;
+  height: 90px;
+  width: 1920px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+  
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerSeriesKind > div { 
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 40px;
+  width: 1920px;
+  align-content: center;
+  align-self:center;
+  color: #060437;
+}
+
+.flex-containerBlueMVP {
+  position: absolute;
+  left: 31px;
+  top: 340px;
+  width: 864px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerOrangeMVP {
+  position: absolute;
+  left: 1026px;
+  top: 340px;
+  width: 864px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+  
+}
+
+.flex-containerTeamWinBlue {
+  position: absolute;
+  left: 775px;
+  top: -10px;
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+  
+  border-width: 1px;
+
+}
+
+.flex-containerTeamWinBlue > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 80px;
+  width: 418px;
+  align-content: center;
+  align-self:center;
+}
+
+.flex-containerTeamWinOrange {
+  position: absolute;
+  left: 990px;
+  top: -10px;
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  align-content: stretch;
+
+  text-align: center;
+
+  border-width: 1px;
+
+}
+
+.flex-containerTeamWinOrange > div {
+  
+  margin: 0px;
+  margin-top: px;
+  margin-bottom: px;
+  font-size: 80px;
+  width: 418px;
+  align-content: center;
+  align-self:center;
+}
+
+.iFrame {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 299;
+}
+
+.textOverSize {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blueAfterHighlights {
+  color: #4793ff;
+  text-shadow: 0 0 10px rgb(92, 140, 245, 0.8)
+}
+
+.orangeAfterHighlights {
+  color: #ffb347;
+  text-shadow: 0 0 10px rgba(236, 248, 61, 0.8)
 }
