@@ -840,7 +840,7 @@ console.log(blueData1)
 */
       }else if (jEvent.event == "game:match_destroyed") {
         //window.location.assign('index.html')
-        blueResetAll()
+ /*       blueResetAll()
         orangeResetAll()
         document.getElementById('replayOut').style.zIndex = '999999';
         setTimeout(()=>{
@@ -851,6 +851,9 @@ console.log(blueData1)
               document.getElementById("aftergame").style.height = "0px";
               },2300);
             },100);
+*/
+
+
      /*  playOut()
        document.getElementById('replayOut').style.zIndex = '999999';
         setTimeout(()=>{
@@ -1047,7 +1050,17 @@ console.log(blueData1)
         console.log("transition")
         setTimeout(add, 4500)
       }else if (jEvent.event == "game:initialized") {
-        
+        blueResetAll()
+        orangeResetAll()
+        document.getElementById('replayOut').style.zIndex = '999999';
+        setTimeout(()=>{
+          document.getElementById('replayOut').play();
+         
+            setTimeout(()=>{
+              document.getElementById("aftergame").style.width = "0px";
+              document.getElementById("aftergame").style.height = "0px";
+              },2300);
+            },100);
     }else if (jEvent.event === "game:match_ended") {
       console.log("Match Ended")
      /* 
