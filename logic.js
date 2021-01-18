@@ -1052,14 +1052,14 @@ console.log(blueData1)
       }else if (jEvent.event == "game:initialized") {
         blueResetAll()
         orangeResetAll()
-        document.getElementById('replayOut').style.zIndex = '999999';
+        document.getElementById('RSCreplayOut').style.zIndex = '999999';
         setTimeout(()=>{
-          document.getElementById('replayOut').play();
+          document.getElementById('RSCreplayOut').play();
          
             setTimeout(()=>{
               document.getElementById("aftergame").style.width = "0px";
               document.getElementById("aftergame").style.height = "0px";
-              },2300);
+              },500);
             },100);
     }else if (jEvent.event === "game:match_ended") {
       console.log("Match Ended")
