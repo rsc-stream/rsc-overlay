@@ -83,6 +83,21 @@ body{
   src: url(assets/fonts/digital-7.ttf); 
 }
 
+@font-face {
+  font-family: Toxic;
+  src: url(assets/fonts/ToxigenesisRg-Bold.woff); 
+}
+
+
+@font-face {
+  font-family: 'ToxigenesisRg-Bold';
+  src: url('assets/fonts/ToxigenesisRg-Bold.woff2') format('woff2'), url('assets/fonts/ToxigenesisRg-Bold.woff') format('woff');
+}
+
+.ToxigenesisRg-Bold {
+	font-family: ToxigenesisRg-Bold;
+}
+
 .fontTimer{
   font-family: Timer;
 }
@@ -93,6 +108,10 @@ body{
 
 .fontBold {
   font-family: RSCfontBold;
+}
+
+.fontToxic {
+  font-family: Toxic;
 }
 
 @media print {
