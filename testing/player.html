@@ -29,8 +29,8 @@
         var ctx = c.getContext("2d");
         var Blue = document.getElementById("blueLogo");
         var Orange = document.getElementById("orangeLogo");
-        ctx.drawImage(Blue, 350, 65, 275, 275)
-        ctx.drawImage(Orange, 1290, 610, 275, 275)
+        ctx.drawImage(Blue, 350, 65, 300, 300)
+        ctx.drawImage(Orange, 1290, 610, 300, 300)
         ctx.font = "bold 40px Verdana";
         ctx.fillStyle = "#f5f5f5";
         ctx.fillText('Player B1', 730, 184)
@@ -74,14 +74,13 @@
         document.getElementById("blueFranchise").innerHTML  = localStorage.getItem("BlueFran")
         document.getElementById("blueLogo").src = "../assets/logos/Active Logos/" + blueF + ".png";
         //console.log(blueF)
-        setTimeout(()=>{
-        loadImage()
-        }, 300)
+       
 
         if (event.key != 'OrangeTeam') ;
         let orangeF = localStorage.getItem("OrangeFran")
-        document.getElementById("orangeActiveLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
+        document.getElementById("orangeLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
         setTimeout(()=>{
+          myCanvas.width+=0;
         loadImage()
         }, 300)
        /* document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
