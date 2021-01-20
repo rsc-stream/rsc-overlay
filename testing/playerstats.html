@@ -202,35 +202,57 @@ var Blue4ShotPct = BlueResults[0].Players[3].ShotPct
 }
 
 
+if (OrangeResults[0].Players.length < 4){
+var Orange1Name = OrangeResults[0].Players[0].PlayerName
+var Orange2Name = OrangeResults[0].Players[1].PlayerName
+var Orange3Name = OrangeResults[0].Players[2].PlayerName
+var Orange4Name = ""
+var Orange1GP = OrangeResults[0].Players[0].GP
+var Orange2GP = OrangeResults[0].Players[1].GP
+var Orange3GP = OrangeResults[0].Players[2].GP
+var Orange4GP = ""
+var Orange1Goals = OrangeResults[0].Players[0].Goals
+var Orange2Goals = OrangeResults[0].Players[1].Goals
+var Orange3Goals = OrangeResults[0].Players[2].Goals
+var Orange4Goals = ""
+var Orange1Assists = OrangeResults[0].Players[0].Assists
+var Orange2Assists = OrangeResults[0].Players[1].Assists
+var Orange3Assists = OrangeResults[0].Players[2].Assists
+var Orange4Assists = ""
+var Orange1Saves = OrangeResults[0].Players[0].Saves
+var Orange2Saves = OrangeResults[0].Players[1].Saves
+var Orange3Saves = OrangeResults[0].Players[2].Saves
+var Orange4Saves = ""
+var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
+var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
+var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
+var Orange4ShotPct = ""
+}else{
 var Orange1Name = OrangeResults[0].Players[0].PlayerName
 var Orange2Name = OrangeResults[0].Players[1].PlayerName
 var Orange3Name = OrangeResults[0].Players[2].PlayerName
 var Orange4Name = OrangeResults[0].Players[3].PlayerName
-
 var Orange1GP = OrangeResults[0].Players[0].GP
 var Orange2GP = OrangeResults[0].Players[1].GP
 var Orange3GP = OrangeResults[0].Players[2].GP
 var Orange4GP = OrangeResults[0].Players[3].GP
-
 var Orange1Goals = OrangeResults[0].Players[0].Goals
 var Orange2Goals = OrangeResults[0].Players[1].Goals
 var Orange3Goals = OrangeResults[0].Players[2].Goals
 var Orange4Goals = OrangeResults[0].Players[3].Goals
-
 var Orange1Assists = OrangeResults[0].Players[0].Assists
 var Orange2Assists = OrangeResults[0].Players[1].Assists
 var Orange3Assists = OrangeResults[0].Players[2].Assists
 var Orange4Assists = OrangeResults[0].Players[3].Assists
-
 var Orange1Saves = OrangeResults[0].Players[0].Saves
 var Orange2Saves = OrangeResults[0].Players[1].Saves
 var Orange3Saves = OrangeResults[0].Players[2].Saves
 var Orange4Saves = OrangeResults[0].Players[3].Saves
-
 var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
 var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
 var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
 var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
+}
 //---------------------------------------------------------------------------------------------------------------//
         setTimeout(()=>{
           myCanvas.width+=0;
