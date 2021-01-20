@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RSC Player Stats</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <!-- <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js" integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA==" crossorigin="anonymous"></script>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <!-- <link rel="stylesheet" href="./style1.css"> -->
+</head>
+
+<body onload="">
+    <canvas id="myCanvas" width="1920" height="1080">
+    </canvas>
+    <img id="blueLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png">
+    <img id="orangeLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png">
+    <img id="background" width="0" height="0" src= "../assets/VS.png">
+   <script>
+    
+    function loadImage() {
+
+        //document.getElementById("myCanvas").style.background = "url('../assets/Season_X_Player.png')";
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var Blue = document.getElementById("blueLogo");
+        var Orange = document.getElementById("orangeLogo");
+        var Background = document.getElementById("background");
+        ctx.drawImage(Background, 0, 0, 1920, 1080)
+        ctx.font = "60px Verdana";
+        ctx.fillStyle = "#f5f5f5";
+        ctx.textAlign = 'center';
+        ctx.fillText(localStorage.getItem("tier"), 960, 900)
+        
+        ctx.font = "italic 35px Verdana";
+        ctx.fillStyle = "#f5f5f5";
+        ctx.textAlign = "right";
+        ctx.shadowColor="black";
+        ctx.shadowBlur=20;
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.drawImage(Blue, 200, 500, 425, 425)
+        ctx.drawImage(Orange, 1272, 500, 425, 425)
+        //ctx.fillText(localStorage.getItem("BlueFran"), 655, 517)
+        ctx.textAlign = "left"
+        //ctx.fillText(localStorage.getItem("OrangeFran"), 1261, 1058)
+        ctx.font = "italic bold 55px Verdana";
+        ctx.fillStyle = "#f5f5f5";
+        ctx.textAlign = "center";
+        ctx.fillText(localStorage.getItem("BlueTeam"), 412, 1005)
+        ctx.textAlign = "center"
+        ctx.fillText(localStorage.getItem("OrangeTeam"), 1485, 1005)
+        
+    }
+  </script>
+
+<div class="text-light fontR" style="font-size: 25px;" id="blueFranchise">Blue Franchise Name</div>
+
+
+<script>
+'use strict';
+        window.onstorage = event => { // same as window.addEventListener('storage', () => {
+          location.reload();
+        if (event.key != 'BlueTeam') ;
+        let blueF = localStorage.getItem("BlueFran")
+        document.getElementById("blueFranchise").innerHTML  = localStorage.getItem("BlueFran")
+        document.getElementById("blueLogo").src = "../assets/logos/Active Logos/" + blueF + ".png";
+        //console.log(blueF)
+       
+
+        if (event.key != 'OrangeTeam') ;
+        let orangeF = localStorage.getItem("OrangeFran")
+        document.getElementById("orangeLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
+        let Teams = localStorage.getItem("Teams")
+        let teamData = ('Teams: ', JSON.parse(Teams))
+        console.log(teamData)
+        //-----------------------------------------------------------------------------------------------------------//
+        var BlueResults = []
+var searchField = 'Franchise'
+var searchValue = blueF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchField] == searchValue) {
+    BlueResults.push(teamData.Teams[i])
+  }
+}
+console.log(BlueResults[0].Players[0])
+
+var OrangeResults = []
+var searchFieldO = 'Franchise'
+var searchValueO = orangeF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchFieldO] == searchValueO) {
+    OrangeResults.push(teamData.Teams[i])
+  }
+}
+console.log(OrangeResults)
+
+
+//---------------------------------------------------------------------------------------------------------------//
+        setTimeout(()=>{
+          myCanvas.width+=0;
+        loadImage()
+        }, 300)
+       
+        }
+    
+        if (typeof(Storage) !== "undefined") {
+         let blueF = localStorage.getItem("BlueFran")
+         let orangeF = localStorage.getItem("OrangeFran")
+         let Teams = localStorage.getItem("Teams")
+         let teamData = ('Teams: ', JSON.parse(Teams))
+        //console.log(teamData.Teams[1])
+        document.getElementById("blueFranchise").innerHTML  = localStorage.getItem("BlueFran")
+        document.getElementById("blueLogo").src = "../assets/logos/Active Logos/" + blueF + ".png";
+        document.getElementById("orangeLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
+        //console.log(blueF)
+//-----------------------------------------------------------------------------------------------------------//
+var BlueResults = []
+var searchField = 'Franchise'
+var searchValue = blueF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchField] == searchValue) {
+    BlueResults.push(teamData.Teams[i])
+  }
+}
+console.log(BlueResults[0].Players[0])
+
+var OrangeResults = []
+var searchFieldO = 'Franchise'
+var searchValueO = orangeF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchFieldO] == searchValueO) {
+    OrangeResults.push(teamData.Teams[i])
+  }
+}
+console.log(OrangeResults)
+
+
+//---------------------------------------------------------------------------------------------------------------//
+
+        setTimeout(()=>{
+        loadImage()
+        }, 300)
+        
+        }
+    </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
+</body>

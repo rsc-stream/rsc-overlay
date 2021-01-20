@@ -1030,6 +1030,7 @@ console.log(blueData1)
         $('#replayBlue1').addClass('d-none');
         
       }else if (jEvent.event == "game:replay_start") {
+        $('#RSCreplayOut').addClass('d-none');
         console.log(team[0])
         if (team[0] === "blue"){
         
@@ -1050,8 +1051,7 @@ console.log(blueData1)
         console.log("transition")
         setTimeout(add, 4500)
       }else if (jEvent.event == "game:post_countdown_begin") {
-        blueResetAll()
-        orangeResetAll()
+        
         document.getElementById('RSCreplayOut').style.zIndex = '999999';
         setTimeout(()=>{
           document.getElementById('RSCreplayOut').play();
@@ -1061,9 +1061,11 @@ console.log(blueData1)
               document.getElementById("aftergame").style.height = "0px";
               },500);
             },100);
+       blueResetAll()
+       orangeResetAll()
       }else if (jEvent.event == "game:initialized") {
-      /*  blueResetAll()
-        orangeResetAll()
+    /*   blueResetAll()
+       orangeResetAll()
         document.getElementById('RSCreplayOut').style.zIndex = '999999';
         setTimeout(()=>{
           document.getElementById('RSCreplayOut').play();
@@ -1075,6 +1077,7 @@ console.log(blueData1)
             },100);
             */
     }else if (jEvent.event === "game:match_ended") {
+      $('#RSCreplayOut').removeClass('d-none');
       console.log("Match Ended")
      /* 
      if (jEvent.data.winner_team_num == 0) {

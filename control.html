@@ -133,22 +133,31 @@ function teams() {
     id.length = 0;
     if(tier === "Premier"){
         id.push(0)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][0]))
     }else if(tier === "Master"){
         id.push(1)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][1]))
     }else if(tier === "Elite"){
         id.push(2)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][2]))
     }else if(tier === "Major"){
         id.push(3)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][3]))
     }else if(tier === "Minor"){
         id.push(4)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][4]))
     }else if(tier === "Challenger"){
         id.push(5)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][5]))
     }else if(tier === "Prospect"){
         id.push(6)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][6]))
     }else if(tier === "Contender"){
         id.push(7)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][7]))
     }else if(tier === "Amateur"){
         id.push(8)
+        localStorage.setItem("Teams", JSON.stringify(teamsList[0][8]))
     }
 
 console.log(teamsList[0][0])
@@ -358,9 +367,11 @@ function live() {
     var sel = document.getElementById("blue-team");
         var bt= sel.options[sel.selectedIndex].label;
         var bf= sel.options[sel.selectedIndex].value;
-        //console.log(bf)
+        //var plb= sel.options[sel.selectedIndex].players;
+        //console.log(plb)
         localStorage.setItem("BlueTeam", bt);
         localStorage.setItem("BlueFran", bf);
+        //localStorage.setItem("BluePlayers", plb);
   
       
       var sel1 = document.getElementById("orange-team");
