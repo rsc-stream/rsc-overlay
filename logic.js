@@ -1050,19 +1050,9 @@ console.log(blueData1)
         console.log("transition")
         setTimeout(add, 4500)
       }else if (jEvent.event == "game:post_countdown_begin") {
-        blueResetAll()
-        orangeResetAll()
-        document.getElementById('RSCreplayOut').style.zIndex = '999999';
-        setTimeout(()=>{
-          document.getElementById('RSCreplayOut').play();
-         
-            setTimeout(()=>{
-              document.getElementById("aftergame").style.width = "0px";
-              document.getElementById("aftergame").style.height = "0px";
-              },500);
-            },100);
+        
       }else if (jEvent.event == "game:initialized") {
-      /*  blueResetAll()
+       blueResetAll()
         orangeResetAll()
         document.getElementById('RSCreplayOut').style.zIndex = '999999';
         setTimeout(()=>{
@@ -1073,7 +1063,7 @@ console.log(blueData1)
               document.getElementById("aftergame").style.height = "0px";
               },500);
             },100);
-            */
+            
     }else if (jEvent.event === "game:match_ended") {
       console.log("Match Ended")
      /* 
