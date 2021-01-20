@@ -32,57 +32,24 @@
         var Orange = document.getElementById("orangeLogo");
         var Background = document.getElementById("background");
         ctx.drawImage(Background, 0, 0, 1920, 1080)
-        ctx.font = "40px Verdana";
+        ctx.font = "45px Verdana";
         ctx.fillStyle = "#f5f5f5";
-        ctx.fillText(Blue1Name, 730, 184)
-        ctx.fillText(Blue2Name, 730, 277)
-        ctx.fillText(Blue3Name, 730, 369)
-        ctx.fillText(Blue4Name, 730, 462)
-        ctx.fillText(Orange1Name, 55, 723)
-        ctx.fillText(Orange2Name, 55, 816)
-        ctx.fillText(Orange3Name, 55, 909)
-        ctx.fillText(Orange4Name, 55, 1002)
         ctx.textAlign = 'center';
-        ctx.fillText(Blue1GP, 1235, 184)
-        ctx.fillText(Blue2GP, 1235, 277)
-        ctx.fillText(Blue3GP, 1235, 369)
-        ctx.fillText(Blue4GP, 1235, 462)
-        ctx.fillText(Orange1GP, 570, 723)
-        ctx.fillText(Orange2GP, 570, 816)
-        ctx.fillText(Orange3GP, 570, 909)
-        ctx.fillText(Orange4GP, 570, 1002)
-        ctx.fillText(Blue1Goals, 1358, 184)
-        ctx.fillText(Blue2Goals, 1358, 277)
-        ctx.fillText(Blue3Goals, 1358, 369)
-        ctx.fillText(Blue4Goals, 1358, 462)
-        ctx.fillText(Orange1Goals, 693, 723)
-        ctx.fillText(Orange2Goals, 693, 816)
-        ctx.fillText(Orange3Goals, 693, 909)
-        ctx.fillText(Orange4Goals, 693, 1002)
-        ctx.fillText(Blue1Assists, 1518, 184)
-        ctx.fillText(Blue2Assists, 1518, 277)
-        ctx.fillText(Blue3Assists, 1518, 369)
-        ctx.fillText(Blue4Assists, 1518, 462)
-        ctx.fillText(Orange1Assists, 853, 723)
-        ctx.fillText(Orange2Assists, 853, 816)
-        ctx.fillText(Orange3Assists, 853, 909)
-        ctx.fillText(Orange4Assists, 853, 1002)
-        ctx.fillText(Blue1Saves, 1676, 184)
-        ctx.fillText(Blue2Saves, 1676, 277)
-        ctx.fillText(Blue3Saves, 1676, 369)
-        ctx.fillText(Blue4Saves, 1676, 462)
-        ctx.fillText(Orange1Saves, 1011, 723)
-        ctx.fillText(Orange2Saves, 1011, 816)
-        ctx.fillText(Orange3Saves, 1011, 909)
-        ctx.fillText(Orange4Saves, 1011, 1002)
-        ctx.fillText(Blue1ShotPct, 1824, 184)
-        ctx.fillText(Blue2ShotPct, 1824, 277)
-        ctx.fillText(Blue3ShotPct, 1824, 369)
-        ctx.fillText(Blue4ShotPct, 1824, 462)
-        ctx.fillText(Orange1ShotPct, 1159, 723)
-        ctx.fillText(Orange2ShotPct, 1159, 816)
-        ctx.fillText(Orange3ShotPct, 1159, 909)
-        ctx.fillText(Orange4ShotPct, 1159, 1002)
+        ctx.fillText(BlueWins, 755, 350)
+        ctx.fillText(BlueLosses, 755, 433)
+        ctx.fillText(BlueGF, 755, 516)
+        ctx.fillText(BlueGA, 755, 600)
+        ctx.fillText(BlueSaves, 755, 683)
+        ctx.fillText(BlueSA, 755, 768)
+        ctx.fillText(Number(BlueSP).toFixed(1), 755, 847)
+        ctx.fillText(OrangeWins, 1165, 350)
+        ctx.fillText(OrangeLosses, 1165, 433)
+        ctx.fillText(OrangeGF, 1165, 516)
+        ctx.fillText(OrangeGA, 1165, 600)
+        ctx.fillText(OrangeSaves, 1165, 683)
+        ctx.fillText(OrangeSA, 1165, 768)
+        ctx.fillText(Number(OrangeSP).toFixed(1), 1165, 847)
+        
         
         ctx.font = "italic 35px Verdana";
         ctx.fillStyle = "#f5f5f5";
@@ -136,7 +103,7 @@ for (var i=0 ; i < teamData.Teams.length ; i++)
     BlueResults.push(teamData.Teams[i])
   }
 }
-console.log(BlueResults[0].Players[0])
+//console.log(BlueResults[0].Players[0])
 
 var OrangeResults = []
 var searchFieldO = 'Franchise'
@@ -147,90 +114,28 @@ for (var i=0 ; i < teamData.Teams.length ; i++)
     OrangeResults.push(teamData.Teams[i])
   }
 }
-console.log(OrangeResults)
-
-if (BlueResults[0].Players.length < 4){
-var Blue1Name = BlueResults[0].Players[0].PlayerName
-var Blue2Name = BlueResults[0].Players[1].PlayerName
-var Blue3Name = BlueResults[0].Players[2].PlayerName
-var Blue4Name = ""
-var Blue1GP = BlueResults[0].Players[0].GP
-var Blue2GP = BlueResults[0].Players[1].GP
-var Blue3GP = BlueResults[0].Players[2].GP
-var Blue4GP = ""
-var Blue1Goals = BlueResults[0].Players[0].Goals
-var Blue2Goals = BlueResults[0].Players[1].Goals
-var Blue3Goals = BlueResults[0].Players[2].Goals
-var Blue4Goals = ""
-var Blue1Assists = BlueResults[0].Players[0].Assists
-var Blue2Assists = BlueResults[0].Players[1].Assists
-var Blue3Assists = BlueResults[0].Players[2].Assists
-var Blue4Assists = ""
-var Blue1Saves = BlueResults[0].Players[0].Saves
-var Blue2Saves = BlueResults[0].Players[1].Saves
-var Blue3Saves = BlueResults[0].Players[2].Saves
-var Blue4Saves = ""
-var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
-var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
-var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
-var Blue4ShotPct = ""
-}else{
-var Blue1Name = BlueResults[0].Players[0].PlayerName
-var Blue2Name = BlueResults[0].Players[1].PlayerName
-var Blue3Name = BlueResults[0].Players[2].PlayerName
-var Blue4Name = BlueResults[0].Players[3].PlayerName
-var Blue1GP = BlueResults[0].Players[0].GP
-var Blue2GP = BlueResults[0].Players[1].GP
-var Blue3GP = BlueResults[0].Players[2].GP
-var Blue4GP = BlueResults[0].Players[3].GP
-var Blue1Goals = BlueResults[0].Players[0].Goals
-var Blue2Goals = BlueResults[0].Players[1].Goals
-var Blue3Goals = BlueResults[0].Players[2].Goals
-var Blue4Goals = BlueResults[0].Players[3].Goals
-var Blue1Assists = BlueResults[0].Players[0].Assists
-var Blue2Assists = BlueResults[0].Players[1].Assists
-var Blue3Assists = BlueResults[0].Players[2].Assists
-var Blue4Assists = BlueResults[0].Players[3].Assists
-var Blue1Saves = BlueResults[0].Players[0].Saves
-var Blue2Saves = BlueResults[0].Players[1].Saves
-var Blue3Saves = BlueResults[0].Players[2].Saves
-var Blue4Saves = BlueResults[0].Players[3].Saves
-var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
-var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
-var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
-var Blue4ShotPct = BlueResults[0].Players[3].ShotPct
-}
+//console.log(OrangeResults)
 
 
-var Orange1Name = OrangeResults[0].Players[0].PlayerName
-var Orange2Name = OrangeResults[0].Players[1].PlayerName
-var Orange3Name = OrangeResults[0].Players[2].PlayerName
-var Orange4Name = OrangeResults[0].Players[3].PlayerName
+var BlueWins = BlueResults[0].Wins
+var BlueLosses = BlueResults[0].Loss
+var BlueGF = BlueResults[0].Goals
+var BlueGA = BlueResults[0].OppGoals
+var BlueSaves = BlueResults[0].Saves
+var BlueSA = BlueResults[0].OppSaves
+var BlueSP = BlueResults[0].ShotPct
 
-var Orange1GP = OrangeResults[0].Players[0].GP
-var Orange2GP = OrangeResults[0].Players[1].GP
-var Orange3GP = OrangeResults[0].Players[2].GP
-var Orange4GP = OrangeResults[0].Players[3].GP
+var OrangeWins = OrangeResults[0].Wins
+var OrangeLosses = OrangeResults[0].Loss
+var OrangeGF = OrangeResults[0].Goals
+var OrangeGA = OrangeResults[0].OppGoals
+var OrangeSaves = OrangeResults[0].Saves
+var OrangeSA = OrangeResults[0].OppSaves
+var OrangeSP = OrangeResults[0].ShotPct
 
-var Orange1Goals = OrangeResults[0].Players[0].Goals
-var Orange2Goals = OrangeResults[0].Players[1].Goals
-var Orange3Goals = OrangeResults[0].Players[2].Goals
-var Orange4Goals = OrangeResults[0].Players[3].Goals
 
-var Orange1Assists = OrangeResults[0].Players[0].Assists
-var Orange2Assists = OrangeResults[0].Players[1].Assists
-var Orange3Assists = OrangeResults[0].Players[2].Assists
-var Orange4Assists = OrangeResults[0].Players[3].Assists
 
-var Orange1Saves = OrangeResults[0].Players[0].Saves
-var Orange2Saves = OrangeResults[0].Players[1].Saves
-var Orange3Saves = OrangeResults[0].Players[2].Saves
-var Orange4Saves = OrangeResults[0].Players[3].Saves
 
-var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
-var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
-var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
-var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
 //---------------------------------------------------------------------------------------------------------------//
         setTimeout(()=>{
           myCanvas.width+=0;
@@ -285,7 +190,7 @@ for (var i=0 ; i < teamData.Teams.length ; i++)
     BlueResults.push(teamData.Teams[i])
   }
 }
-console.log(BlueResults[0].Players[0])
+//console.log(BlueResults[0].Players[0])
 
 var OrangeResults = []
 var searchFieldO = 'Franchise'
@@ -296,110 +201,23 @@ for (var i=0 ; i < teamData.Teams.length ; i++)
     OrangeResults.push(teamData.Teams[i])
   }
 }
-console.log(OrangeResults)
+//console.log(OrangeResults)
 
-if (BlueResults[0].Players.length < 4){
-var Blue1Name = BlueResults[0].Players[0].PlayerName
-var Blue2Name = BlueResults[0].Players[1].PlayerName
-var Blue3Name = BlueResults[0].Players[2].PlayerName
-var Blue4Name = ""
-var Blue1GP = BlueResults[0].Players[0].GP
-var Blue2GP = BlueResults[0].Players[1].GP
-var Blue3GP = BlueResults[0].Players[2].GP
-var Blue4GP = ""
-var Blue1Goals = BlueResults[0].Players[0].Goals
-var Blue2Goals = BlueResults[0].Players[1].Goals
-var Blue3Goals = BlueResults[0].Players[2].Goals
-var Blue4Goals = ""
-var Blue1Assists = BlueResults[0].Players[0].Assists
-var Blue2Assists = BlueResults[0].Players[1].Assists
-var Blue3Assists = BlueResults[0].Players[2].Assists
-var Blue4Assists = ""
-var Blue1Saves = BlueResults[0].Players[0].Saves
-var Blue2Saves = BlueResults[0].Players[1].Saves
-var Blue3Saves = BlueResults[0].Players[2].Saves
-var Blue4Saves = ""
-var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
-var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
-var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
-var Blue4ShotPct = ""
-}else{
-var Blue1Name = BlueResults[0].Players[0].PlayerName
-var Blue2Name = BlueResults[0].Players[1].PlayerName
-var Blue3Name = BlueResults[0].Players[2].PlayerName
-var Blue4Name = BlueResults[0].Players[3].PlayerName
-var Blue1GP = BlueResults[0].Players[0].GP
-var Blue2GP = BlueResults[0].Players[1].GP
-var Blue3GP = BlueResults[0].Players[2].GP
-var Blue4GP = BlueResults[0].Players[3].GP
-var Blue1Goals = BlueResults[0].Players[0].Goals
-var Blue2Goals = BlueResults[0].Players[1].Goals
-var Blue3Goals = BlueResults[0].Players[2].Goals
-var Blue4Goals = BlueResults[0].Players[3].Goals
-var Blue1Assists = BlueResults[0].Players[0].Assists
-var Blue2Assists = BlueResults[0].Players[1].Assists
-var Blue3Assists = BlueResults[0].Players[2].Assists
-var Blue4Assists = BlueResults[0].Players[3].Assists
-var Blue1Saves = BlueResults[0].Players[0].Saves
-var Blue2Saves = BlueResults[0].Players[1].Saves
-var Blue3Saves = BlueResults[0].Players[2].Saves
-var Blue4Saves = BlueResults[0].Players[3].Saves
-var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
-var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
-var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
-var Blue4ShotPct = BlueResults[0].Players[3].ShotPct
-}
+var BlueWins = BlueResults[0].Wins
+var BlueLosses = BlueResults[0].Loss
+var BlueGF = BlueResults[0].Goals
+var BlueGA = BlueResults[0].OppGoals
+var BlueSaves = BlueResults[0].Saves
+var BlueSA = BlueResults[0].OppSaves
+var BlueSP = BlueResults[0].ShotPct
 
-if (OrangeResults[0].Players.length < 4){
-var Orange1Name = OrangeResults[0].Players[0].PlayerName
-var Orange2Name = OrangeResults[0].Players[1].PlayerName
-var Orange3Name = OrangeResults[0].Players[2].PlayerName
-var Orange4Name = ""
-var Orange1GP = OrangeResults[0].Players[0].GP
-var Orange2GP = OrangeResults[0].Players[1].GP
-var Orange3GP = OrangeResults[0].Players[2].GP
-var Orange4GP = ""
-var Orange1Goals = OrangeResults[0].Players[0].Goals
-var Orange2Goals = OrangeResults[0].Players[1].Goals
-var Orange3Goals = OrangeResults[0].Players[2].Goals
-var Orange4Goals = ""
-var Orange1Assists = OrangeResults[0].Players[0].Assists
-var Orange2Assists = OrangeResults[0].Players[1].Assists
-var Orange3Assists = OrangeResults[0].Players[2].Assists
-var Orange4Assists = ""
-var Orange1Saves = OrangeResults[0].Players[0].Saves
-var Orange2Saves = OrangeResults[0].Players[1].Saves
-var Orange3Saves = OrangeResults[0].Players[2].Saves
-var Orange4Saves = ""
-var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
-var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
-var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
-var Orange4ShotPct = ""
-}else{
-var Orange1Name = OrangeResults[0].Players[0].PlayerName
-var Orange2Name = OrangeResults[0].Players[1].PlayerName
-var Orange3Name = OrangeResults[0].Players[2].PlayerName
-var Orange4Name = OrangeResults[0].Players[3].PlayerName
-var Orange1GP = OrangeResults[0].Players[0].GP
-var Orange2GP = OrangeResults[0].Players[1].GP
-var Orange3GP = OrangeResults[0].Players[2].GP
-var Orange4GP = OrangeResults[0].Players[3].GP
-var Orange1Goals = OrangeResults[0].Players[0].Goals
-var Orange2Goals = OrangeResults[0].Players[1].Goals
-var Orange3Goals = OrangeResults[0].Players[2].Goals
-var Orange4Goals = OrangeResults[0].Players[3].Goals
-var Orange1Assists = OrangeResults[0].Players[0].Assists
-var Orange2Assists = OrangeResults[0].Players[1].Assists
-var Orange3Assists = OrangeResults[0].Players[2].Assists
-var Orange4Assists = OrangeResults[0].Players[3].Assists
-var Orange1Saves = OrangeResults[0].Players[0].Saves
-var Orange2Saves = OrangeResults[0].Players[1].Saves
-var Orange3Saves = OrangeResults[0].Players[2].Saves
-var Orange4Saves = OrangeResults[0].Players[3].Saves
-var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
-var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
-var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
-var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
+var OrangeWins = OrangeResults[0].Wins
+var OrangeLosses = OrangeResults[0].Loss
+var OrangeGF = OrangeResults[0].Goals
+var OrangeGA = OrangeResults[0].OppGoals
+var OrangeSaves = OrangeResults[0].Saves
+var OrangeSA = OrangeResults[0].OppSaves
+var OrangeSP = OrangeResults[0].ShotPct
 }
 //---------------------------------------------------------------------------------------------------------------//
 
@@ -423,7 +241,7 @@ var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
         document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
         document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
         */
-        }
+        
     </script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
