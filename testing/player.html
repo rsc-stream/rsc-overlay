@@ -18,43 +18,87 @@
 <body onload="">
     <canvas id="myCanvas" width="1920" height="1080">
     </canvas>
-    <img id="blueLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png" style="-webkit-filter: drop-shadow(10px 10px 7px #222)">
-    <img id="orangeLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png" style="-webkit-filter: drop-shadow(10px 10px 7px #222)">
+    <img id="blueLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png">
+    <img id="orangeLogo" width="0" height="0" src= "../assets/logos/Active Logos/Dino Park.png">
+    <img id="background" width="0" height="0" src= "../assets/Season_X_Player.png">
    <script>
     
     function loadImage() {
 
-        document.getElementById("myCanvas").style.background = "url('../assets/Season_X_Player.png')";
+        //document.getElementById("myCanvas").style.background = "url('../assets/Season_X_Player.png')";
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var Blue = document.getElementById("blueLogo");
         var Orange = document.getElementById("orangeLogo");
-        ctx.drawImage(Blue, 350, 65, 300, 300)
-        ctx.drawImage(Orange, 1290, 610, 300, 300)
-        ctx.font = "bold 40px Verdana";
+        var Background = document.getElementById("background");
+        ctx.drawImage(Background, 0, 0, 1920, 1080)
+        ctx.font = "40px Verdana";
         ctx.fillStyle = "#f5f5f5";
-        ctx.fillText('Player B1', 730, 184)
-        ctx.fillText('Player B2', 730, 277)
-        ctx.fillText('Player B3', 730, 369)
-        ctx.fillText('Player B4', 730, 462)
-        ctx.fillText('Player O1', 55, 723)
-        ctx.fillText('Player O2', 55, 816)
-        ctx.fillText('Player O3', 55, 909)
-        ctx.fillText('Player O4', 55, 1002)
+        ctx.fillText(Blue1Name, 730, 184)
+        ctx.fillText(Blue2Name, 730, 277)
+        ctx.fillText(Blue3Name, 730, 369)
+        ctx.fillText(Blue4Name, 730, 462)
+        ctx.fillText(Orange1Name, 55, 723)
+        ctx.fillText(Orange2Name, 55, 816)
+        ctx.fillText(Orange3Name, 55, 909)
+        ctx.fillText(Orange4Name, 55, 1002)
+        ctx.textAlign = 'center';
+        ctx.fillText(Blue1GP, 1235, 184)
+        ctx.fillText(Blue2GP, 1235, 277)
+        ctx.fillText(Blue3GP, 1235, 369)
+        ctx.fillText(Blue4GP, 1235, 462)
+        ctx.fillText(Orange1GP, 570, 723)
+        ctx.fillText(Orange2GP, 570, 816)
+        ctx.fillText(Orange3GP, 570, 909)
+        ctx.fillText(Orange4GP, 570, 1002)
+        ctx.fillText(Blue1Goals, 1358, 184)
+        ctx.fillText(Blue2Goals, 1358, 277)
+        ctx.fillText(Blue3Goals, 1358, 369)
+        ctx.fillText(Blue4Goals, 1358, 462)
+        ctx.fillText(Orange1Goals, 693, 723)
+        ctx.fillText(Orange2Goals, 693, 816)
+        ctx.fillText(Orange3Goals, 693, 909)
+        ctx.fillText(Orange4Goals, 693, 1002)
+        ctx.fillText(Blue1Assists, 1518, 184)
+        ctx.fillText(Blue2Assists, 1518, 277)
+        ctx.fillText(Blue3Assists, 1518, 369)
+        ctx.fillText(Blue4Assists, 1518, 462)
+        ctx.fillText(Orange1Assists, 853, 723)
+        ctx.fillText(Orange2Assists, 853, 816)
+        ctx.fillText(Orange3Assists, 853, 909)
+        ctx.fillText(Orange4Assists, 853, 1002)
+        ctx.fillText(Blue1Saves, 1676, 184)
+        ctx.fillText(Blue2Saves, 1676, 277)
+        ctx.fillText(Blue3Saves, 1676, 369)
+        ctx.fillText(Blue4Saves, 1676, 462)
+        ctx.fillText(Orange1Saves, 1011, 723)
+        ctx.fillText(Orange2Saves, 1011, 816)
+        ctx.fillText(Orange3Saves, 1011, 909)
+        ctx.fillText(Orange4Saves, 1011, 1002)
+        ctx.fillText(Blue1ShotPct, 1824, 184)
+        ctx.fillText(Blue2ShotPct, 1824, 277)
+        ctx.fillText(Blue3ShotPct, 1824, 369)
+        ctx.fillText(Blue4ShotPct, 1824, 462)
+        ctx.fillText(Orange1ShotPct, 1159, 723)
+        ctx.fillText(Orange2ShotPct, 1159, 816)
+        ctx.fillText(Orange3ShotPct, 1159, 909)
+        ctx.fillText(Orange4ShotPct, 1159, 1002)
+        
         ctx.font = "italic 35px Verdana";
         ctx.fillStyle = "#f5f5f5";
         ctx.textAlign = "right";
         ctx.shadowColor="black";
-        ctx.shadowBlur=7;
+        ctx.shadowBlur=20;
         ctx.shadowOffsetX = 5;
         ctx.shadowOffsetY = 5;
+        ctx.drawImage(Blue, 330, 35, 325, 325)
+        ctx.drawImage(Orange, 1270, 580, 325, 325)
         ctx.fillText(localStorage.getItem("BlueFran"), 655, 517)
         ctx.textAlign = "left"
         ctx.fillText(localStorage.getItem("OrangeFran"), 1261, 1058)
         ctx.font = "italic bold 55px Verdana";
         ctx.fillStyle = "#f5f5f5";
         ctx.textAlign = "right";
-        ctx.shadowColor="black";
         ctx.fillText(localStorage.getItem("BlueTeam"), 655, 470)
         ctx.textAlign = "left"
         ctx.fillText(localStorage.getItem("OrangeTeam"), 1261, 1011)
@@ -68,7 +112,7 @@
 <script>
 'use strict';
         window.onstorage = event => { // same as window.addEventListener('storage', () => {
-        myCanvas.width+=0;
+          location.reload();
         if (event.key != 'BlueTeam') ;
         let blueF = localStorage.getItem("BlueFran")
         document.getElementById("blueFranchise").innerHTML  = localStorage.getItem("BlueFran")
@@ -79,6 +123,81 @@
         if (event.key != 'OrangeTeam') ;
         let orangeF = localStorage.getItem("OrangeFran")
         document.getElementById("orangeLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
+        let Teams = localStorage.getItem("Teams")
+        let teamData = ('Teams: ', JSON.parse(Teams))
+        console.log(teamData)
+        //-----------------------------------------------------------------------------------------------------------//
+        var BlueResults = []
+var searchField = 'Franchise'
+var searchValue = blueF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchField] == searchValue) {
+    BlueResults.push(teamData.Teams[i])
+  }
+}
+console.log(BlueResults[0].Players[0])
+
+var OrangeResults = []
+var searchFieldO = 'Franchise'
+var searchValueO = orangeF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchFieldO] == searchValueO) {
+    OrangeResults.push(teamData.Teams[i])
+  }
+}
+console.log(OrangeResults)
+
+var Blue1Name = BlueResults[0].Players[0].PlayerName
+var Blue2Name = BlueResults[0].Players[1].PlayerName
+var Blue3Name = BlueResults[0].Players[2].PlayerName
+var Blue4Name = BlueResults[0].Players[3].PlayerName
+var Orange1Name = OrangeResults[0].Players[0].PlayerName
+var Orange2Name = OrangeResults[0].Players[1].PlayerName
+var Orange3Name = OrangeResults[0].Players[2].PlayerName
+var Orange4Name = OrangeResults[0].Players[3].PlayerName
+var Blue1GP = BlueResults[0].Players[0].GP
+var Blue2GP = BlueResults[0].Players[1].GP
+var Blue3GP = BlueResults[0].Players[2].GP
+var Blue4GP = BlueResults[0].Players[3].GP
+var Orange1GP = OrangeResults[0].Players[0].GP
+var Orange2GP = OrangeResults[0].Players[1].GP
+var Orange3GP = OrangeResults[0].Players[2].GP
+var Orange4GP = OrangeResults[0].Players[3].GP
+var Blue1Goals = BlueResults[0].Players[0].Goals
+var Blue2Goals = BlueResults[0].Players[1].Goals
+var Blue3Goals = BlueResults[0].Players[2].Goals
+var Blue4Goals = BlueResults[0].Players[3].Goals
+var Orange1Goals = OrangeResults[0].Players[0].Goals
+var Orange2Goals = OrangeResults[0].Players[1].Goals
+var Orange3Goals = OrangeResults[0].Players[2].Goals
+var Orange4Goals = OrangeResults[0].Players[3].Goals
+var Blue1Assists = BlueResults[0].Players[0].Assists
+var Blue2Assists = BlueResults[0].Players[1].Assists
+var Blue3Assists = BlueResults[0].Players[2].Assists
+var Blue4Assists = BlueResults[0].Players[3].Assists
+var Orange1Assists = OrangeResults[0].Players[0].Assists
+var Orange2Assists = OrangeResults[0].Players[1].Assists
+var Orange3Assists = OrangeResults[0].Players[2].Assists
+var Orange4Assists = OrangeResults[0].Players[3].Assists
+var Blue1Saves = BlueResults[0].Players[0].Saves
+var Blue2Saves = BlueResults[0].Players[1].Saves
+var Blue3Saves = BlueResults[0].Players[2].Saves
+var Blue4Saves = BlueResults[0].Players[3].Saves
+var Orange1Saves = OrangeResults[0].Players[0].Saves
+var Orange2Saves = OrangeResults[0].Players[1].Saves
+var Orange3Saves = OrangeResults[0].Players[2].Saves
+var Orange4Saves = OrangeResults[0].Players[3].Saves
+var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
+var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
+var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
+var Blue4ShotPct = BlueResults[0].Players[3].ShotPct
+var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
+var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
+var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
+var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
+//---------------------------------------------------------------------------------------------------------------//
         setTimeout(()=>{
           myCanvas.width+=0;
         loadImage()
@@ -115,10 +234,86 @@
         if (typeof(Storage) !== "undefined") {
          let blueF = localStorage.getItem("BlueFran")
          let orangeF = localStorage.getItem("OrangeFran")
+         let Teams = localStorage.getItem("Teams")
+         let teamData = ('Teams: ', JSON.parse(Teams))
+        //console.log(teamData.Teams[1])
         document.getElementById("blueFranchise").innerHTML  = localStorage.getItem("BlueFran")
         document.getElementById("blueLogo").src = "../assets/logos/Active Logos/" + blueF + ".png";
         document.getElementById("orangeLogo").src = "../assets/logos/Active Logos/" + orangeF + ".png";
         //console.log(blueF)
+//-----------------------------------------------------------------------------------------------------------//
+var BlueResults = []
+var searchField = 'Franchise'
+var searchValue = blueF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchField] == searchValue) {
+    BlueResults.push(teamData.Teams[i])
+  }
+}
+console.log(BlueResults[0].Players[0])
+
+var OrangeResults = []
+var searchFieldO = 'Franchise'
+var searchValueO = orangeF
+for (var i=0 ; i < teamData.Teams.length ; i++)
+{
+  if (teamData.Teams[i][searchFieldO] == searchValueO) {
+    OrangeResults.push(teamData.Teams[i])
+  }
+}
+console.log(OrangeResults)
+
+var Blue1Name = BlueResults[0].Players[0].PlayerName
+var Blue2Name = BlueResults[0].Players[1].PlayerName
+var Blue3Name = BlueResults[0].Players[2].PlayerName
+var Blue4Name = BlueResults[0].Players[3].PlayerName
+var Orange1Name = OrangeResults[0].Players[0].PlayerName
+var Orange2Name = OrangeResults[0].Players[1].PlayerName
+var Orange3Name = OrangeResults[0].Players[2].PlayerName
+var Orange4Name = OrangeResults[0].Players[3].PlayerName
+var Blue1GP = BlueResults[0].Players[0].GP
+var Blue2GP = BlueResults[0].Players[1].GP
+var Blue3GP = BlueResults[0].Players[2].GP
+var Blue4GP = BlueResults[0].Players[3].GP
+var Orange1GP = OrangeResults[0].Players[0].GP
+var Orange2GP = OrangeResults[0].Players[1].GP
+var Orange3GP = OrangeResults[0].Players[2].GP
+var Orange4GP = OrangeResults[0].Players[3].GP
+var Blue1Goals = BlueResults[0].Players[0].Goals
+var Blue2Goals = BlueResults[0].Players[1].Goals
+var Blue3Goals = BlueResults[0].Players[2].Goals
+var Blue4Goals = BlueResults[0].Players[3].Goals
+var Orange1Goals = OrangeResults[0].Players[0].Goals
+var Orange2Goals = OrangeResults[0].Players[1].Goals
+var Orange3Goals = OrangeResults[0].Players[2].Goals
+var Orange4Goals = OrangeResults[0].Players[3].Goals
+var Blue1Assists = BlueResults[0].Players[0].Assists
+var Blue2Assists = BlueResults[0].Players[1].Assists
+var Blue3Assists = BlueResults[0].Players[2].Assists
+var Blue4Assists = BlueResults[0].Players[3].Assists
+var Orange1Assists = OrangeResults[0].Players[0].Assists
+var Orange2Assists = OrangeResults[0].Players[1].Assists
+var Orange3Assists = OrangeResults[0].Players[2].Assists
+var Orange4Assists = OrangeResults[0].Players[3].Assists
+var Blue1Saves = BlueResults[0].Players[0].Saves
+var Blue2Saves = BlueResults[0].Players[1].Saves
+var Blue3Saves = BlueResults[0].Players[2].Saves
+var Blue4Saves = BlueResults[0].Players[3].Saves
+var Orange1Saves = OrangeResults[0].Players[0].Saves
+var Orange2Saves = OrangeResults[0].Players[1].Saves
+var Orange3Saves = OrangeResults[0].Players[2].Saves
+var Orange4Saves = OrangeResults[0].Players[3].Saves
+var Blue1ShotPct = BlueResults[0].Players[0].ShotPct
+var Blue2ShotPct = BlueResults[0].Players[1].ShotPct
+var Blue3ShotPct = BlueResults[0].Players[2].ShotPct
+var Blue4ShotPct = BlueResults[0].Players[3].ShotPct
+var Orange1ShotPct = OrangeResults[0].Players[0].ShotPct
+var Orange2ShotPct = OrangeResults[0].Players[1].ShotPct
+var Orange3ShotPct = OrangeResults[0].Players[2].ShotPct
+var Orange4ShotPct = OrangeResults[0].Players[3].ShotPct
+//---------------------------------------------------------------------------------------------------------------//
+
         setTimeout(()=>{
         loadImage()
         }, 300)
