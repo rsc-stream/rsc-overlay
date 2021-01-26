@@ -867,7 +867,7 @@ console.log(blueData1)
        console.log(jEvent.data.scorer.name)
        goalAssist = []
        setTimeout(toggle, 4500)
-       var goalSpeed = jEvent.data.goalspeed
+       var goalSpeed = jEvent.data.goalspeed/1.609
        var goalRound = goalSpeed.toFixed(0);
        var scoreID = jEvent.data.scorer.id
        var scoreTeam = scoreID.slice(-1)
@@ -1055,14 +1055,14 @@ console.log(blueData1)
         document.getElementById('RSCreplayOut').style.zIndex = '999999';
         setTimeout(()=>{
           document.getElementById('RSCreplayOut').play();
-         
+          blueResetAll()
+          orangeResetAll()
             setTimeout(()=>{
               document.getElementById("aftergame").style.width = "0px";
               document.getElementById("aftergame").style.height = "0px";
               },500);
             },100);
-       blueResetAll()
-       orangeResetAll()
+       
       }else if (jEvent.event == "game:initialized") {
     /*   blueResetAll()
        orangeResetAll()
@@ -1217,7 +1217,7 @@ var timer
           document.getElementById("aftergame").style.width = "1920px";
           document.getElementById("aftergame").style.height = "1080px";
           setTimeout(()=>{
-            document.getElementById('replayOut').style.zIndex = '1';
+            //document.getElementById('replayOut').style.zIndex = '1';    THIS IS WHAT I CHANGED FOR STINGER DISAPPEARING
           //document.getElementById("showAfter").removeClass('invisible');
             },3000);
           },2300);

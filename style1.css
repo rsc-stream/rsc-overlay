@@ -60,7 +60,9 @@ button:focus {
 
 #blue-team {
   background: #444444;
-  border: 0px;
+  border: 1px;
+  border-style: solid;
+  border-color: #4793ff;
   color: rgb(226, 226, 226);
   width: 210px;
   text-align-last:center;
@@ -78,7 +80,9 @@ button:focus {
 
 #orange-team {
   background: #444444;
-  border: 0px;
+  border: 1px;
+  border-style: solid;
+  border-color: #ffb347;
   color: rgb(226, 226, 226);
   width: 210px;
   text-align-last:center;
