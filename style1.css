@@ -1,6 +1,11 @@
 body{
+<<<<<<< HEAD
   width: 320px;
   height: 100px;
+=======
+  width: 350px;
+  min-height: 100px;
+>>>>>>> master
   background-color: #272627; 
   /* background-image: url('assets/logos/rsc.png'); */
 }
@@ -17,7 +22,11 @@ body{
   background: #444444;
   border: 0px;
   color: rgb(226, 226, 226);
+<<<<<<< HEAD
   width: 150px;
+=======
+  width: 160px;
+>>>>>>> master
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
@@ -35,7 +44,11 @@ body{
 background: #444444;
 border: 0px;
 color: rgb(226, 226, 226);
+<<<<<<< HEAD
 width: 150px;
+=======
+width: 160px;
+>>>>>>> master
 text-align-last:center;
 border-radius: 5px;
 height: 25px;
@@ -64,7 +77,11 @@ button:focus {
   border-style: solid;
   border-color: #4793ff;
   color: rgb(226, 226, 226);
+<<<<<<< HEAD
   width: 150px;
+=======
+  width: 160px;
+>>>>>>> master
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
@@ -84,7 +101,11 @@ button:focus {
   border-style: solid;
   border-color: #ffb347;
   color: rgb(226, 226, 226);
+<<<<<<< HEAD
   width: 150px;
+=======
+  width: 160px;
+>>>>>>> master
   text-align-last:center;
   border-radius: 5px;
   height: 25px;
@@ -376,8 +397,8 @@ button:focus {
   {
     position:absolute;
     display: block;
-  margin-left: 45px;
-  margin-right: auto;
+  /*margin-left: 45px;
+  margin-right: auto;*/
   width: 50%;
     opacity: 0.05;
     z-index: -99;
