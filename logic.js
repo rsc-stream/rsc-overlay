@@ -1053,8 +1053,9 @@ console.log(blueData1)
       }else if (jEvent.event == "game:post_countdown_begin") {
         
         document.getElementById('RSCreplayOut').style.zIndex = '999999';
+        document.getElementById('RSCreplayOut').play();
         setTimeout(()=>{
-          document.getElementById('RSCreplayOut').play();
+          
           blueResetAll()
           orangeResetAll()
             setTimeout(()=>{
