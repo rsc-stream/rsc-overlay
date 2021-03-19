@@ -125,6 +125,48 @@ body{
   }
 }
 
+.GaugeMeter{
+  Position: Relative;
+  Left: 950px;
+  Text-Align: Center;
+  Overflow: Hidden;
+  Cursor: Default;
+}
+
+.GaugeMeter SPAN,
+.GaugeMeter B{
+  Margin:	0 23%;
+  Width: 54%;
+  Position: Absolute;
+  Text-Align: Center;
+  Display: Inline-Block;
+  Color: #ffb347;
+  Font-Weight: 200;
+  Font-Family: Timer;
+  Overflow: Hidden;
+  White-Space: NoWrap;
+  Text-Overflow: Ellipsis;
+  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.5), 0 0 25px #ffb347, 0 0 5px Orange;
+}
+.GaugeMeter[data-style="Semi"] B{
+  Margin: 0 10%;
+  Width: 80%;
+}
+
+.GaugeMeter S,
+.GaugeMeter U{
+  Text-Decoration:None;
+  Font-Size: 0.40em;
+  Font-Weight: 300;
+  Opacity: .6;
+}
+
+.GaugeMeter B{
+  Color: Black;
+  Font-Weight: 300;
+  Font-Size: 0.45em;
+  Opacity: .8;
+}
 
 .flex-container {
   position: relative;

@@ -496,6 +496,7 @@
               $('#blue-active-score').text(activePlayerData.score)
               $('#blue-active-boost').text(activePlayerData.boost)
               $('#blue-active-p-bar').width(activePlayerData.boost + "%")
+              $("#GaugeMeter_1").gaugeMeter({percent:activePlayerData.boost});
               $('#scoreboard').addClass('open');
 
             } else if (activePlayerData.team == 1) {
@@ -519,7 +520,7 @@
               $('#orange-active-score').text(activePlayerData.score)
               $('#orange-active-boost').text(activePlayerData.boost)
               $('#orange-active-p-bar').width(activePlayerData.boost + "%")
-
+              $("#GaugeMeter_1").gaugeMeter({percent:activePlayerData.boost});
               $('#scoreboard').addClass('open');
             } else {
               console.log('oopsie')
