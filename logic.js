@@ -1,8 +1,12 @@
    
 
     const ws = new WebSocket('ws://localhost:49122');
-
   
+     // Initialize GaugeMeter plugin
+     $(".GaugeMeter").gaugeMeter();
+
+     
+
    var BlueTeamWins = []
    var OrangeTeamWins = []
    var blueData1 = []
@@ -496,8 +500,27 @@
               $('#blue-active-score').text(activePlayerData.score)
               $('#blue-active-boost').text(activePlayerData.boost)
               $('#blue-active-p-bar').width(activePlayerData.boost + "%")
-              $("#GaugeMeter_1").gaugeMeter({percent:activePlayerData.boost});
+            
               $('#scoreboard').addClass('open');
+
+       // Bind new handler to init and update gauges.
+       ko.bindingHandlers.gaugeValue = {
+        init: function(element, valueAccessor) {
+            $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
+        },
+        update: function(element, valueAccessor) {
+            $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
+        }
+    };
+  
+    // Create view model with inital gauge value 15mph
+    // Use observable for easy update.
+    var myViewModel = {
+        Percent: ko.observable(activePlayerData.boost)
+    };
+    ko.applyBindings(myViewModel);
+  
+
 
             } else if (activePlayerData.team == 1) {
               $('#orange-team-active').removeClass('d-none');
@@ -520,7 +543,25 @@
               $('#orange-active-score').text(activePlayerData.score)
               $('#orange-active-boost').text(activePlayerData.boost)
               $('#orange-active-p-bar').width(activePlayerData.boost + "%")
-              $("#GaugeMeter_1").gaugeMeter({percent:activePlayerData.boost});
+             
+              // Bind new handler to init and update gauges.
+     ko.bindingHandlers.gaugeValue = {
+      init: function(element, valueAccessor) {
+          $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
+      },
+      update: function(element, valueAccessor) {
+          $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
+      }
+  };
+
+  // Create view model with inital gauge value 15mph
+  // Use observable for easy update.
+  var myViewModel = {
+      Percent: ko.observable(activePlayerData.boost)
+  };
+  ko.applyBindings(myViewModel);
+
+
               $('#scoreboard').addClass('open');
             } else {
               console.log('oopsie')

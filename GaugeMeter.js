@@ -25,7 +25,7 @@
             append: "",
             theme: "Red-Gold-Green",
             color: "",
-            back: "RGBa(0,0,0,.09)",
+            back: "RGBa(0,0,0,.06)",
             width: 3,
             style: "Full",
             stripe: "0",
@@ -58,7 +58,6 @@
                     "LightGold-DarkGold" === option.theme && (e > 0 && (t = "#ffd900"), e > 10 && (t = "#ffd600"), e > 20 && (t = "#ffd400"), e > 30 && (t = "#ffcf00"), e > 40 && (t = "#ffcb00"), e > 50 && (t = "#ffc600"), e > 60 && (t = "#ffc200"), e > 70 && (t = "#ffbd00"), e > 80 && (t = "#ffba00"), e > 90 && (t = "#ffb800")),
                     "White" === option.theme && (t = "#fff"),
                     "Black" === option.theme && (t = "#000"),
-                    "Blue" === option.theme && (t = "#4793ff"),
                     "Orange" === option.theme && (t = "#ffb347"),
                     t;
             }
