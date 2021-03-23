@@ -2,11 +2,18 @@
 
     const ws = new WebSocket('ws://localhost:49122');
   
+<<<<<<< HEAD
      // Initialize GaugeMeter plugin
      $(".GaugeMeter").gaugeMeter();
 
      
 
+=======
+ 
+ 
+
+  
+>>>>>>> 804244337d8286475e961a77d8f764d53da9160a
    var BlueTeamWins = []
    var OrangeTeamWins = []
    var blueData1 = []
@@ -500,7 +507,12 @@
               $('#blue-active-score').text(activePlayerData.score)
               $('#blue-active-boost').text(activePlayerData.boost)
               $('#blue-active-p-bar').width(activePlayerData.boost + "%")
+<<<<<<< HEAD
             
+=======
+              
+              
+>>>>>>> 804244337d8286475e961a77d8f764d53da9160a
               $('#scoreboard').addClass('open');
 
        // Bind new handler to init and update gauges.
@@ -543,6 +555,7 @@
               $('#orange-active-score').text(activePlayerData.score)
               $('#orange-active-boost').text(activePlayerData.boost)
               $('#orange-active-p-bar').width(activePlayerData.boost + "%")
+<<<<<<< HEAD
              
               // Bind new handler to init and update gauges.
      ko.bindingHandlers.gaugeValue = {
@@ -562,6 +575,10 @@
   ko.applyBindings(myViewModel);
 
 
+=======
+            
+              
+>>>>>>> 804244337d8286475e961a77d8f764d53da9160a
               $('#scoreboard').addClass('open');
             } else {
               console.log('oopsie')

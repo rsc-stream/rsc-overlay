@@ -9,7 +9,7 @@
 
   <title>RSC Overlay</title>
   <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  
+  <script type='text/javascript' src='knockout-3.4.2.js'></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js" integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA==" crossorigin="anonymous"></script>
@@ -431,8 +431,9 @@
     </div>
     
   </div>
-
+  
   <div class="container">
+<<<<<<< HEAD
     <div class="GaugeMeter" id="GaugeMeter_1" data-bind="gaugeValue: Percent" data-size=350 data-theme="Orange" data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
     
 </div>
@@ -442,6 +443,18 @@
   
 </script>
 
+=======
+    <div id="value" class="d-none">25</div>
+    <div class="GaugeMeter" id="GaugeMeter_1" data-percent="50" data-size=350 data-theme="Orange" data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
+    
+</div>
+<script src="./GaugeMeter.js"></script>
+  <script>
+    
+      $(".GaugeMeter").gaugeMeter();
+    
+  </script>
+>>>>>>> 804244337d8286475e961a77d8f764d53da9160a
   <script>
     'use strict';
     window.onstorage = event => { // same as window.addEventListener('storage', () => {

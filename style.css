@@ -127,7 +127,8 @@ body{
 
 .GaugeMeter{
   Position: Relative;
-  Left: 950px;
+  Left: 1100px;
+  Top: -350px;
   Text-Align: Center;
   Overflow: Hidden;
   Cursor: Default;
