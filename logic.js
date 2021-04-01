@@ -502,22 +502,7 @@ ws.onmessage = (e) => {
 
           $('#scoreboard').addClass('open');
 
-          // Bind new handler to init and update gauges.
-          ko.bindingHandlers.gaugeValue = {
-            init: function (element, valueAccessor) {
-              $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
-            },
-            update: function (element, valueAccessor) {
-              $(element).gaugeMeter({ percent: ko.unwrap(activePlayerData.boost) });
-            }
-          };
-
-          // Create view model with inital gauge value 15mph
-          // Use observable for easy update.
-          var myViewModel = {
-            Percent: ko.observable(activePlayerData.boost)
-          };
-          ko.applyBindings(myViewModel);
+          
 
 
 
@@ -542,7 +527,9 @@ ws.onmessage = (e) => {
           $('#orange-active-score').text(activePlayerData.score)
           $('#orange-active-boost').text(activePlayerData.boost)
           $('#orange-active-p-bar').width(activePlayerData.boost + "%")
-
+          $('#GaugeMeter_1').data("percent", activePlayerData.boost)
+          console.log($('#GaugeMeter_1').data("percent"))
+          
           // Bind new handler to init and update gauges.
           ko.bindingHandlers.gaugeValue = {
             init: function(element, valueAccessor) {
@@ -553,15 +540,12 @@ ws.onmessage = (e) => {
             }
         };
 
-        // Create view model with inital gauge value 12%
+        // Create view model with inital gauge value 15mph
         // Use observable for easy update.
         var myViewModel = {
-            Percent: ko.observable(12)
+            Percent: ko.observable(15)
         };
         ko.applyBindings(myViewModel);
-
-        // Update gauge value through observable.
-        myViewModel.Percent(activePlayerData.boost);
 
           $('#scoreboard').addClass('open');
         } else {
