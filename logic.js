@@ -544,11 +544,24 @@ ws.onmessage = (e) => {
           $('#orange-active-p-bar').width(activePlayerData.boost + "%")
 
           // Bind new handler to init and update gauges.
-          function boostValue() {
-            var self = this;
-            self.gaugeValue = ko.observable(activePlayerData.boost.toString)
-          };
-          ko.applyBindings(new boostValue());
+          ko.bindingHandlers.gaugeValue = {
+            init: function(element, valueAccessor) {
+                $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
+            },
+            update: function(element, valueAccessor) {
+                $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
+            }
+        };
+
+        // Create view model with inital gauge value 12%
+        // Use observable for easy update.
+        var myViewModel = {
+            Percent: ko.observable(12)
+        };
+        ko.applyBindings(myViewModel);
+
+        // Update gauge value through observable.
+        myViewModel.Percent(activePlayerData.boost);
 
           $('#scoreboard').addClass('open');
         } else {
