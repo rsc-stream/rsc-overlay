@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GaugeMeter.js - jQuery Plugin</title>
+        
+        <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+        <script type='text/javascript' src="GaugeMeter.js"></script>
+        <link rel="stylesheet" href="./testStyle.css">
+    </head>
+    <body>
+        <header id="Header">
+            <h1>GaugeMeter.js jQuery Plugin</h1>
+            <p>An elegant and dynamic graphical gauge meter built with jQuery</p>
+            <p class="SubTitle">GaugeMeter in combination with <a href="http://knockoutjs.com" target="_blank">Knockout</a> using custom bindings and observables.</p>
+            <div class="Preview">
+                <div class="GaugeMeter" id="PreviewGaugeMeter" data-bind="gaugeValue: Percent" data-append="mph" data-size=200 data-theme="White" data-width=15 data-style="Arch" data-label="Speed" data-animationstep="0"></div>
+                <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent" /></div>
+            </div>
+        </header>
+
+        
+        <script src="test.js"></script>
+    </body>
+</html>

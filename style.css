@@ -2,7 +2,7 @@ body{
   width: 1920px;
   height: 1080px;
   background-color: transparent; 
- /* background-image: url('assets/Overlay.png'); */
+ /*background-image: url('assets/1080p.jpeg'); */
 }
 
 .player-box{
@@ -125,6 +125,17 @@ body{
   }
 }
 
+.boostBack{
+  Position: Relative;
+  Left: 913px;
+  Top: -893px;
+  Text-Align: Center;
+  Overflow: Hidden;
+  Cursor: Default;
+  z-index: 1;
+  opacity: 0.75;
+}
+
 .GaugeMeter{
   Position: Relative;
   Left: 1100px;
@@ -132,6 +143,7 @@ body{
   Text-Align: Center;
   Overflow: Hidden;
   Cursor: Default;
+  z-index: 2;
 }
 
 .GaugeMeter SPAN,
@@ -147,7 +159,7 @@ body{
   Overflow: Hidden;
   White-Space: NoWrap;
   Text-Overflow: Ellipsis;
-  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.5), 0 0 25px #ffb347, 0 0 5px Orange;
+  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.5), 0 0 25px #ffb347, 0 0 10px Orange;
 }
 .GaugeMeter[data-style="Semi"] B{
   Margin: 0 10%;
@@ -166,7 +178,7 @@ body{
   Color: Black;
   Font-Weight: 300;
   Font-Size: 0.45em;
-  Opacity: .8;
+  Opacity: 0.8;
 }
 
 .flex-container {

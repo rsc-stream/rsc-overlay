@@ -8,20 +8,23 @@
 
   <title>RSC Overlay</title>
   <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type='text/javascript' src='knockout-3.4.2.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+  <script type='text/javascript' src="GaugeMeter.js"></script>
+
+
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js"
     integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA=="
     crossorigin="anonymous"></script>
-  <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
-  <script type='text/javascript' src="GaugeMeter.js"></script>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
+
+
 
 </head>
 
@@ -465,17 +468,17 @@
   </div>
 
   <div class="container">
-    <div class="GaugeMeter" id="GaugeMeter_1" data-percent="3" data-size=350 data-theme="Orange"
+    <div class="Preview">
+    <div class="GaugeMeter gaugeMeter" id="PreviewGaugeMeter" data-bind="gaugeValue: Percent" data-size=350 data-theme="Orange" data-back="Grey"
       data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
-
+      <img class="boostBack" src="assets/boostBack.png" id="boostBack"></img>
+     <!-- <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent"></div> -->
   </div>
-  <script>
-        
-
-
-  </script>
+</div>
 
   <script>
+
+
     'use strict';
     window.onstorage = event => { // same as window.addEventListener('storage', () => {
       if (event.key != 'BlueTeam');
@@ -530,8 +533,10 @@
 
 
 
+
+
   <script src="logic.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
   </div>
 </body>
