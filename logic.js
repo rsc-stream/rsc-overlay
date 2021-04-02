@@ -8,21 +8,7 @@ $(document).ready(function () {
   // Initialize GaugeMeter plugin
   $(".GaugeMeter").gaugeMeter();
 
-  ko.bindingHandlers.gaugeValue = {
-    init: function(element, valueAccessor) {
-        $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
-    },
-    update: function(element, valueAccessor) {
-        $(element).gaugeMeter({ percent: activePlayerData.boost });
-    }
-  };
-
-  // Create view model with inital gauge value 15mph
-  // Use observable for easy update.
-  var myViewModel = {
-    Percent: ko.observable(75)
-  };
-  ko.applyBindings(myViewModel);
+ 
 
 
 });
@@ -522,6 +508,7 @@ ws.onmessage = (e) => {
           $('#blue-active-score').text(activePlayerData.score)
           $('#blue-active-boost').text(activePlayerData.boost)
           $('#blue-active-p-bar').width(activePlayerData.boost + "%")
+          
 
           // Bind new handler to init and update gauges.
           ko.bindingHandlers.gaugeValue = {
@@ -529,17 +516,21 @@ ws.onmessage = (e) => {
                 $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
             },
             update: function(element, valueAccessor) {
+              
                 $(element).gaugeMeter({ percent: activePlayerData.boost });
+                
             }
           };
 
           // Create view model with inital gauge value 15mph
           // Use observable for easy update.
           var myViewModel = {
-            Percent: ko.observable(25)
+            Percent: ko.observable()
           };
+          
           ko.applyBindings(myViewModel);
-
+          
+          
           $('#scoreboard').addClass('open');
 
           
@@ -567,7 +558,7 @@ ws.onmessage = (e) => {
           $('#orange-active-score').text(activePlayerData.score)
           $('#orange-active-boost').text(activePlayerData.boost)
           $('#orange-active-p-bar').width(activePlayerData.boost + "%")
-          $('#GaugeMeter_1').data("percent", activePlayerData.boost)
+          
           console.log($('#GaugeMeter_1').data("percent"))
           
           // Bind new handler to init and update gauges.
@@ -576,7 +567,9 @@ ws.onmessage = (e) => {
                   $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
               },
               update: function(element, valueAccessor) {
-                  $(element).gaugeMeter({ percent: activePlayerData.boost });
+                
+                  $(element).gaugeMeter({ percent:  activePlayerData.boost });
+                  
               }
             };
 
@@ -585,6 +578,7 @@ ws.onmessage = (e) => {
             var myViewModel = {
               Percent: ko.observable()
             };
+            
             ko.applyBindings(myViewModel);
 
           $('#scoreboard').addClass('open');
