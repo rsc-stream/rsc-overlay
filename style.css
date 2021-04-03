@@ -125,21 +125,34 @@ body{
   }
 }
 
+.orangeLine{
+  width: 320px;
+  height: 2px;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,179,71,1) 52%, rgba(255,255,255,0) 100%);;
+}
+
+.blueLine{
+  width: 320px;
+  height: 2px;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(71,147,255,1) 52%, rgba(255,255,255,0) 100%);;
+}
+
 .boostBack{
   Position: Relative;
-  Left: 913px;
-  Top: -893px;
+  Left: 1025px;
+  Top: -700px;
   Text-Align: Center;
   Overflow: Hidden;
   Cursor: Default;
   z-index: 1;
-  opacity: 0.75;
+  opacity: 0.65;
+  width: 575px;
 }
 
 .GaugeMeter{
   Position: Relative;
-  Left: 1100px;
-  Top: -350px;
+  Left: 1180px;
+  Top: -276px;
   Text-Align: Center;
   Overflow: Hidden;
   Cursor: Default;
@@ -159,7 +172,7 @@ body{
   Overflow: Hidden;
   White-Space: NoWrap;
   Text-Overflow: Ellipsis;
-  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.5), 0 0 25px #ffb347, 0 0 10px Orange;
+  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.35), 0 0 25px #ffb347, 0 0 10px Orange;
 }
 .GaugeMeter[data-style="Semi"] B{
   Margin: 0 10%;
@@ -175,6 +188,51 @@ body{
 }
 
 .GaugeMeter B{
+  Color: Black;
+  Font-Weight: 300;
+  Font-Size: 0.45em;
+  Opacity: 0.8;
+}
+
+.GaugeMeterB{
+  Position: Relative;
+  Left: 1180px;
+  Top: -276px;
+  Text-Align: Center;
+  Overflow: Hidden;
+  Cursor: Default;
+  z-index: 2;
+}
+
+.GaugeMeterB SPAN,
+.GaugeMeterB B{
+  Margin:	0 23%;
+  Width: 54%;
+  Position: Absolute;
+  Text-Align: Center;
+  Display: Inline-Block;
+  Color: #4793ff;
+  Font-Weight: 200;
+  Font-Family: Timer;
+  Overflow: Hidden;
+  White-Space: NoWrap;
+  Text-Overflow: Ellipsis;
+  text-shadow: 2px 2px 2px RGB(0, 0, 0, 0.35), 0 0 25px #4793ff, 0 0 10px blue;
+}
+.GaugeMeterB[data-style="Semi"] B{
+  Margin: 0 10%;
+  Width: 80%;
+}
+
+.GaugeMeterB S,
+.GaugeMeterB U{
+  Text-Decoration:None;
+  Font-Size: 0.40em;
+  Font-Weight: 300;
+  Opacity: .6;
+}
+
+.GaugeMeterB B{
   Color: Black;
   Font-Weight: 300;
   Font-Size: 0.45em;

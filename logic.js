@@ -377,6 +377,9 @@ ws.onmessage = (e) => {
       $('#scoreboard').removeClass('open');
       //$('#scoreboard').removeClass('open')
       console.log(jEvent.data.game.isReplay)
+      $('#boostBack').addClass('d-none');
+      $('#PreviewGaugeMeterB').addClass('d-none');
+      $('#PreviewGaugeMeter').addClass('d-none');
       $('#blue-active').addClass('d-none');
       $('#orange-active').addClass('d-none');
       $('#TierOverlay').addClass('d-none');
@@ -434,6 +437,9 @@ ws.onmessage = (e) => {
       $('#TierOverlay2').addClass('d-none');
       $('#TierOverlay').removeClass('open1');
       $('#TierOverlay2').removeClass('open1');
+      $('#boostBack').addClass('d-none');
+      $('#PreviewGaugeMeterB').addClass('d-none');
+      $('#PreviewGaugeMeter').addClass('d-none');
       clearTimeout(timer);
     } else {
 
@@ -512,6 +518,9 @@ ws.onmessage = (e) => {
           $('#blue-team-active').removeClass('d-none');
           $('#ActiveBlueStats').removeClass('d-none');
           $('#orange-team-active').addClass('d-none');
+          $('#PreviewGaugeMeterB').removeClass('d-none');
+          $('#PreviewGaugeMeter').addClass('d-none');
+          $('#boostBack').removeClass('d-none');
 
           $('#activeBox').addClass('open1');
 
@@ -542,6 +551,9 @@ ws.onmessage = (e) => {
           $('#blue-team-active').addClass('d-none');
           $('#blue-active').addClass('d-none');
           $('#orange-active').removeClass('d-none');
+          $('#PreviewGaugeMeter').removeClass('d-none');
+          $('#PreviewGaugeMeterB').addClass('d-none');
+          $('#boostBack').removeClass('d-none');
 
           $('#activeBox').addClass('open1');
 
@@ -571,7 +583,8 @@ ws.onmessage = (e) => {
         $('#blue-active').addClass('d-none');
         $('#orange-active').addClass('d-none');
         $('#activeBox').removeClass('open1');
-
+        $('#PreviewGaugeMeterB').addClass('d-none');
+        $('#PreviewGaugeMeter').addClass('d-none');
 
       }
 
@@ -904,6 +917,7 @@ ws.onmessage = (e) => {
 
   } else if (jEvent.event == "game:goal_scored") {
     //play()
+    
     console.log(jEvent.data.scorer.name)
     goalAssist = []
     setTimeout(toggle, 4500)

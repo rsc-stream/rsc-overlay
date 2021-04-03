@@ -59,6 +59,7 @@
                     "White" === option.theme && (t = "#fff"),
                     "Black" === option.theme && (t = "#000"),
                     "Orange" === option.theme && (t = "#ffb347"),
+                    "Blue" === option.theme && (t = "#4793ff"),
                     t;
             }
             /* The label below gauge. */
