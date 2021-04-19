@@ -8,6 +8,12 @@ var blueData3 = []
 var orangeData1 = []
 var orangeData2 = []
 var orangeData3 = []
+var blueData1P = []
+var blueData2P = []
+var blueData3P = []
+var orangeData1P = []
+var orangeData2P = []
+var orangeData3P = []
 var mvp = []
  var team = []
  var goalAssist = []
@@ -163,6 +169,18 @@ var mvp = []
     // console.log(OrangeScore)
      //console.log(jEvent.data.game.hasWinner)
      if (jEvent.data.game.hasWinner == true) { 
+       blueData1 = []
+       blueData2 = []
+       blueData3 = []
+       orangeData1 = []
+       orangeData2 = []
+       orangeData3 = []
+       blueData1.push(blueData1P)
+       blueData2.push(blueData2P)
+       blueData3.push(blueData3P)
+       orangeData1.push(orangeData1P)
+       orangeData2.push(orangeData2P)
+       orangeData3.push(orangeData3P)
            $('#orangeName1').text(orangeData1.name)
            $('#orangeGoals1').text(orangeData1.goals)
            $('#orangeShots1').text(orangeData1.shots)
@@ -260,17 +278,17 @@ var mvp = []
          var blue1 = _.get(team0, [0])
          var blue2 = _.get(team0, [1])
          var blue3 = _.get(team0, [2])
-         blueData1 = []
-         blueData1.push(blue1)
+         blueData1P = []
+         blueData1P.push(blue1)
 
-         blueData2 = []
-         blueData2.push(blue2)
+         blueData2P = []
+         blueData2P.push(blue2)
        
-         blueData3 = []
-         blueData3.push(blue3)
+         blueData3P = []
+         blueData3P.push(blue3)
          
          if (blue1 != undefined && blue2 != undefined && blue3 != undefined) {
-           
+          /* 
            $('#blueName1').text(blue1.name)
            $('#blueGoals1').text(blue1.goals)
            $('#blueShots1').text(blue1.shots)
@@ -289,7 +307,7 @@ var mvp = []
            $('#blueSaves3').text(blue3.saves)
            $('#blueAssists3').text(blue3.assists)
            $('#bluePoints3').text(blue3.score)
-
+*/
 
        } else {
          //blueResetAll()
@@ -304,17 +322,17 @@ var mvp = []
          var orange2 = _.get(team1, [1])
          var orange3 = _.get(team1, [2])
 
-         orangeData1 = []
-         orangeData1.push(orange1)
+         orangeData1P = []
+         orangeData1P.push(orange1)
 
-         orangeData2 = []
-         orangeData2.push(orange2)
+         orangeData2P = []
+         orangeData2P.push(orange2)
        
-         orangeData3 = []
-         orangeData3.push(orange3)
+         orangeData3P = []
+         orangeData3P.push(orange3)
 
          if (orange1 != undefined && orange2 != undefined && orange3 != undefined) {
-           
+         /*  
            $('#orangeName1').text(orange1.name)
            $('#orangeGoals1').text(orange1.goals)
            $('#orangeShots1').text(orange1.shots)
@@ -333,7 +351,7 @@ var mvp = []
            $('#orangeSaves3').text(orange3.saves)
            $('#orangeAssists3').text(orange3.assists)
            $('#orangePoints3').text(orange3.score)
-           
+           */
 
            logocolors()
             afterHighlights()
