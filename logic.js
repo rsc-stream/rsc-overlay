@@ -289,7 +289,7 @@ var w = 380,
   h = 300;
 
 // calculate max/min for x and y here if necessary
-
+/*
 var xScale = d3.scale.linear()
   .domain([-5140, 4074])
   .range([0, w]);
@@ -328,7 +328,7 @@ var yAxis = d3.svg.axis()
   .scale(yScale)
   .orient('left')
   .tickSize(1);
-
+*/
 
 ws.onopen = () => {
   //  ws.send('Message From Client')
@@ -362,21 +362,21 @@ ws.onmessage = (e) => {
   var jEvent = JSON.parse(event.data);
 
 
-  console.log(jEvent)
+  //console.log(jEvent)
 
 
   if (jEvent.event == "game:update_state") {
-    console.log(jEvent.data)
+    //console.log(jEvent.data)
     //gonna be used in a few spots
     var teamData = jEvent.data.game.teams
 
-    console.log(jEvent.data.game.hasWinner)
+   // console.log(jEvent.data.game.hasWinner)
     if (jEvent.data.game.hasWinner == true) {
       $('#main-ui').addClass('invisible');
       $('#scoreboard').addClass('invisible');
       $('#scoreboard').removeClass('open');
       //$('#scoreboard').removeClass('open')
-      console.log(jEvent.data.game.isReplay)
+     // console.log(jEvent.data.game.isReplay)
       $('#boostBack').addClass('d-none');
       $('#PreviewGaugeMeterB').addClass('d-none');
       $('#PreviewGaugeMeter').addClass('d-none');
@@ -430,7 +430,7 @@ ws.onmessage = (e) => {
       $('#main-ui').addClass('invisible');
       $('#scoreboard').addClass('invisible');
       //$('#scoreboard').removeClass('open')
-      console.log(jEvent.data.game.isReplay)
+     // console.log(jEvent.data.game.isReplay)
       $('#blue-active').addClass('d-none');
       $('#orange-active').addClass('d-none');
       $('#TierOverlay').addClass('d-none');
@@ -612,7 +612,7 @@ ws.onmessage = (e) => {
         var blue3 = _.get(team0, [2])
         blueData1 = []
         blueData1.push(blue1)
-        console.log(blueData1)
+        //console.log(blueData1)
         blueData2 = []
         blueData2.push(blue2)
 
@@ -868,7 +868,7 @@ ws.onmessage = (e) => {
 
     endGame()
     // afterHighlights()
-    console.log('match ended / podium')
+    //console.log('match ended / podium')
     /*
             if (jEvent.data.winner_team_num == 0) {
               var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
@@ -913,12 +913,12 @@ ws.onmessage = (e) => {
        document.getElementById("aftergame").style.width = "0px";
        document.getElementById("aftergame").style.height = "0px";
      },800);   */
-    console.log("destroy")
+    //console.log("destroy")
 
   } else if (jEvent.event == "game:goal_scored") {
     //play()
     
-    console.log(jEvent.data.scorer.name)
+    //console.log(jEvent.data.scorer.name)
     goalAssist = []
     setTimeout(toggle, 4500)
     var goalSpeed = jEvent.data.goalspeed / 1.609
@@ -949,11 +949,11 @@ ws.onmessage = (e) => {
       notify("goalOrange", "  " + jEvent.data.scorer.name);
     }
   } else if (jEvent.event == "game:statfeed_event") {
-    console.log(jEvent.data)
+    //console.log(jEvent.data)
     if (jEvent.data.type === "Assist") {
-      console.log("Assist")
+      //console.log("Assist")
       goalAssist.push(jEvent.data.main_target.name)
-      console.log(goalAssist[0])
+      //console.log(goalAssist[0])
       $('#assist').text(goalAssist[0]);
       $('#assist').removeClass('d-none');
       $('#assistLogo').removeClass('d-none');
@@ -1032,7 +1032,7 @@ ws.onmessage = (e) => {
 
   } else if (jEvent.event == "game:replay_start") {
     $('#RSCreplayOut').addClass('d-none');
-    console.log(team[0])
+    //console.log(team[0])
     if (team[0] === "blue") {
 
       $('#replayBlue1').removeClass('d-none');
@@ -1044,12 +1044,12 @@ ws.onmessage = (e) => {
     setTimeout(playOut, 1200)
   } else if (jEvent.event == "game:pre_game_countdown_begin") {
     $('#TierOverlay2').addClass('d-none');
-    console.log(transition)
+    //console.log(transition)
     setTimeout(add, 4500)
 
   } else if (jEvent.event == "game:pre_countdown_begin") {
     $('#TierOverlay2').addClass('d-none');
-    console.log("transition")
+    //console.log("transition")
     setTimeout(add, 4500)
   } else if (jEvent.event == "game:post_countdown_begin") {
 
@@ -1080,7 +1080,7 @@ ws.onmessage = (e) => {
             */
   } else if (jEvent.event === "game:match_ended") {
     $('#RSCreplayOut').removeClass('d-none');
-    console.log("Match Ended")
+    //console.log("Match Ended")
     /* 
     if (jEvent.data.winner_team_num == 0) {
        var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
