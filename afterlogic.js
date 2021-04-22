@@ -22,16 +22,16 @@ var mvp = []
 
  function logocolors() {
      //console.log('logocolors')
-     var blueDataScore = blueData1[0].score + blueData2[0].score + blueData3[0].score 
-      var orangeDataScore = orangeData1[0].score + orangeData2[0].score + orangeData3[0].score
-      var blueDataGoals = blueData1[0].goals + blueData2[0].goals + blueData3[0].goals 
-      var orangeDataGoals = orangeData1[0].goals + orangeData2[0].goals + orangeData3[0].goals
-      var blueDataAssists = blueData1[0].assists + blueData2[0].assists + blueData3[0].assists 
-      var orangeDataAssists = orangeData1[0].assists + orangeData2[0].assists + orangeData3[0].assists
-      var blueDataShots = blueData1[0].shots + blueData2[0].shots + blueData3[0].shots 
-      var orangeDataShots = orangeData1[0].shots + orangeData2[0].shots + orangeData3[0].shots
-      var blueDataSaves = blueData1[0].saves + blueData2[0].saves + blueData3[0].saves 
-      var orangeDataSaves = orangeData1[0].saves + orangeData2[0].saves + orangeData3[0].saves
+     var blueDataScore = blueData1P[0].score + blueData2P[0].score + blueData3P[0].score 
+      var orangeDataScore = orangeData1P[0].score + orangeData2P[0].score + orangeData3P[0].score
+      var blueDataGoals = blueData1P[0].goals + blueData2P[0].goals + blueData3P[0].goals 
+      var orangeDataGoals = orangeData1P[0].goals + orangeData2P[0].goals + orangeData3P[0].goals
+      var blueDataAssists = blueData1P[0].assists + blueData2P[0].assists + blueData3P[0].assists 
+      var orangeDataAssists = orangeData1P[0].assists + orangeData2P[0].assists + orangeData3P[0].assists
+      var blueDataShots = blueData1P[0].shots + blueData2P[0].shots + blueData3P[0].shots 
+      var orangeDataShots = orangeData1P[0].shots + orangeData2P[0].shots + orangeData3P[0].shots
+      var blueDataSaves = blueData1P[0].saves + blueData2P[0].saves + blueData3P[0].saves 
+      var orangeDataSaves = orangeData1P[0].saves + orangeData2P[0].saves + orangeData3P[0].saves
  //console.log(blueDataScore)
    if (blueDataScore > orangeDataScore) {
      $('#afterPTSLogo').addClass('invisible')
@@ -169,54 +169,7 @@ var mvp = []
     // console.log(OrangeScore)
      //console.log(jEvent.data.game.hasWinner)
      if (jEvent.data.game.hasWinner == true) { 
-       blueData1 = []
-       blueData2 = []
-       blueData3 = []
-       orangeData1 = []
-       orangeData2 = []
-       orangeData3 = []
-       blueData1.push(blueData1P)
-       blueData2.push(blueData2P)
-       blueData3.push(blueData3P)
-       orangeData1.push(orangeData1P)
-       orangeData2.push(orangeData2P)
-       orangeData3.push(orangeData3P)
-           $('#orangeName1').text(orangeData1.name)
-           $('#orangeGoals1').text(orangeData1.goals)
-           $('#orangeShots1').text(orangeData1.shots)
-           $('#orangeSaves1').text(orangeData1.saves)
-           $('#orangeAssists1').text(orangeData1.assists)
-           $('#orangePoints1').text(orangeData1.score)
-           $('#orangeName2').text(orangeData2.name)
-           $('#orangeGoals2').text(orangeData2.goals)
-           $('#orangeShots2').text(orangeData2.shots)
-           $('#orangeSaves2').text(orangeData2.saves)
-           $('#orangeAssists2').text(orangeData2.assists)
-           $('#orangePoints2').text(orangeData2.score)
-           $('#orangeName3').text(orangeData3.name)
-           $('#orangeGoals3').text(orangeData3.goals)
-           $('#orangeShots3').text(orangeData3.shots)
-           $('#orangeSaves3').text(orangeData3.saves)
-           $('#orangeAssists3').text(orangeData3.assists)
-           $('#orangePoints3').text(orangeData3.score)
-           $('#blueName1').text(blueData1.name)
-           $('#blueGoals1').text(blueData1.goals)
-           $('#blueShots1').text(blueData1.shots)
-           $('#blueSaves1').text(blueData1.saves)
-           $('#blueAssists1').text(blueData1.assists)
-           $('#bluePoints1').text(blueData1.score)
-           $('#blueName2').text(blueData2.name)
-           $('#blueGoals2').text(blueData2.goals)
-           $('#blueShots2').text(blueData2.shots)
-           $('#blueSaves2').text(blueData2.saves)
-           $('#blueAssists2').text(blueData2.assists)
-           $('#bluePoints2').text(blueData2.score)
-           $('#blueName3').text(blueData3.name)
-           $('#blueGoals3').text(blueData3.goals)
-           $('#blueShots3').text(blueData3.shots)
-           $('#blueSaves3').text(blueData3.saves)
-           $('#blueAssists3').text(blueData3.assists)
-           $('#bluePoints3').text(blueData3.score)
+       
            //winner()
            //afterHighlights()
           // logocolors()
@@ -353,7 +306,7 @@ var mvp = []
            $('#orangePoints3').text(orange3.score)
            */
 
-           logocolors()
+          // logocolors()
             afterHighlights()
             winner()
        } else {
@@ -369,23 +322,23 @@ var mvp = []
       var BWNumber = parseInt(localStorage.getItem("BlueWins"), 10)
       var NewBlueWins = BWNumber + 1
     
-      console.log(NewBlueWins)
+      //console.log(NewBlueWins)
       localStorage.setItem("BlueWins", NewBlueWins);
       var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
       var newGameNum = gameNum + 1
       localStorage.setItem('GameNumber', newGameNum)
-      console.log('Blue Wins')
+      //console.log('Blue Wins')
       $('#blueSeries').text(NewBlueWins);
     }else if (jEvent.data.winner_team_num == 1) {
       var OWNumber = parseInt(localStorage.getItem("OrangeWins"), 10)
       var NewOrangeWins = OWNumber + 1
     
-      console.log(NewOrangeWins)
+      //console.log(NewOrangeWins)
       localStorage.setItem("OrangeWins", NewOrangeWins);
       var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
       var newGameNum = gameNum + 1
       localStorage.setItem('GameNumber', newGameNum)
-      console.log('Orange Wins')
+      //console.log('Orange Wins')
       $('#OrangeSeries').text(NewOrangeWins);
     } 
     //addWinner()
@@ -398,6 +351,56 @@ var mvp = []
    
    //is the match over?
    else if (jEvent.event == "game:podium_start" /*|| jEvent.event == "game:match_ended"*/) {
+       blueData1 = []
+       blueData2 = []
+       blueData3 = []
+       orangeData1 = []
+       orangeData2 = []
+       orangeData3 = []
+       
+       blueData1.push(blueData1P[0])
+       blueData2.push(blueData2P[0])
+       blueData3.push(blueData3P[0])
+       orangeData1.push(orangeData1P[0])
+       orangeData2.push(orangeData2P[0])
+       orangeData3.push(orangeData3P[0])
+       console.log(blueData1)
+           $('#orangeName1').text(orangeData1[0].name)
+           $('#orangeGoals1').text(orangeData1[0].goals)
+           $('#orangeShots1').text(orangeData1[0].shots)
+           $('#orangeSaves1').text(orangeData1[0].saves)
+           $('#orangeAssists1').text(orangeData1[0].assists)
+           $('#orangePoints1').text(orangeData1[0].score)
+           $('#orangeName2').text(orangeData2[0].name)
+           $('#orangeGoals2').text(orangeData2[0].goals)
+           $('#orangeShots2').text(orangeData2[0].shots)
+           $('#orangeSaves2').text(orangeData2[0].saves)
+           $('#orangeAssists2').text(orangeData2[0].assists)
+           $('#orangePoints2').text(orangeData2[0].score)
+           $('#orangeName3').text(orangeData3[0].name)
+           $('#orangeGoals3').text(orangeData3[0].goals)
+           $('#orangeShots3').text(orangeData3[0].shots)
+           $('#orangeSaves3').text(orangeData3[0].saves)
+           $('#orangeAssists3').text(orangeData3[0].assists)
+           $('#orangePoints3').text(orangeData3[0].score)
+           $('#blueName1').text(blueData1[0].name)
+           $('#blueGoals1').text(blueData1[0].goals)
+           $('#blueShots1').text(blueData1[0].shots)
+           $('#blueSaves1').text(blueData1[0].saves)
+           $('#blueAssists1').text(blueData1[0].assists)
+           $('#bluePoints1').text(blueData1[0].score)
+           $('#blueName2').text(blueData2[0].name)
+           $('#blueGoals2').text(blueData2[0].goals)
+           $('#blueShots2').text(blueData2[0].shots)
+           $('#blueSaves2').text(blueData2[0].saves)
+           $('#blueAssists2').text(blueData2[0].assists)
+           $('#bluePoints2').text(blueData2[0].score)
+           $('#blueName3').text(blueData3[0].name)
+           $('#blueGoals3').text(blueData3[0].goals)
+           $('#blueShots3').text(blueData3[0].shots)
+           $('#blueSaves3').text(blueData3[0].saves)
+           $('#blueAssists3').text(blueData3[0].assists)
+           $('#bluePoints3').text(blueData3[0].score)
 //console.log('podium')     //winner()
     // logocolors()
      
@@ -457,42 +460,42 @@ var mvp = []
        mvp = []
        mvp.push(jEvent.data.main_target.name)
        //console.log(mvp)
-         if (mvp == blueData1[0].name) {  
+         if (mvp == blueData1P[0].name) {  
            $('#blue1MVP').removeClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == blueData2[0].name) {
+         }else if (mvp == blueData2P[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').removeClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == blueData3[0].name) {
+         }else if (mvp == blueData3P[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').removeClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData1[0].name) {
+         }else if (mvp == orangeData1P[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').removeClass('invisible')
            $('#orange2MVP').addClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData2[0].name) {
+         }else if (mvp == orangeData2P[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
            $('#orange1MVP').addClass('invisible')
            $('#orange2MVP').removeClass('invisible')
            $('#orange3MVP').addClass('invisible')
-         }else if (mvp == orangeData3[0].name) {
+         }else if (mvp == orangeData3P[0].name) {
            $('#blue1MVP').addClass('invisible')
            $('#blue2MVP').addClass('invisible')
            $('#blue3MVP').addClass('invisible')
@@ -534,7 +537,7 @@ var mvp = []
     OrangeScore = []
     BlueScore.push(0)
     OrangeScore.push(0)
-    console.log("here")
+    //console.log("here")
     $('#orangeScore').text(parseInt(OrangeScore))
     $('#blueScore').text(parseInt(BlueScore))
      //console.log('Countdown')
