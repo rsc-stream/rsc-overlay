@@ -28,7 +28,7 @@
   <option value="BO3">BO3</option>
 </select>
 <select id="tier-dropdown" name="tier" onchange="teams()">
-  <option value="" disabled selected>Tier</option>
+  <option value="" disabled selected>Choose Tier</option>
   <option value="premier">Premier</option>
   <option value="master">Master</option>
   <option value="elite">Elite</option>
@@ -81,13 +81,13 @@
     let dropdownOrange = document.getElementById('orange-team');
     let dropdown = document.getElementById('tier-dropdown');
     
-dropdown.length = 0;
+//dropdown.length = 0;
 dropdownBlue.length = 0;
 dropdownOrange.length = 0;
 
 
-let defaultOption = document.createElement('option');
-defaultOption.text = 'Choose Tier';
+//let defaultOption = document.createElement('option');
+//defaultOption.text = 'Choose Tier';
 
 let defaultOptionBlue = document.createElement('option');
 defaultOptionBlue.text = 'Choose Blue Team';
@@ -95,15 +95,15 @@ defaultOptionBlue.text = 'Choose Blue Team';
 let defaultOptionOrange = document.createElement('option');
 defaultOptionOrange.text = 'Choose Orange Team';
 
-dropdown.add(defaultOption);
-dropdown.selectedIndex = 0;
+//dropdown.add(defaultOption);
+//dropdown.selectedIndex = 0;
 
 dropdownBlue.add(defaultOptionBlue);
 dropdownBlue.selectedIndex = 0;
 
 dropdownOrange.add(defaultOptionOrange);
 dropdownOrange.selectedIndex = 0;
-
+/*
 const url = 'https://cool-grass-d74d.rsc.workers.dev/?https://rsc.webfillet.com/RSCdotNet/api/stats';
 
 const request = new XMLHttpRequest();
@@ -135,7 +135,7 @@ request.onerror = function() {
 };
 
 request.send();
-
+*/
 function teams() {
   const url = 'https://api.rscstream.com/';
 
