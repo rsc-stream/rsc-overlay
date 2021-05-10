@@ -585,6 +585,7 @@ ws.onmessage = (e) => {
         $('#activeBox').removeClass('open1');
         $('#PreviewGaugeMeterB').addClass('d-none');
         $('#PreviewGaugeMeter').addClass('d-none');
+        $('#boostBack').addClass('d-none');
 
       }
 
