@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 400px;
+}
