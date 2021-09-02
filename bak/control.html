@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>RSC Stream Control</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js" integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA==" crossorigin="anonymous"></script>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="stylesheet" href="./style1.css">
+  
+</head>
+
+<body onload="load()">
+<img class="back" src="assets/logos/rsc.png" id="rscLogo" style="width: 325px;"></img>
+
+
+<select id="series-dropdown" name="tier" onchange="seriesKind()">
+  <option value="choose">Choose Series Type</option>
+  <option value="4GS">4GS</option>
+  <option value="BO7">BO7</option>
+  <option value="BO5">BO5</option>
+  <option value="BO3">BO3</option>
+</select>
+<select id="tier-dropdown" name="tier" onchange="teams()">
+  <option value="" disabled selected>Choose Tier</option>
+  <option value="premier">Premier</option>
+  <option value="master">Master</option>
+  <option value="elite">Elite</option>
+  <option value="major">Major</option>
+  <option value="minor">Minor</option>
+  <option value="challenger">Challenger</option>
+  <option value="prospect">Prospect</option>
+  <option value="contender">Contender</option>
+  <option value="amateur">Amateur</option>
+</select><br>
+<select id="blue-team" name="BlueTeam" onchange=""></select>
+<select id="orange-team" name="OrangeTeam" onchange=""></select><br>
+<div></div>
+<button  onclick="live()" type="button" style="font-size: 15px; border-radius: 4px; background-color: green; color: white; border: 2px solid green; padding: 3px;margin-top: 5px; margin-left: 5px;">GO LIVE!</button>
+
+
+
+<button  onclick="clearAll()" type="button" style="float: right;font-size: 15px; border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px;margin-top: 5px; margin-right: 15px;">Reset</button>
+<!-- <br> -->
+<div style="position: relative;display: flex; justify-content: center; align-items: center;">
+  <h5 style="margin-top: -20px;color: white; text-align: center; font-size: 15px;">Game Number <span id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;">1</span></h5>
+  </div>
+<div class="bluewins">
+  <div>
+  <div style="color: white; text-align: center;margin: 5px; font-size: 12px;" id="blueWins1">Blue Wins</div>
+<button  onclick="blueWin()" type="button" id="BWButton" style="border-radius: 3px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50; padding: 3px; margin-top: 5px; margin-left: 5px;">  +  </button>
+<label id="bWins" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;">0</label>
+<button  onclick="blueWinRemove()" type="button" id="BRButton" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button>
+</div>
+<div>
+  <div  style="color: white; text-align: center;margin: 5px; font-size: 12px;" id="orangeWins1">Orange Wins</div>
+<button  onclick="orangeWin()" type="button" id="OWButton" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50; padding: 3px; margin-top: 5px; margin-left: 5px;" class="">  +  </button>
+<label id="oWins" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;">0</label>
+<button  onclick="orangeWinRemove()" type="button" id="ORButton" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button>
+</div>
+</div>
+<br>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<!-- <button  onclick="gameplus()" type="button" id="GamePlus" style="border-radius: 4px; background-color: #4CAF50; color: white; border: 2px solid #4CAF50; padding: 3px; margin-top: 5px; margin-left: 5px;" class="">  +  </button> -->
+<!-- <label id="gameNumber" style="color: white; padding-left: 15px; padding-right: 15px; font-size: 15px;"">1</label> -->
+<!--<button  onclick="gameminus()" type="button" id="GameMinus" style="border-radius: 4px; background-color: #f44336; color: white; border: 2px solid #f44336; padding: 3px; margin-top: 5px; margin-left: 5px;">  -  </button> -->
+
+<button  onclick="scores()" type="button" style="font-size: 15px; border-radius: 4px; background-color: green; color: white; border: 2px solid green; padding: 3px;margin-top: -15px; margin-left: 0px;">Send Wins</button>
+</div>
+
+<script>
+    var teamsList = [];
+    let dropdownBlue = document.getElementById('blue-team');
+    let dropdownOrange = document.getElementById('orange-team');
+    let dropdown = document.getElementById('tier-dropdown');
+    
+//dropdown.length = 0;
+dropdownBlue.length = 0;
+dropdownOrange.length = 0;
+
+
+//let defaultOption = document.createElement('option');
+//defaultOption.text = 'Choose Tier';
+
+let defaultOptionBlue = document.createElement('option');
+defaultOptionBlue.text = 'Choose Blue Team';
+
+let defaultOptionOrange = document.createElement('option');
+defaultOptionOrange.text = 'Choose Orange Team';
+
+//dropdown.add(defaultOption);
+//dropdown.selectedIndex = 0;
+
+dropdownBlue.add(defaultOptionBlue);
+dropdownBlue.selectedIndex = 0;
+
+dropdownOrange.add(defaultOptionOrange);
+dropdownOrange.selectedIndex = 0;
+/*
+const url = 'https://cool-grass-d74d.rsc.workers.dev/?https://rsc.webfillet.com/RSCdotNet/api/stats';
+
+const request = new XMLHttpRequest();
+request.open('GET', url, true);
+
+request.onload = function() {
+  if (request.status === 200) {
+    const data = JSON.parse(request.responseText);
+    console.log(data)
+    teamsList.push(data)
+    console.log(teamsList)
+    let option;
+    for (let i = 0; i < data.length; i++) {
+      option = document.createElement('option');
+      option.text = data[i].TierName;
+      //option.value = data[i].abbreviation;
+      dropdown.add(option);
+      
+
+      
+    }
+   } else {
+    // Reached the server, but it returned an error
+  }   
+}
+
+request.onerror = function() {
+  console.error('An error occurred fetching the JSON from ' + url);
+};
+
+request.send();
+*/
+function teams() {
+  const url = 'https://api.rscstream.com/';
+
+    var teams = [];
+    var id = [];
+    var tier = document.getElementById("tier-dropdown").value;
+    //console.log(tier)
+    id.length = 0;
+
+    fetch(url + 'teams/' + tier)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function (data) {
+    //game1Tier.push(data)
+    //game1TierO.push(data)
+    //console.log(data);
+    teams.length = 0;
+    let teamArray = [];
+    teamArray = []
+    //console.log(teamArray)
+    for (let i = 0; i < data.length; i++) {
+        teamArray.push(
+        {"label": data[i].teamName.toString(), "value": data[i].franchise.toString()}
+        );if (i ===teams.length -1)
+
+        console.log(teamArray)
+    
+        teamArray.sort(function(a, b){
+    if(a.label < b.label) { return -1; }
+    if(a.label > b.label) { return 1; }
+    return 0;
+})
+
+
+ }
+ let option1 = []
+ option1 = []
+ let option = [];
+ option = [];
+ 
+ //document.getElementById("orange-team").options.length = 0;
+ let dropdownBlue = document.getElementById('blue-team');
+ let dropdownOrange = document.getElementById('orange-team');
+
+dropdownBlue.length = 0;
+dropdownOrange.length = 0;
+
+let defaultOptionBlue = document.createElement('option');
+defaultOptionBlue.text = 'Choose Blue Team';
+
+let defaultOptionOrange = document.createElement('option');
+defaultOptionOrange.text = 'Choose Orange Team';
+
+dropdownBlue.add(defaultOptionBlue);
+dropdownBlue.selectedIndex = 0;
+
+dropdownOrange.add(defaultOptionOrange);
+dropdownOrange.selectedIndex = 0;
+
+    for (let i = 0; i < teamArray.length; i++) {
+      option = document.createElement('option');
+      option.value = teamArray[i].value;
+      option.text = teamArray[i].label;
+      
+      
+      dropdownOrange.add(option);
+    }
+      for (let i = 0; i < teamArray.length; i++) {
+      option1 = document.createElement('option');
+      option1.text = teamArray[i].label;
+      option1.value = teamArray[i].value;
+      dropdownBlue.add(option1);
+      
+
+      
+    }
+  }).catch(function(error) {
+    console.log('Request failed', error)
+  });
+}
+
+    </script>
+    
+<script>
+var mostWins = [4]
+var bluenum = parseInt(localStorage.getItem('BlueWins'))
+var blueW = [bluenum]
+console.log(blueW)
+function blueWin() {
+var getBlueWins = blueW[0] + 1
+blueW = []
+blueW.push(getBlueWins)
+document.getElementById("bWins").innerHTML = blueW[0]
+//localStorage.setItem("BlueWins", blueW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum + 1
+console.log(newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+if (blueW[0] === mostWins[0]) {
+  document.getElementById("BWButton").disabled = true;
+}else{
+  document.getElementById("BWButton").disabled = false;
+  document.getElementById("BRButton").disabled = false;
+}
+}
+
+function blueWinRemove() {
+var getBlueWins = blueW[0] - 1
+blueW = []
+blueW.push(getBlueWins)
+document.getElementById("bWins").innerHTML = blueW[0]
+//localStorage.setItem("BlueWins", blueW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum - 1
+console.log(newGameNum)
+//localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+if (blueW[0] === 0) {
+  document.getElementById("BRButton").disabled = true;
+}else{
+  document.getElementById("BRButton").disabled = false;
+  document.getElementById("BWButton").disabled = false;
+}
+}
+
+var orangenum = parseInt(localStorage.getItem('OrangeWins'))
+var orangeW = [orangenum]
+function orangeWin() {
+  
+var getOrangeWins = orangeW[0] + 1
+orangeW = []
+orangeW.push(getOrangeWins)
+document.getElementById("oWins").innerHTML = orangeW[0]
+//localStorage.setItem("OrangeWins", orangeW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum + 1
+
+//localStorage.setItem('GameNumber', newGameNum)
+//document.getElementById("gameNumber").innerHTML = newGameNum
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+console.log(localStorage.getItem('GameNumber'))
+if (orangeW[0] === mostWins[0]) {
+  document.getElementById("OWButton").disabled = true;
+}else{
+  document.getElementById("OWButton").disabled = false;
+  document.getElementById("ORButton").disabled = false;
+}
+}
+
+function orangeWinRemove() {
+var getOrangeWins = orangeW[0] - 1
+orangeW = []
+orangeW.push(getOrangeWins)
+document.getElementById("oWins").innerHTML = orangeW[0]
+//localStorage.setItem("OrangeWins", orangeW[0]);
+var gameNum = parseInt(localStorage.getItem('GameNumber'), 10)
+var newGameNum = gameNum - 1
+//localStorage.setItem('GameNumber', newGameNum)
+document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+console.log(newGameNum)
+
+if (orangeW[0] === 0) {
+  document.getElementById("ORButton").disabled = true;
+}else{
+  document.getElementById("ORButton").disabled = false;
+  document.getElementById("OWButton").disabled = false;
+}
+}
+var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
+function gameplus() {
+  var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
+var getGame = game[0] + 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+if (game[0] === 7) {
+  document.getElementById("GamePlus").disabled = true;
+}else{
+  document.getElementById("GamePlus").disabled = false;
+  document.getElementById("GameMinus").disabled = false;
+}
+}
+
+function gameminus() {
+  var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
+var getGame = game[0] - 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+if (game[0] === 1) {
+  document.getElementById("GameMinus").disabled = true;
+}else{
+  document.getElementById("GamePlus").disabled = false;
+  document.getElementById("GameMinus").disabled = false;
+}
+}
+function scores() {
+var blueSW = document.getElementById("bWins").innerHTML
+var orangeSW = document.getElementById("oWins").innerHTML
+localStorage.setItem("OrangeWins", orangeSW);
+localStorage.setItem("BlueWins", blueSW);
+console.log(orangeSW)
+var gamenum = parseInt(localStorage.getItem('GameNumber'))
+var game = [gamenum]
+var getGame = parseInt(orangeSW, 10) + parseInt(blueSW, 10) + 1
+game = []
+game.push(getGame)
+document.getElementById("gameNumber").innerHTML = game[0]
+localStorage.setItem("GameNumber", game[0]);
+
+}
+
+function live() {
+  
+    var sel = document.getElementById("blue-team");
+        var bt= sel.options[sel.selectedIndex].label;
+        var bf= sel.options[sel.selectedIndex].value;
+        //var plb= sel.options[sel.selectedIndex].players;
+        //console.log(plb)
+        localStorage.setItem("BlueTeam", bt);
+        localStorage.setItem("BlueFran", bf);
+        //localStorage.setItem("BluePlayers", plb);
+  
+      
+      var sel1 = document.getElementById("orange-team");
+        var ot= sel1.options[sel1.selectedIndex].label;
+        var of= sel1.options[sel1.selectedIndex].value;
+        //console.log(of)
+        localStorage.setItem("OrangeTeam", ot);
+        localStorage.setItem("OrangeFran", of);
+
+        localStorage.setItem("tier", document.getElementById("tier-dropdown").value);
+        
+        orangeTeamName();
+        blueTeamName();
+        seriesKind()
+        document.getElementById("blueWins1").innerHTML = localStorage.getItem("BlueTeam") + " Wins";
+        document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
+     
+        if (typeof(Storage) !== "undefined") {
+    document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+    document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+        }
+      }
+
+      function clearAll() {
+  
+  var sel = document.getElementById("blue-team");
+      var bt= sel.options[sel.selectedIndex].label;
+      var bf= sel.options[sel.selectedIndex].value;
+      //console.log(bf)
+      localStorage.setItem("BlueTeam", "Choose Blue Team");
+      localStorage.setItem("BlueFran", "Choose Blue Team");
+
+    
+    var sel1 = document.getElementById("orange-team");
+      var ot= sel1.options[sel1.selectedIndex].label;
+      var of= sel1.options[sel1.selectedIndex].value;
+      //console.log(of)
+      localStorage.setItem("OrangeTeam", "Choose Orange Team");
+      localStorage.setItem("OrangeFran", "Choose Orange Team");
+
+      localStorage.setItem("tier", "Choose Tier");
+      localStorage.setItem("OrangeWins", parseInt('0')); 
+      localStorage.setItem("BlueWins", parseInt('0')); 
+      document.getElementById("gameNumber").innerHTML =  parseInt('1')
+      localStorage.setItem("GameNumber",  parseInt('1'));
+      orangeTeamName();
+      blueTeamName();
+      seriesKind()
+      document.getElementById("blueWins1").innerHTML = localStorage.getItem("BlueTeam") + " Wins";
+      document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
+   
+      if (typeof(Storage) !== "undefined") {
+  document.getElementById("bWins").innerHTML = parseInt('0');
+  document.getElementById("oWins").innerHTML = parseInt('0');
+      }
+      window.location.assign('control.html')
+    }
+
+function seriesKind() {
+  var sel1 = document.getElementById("series-dropdown");
+        var series = sel1.options[sel1.selectedIndex].value;
+        if (series === "4GS") {
+          localStorage.setItem("series", document.getElementById("series-dropdown").value);
+        }else if (series === "BO7") {
+          localStorage.setItem("series", document.getElementById("series-dropdown").value);
+        }else if (series === "BO5") {
+          localStorage.setItem("series", document.getElementById("series-dropdown").value);
+        }else if (series === "BO3") {
+          localStorage.setItem("series", document.getElementById("series-dropdown").value);
+        }
+
+}
+
+function load() {
+  document.getElementById("series-dropdown").value = localStorage.getItem('series');
+  document.getElementById("gameNumber").innerHTML = localStorage.getItem('GameNumber');
+  document.getElementById("bWins").innerHTML = localStorage.getItem('BlueWins');
+  document.getElementById("oWins").innerHTML = localStorage.getItem('OrangeWins');
+  document.getElementById("blueWins1").innerHTML = localStorage.getItem("BlueTeam") + " Wins";
+  document.getElementById("orangeWins1").innerHTML = localStorage.getItem("OrangeTeam") + " Wins";
+  
+ // if (localStorage.getItem('GameNumber') == 1) {
+ //   document.getElementById("GameMinus").disabled = true
+ // }
+  if (localStorage.getItem('BlueWins') == 0) {
+    document.getElementById("BRButton").disabled = true
+  }
+  if (localStorage.getItem('OrangeWins') == 0) {
+    document.getElementById("ORButton").disabled = true
+  }
+
+  'use strict';
+        window.onstorage = event => { // same as window.addEventListener('storage', () => {
+        if (event.key != 'OrangeWins');
+        document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+         if (orangeW[0] === 0) {
+         document.getElementById("ORButton").disabled = true;
+        }else{
+         document.getElementById("ORButton").disabled = false;
+         document.getElementById("OWButton").disabled = false;
+        }
+        if (event.key != 'BlueWins');
+        document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+          if (blueW[0] === 0) {
+          document.getElementById("BRButton").disabled = true;
+           }else{
+           document.getElementById("BRButton").disabled = false;
+           document.getElementById("BWButton").disabled = false;
+          }
+        if (event.key != 'GameNumber');
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        }
+    
+        if (typeof(Storage) !== "undefined") {
+        document.getElementById("bWins").innerHTML = localStorage.getItem("BlueWins");
+        document.getElementById("oWins").innerHTML = localStorage.getItem("OrangeWins");
+        document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+        
+        }
+}
+    </script>
+ <script src="controlLogic.js"></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
+</body>

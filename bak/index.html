@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+
+
+  <title>RSC Overlay</title>
+  <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+  <script type='text/javascript' src="GaugeMeter.js"></script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js"
+    integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA=="
+    crossorigin="anonymous"></script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+
+
+</head>
+
+<body onload="blueWins(); orangeWins(); seriesback()">
+
+  <video preload muted id="replayOut" class="stinger">
+    <source src="assets/RSC.webm" type="video/webm">
+  </video>
+
+  <video preload muted id="RSCreplayOut" class="stinger d-none">
+    <source src="assets/RSC.webm" type="video/webm">
+  </video>
+
+  <div id="iFrame">
+    <iframe src="aftergame.html" id="aftergame" frameborder="0" allowtransparency="true" scrolling="no"
+      style="width: 0px; height: 0px;position: absolute; z-index: 999;"></iframe>
+  </div>
+
+  <div id="wrapper">
+
+    <video preload muted id="goalORANGE" class="goalO">
+      <source src="assets/goals/Orange_Goal.webm" type="video/webm">
+    </video>
+
+    <video preload muted id="goalBLUE" class="goalB">
+      <source src="assets/goals/Blue_Goal.webm" type="video/webm">
+    </video>
+
+    <video preload muted id="blueGoalVideo" class="stinger">
+      <source src="assets/goals/Dino Park.webm" type="video/webm">
+    </video>
+
+    <video preload muted id="orangeGoalVideo" class="stinger">
+      <source src="assets/goals/Dino Park.webm" type="video/webm">
+    </video>
+
+
+
+    <div id="TierOverlay" class="transition1">
+      <img src="assets/Tier.png" class="tierOver">
+      <div class="tier" style="font-size: 30px" id="tier">Amateur</div>
+    </div>
+
+    <div id="TierOverlay2" class="transition1 d-none">
+      <img src="assets/logos/rscTOP.png" class="tierOver"
+        style="width:110px;padding-top: 10px; padding-left: 10px; opacity: 0.8;">
+    </div>
+
+    <div id="replayBlue" class="invisible">
+      <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back">
+
+    </div>
+
+    <div id="notification-area" class="fontR">
+    </div>
+
+    <div id="scoreboard" class="transition">
+      <div class="flex-container">
+        <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
+        <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
+        <img src="assets/wins/Orange3.png" id="orange3" class="wins invisible">
+        <img src="assets/wins/Orange4.png" id="orange4" class="wins invisible">
+        <img src="assets/wins/Blue1.png" id="blue1" class="wins invisible">
+        <img src="assets/wins/Blue2.png" id="blue2" class="wins invisible">
+        <img src="assets/wins/Blue3.png" id="blue3" class="wins invisible">
+        <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
+
+
+        <img src="assets/Overlay.png" id="TierOvelay1" class="back invisible">
+        <img src="assets/BO5.png" id="bo5" class="back invisible">
+        <img src="assets/BO3.png" id="bo3" class="back invisible">
+
+        <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Blue</div>
+        <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;"
+          id="blueLogo"></img>
+        <div class="font-weight-bold fontBold BlueGoals fontR"
+          style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;"
+          id="blue-score">0</div>
+        <div class="text-light fontTimer"
+          style="line-height:30px; flex-basis:160px; font-size: 60px; text-align: center;" id="timer">5:00</div>
+        <div class="font-weight-bold fontBold OrangeGoals fontR"
+          style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;"
+          id="orange-score">0</div>
+        <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;"
+          id="orangeLogo"></img>
+        <div class="text-light fontR" style="font-size: 30px;" id="orangeName">Orange</div>
+
+      </div>
+
+      <div class="flex-container">
+        <p class="fontR text-light fontR" style="line-height: 0px; font-size: 16px; padding: 0px;">Game <span
+            id="gameNumber">1</span> | <span id="seriesType">4GS</span></p>
+      </div>
+
+
+    </div>
+
+
+    <!--  TESTING -->
+    <!--
+
+<div class="buttons" style="justify-content: right; z-index: 999999;position: absolute;">
+  <h1>Notifications</h1>
+  <button onclick="endGame()">
+    Success
+  </button>
+</div>
+
+ 
+<div class="buttons" style="justify-content: right; z-index: 999;position: absolute;">
+  <h1>Notifications</h1>
+  <button onclick="notifyDemo()">
+    Success
+  </button>
+  <button onclick="notifySave()">
+    Error
+  </button>
+  <button onclick="notifyShot()">
+    Info
+  </button>
+</div>
+
+
+ -->
+
+    <!-- active player testing -->
+
+    <div class="activeplayer card transition1" id="activeBox">
+      <div class="activeItem text-dark bg-blue-team rounded mt-2" id="blue-active">
+        <!-- players name -->
+        <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
+          id="blueActiveLogo"></img>
+        <h2 class="text-center text-light fontBold" style="padding: 5px;" id="blue-active-name">name</h2>
+
+        <div class="blueLine"></div>
+      
+        <div class="container">
+
+          <div style="padding: 10px; z-index: 3;">
+            <table class="table-sm text-light" style="width:260px; z-index: 3;">
+
+              <tbody>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left; z-index: 3;">Score</th>
+                  <td id="blue-active-score" class="h3 fontR" style="text-align:right">6</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Goals</th>
+                  <td id="blue-active-goals" class="h3 fontR" style="text-align:right">0</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Shots</th>
+                  <td id="blue-active-shots" class="h3 fontR" style="text-align:right">0</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Assists</th>
+                  <td id="blue-active-assists" class="h3 fontR" style="text-align:right">0</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Saves</th>
+                  <td id="blue-active-saves" class="h3 fontR" style="text-align:right">0</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="activeItemOrange text-dark bg-orange-team rounded mt-2 d-none" id="orange-active">
+        <!-- players name -->
+        <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
+          id="orangeActiveLogo"></img>
+        <h2 class="text-center text-light fontBold" style="padding: 5px;" id="orange-active-name">shane9b3</h2>
+       <div class="orangeLine"></div>
+        <div class="container">
+
+          <div style="padding: 10px">
+            <table class="table-sm text-light" style="width:260px">
+
+              <tbody>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Score</th>
+                  <td id="orange-active-score" class="h3 fontR" style="text-align:right">355</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Goals</th>
+                  <td id="orange-active-goals" class="h3 fontR" style="text-align:right">2</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Shots</th>
+                  <td id="orange-active-shots" class="h3 fontR" style="text-align:right">3</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Assists</th>
+                  <td id="orange-active-assists" class="h3 fontR" style="text-align:right">1</td>
+                </tr>
+                <tr>
+                  <th class="h3 fontR" style="text-align:left">Saves</th>
+                  <td id="orange-active-saves" class="h3 fontR" style="text-align:right">2</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div id="replayOrange" class="d-none">
+      <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 0px;">
+      <div class="text-center fontBold OrangeScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
+      <img class="orangeSc" src="assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;"
+        id="orangeLogoR"></img>
+      <div id="underscore" class="underscore"></div>
+      <div id="assists" class="assist">
+
+        <img src="assets/Assist_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
+          class="shadowfilter d-none" id="assistLogo">
+        <div class="text-center fontR glow d-none" style="font-size: 30px; margin-top: 10px; padding-right: 25px;"
+          id="assist">mbolt05</div>
+
+        <img src="assets/Shot_on_Goal_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
+          class="shadowfilter">
+        <div class="text-center fontR glow" style="font-size: 30px; margin-top: 10px;" id="goalSpeed"> 105</div>
+        <div class="fontR glow" style="font-size: 20px; margin-top: 13px; margin-left: 3px;"> MPH</div>
+      </div>
+    </div>
+
+
+    <div id="replayBlue1" class="d-none">
+      <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 0px;">
+      <div class="text-center fontBold BlueScorer" style="font-size: 30px;" id="scorerB">shane9b3</div>
+      <img class="blueSc" src="assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;"
+        id="blueLogoR"></img>
+      <div id="underscore" class="underscore"></div>
+      <div id="assists" class="assist">
+
+        <img src="assets/Assist_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
+          class="shadowfilterB d-none" id="assistLogoB">
+        <div class="text-center fontR glowB d-none" style="font-size: 30px; margin-top: 10px; padding-right: 25px;"
+          id="assistB">mbolt05</div>
+
+        <img src="assets/Shot_on_Goal_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
+          class="shadowfilterB">
+        <div class="text-center fontR glowB" style="font-size: 30px; margin-top: 10px;" id="goalSpeedB"> 105 </div>
+        <div class="fontR glowB" style="font-size: 20px; margin-top: 13px; margin-left: 3px;"> MPH</div>
+      </div>
+    </div>
+
+
+
+    <!-- partial:index.partial.html -->
+    <div class="contianer h-100 invisible d-none" id="main-ui">
+      <div class="row h-100">
+
+
+
+
+
+        <!-- blue team code-->
+        <div class="col m-4">
+          <div class="h-50 d-flex align-items-start flex-column">
+
+
+
+
+
+
+
+            <!-- blue team active player card -->
+            <div class="mt-auto card text-muted border-light bg-blue-team mb-0 active-box fixed-bottom"
+              style="max-width: 18rem;" id="blue-team-active">
+              <div class="card-header h2 text-center" id="blue-active-name">Name</div>
+              <div class="progress mx-auto border border-dark rounded-0"
+                style="height: 80px; width: 100%; bottom: 0px;">
+                <div class="progress-bar bg-light" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100" id="blue-active-p-bar">
+
+                  <span class="h5" id="blue-player-2-boost">20%</span>
+                </div>
+                <div class="container p-0">
+
+                  <div class="col-10 pr-0">
+                    <table class="table table-sm text-muted">
+
+                      <tbody>
+                        <tr>
+                          <th scope="row">Speed</th>
+                          <td id="blue-active-speed" class="h5">0</td>
+                          <th>Goals</th>
+                          <td id="blue-active-goals" class="h5">0</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Demos</th>
+                          <td id="blue-active-demos" class="h5">0</td>
+                          <th>Shots</th>
+                          <td id="blue-active-shots" class="h5">0</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Saves</th>
+                          <td id="blue-active-saves" class="h5">0</td>
+                          <th>Assists</th>
+                          <td id="blue-active-assists" class="h5">0</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Touches</th>
+                          <td id="blue-active-touches" class="h5">1</td>
+                          <th>Score</th>
+                          <td id="blue-active-score" class="h5">6</td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- orange team active player card -->
+          <div class="mt-auto card text-muted border-dark bg-orange-team mb-0 active-box fixed-bottom invisible"
+            style="max-width: 18rem;" id="orange-team-active">
+            <div class="card-header h2 text-center" id="orange-active-name">Name</div>
+            <div class="container p-0">
+              <div class="row m-0">
+                <!-- active boost -->
+              <!-- <div class="col-2 p-0">
+
+                  <div class="progress mx-auto border border-dark" style="height: 135px; width: 100%;">
+                    <div class="progress-bar bg-success" role="progressbar" style="height: 20%; width: 100%;"
+                      aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="orange-active-p-bar">
+                      <span class="text-light" id="orange-active-boost">0</span>
+                    </div>
+                  </div>
+                -->
+                </div>
+                <!-- active stats -->
+                <div class="col-10 p-0">
+                  <table class="table table-sm text-muted">
+
+                    <tbody>
+                      <tr>
+
+                        <th scope="row">Goals</th>
+                        <td id="orange-active-goals" class="h5">0</td>
+                        <th>Speed</th>
+                        <td id="orange-active-speed" class="h5">0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Shots</th>
+                        <td id="orange-active-shots" class="h5">0</td>
+                        <th>Demos</th>
+                        <td id="orange-active-demos" class="h5">0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Assists</th>
+                        <td id="orange-active-assists" class="h5">0</td>
+                        <th>Saves</th>
+                        <td id="orange-active-saves" class="h5">0</td>
+
+                      </tr>
+                      <tr>
+                        <th scope="row">Score</th>
+                        <td id="orange-active-score" class="h5">6</td>
+                        <th>Touches</th>
+                        <td id="orange-active-touches" class="h5">1</td>
+
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- score, time and team names -->
+          <!-- <div class="col mh-4">
+        <div class="container">
+          <div class="row">
+             <div class="col-3"></div>
+              <div class="col-2 p-1">
+                <div class="w-100 score text-light text-center border-dark">
+          <!--      <p class="mb-0 d-none" id="blue-team-name"></p>   -->
+          <!--   <h1 class="display-5" id="blue-score">0</h1>
+                </div>
+              </div>
+              <div class="col-2 p-1">
+                <div class="w-100 score text-light text-center rounded">
+                  <p class="mb-0 lead d-none" id="overtime-text">Overtime</p>
+                  <h1 class="display-5" id="timer"></h1>
+                </div>
+              </div>
+              <div class="col-2 p-1">
+                <div class="w-100 score text-light text-center border-dark">
+            <!--      <p class="mb-0 d-none" id="orange-team-name"></p>   -->
+          <!--  <h1 class="display-5" id="orange-score">0</h1>
+                </div>
+              </div>
+              <div class="col-3"></div>
+          </div>
+        </div>
+      </div>
+    -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+  </div>
+
+  <div class="container">
+    <div class="Preview">
+    <div class="GaugeMeter gaugeMeter d-none" id="PreviewGaugeMeter" data-bind="gaugeValue: Percent" data-size=265 data-theme="Orange" data-back="Bluey"
+      data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
+      <div class="GaugeMeterB gaugeMeter d-none" id="PreviewGaugeMeterB" data-bind="gaugeValue: Percent" data-size=265 data-theme="Blue" data-back="Bluey"
+      data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
+      <img class="boostBack d-none" src="assets/boostBack.png" id="boostBack"></img>
+    <!-- <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent"></div> -->
+  </div>
+</div>
+
+  <script>
+
+
+    'use strict';
+    window.onstorage = event => { // same as window.addEventListener('storage', () => {
+      if (event.key != 'BlueTeam');
+      document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
+      let blueF = localStorage.getItem("BlueFran")
+      document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
+      document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+      if (event.key != 'OrangeTeam');
+      document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
+      let orangeF = localStorage.getItem("OrangeFran")
+      document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+      document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+      if (event.key != 'tier');
+      document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+      //if (event.key != 'blueWin1') ;
+      //BLUEWIN1()
+      if (event.key != 'OrangeWins');
+      orangeWins()
+      if (event.key != 'BlueWins');
+      blueWins()
+      if (event.key != 'GameNumber');
+      document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+      if (event.key != 'series');
+      document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+      seriesback()
+    }
+
+    if (typeof (Storage) !== "undefined") {
+      document.getElementById("gameNumber").innerHTML = localStorage.getItem("GameNumber")
+      document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam");
+      document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
+      document.getElementById("tier").innerHTML = localStorage.getItem("tier");
+      let blueF = localStorage.getItem("BlueFran")
+      let orangeF = localStorage.getItem("OrangeFran")
+      document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
+      document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
+      document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
+      document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
+      document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+      document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+      document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
+
+    }
+
+  </script>
+
+
+
+
+
+  <script src="logic.js"></script>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
+  </div>
+</body>
+
+</html>

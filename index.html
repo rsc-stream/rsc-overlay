@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 <head>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>RSC Overlay</title>
-  <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
-  <script type='text/javascript' src="GaugeMeter.js"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js" integrity="sha512-NWNl2ZLgVBoi6lTcMsHgCQyrZVFnSmcaa3zRv0L3aoGXshwoxkGs3esa9zwQHsChGRL4aLDnJjJJeP6MjPX46Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script src="logic.js"></script>
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
-  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js"
-    integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA=="
-    crossorigin="anonymous"></script>
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-  <link rel="stylesheet" href="./style.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha512-F7WyTLiiiPqvu2pGumDR15med0MDkUIo5VTVyyfECR5DZmCnDhti9q5VID02ItWjq6fvDfMaBaDl2J3WdL1uxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/style.css">
 
 
 </head>
 
-<body onload="blueWins(); orangeWins(); seriesback()">
+<!--<body onload="blueWins(); orangeWins(); seriesback()">
 
   <video preload muted id="replayOut" class="stinger">
     <source src="assets/RSC.webm" type="video/webm">
@@ -148,13 +140,13 @@
 </div>
 
 
- -->
+- ->
 
-    <!-- active player testing -->
+    < !-- active player testing - ->
 
     <div class="activeplayer card transition1" id="activeBox">
       <div class="activeItem text-dark bg-blue-team rounded mt-2" id="blue-active">
-        <!-- players name -->
+        < !-- players name - ->
         <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
           id="blueActiveLogo"></img>
         <h2 class="text-center text-light fontBold" style="padding: 5px;" id="blue-active-name">name</h2>
@@ -197,7 +189,7 @@
       </div>
 
       <div class="activeItemOrange text-dark bg-orange-team rounded mt-2 d-none" id="orange-active">
-        <!-- players name -->
+        < !-- players name - ->
         <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
           id="orangeActiveLogo"></img>
         <h2 class="text-center text-light fontBold" style="padding: 5px;" id="orange-active-name">shane9b3</h2>
@@ -281,7 +273,7 @@
 
 
 
-    <!-- partial:index.partial.html -->
+    < !-- partial:index.partial.html - ->
     <div class="contianer h-100 invisible d-none" id="main-ui">
       <div class="row h-100">
 
@@ -289,7 +281,7 @@
 
 
 
-        <!-- blue team code-->
+        < !-- blue team code- ->
         <div class="col m-4">
           <div class="h-50 d-flex align-items-start flex-column">
 
@@ -299,7 +291,7 @@
 
 
 
-            <!-- blue team active player card -->
+            < !-- blue team active player card - ->
             <div class="mt-auto card text-muted border-light bg-blue-team mb-0 active-box fixed-bottom"
               style="max-width: 18rem;" id="blue-team-active">
               <div class="card-header h2 text-center" id="blue-active-name">Name</div>
@@ -353,14 +345,14 @@
           </div>
 
 
-          <!-- orange team active player card -->
+          < !-- orange team active player card - ->
           <div class="mt-auto card text-muted border-dark bg-orange-team mb-0 active-box fixed-bottom invisible"
             style="max-width: 18rem;" id="orange-team-active">
             <div class="card-header h2 text-center" id="orange-active-name">Name</div>
             <div class="container p-0">
               <div class="row m-0">
-                <!-- active boost -->
-              <!-- <div class="col-2 p-0">
+                < !-- active boost - ->
+              < !-- <div class="col-2 p-0">
 
                   <div class="progress mx-auto border border-dark" style="height: 135px; width: 100%;">
                     <div class="progress-bar bg-success" role="progressbar" style="height: 20%; width: 100%;"
@@ -368,9 +360,9 @@
                       <span class="text-light" id="orange-active-boost">0</span>
                     </div>
                   </div>
-                -->
+                - ->
                 </div>
-                <!-- active stats -->
+                 < !-- active stats - ->
                 <div class="col-10 p-0">
                   <table class="table table-sm text-muted">
 
@@ -411,15 +403,15 @@
             </div>
           </div>
 
-          <!-- score, time and team names -->
-          <!-- <div class="col mh-4">
+          < !-- score, time and team names - ->
+          < !-- <div class="col mh-4">
         <div class="container">
           <div class="row">
              <div class="col-3"></div>
               <div class="col-2 p-1">
                 <div class="w-100 score text-light text-center border-dark">
-          <!--      <p class="mb-0 d-none" id="blue-team-name"></p>   -->
-          <!--   <h1 class="display-5" id="blue-score">0</h1>
+          < !--      <p class="mb-0 d-none" id="blue-team-name"></p>   - ->
+          < !--   <h1 class="display-5" id="blue-score">0</h1>
                 </div>
               </div>
               <div class="col-2 p-1">
@@ -430,15 +422,15 @@
               </div>
               <div class="col-2 p-1">
                 <div class="w-100 score text-light text-center border-dark">
-            <!--      <p class="mb-0 d-none" id="orange-team-name"></p>   -->
-          <!--  <h1 class="display-5" id="orange-score">0</h1>
+            < !--      <p class="mb-0 d-none" id="orange-team-name"></p>   - ->
+          < !--  <h1 class="display-5" id="orange-score">0</h1>
                 </div>
               </div>
               <div class="col-3"></div>
           </div>
         </div>
       </div>
-    -->
+    - ->
 
         </div>
       </div>
@@ -458,7 +450,7 @@
       <div class="GaugeMeterB gaugeMeter d-none" id="PreviewGaugeMeterB" data-bind="gaugeValue: Percent" data-size=265 data-theme="Blue" data-back="Bluey"
       data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
       <img class="boostBack d-none" src="assets/boostBack.png" id="boostBack"></img>
-    <!-- <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent"></div> -->
+    <! -- <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent"></div> - ->
   </div>
 </div>
 
