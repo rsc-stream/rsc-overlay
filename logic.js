@@ -457,7 +457,7 @@ ws.onmessage = (e) => {
 
       // $('#TierOverlay').toggleClass('open1');
       //time
-      var gameTime = jEvent.data.game.time
+      var gameTime = jEvent.data.game.time_seconds
       var round = Math.round(gameTime)
 
       function myTime(time) {
