@@ -7,13 +7,13 @@
 
 
   <title>RSC Overlay</title>
-  <script type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
   <script type='text/javascript' src="GaugeMeter.js"></script>
 
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
-  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
+  <script type="text/javascript" src="https://mbostock.github.com/d3/d3.js?2.4.6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-transform/1.0.4/d3-transform.min.js"
     integrity="sha512-mxtQ5axoakkabgk9lnYJsaCL+BryRmZ4py80vqOf8UIbZhwc+m1bqmnge6Khd7sOLh2gPFCaKiynJEnqR79CaA=="
     crossorigin="anonymous"></script>
@@ -31,50 +31,50 @@
 <body onload="blueWins(); orangeWins(); seriesback()">
 
   <video preload muted id="replayOut" class="stinger">
-    <source src="assets/RSC.webm" type="video/webm">
+    <source src="./assets/RSC.webm" type="video/webm">
   </video>
 
   <video preload muted id="RSCreplayOut" class="stinger d-none">
-    <source src="assets/RSC.webm" type="video/webm">
+    <source src="./assets/RSC.webm" type="video/webm">
   </video>
 
   <div id="iFrame">
-    <iframe src="aftergame.html" id="aftergame" frameborder="0" allowtransparency="true" scrolling="no"
+    <iframe src="./aftergame.html" id="aftergame" frameborder="0" allowtransparency="true" scrolling="no"
       style="width: 0px; height: 0px;position: absolute; z-index: 999;"></iframe>
   </div>
 
   <div id="wrapper">
 
     <video preload muted id="goalORANGE" class="goalO">
-      <source src="assets/goals/Orange_Goal.webm" type="video/webm">
+      <source src="./assets/goals/Orange_Goal.webm" type="video/webm">
     </video>
 
     <video preload muted id="goalBLUE" class="goalB">
-      <source src="assets/goals/Blue_Goal.webm" type="video/webm">
+      <source src="./assets/goals/Blue_Goal.webm" type="video/webm">
     </video>
 
     <video preload muted id="blueGoalVideo" class="stinger">
-      <source src="assets/goals/Dino Park.webm" type="video/webm">
+      <source src="./assets/goals/Dino Park.webm" type="video/webm">
     </video>
 
     <video preload muted id="orangeGoalVideo" class="stinger">
-      <source src="assets/goals/Dino Park.webm" type="video/webm">
+      <source src="./assets/goals/Dino Park.webm" type="video/webm">
     </video>
 
 
 
     <div id="TierOverlay" class="transition1">
-      <img src="assets/Tier.png" class="tierOver">
+      <img src="./assets/Tier.png" class="tierOver">
       <div class="tier" style="font-size: 30px" id="tier">Amateur</div>
     </div>
 
     <div id="TierOverlay2" class="transition1 d-none">
-      <img src="assets/logos/rscTOP.png" class="tierOver"
+      <img src="./assets/logos/rscTOP.png" class="tierOver"
         style="width:110px;padding-top: 10px; padding-left: 10px; opacity: 0.8;">
     </div>
 
     <div id="replayBlue" class="invisible">
-      <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back">
+      <img src="./assets/goals/blueGoal.png" id="TierOvelay" class="back">
 
     </div>
 
@@ -83,22 +83,22 @@
 
     <div id="scoreboard" class="transition">
       <div class="flex-container">
-        <img src="assets/wins/Orange1.png" id="orange1" class="wins invisible">
-        <img src="assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
-        <img src="assets/wins/Orange3.png" id="orange3" class="wins invisible">
-        <img src="assets/wins/Orange4.png" id="orange4" class="wins invisible">
-        <img src="assets/wins/Blue1.png" id="blue1" class="wins invisible">
-        <img src="assets/wins/Blue2.png" id="blue2" class="wins invisible">
-        <img src="assets/wins/Blue3.png" id="blue3" class="wins invisible">
-        <img src="assets/wins/Blue4.png" id="blue4" class="wins invisible">
+        <img src="./assets/wins/Orange1.png" id="orange1" class="wins invisible">
+        <img src="./assets/wins/Orange2.png" id="orange2" class="wins invisible" style="left: -1px">
+        <img src="./assets/wins/Orange3.png" id="orange3" class="wins invisible">
+        <img src="./assets/wins/Orange4.png" id="orange4" class="wins invisible">
+        <img src="./assets/wins/Blue1.png" id="blue1" class="wins invisible">
+        <img src="./assets/wins/Blue2.png" id="blue2" class="wins invisible">
+        <img src="./assets/wins/Blue3.png" id="blue3" class="wins invisible">
+        <img src="./assets/wins/Blue4.png" id="blue4" class="wins invisible">
 
 
-        <img src="assets/Overlay.png" id="TierOvelay1" class="back invisible">
-        <img src="assets/BO5.png" id="bo5" class="back invisible">
-        <img src="assets/BO3.png" id="bo3" class="back invisible">
+        <img src="./assets/Overlay.png" id="TierOvelay1" class="back invisible">
+        <img src="./assets/BO5.png" id="bo5" class="back invisible">
+        <img src="./assets/BO3.png" id="bo3" class="back invisible">
 
         <div class="text-light text-right fontR" style="font-size: 30px;" id="blueName">Blue</div>
-        <img class="blueL" src="assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;"
+        <img class="blueL" src="./assets/logos/Blue Logos/8-Bit Brigade.png" style="width:200px;height:67px;"
           id="blueLogo"></img>
         <div class="font-weight-bold fontBold BlueGoals fontR"
           style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: right; padding-right: 25px; padding-top: 5px;"
@@ -108,7 +108,7 @@
         <div class="font-weight-bold fontBold OrangeGoals fontR"
           style="line-height:60px; flex-basis:90px; font-size: 55px; text-align: left; padding-left: 25px; padding-top: 5px;"
           id="orange-score">0</div>
-        <img class="orangeL" src="assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;"
+        <img class="orangeL" src="./assets/logos/Orange Logos/Dino Park.png" style="width:200px;height:67px;"
           id="orangeLogo"></img>
         <div class="text-light fontR" style="font-size: 30px;" id="orangeName">Orange</div>
 
@@ -155,7 +155,7 @@
     <div class="activeplayer card transition1" id="activeBox">
       <div class="activeItem text-dark bg-blue-team rounded mt-2" id="blue-active">
         <!-- players name -->
-        <img class="blueAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
+        <img class="blueAL" src="./assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
           id="blueActiveLogo"></img>
         <h2 class="text-center text-light fontBold" style="padding: 5px;" id="blue-active-name">name</h2>
 
@@ -198,7 +198,7 @@
 
       <div class="activeItemOrange text-dark bg-orange-team rounded mt-2 d-none" id="orange-active">
         <!-- players name -->
-        <img class="orangeAL" src="assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
+        <img class="orangeAL" src="./assets/logos/Active Logos/Dino Park.png" style="width:280px; height:280px;"
           id="orangeActiveLogo"></img>
         <h2 class="text-center text-light fontBold" style="padding: 5px;" id="orange-active-name">shane9b3</h2>
        <div class="orangeLine"></div>
@@ -239,19 +239,19 @@
     </div>
 
     <div id="replayOrange" class="d-none">
-      <img src="assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 0px;">
+      <img src="./assets/goals/orangeGoal.png" id="TierOvelay" class="back" style="top: 0px;">
       <div class="text-center fontBold OrangeScorer" style="font-size: 30px;" id="scorer">shane9b3</div>
-      <img class="orangeSc" src="assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;"
+      <img class="orangeSc" src="./assets/logos/Orange Logos/Dino Park.png" style="width:228px;height:75px;"
         id="orangeLogoR"></img>
       <div id="underscore" class="underscore"></div>
       <div id="assists" class="assist">
 
-        <img src="assets/Assist_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
+        <img src="./assets/Assist_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
           class="shadowfilter d-none" id="assistLogo">
         <div class="text-center fontR glow d-none" style="font-size: 30px; margin-top: 10px; padding-right: 25px;"
           id="assist">mbolt05</div>
 
-        <img src="assets/Shot_on_Goal_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
+        <img src="./assets/Shot_on_Goal_Orange.png" style="margin-top: 10px; width:45px; height:45px;"
           class="shadowfilter">
         <div class="text-center fontR glow" style="font-size: 30px; margin-top: 10px;" id="goalSpeed"> 105</div>
         <div class="fontR glow" style="font-size: 20px; margin-top: 13px; margin-left: 3px;"> MPH</div>
@@ -260,19 +260,19 @@
 
 
     <div id="replayBlue1" class="d-none">
-      <img src="assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 0px;">
+      <img src="./assets/goals/blueGoal.png" id="TierOvelay" class="back" style="top: 0px;">
       <div class="text-center fontBold BlueScorer" style="font-size: 30px;" id="scorerB">shane9b3</div>
-      <img class="blueSc" src="assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;"
+      <img class="blueSc" src="./assets/logos/Blue Logos/Dino Park.png" style="width:228px;height:75px;"
         id="blueLogoR"></img>
       <div id="underscore" class="underscore"></div>
       <div id="assists" class="assist">
 
-        <img src="assets/Assist_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
+        <img src="./assets/Assist_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
           class="shadowfilterB d-none" id="assistLogoB">
         <div class="text-center fontR glowB d-none" style="font-size: 30px; margin-top: 10px; padding-right: 25px;"
           id="assistB">mbolt05</div>
 
-        <img src="assets/Shot_on_Goal_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
+        <img src="./assets/Shot_on_Goal_Blue.png" style="margin-top: 10px; width:45px; height:45px;"
           class="shadowfilterB">
         <div class="text-center fontR glowB" style="font-size: 30px; margin-top: 10px;" id="goalSpeedB"> 105 </div>
         <div class="fontR glowB" style="font-size: 20px; margin-top: 13px; margin-left: 3px;"> MPH</div>
@@ -457,7 +457,7 @@
       data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
       <div class="GaugeMeterB gaugeMeter d-none" id="PreviewGaugeMeterB" data-bind="gaugeValue: Percent" data-size=265 data-theme="Blue" data-back="Bluey"
       data-text_size="0.4" data-width=38 data-style="Arch" data-animationstep="0" data-stripe="3"></div>
-      <img class="boostBack d-none" src="assets/boostBack.png" id="boostBack"></img>
+      <img class="boostBack d-none" src="./assets/boostBack.png" id="boostBack"></img>
     <!-- <div><input id="slider1" type="range" min="0" max="100" step="5" value="15" data-bind="value: Percent"></div> -->
   </div>
 </div>
@@ -470,17 +470,17 @@
       if (event.key != 'BlueTeam');
       document.getElementById("blueName").innerHTML = localStorage.getItem("BlueTeam")
       let blueF = localStorage.getItem("BlueFran")
-      document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png"
-      document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
-      document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
-      document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
+      document.getElementById("blueLogo").src = "./assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("blueLogoR").src = "./assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("blueActiveLogo").src = "./assets/logos/Active Logos/" + blueF + ".png";
+      document.getElementById("blueGoalVideo").src = "./assets/goals/" + blueF + ".webm"
       if (event.key != 'OrangeTeam');
       document.getElementById("orangeName").innerHTML = localStorage.getItem("OrangeTeam");
       let orangeF = localStorage.getItem("OrangeFran")
-      document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png"
-      document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
-      document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
-      document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
+      document.getElementById("orangeLogo").src = "./assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("orangeLogoR").src = "./assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("orangeActiveLogo").src = "./assets/logos/Active Logos/" + orangeF + ".png";
+      document.getElementById("orangeGoalVideo").src = "./assets/goals/" + orangeF + ".webm"
       if (event.key != 'tier');
       document.getElementById("tier").innerHTML = localStorage.getItem("tier");
       //if (event.key != 'blueWin1') ;
@@ -503,14 +503,14 @@
       document.getElementById("tier").innerHTML = localStorage.getItem("tier");
       let blueF = localStorage.getItem("BlueFran")
       let orangeF = localStorage.getItem("OrangeFran")
-      document.getElementById("blueLogo").src = "assets/logos/Blue Logos/" + blueF + ".png";
-      document.getElementById("orangeLogo").src = "assets/logos/Orange Logos/" + orangeF + ".png";
-      document.getElementById("blueActiveLogo").src = "assets/logos/Active Logos/" + blueF + ".png";
-      document.getElementById("orangeActiveLogo").src = "assets/logos/Active Logos/" + orangeF + ".png";
-      document.getElementById("orangeGoalVideo").src = "assets/goals/" + orangeF + ".webm"
-      document.getElementById("blueGoalVideo").src = "assets/goals/" + blueF + ".webm"
-      document.getElementById("orangeLogoR").src = "assets/logos/Orange Logos/" + orangeF + ".png"
-      document.getElementById("blueLogoR").src = "assets/logos/Blue Logos/" + blueF + ".png"
+      document.getElementById("blueLogo").src = "./assets/logos/Blue Logos/" + blueF + ".png";
+      document.getElementById("orangeLogo").src = "./assets/logos/Orange Logos/" + orangeF + ".png";
+      document.getElementById("blueActiveLogo").src = "./assets/logos/Active Logos/" + blueF + ".png";
+      document.getElementById("orangeActiveLogo").src = "./assets/logos/Active Logos/" + orangeF + ".png";
+      document.getElementById("orangeGoalVideo").src = "./assets/goals/" + orangeF + ".webm"
+      document.getElementById("blueGoalVideo").src = "./assets/goals/" + blueF + ".webm"
+      document.getElementById("orangeLogoR").src = "./assets/logos/Orange Logos/" + orangeF + ".png"
+      document.getElementById("blueLogoR").src = "./assets/logos/Blue Logos/" + blueF + ".png"
       document.getElementById("seriesType").innerHTML = localStorage.getItem("series");
 
     }
@@ -521,7 +521,7 @@
 
 
 
-  <script src="logic.js"></script>
+  <script src="./logic.js"></script>
   
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
   </div>
