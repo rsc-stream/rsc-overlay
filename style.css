@@ -70,28 +70,28 @@ body{
 
 @font-face {
   font-family: RSCfont;
-  src: url(assets/fonts/GlacialIndifference-Regular.otf); 
+  src: url(./assets/fonts/GlacialIndifference-Regular.otf); 
 }
 
 @font-face {
   font-family: RSCfontBold;
-  src: url(assets/fonts/GlacialIndifference-Bold.otf); 
+  src: url(./assets/fonts/GlacialIndifference-Bold.otf); 
 }
 
 @font-face {
   font-family: Timer;
-  src: url(assets/fonts/digital-7.ttf); 
+  src: url(./assets/fonts/digital-7.ttf); 
 }
 
 @font-face {
   font-family: Toxic;
-  src: url(assets/fonts/ToxigenesisRg-Bold.woff); 
+  src: url(./assets/fonts/ToxigenesisRg-Bold.woff); 
 }
 
 
 @font-face {
   font-family: 'ToxigenesisRg-Bold';
-  src: url('assets/fonts/ToxigenesisRg-Bold.woff2') format('woff2'), url('assets/fonts/ToxigenesisRg-Bold.woff') format('woff');
+  src: url('./assets/fonts/ToxigenesisRg-Bold.woff2') format('woff2'), url('assets/fonts/ToxigenesisRg-Bold.woff') format('woff');
 }
 
 .ToxigenesisRg-Bold {

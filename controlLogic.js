@@ -97,7 +97,7 @@
        blueN = localStorage.getItem("BlueTeam")
        blueF = localStorage.getItem("BlueFran")
        $('#blueName').text(blueN)
-       $('#blueLogo').src = "assets/logos/Blue Logos/" + blueF + ".png"
+       $('#blueLogo').src = "./assets/logos/Blue Logos/" + blueF + ".png"
      }
  
  
@@ -108,5 +108,5 @@
        orangeF = localStorage.getItem("OrangeTeam")
        console.log(orangeN)
        $('#orangeName').text(orangeN)
-       $('#orangeLogo').src = "assets/logos/Orange Logos/" + orangeF + ".png"
+       $('#orangeLogo').src = "./assets/logos/Orange Logos/" + orangeF + ".png"
      }

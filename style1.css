@@ -2,7 +2,7 @@ body{
   width: 350px;
   min-height: 100px;
   background-color: #272627; 
-  /* background-image: url('assets/logos/rsc.png'); */
+  /* background-image: url('./assets/logos/rsc.png'); */
 }
 
 .rsc {

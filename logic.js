@@ -116,7 +116,7 @@ function blueTeamName() {
   blueN = localStorage.getItem("BlueTeam")
   blueF = localStorage.getItem("BlueFran")
   $('#blueName').text(blueN)
-  $('#blueLogo').src = "assets/logos/Blue Logos/" + blueF + ".png"
+  $('#blueLogo').src = "./assets/logos/Blue Logos/" + blueF + ".png"
 }
 
 
@@ -127,7 +127,7 @@ function orangeTeamName() {
   orangeF = localStorage.getItem("OrangeTeam")
   console.log(orangeN)
   $('#orangeName').text(orangeN)
-  $('#orangeLogo').src = "assets/logos/Orange Logos/" + orangeF + ".png"
+  $('#orangeLogo').src = "./assets/logos/Orange Logos/" + orangeF + ".png"
 }
 
 function logocolors() {
@@ -147,19 +147,19 @@ function logocolors() {
     $('#afterPTSBlueLogo').removeClass('invisible')
     $('#afterPTSOrangeLogo').addClass('invisible')
 
-    //$('#afterPTSLogo').src = "assets/Blue_Points_icon.png"
+    //$('#afterPTSLogo').src = "./assets/Blue_Points_icon.png"
     // $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
   } else if (blueDataScore < orangeDataScore) {
     $('#afterPTSLogo').addClass('invisible')
     $('#afterPTSOrangeLogo').removeClass('invisible')
     $('#afterPTSBlueLogo').addClass('invisible')
-    // $('#afterPTSLogo').src = "assets/Orange_Points_icon.png"
+    // $('#afterPTSLogo').src = "./assets/Orange_Points_icon.png"
     // $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
   } else {
     $('#afterPTSLogo').removeClass('invisible')
     $('#afterPTSBlueLogo').addClass('invisible')
     $('#afterPTSOrangeLogo').addClass('invisible')
-    //$('#afterPTSLogo').src = "assets/Points_icon.png"
+    //$('#afterPTSLogo').src = "./assets/Points_icon.png"
     //  $('#afterPTSLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
   }
 
@@ -168,19 +168,19 @@ function logocolors() {
     $('#afterGoalsBlueLogo').removeClass('invisible')
     $('#afterGoalsOrangeLogo').addClass('invisible')
 
-    //$('#afterGoalsLogo').src = "assets/Blue_Points_icon.png"
+    //$('#afterGoalsLogo').src = "./assets/Blue_Points_icon.png"
     // $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
   } else if (blueDataGoals < orangeDataGoals) {
     $('#afterGoalsLogo').addClass('invisible')
     $('#afterGoalsOrangeLogo').removeClass('invisible')
     $('#afterGoalsBlueLogo').addClass('invisible')
-    // $('#afterGoalsLogo').src = "assets/Orange_Points_icon.png"
+    // $('#afterGoalsLogo').src = "./assets/Orange_Points_icon.png"
     // $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
   } else {
     $('#afterGoalsLogo').removeClass('invisible')
     $('#afterGoalsBlueLogo').addClass('invisible')
     $('#afterGoalsOrangeLogo').addClass('invisible')
-    //$('#afterGoalsLogo').src = "assets/Points_icon.png"
+    //$('#afterGoalsLogo').src = "./assets/Points_icon.png"
     //  $('#afterGoalsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
   }
 
@@ -189,19 +189,19 @@ function logocolors() {
     $('#afterAssistsBlueLogo').removeClass('invisible')
     $('#afterAssistsOrangeLogo').addClass('invisible')
 
-    //$('#afterAssistsLogo').src = "assets/Blue_Points_icon.png"
+    //$('#afterAssistsLogo').src = "./assets/Blue_Points_icon.png"
     // $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
   } else if (blueDataAssists < orangeDataAssists) {
     $('#afterAssistsLogo').addClass('invisible')
     $('#afterAssistsOrangeLogo').removeClass('invisible')
     $('#afterAssistsBlueLogo').addClass('invisible')
-    // $('#afterAssistsLogo').src = "assets/Orange_Points_icon.png"
+    // $('#afterAssistsLogo').src = "./assets/Orange_Points_icon.png"
     // $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
   } else {
     $('#afterAssistsLogo').removeClass('invisible')
     $('#afterAssistsBlueLogo').addClass('invisible')
     $('#afterAssistsOrangeLogo').addClass('invisible')
-    //$('#afterAssistsLogo').src = "assets/Points_icon.png"
+    //$('#afterAssistsLogo').src = "./assets/Points_icon.png"
     //  $('#afterAssistsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
   }
 
@@ -210,19 +210,19 @@ function logocolors() {
     $('#afterShotsBlueLogo').removeClass('invisible')
     $('#afterShotsOrangeLogo').addClass('invisible')
 
-    //$('#afterShotsLogo').src = "assets/Blue_Points_icon.png"
+    //$('#afterShotsLogo').src = "./assets/Blue_Points_icon.png"
     // $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
   } else if (blueDataShots < orangeDataShots) {
     $('#afterShotsLogo').addClass('invisible')
     $('#afterShotsOrangeLogo').removeClass('invisible')
     $('#afterShotsBlueLogo').addClass('invisible')
-    // $('#afterShotsLogo').src = "assets/Orange_Points_icon.png"
+    // $('#afterShotsLogo').src = "./assets/Orange_Points_icon.png"
     // $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
   } else {
     $('#afterShotsLogo').removeClass('invisible')
     $('#afterShotsBlueLogo').addClass('invisible')
     $('#afterShotsOrangeLogo').addClass('invisible')
-    //$('#afterShotsLogo').src = "assets/Points_icon.png"
+    //$('#afterShotsLogo').src = "./assets/Points_icon.png"
     //  $('#afterShotsLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
   }
 
@@ -231,19 +231,19 @@ function logocolors() {
     $('#afterSavesBlueLogo').removeClass('invisible')
     $('#afterSavesOrangeLogo').addClass('invisible')
 
-    //$('#afterSavesLogo').src = "assets/Blue_Points_icon.png"
+    //$('#afterSavesLogo').src = "./assets/Blue_Points_icon.png"
     // $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75)); filter: drop-shadow(0px 0px 15px rgba(96, 128, 196, 0.75));"
   } else if (blueDataSaves < orangeDataSaves) {
     $('#afterSavesLogo').addClass('invisible')
     $('#afterSavesOrangeLogo').removeClass('invisible')
     $('#afterSavesBlueLogo').addClass('invisible')
-    // $('#afterSavesLogo').src = "assets/Orange_Points_icon.png"
+    // $('#afterSavesLogo').src = "./assets/Orange_Points_icon.png"
     // $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));filter: drop-shadow(0px 0px 15px rgba(187, 192, 141, 0.95));"
   } else {
     $('#afterSavesLogo').removeClass('invisible')
     $('#afterSavesBlueLogo').addClass('invisible')
     $('#afterSavesOrangeLogo').addClass('invisible')
-    //$('#afterSavesLogo').src = "assets/Points_icon.png"
+    //$('#afterSavesLogo').src = "./assets/Points_icon.png"
     //  $('#afterSavesLogo').style = "-webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.75));"
   }
 

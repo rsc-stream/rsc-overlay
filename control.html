@@ -17,7 +17,7 @@
 </head>
 
 <body onload="load()">
-<img class="back" src="assets/logos/rsc.png" id="rscLogo" style="width: 325px;"></img>
+<img class="back" src="./assets/logos/rsc.png" id="rscLogo" style="width: 325px;"></img>
 
 
 <select id="series-dropdown" name="tier" onchange="seriesKind()">
@@ -389,6 +389,16 @@ function live() {
       }
 
       function clearAll() {
+
+        localStorage.setItem("tier", "")
+        localStorage.setItem("series", "4GS")
+        localStorage.setItem("GameNumber", "")
+        localStorage.setItem("BlueFran", "")
+        localStorage.setItem("BlueTeam", "")
+        localStorage.setItem("BlueWins", "")
+        localStorage.setItem("OrangeFran", "")
+        localStorage.setItem("OrangeTeam", "")
+        localStorage.setItem("OrangeWins", "")     
   
   var sel = document.getElementById("blue-team");
       var bt= sel.options[sel.selectedIndex].label;
